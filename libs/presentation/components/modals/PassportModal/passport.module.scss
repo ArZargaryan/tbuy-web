@@ -1,0 +1,34 @@
+.modal {
+  width: 100%;
+  max-width: 784px;
+  padding: 30px 34px 36px 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin: 0 auto;
+    max-width: 418px;
+    width: 100%;
+
+    @media screen and (max-width: 600px) {
+      max-width: 90%;
+    }
+  }
+
+  :global {
+    .modal-content__text_center {
+      max-width: 512px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    max-width: 90vw;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 45px 16px;
+  }
+}

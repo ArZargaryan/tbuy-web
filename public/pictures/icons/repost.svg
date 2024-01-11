@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+    <defs>
+        <clipPath id="clip-path">
+            <rect id="Прямоугольник_150021" width="20" height="20" transform="translate(-0.029 -0.029)" fill="#fff"/>
+        </clipPath>
+        <filter id="Прямоугольник_150023" x="-9" y="-4.999" width="38" height="36" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="հատուկ-առաջարկ" transform="translate(0.029 0.029)" clip-path="url(#clip-path)">
+        <g transform="matrix(1, 0, 0, 1, -0.03, -0.03)" filter="url(#Прямоугольник_150023)">
+            <rect id="Прямоугольник_150023-2" width="20" height="18" transform="translate(0 1)" fill="#fff"/>
+        </g>
+        <path id="Контур_12673"
+              d="M771.22,41.222h-.543V37.249a.65.65,0,0,0-.636-.648.6.6,0,0,0-.235.048l-8.348,3.419h-2.736a1.784,1.784,0,0,0-1.761,1.8v2.309a1.815,1.815,0,0,0,.517,1.277,1.73,1.73,0,0,0,1.2.528v3.971a.643.643,0,0,0,.637.647h2.257a.641.641,0,0,0,.633-.647V46.283l7.6,3.117a.628.628,0,0,0,.239.047.646.646,0,0,0,.632-.647v-3.97h.489a1.741,1.741,0,0,0,1.256-.511,1.813,1.813,0,0,0,.538-1.269A1.788,1.788,0,0,0,771.22,41.222Zm.445,1.8a.5.5,0,0,1-.428.5l-.561.006V42.517h.492A.5.5,0,0,1,771.665,43.024Zm-2.257-4.814v9.632l-7.3-3-.451-.144-2.93-.012a.5.5,0,0,1-.5-.5V41.873a.5.5,0,0,1,.5-.507h2.942Zm-8.47,7.774V49.3h-.988V45.984Z"
+              transform="translate(-754.989 -33.63)" fill="#3caff6"/>
+    </g>
+</svg>

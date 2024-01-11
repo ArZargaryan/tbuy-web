@@ -1,0 +1,31 @@
+.modal {
+  padding: 30px;
+  max-width: 90vw;
+
+  @media screen and (max-width: 700px) {
+    padding: 30px 20px !important;
+  }
+}
+
+.modal_text {
+  max-height: 60vh;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-bottom: 30px;
+}
+
+.submit_btn {
+  max-width: 170px;
+  margin: 0 auto;
+  @media screen and (max-width: 500px) {
+    max-width: 100%;
+  }
+}

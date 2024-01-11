@@ -1,0 +1,25 @@
+.notifications_head {
+  padding: 30px;
+  padding-bottom: 12px;
+
+  .notifications_head__title {
+    margin-bottom: 28px;
+    text-transform: none;
+    font-weight: bolder;
+  }
+
+  .notifications_head__date {
+    font-weight: bold;
+    font-size: 16px;
+    @media screen and (max-width: 500px) {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .notifications_head__title {
+      margin-bottom: 20px;
+    }
+    padding: 20px 16px 10px 16px;
+  }
+}

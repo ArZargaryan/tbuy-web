@@ -1,0 +1,55 @@
+@import "@styles/vars.scss";
+
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-wrap: break-word;
+  grid-gap: 40px;
+  position: relative;
+
+  .title {
+    display: block;
+    color: $black;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600;
+    flex-grow: 1;
+    width: 30%;
+  }
+  .link {
+    color: $blue;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  .mobile_link {
+    display: none;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  :global {
+    .shimmer {
+      max-width: 80vw !important;
+
+      @media screen and (max-width: 500px) {
+        height: 22px !important;
+        max-width: 70vw !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .title,
+    .link {
+      display: none;
+    }
+    .mobile_link {
+      display: block;
+    }
+  }
+}

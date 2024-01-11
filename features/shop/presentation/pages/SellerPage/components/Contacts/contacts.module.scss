@@ -1,0 +1,10 @@
+.contacts_phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  span {
+    max-width: calc(100% - 32px);
+  }
+}

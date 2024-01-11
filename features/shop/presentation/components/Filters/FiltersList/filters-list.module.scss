@@ -1,0 +1,33 @@
+@import "@/styles/vars.scss";
+
+.filters_list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-gap: 10px;
+  margin-bottom: 30px;
+
+  // &__item {
+  //   @media screen and (max-width: 500px) {
+  //     display: none;
+  //   }
+  // }
+}
+
+.filters_reset {
+  text-align: center;
+  text-transform: uppercase;
+  color: $blue-2;
+  text-decoration: underline;
+  margin-left: 10px;
+  transition: all 0.2s linear;
+
+  &:hover {
+    color: $black;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-left: 0px;
+    text-transform: none;
+  }
+}

@@ -1,0 +1,28 @@
+.last_viewed_content {
+  border-radius: 20px;
+
+  @media screen and (max-width: 500px) {
+    border-radius: 0px;
+  }
+}
+
+.last_viewed {
+  position: relative;
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 1100px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 8px;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    padding: 15px 10px;
+  }
+}

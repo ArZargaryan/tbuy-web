@@ -1,0 +1,23 @@
+{
+  "title": "Services",
+  "filters": {
+    "sections": {
+      "title": "Sections"
+    },
+    "geo": {
+      "title": "Location"
+    },
+    "partners": {
+      "title": "Companies"
+    },
+    "priceAmd": "Price in AMD",
+    "rating": "Rating",
+    "seller": {
+      "title": "Seller",
+      "citizen": "Law abiding citizen",
+      "physical_person": "Individual"
+    }
+  },
+  "requirements_categories": "Requirements in categories",
+  "related_products": "Related products"
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="30" viewBox="0 0 36 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_147729" data-name="Прямоугольник 147729" width="36" height="30" transform="translate(160 476)" fill="$black"/>
+    </clipPath>
+  </defs>
+  <g id="mailing" transform="translate(-160 -476)" clip-path="url(#clip-path)">
+    <g id="mail" transform="translate(166.09 479.09)">
+      <path id="Контур_8921" data-name="Контур 8921" d="M23.537,8.511,20.982,6.626V3.489a.7.7,0,0,0-.7-.7h-4.42L12.329.14a.7.7,0,0,0-.837,0L7.956,2.791H3.536a.7.7,0,0,0-.7.7V6.626L.284,8.511A.7.7,0,0,0,0,9.072v14.05a.7.7,0,0,0,.7.7H23.122a.7.7,0,0,0,.7-.7V9.072A.7.7,0,0,0,23.537,8.511Zm-1.112.914v2.007l-1.442.718V8.361ZM11.91,1.57l1.628,1.221H10.282Zm7.676,2.617v8.657L11.91,16.667,4.234,12.845V4.187ZM2.838,8.361V12.15L1.4,11.432V9.425ZM1.4,22.425V12.991l10.2,5.081a.7.7,0,0,0,.622,0l10.2-5.081v9.434Z" transform="translate(0 0)" fill="$black"/>
+      <path id="Контур_8922" data-name="Контур 8922" d="M151.7,151.4h8.374a.7.7,0,0,0,0-1.4H151.7a.7.7,0,0,0,0,1.4Z" transform="translate(-143.975 -143.021)" fill="$black"/>
+      <path id="Контур_8923" data-name="Контур 8923" d="M151.7,211.4h4.187a.7.7,0,0,0,0-1.4H151.7a.7.7,0,0,0,0,1.4Z" transform="translate(-143.975 -200.23)" fill="$black"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+@import "@styles/vars.scss";
+
+.upload_file {
+  width: 100%;
+
+  display: flex;
+
+  .upload_file__info {
+    display: flex;
+    align-items: center;
+    border: 1px solid $grey-1;
+    border-right: 0px;
+    flex-grow: 1;
+
+    padding: 16px 20px;
+
+    .info__star {
+      color: $blue;
+    }
+
+    .info__question {
+      padding: 0;
+      line-height: 10px;
+      margin-left: 10px;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 14px 16px;
+      svg {
+        width: 20px;
+      }
+      font-size: 14px;
+    }
+    @media screen and (max-width: 360px) {
+      font-size: 12px;
+      svg {
+        scale: 0.9;
+      }
+    }
+  }
+
+  .upload_file__control {
+    .upload_btn {
+      border-radius: 0px !important;
+      box-shadow: none !important;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      width: fit-content;
+      padding: 10px;
+
+      height: 100% !important;
+
+      * {
+        transition: all 0.2s linear;
+      }
+
+      svg {
+        margin-top: -3px;
+        path {
+          fill: $blue;
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        padding: 15px 0px;
+        svg {
+          scale: 1;
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}

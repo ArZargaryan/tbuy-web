@@ -1,0 +1,48 @@
+.tbuy_table {
+  border: none !important;
+  :global {
+    .MuiDataGrid-columnSeparator {
+      display: none !important;
+    }
+
+    .MuiDataGrid-row {
+      //min-height: 60px !important;
+      max-height: initial !important;
+      //
+    }
+
+    .MuiDataGrid-cell {
+      //min-height: 60px !important;
+      //min-height: initial !important;
+      //max-height: initial !important;
+      max-height: initial !important;
+    }
+
+    .MuiDataGrid-cell,
+    .MuiDataGrid-columnHeader,
+    .MuiDataGrid-cell--withRenderer,
+    a {
+      &:focus,
+      &:active,
+      &:focus-visible {
+        outline: none !important;
+      }
+    }
+
+    .MuiDataGrid-columnHeader {
+      .MuiDataGrid-columnHeaderTitle {
+        font-weight: bold !important;
+      }
+    }
+  }
+}
+
+.without_sorting {
+  :global {
+    .MuiDataGrid-iconButtonContainer {
+      .MuiButtonBase-root {
+        display: none !important;
+      }
+    }
+  }
+}

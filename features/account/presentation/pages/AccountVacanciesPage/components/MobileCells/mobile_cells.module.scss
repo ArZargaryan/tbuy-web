@@ -1,0 +1,40 @@
+@import "@styles/vars.scss";
+
+.mobile_block {
+  padding: 14px 0px;
+  border-bottom: 1px solid $grey-1;
+  &:first-child {
+    padding-top: 0px;
+  }
+
+  &:last-child {
+    padding-bottom: 0px;
+    border-bottom: none;
+  }
+}
+
+.mobile_cell {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  &__title {
+    flex: 0 1 50%;
+    max-width: 35vw;
+    word-wrap: break-word;
+    font-weight: bold;
+  }
+
+  &__text {
+    flex: 0 1 50%;
+    max-width: 40vw;
+  }
+
+  @media screen and (max-width: 500px) {
+    &__title,
+    &__text {
+      font-size: 14px;
+    }
+  }
+}

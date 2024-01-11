@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_149850" data-name="Прямоугольник 149850" width="24" height="24" transform="translate(1316 712)" fill="#a1a1a1"/>
+    </clipPath>
+  </defs>
+  <g id="time" transform="translate(-1316 -712)" clip-path="url(#clip-path)">
+    <g id="time-2" data-name="time" transform="translate(1318.463 714.463)">
+      <g id="Сгруппировать_12572" data-name="Сгруппировать 12572">
+        <g id="Сгруппировать_12571" data-name="Сгруппировать 12571">
+          <path id="Контур_12523" data-name="Контур 12523" d="M9.537,0a9.537,9.537,0,1,0,9.537,9.537A9.537,9.537,0,0,0,9.537,0Zm0,17.712a8.175,8.175,0,1,1,8.175-8.175A8.175,8.175,0,0,1,9.537,17.712Z" fill="$black"/>
+        </g>
+      </g>
+      <g id="Сгруппировать_12574" data-name="Сгруппировать 12574" transform="translate(3.406 3.406)">
+        <g id="Сгруппировать_12573" data-name="Сгруппировать 12573">
+          <path id="Контур_12524" data-name="Контур 12524" d="M91.464,85.333a.681.681,0,0,0-.681.681v4.769H86.014a.681.681,0,1,0,0,1.362h5.45a.681.681,0,0,0,.681-.681v-5.45A.681.681,0,0,0,91.464,85.333Z" transform="translate(-85.333 -85.333)" fill="$black"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

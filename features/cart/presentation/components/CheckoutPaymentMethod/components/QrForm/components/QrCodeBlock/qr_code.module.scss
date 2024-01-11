@@ -1,0 +1,16 @@
+.qr_code_block{
+  padding: 16px;
+  max-width: 178px;
+  text-align: center;
+  background: #F5F5F6;
+
+  &__img{
+    max-width: 146px;
+    margin-bottom: 11px;
+  }
+
+  &__text{
+    font-size: 15px;
+    font-weight: 400;
+  }
+}

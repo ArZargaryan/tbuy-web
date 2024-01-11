@@ -1,0 +1,42 @@
+@import "@styles/vars.scss";
+
+.modal {
+  text-align: center;
+  width: 400px;
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $red-1;
+  }
+
+  &__text {
+    font-size: 16px;
+    margin-bottom: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-left: 16px;
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+    &_bold {
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 56px 25px 30px 25px;
+  }
+}

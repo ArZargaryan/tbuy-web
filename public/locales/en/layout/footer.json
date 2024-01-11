@@ -1,0 +1,34 @@
+{
+  "citeMap": {
+    "title": "Site Map",
+    "about_us": "About us",
+    "sell_on": "Sell on Tbuy",
+    "news": "News",
+    "sale": "Sale",
+    "help": "Help",
+    "support": "Feedback",
+    "colleagues": "Colleagues"
+  },
+  "info": {
+    "title": "Information",
+    "how_buy": "How to shop?",
+    "public_agreement": "Public agreement",
+    "website_terms": "Website Terms",
+    "privacy_policy": "Privacy Policy",
+    "payment_method": "Payment method",
+    "become_partner": "Become a partner",
+    "agreement": "Agreement"
+  },
+  "terms": {
+    "title": "Terms",
+    "return_policy": "14 day return policy",
+    "free_shipping": "Free shipping",
+    "installment_plan": "Installment online",
+    "warranty_service": "Warranty service",
+    "delivery_terms": "Delivery terms",
+    "return_conditions": "Return conditions"
+  },
+  "subscribe": "Subscribe",
+  "your_email": "Your email",
+  "download_app": "Download app"
+}

@@ -1,0 +1,40 @@
+.title_marg {
+  margin-top: 30px;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 15px;
+  }
+}
+
+.section_margin {
+  margin-bottom: 60px;
+  @media screen and (max-width: 550px) {
+    margin-bottom: 20px;
+  }
+}
+
+.suggestions {
+  display: flex;
+  justify-content: space-between;
+
+  &__picture {
+    flex: 0 1 49%;
+
+    img {
+      object-fit: contain;
+      width: 100% !important;
+      position: relative !important;
+      height: unset !important;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    &__picture {
+      flex: 0 1 100%;
+      margin-bottom: 16px;
+    }
+  }
+}

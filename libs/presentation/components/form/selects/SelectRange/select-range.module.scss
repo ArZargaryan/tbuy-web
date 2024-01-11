@@ -1,0 +1,89 @@
+@import "@/styles/vars.scss";
+
+.select_range {
+  //position: relative;
+  z-index: 1070;
+  color: $blue !important;
+  &__box {
+    max-width: 280px;
+    box-shadow: 0px 0px 5px rgba(#000, 0.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: $grey-0;
+
+    .box__inputs {
+      display: flex;
+      justify-content: space-between;
+      &:first-child {
+        position: relative;
+        &:after {
+          content: " ";
+          width: 15px;
+          height: 1px;
+          position: absolute;
+          right: 50%;
+          transform: translate(50%);
+          top: 50%;
+          z-index: 100;
+          background: #000;
+        }
+      }
+
+      :global {
+        .MuiTextField-root {
+          flex: 0 1 45%;
+          background: #fff !important;
+          input {
+            text-align: center;
+            color: $black !important;
+            padding: 5px;
+            font-size: 15px;
+          }
+          fieldset {
+            border: none !important;
+            border-color: transparent !important;
+            border-top-color: transparent !important;
+            border-right-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-left-color: transparent !important;
+          }
+        }
+      }
+    }
+
+    :global {
+      * {
+        color: $blue !important;
+      }
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.range_label {
+  display: flex;
+  align-items: center;
+  color: $blue-2;
+  @media screen and (max-width: 500px) {
+    padding-top: 5px;
+  }
+
+  svg {
+    margin-left: 10px;
+    width: 10px !important;
+  }
+}
+
+.rotate_image {
+  transform: rotate(180deg);
+}

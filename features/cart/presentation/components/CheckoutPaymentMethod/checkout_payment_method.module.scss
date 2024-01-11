@@ -1,0 +1,20 @@
+.checkout_form {
+  margin-top: 30px;
+  &__item {
+    margin-bottom: 16px;
+  }
+
+  @media screen and (max-width: 500px) {
+    &__item {
+      margin-bottom: 26px;
+      label {
+        max-width: 80vw;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.transfer_form{
+
+}

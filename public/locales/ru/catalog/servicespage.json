@@ -1,0 +1,23 @@
+{
+  "title": "Сервисы",
+  "filters": {
+    "sections": {
+      "title": "Разделы"
+    },
+    "geo": {
+      "title": "Место нахождения"
+    },
+    "partners": {
+      "title": "Компании"
+    },
+    "priceAmd": "Цена в драмах",
+    "rating": "Рейтинг",
+    "seller": {
+      "title": "Продавец",
+      "citizen": "Законопослушный гражданин",
+      "physical_person": "Физическое лицо"
+    }
+  },
+  "requirements_categories": "Требования по категориям",
+  "related_products": "Сопутствующие товары"
+}

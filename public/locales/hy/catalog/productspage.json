@@ -1,0 +1,27 @@
+{
+  "title": "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
+  "filters": {
+    "sections": {
+      "title": "Բաժիններ"
+    },
+    "brand": "Ապրանքանիշ",
+    "geo": {
+      "title": "Գտնվելու վայր"
+    },
+    "partners": {
+      "title": "Գործընկերներ"
+    },
+    "color": "Գույն",
+    "condition": "Վիճակ",
+    "country": "Արտադրման երկիր",
+    "priceAmd": "Գին AMD",
+    "rating": "Ցուցանիշ",
+    "seller": {
+      "title": "Վաճառող",
+      "citizen": "Իրավաբանական անձ",
+      "physical_person": "Ֆիզիկական անձ"
+    }
+  },
+  "requirements_categories": "ԿԱՏԵԳՈՐԻԱՆԵՐՈՒՄ ՊԱՀԱՆՋՎԱԾՆԵՐ",
+  "related_products": "ՀԱՄԱՆՄԱՆ ԱՊՐԱՆՔՆԵՐ"
+}

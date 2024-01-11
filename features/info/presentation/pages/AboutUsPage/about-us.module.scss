@@ -1,0 +1,141 @@
+@import "@styles/mixins.scss";
+
+.about {
+  padding-top: 30px;
+  margin-bottom: 100px;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .p {
+    margin-bottom: 35px;
+  }
+
+  .p__last {
+    margin-bottom: 0px !important;
+  }
+
+  &__body {
+  }
+
+  .body__item {
+    display: flex;
+    align-items: center;
+    margin: 0 -16px 80px;
+
+    &:nth-child(even) {
+      .item__text {
+        order: 2;
+      }
+
+      .item__img {
+        order: 1;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .item {
+    &__text {
+      padding: 0 16px;
+      line-height: 1.5;
+      flex: 0 1 50%;
+    }
+
+    &__img {
+      padding: 0 16px;
+      flex: 0 1 50%;
+      @include img(cover);
+      //height: 484px;
+    }
+  }
+
+  .text__p {
+    white-space: pre-line;
+    font-size: 18px;
+
+    &_bold {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 800px) {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .item__img {
+      height: 384px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .body__item {
+      margin: 0 -10px 80px;
+    }
+    .item {
+      &__text {
+        padding: 0 10px;
+      }
+
+      &__img {
+        padding: 0 10px;
+        height: 284px;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 50px;
+    padding-top: 24px;
+    &__title {
+      margin-bottom: 20px;
+    }
+    .body__item {
+      flex-direction: column;
+      margin: 0 0 20px;
+
+      &:nth-child(even) {
+        .item__text {
+          order: 1;
+        }
+
+        .item__img {
+          order: 2;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .item {
+      &__text {
+        margin-bottom: 20px;
+        padding: 0;
+
+        .text__p_bold {
+          margin-bottom: 12px;
+        }
+      }
+
+      &__img {
+        padding: 0;
+        height: 284px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+  }
+
+  @media (max-width: 375px) {
+  }
+}

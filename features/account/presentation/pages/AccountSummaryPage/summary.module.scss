@@ -1,0 +1,62 @@
+@import "@styles/mixins.scss";
+
+.resumeContent {
+  max-width: 300px;
+  &__title {
+    margin-bottom: 1.083em;
+  }
+
+  &__resume {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  &__buttons {
+    gap: 30px;
+  }
+  .resume {
+    &__img {
+      @include img(cover);
+      flex: 0 0 83px;
+      height: 103px;
+      margin-right: 23px;
+
+      svg {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .info {
+    &__name {
+      margin-bottom: 6px;
+    }
+
+    &__date {
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    .buttons__button {
+      flex-grow: 1;
+      text-align: center;
+      cursor: pointer;
+
+      &:first-child {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  @include sm-d {
+    .resume__img {
+      margin-right: 15px;
+    }
+
+    .buttons__button {
+      flex: 0 1 50%;
+    }
+  }
+}

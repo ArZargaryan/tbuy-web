@@ -1,0 +1,23 @@
+{
+  "title": "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
+  "filters": {
+    "sections": {
+      "title": "Բաժիններ"
+    },
+    "geo": {
+      "title": "Գտնվելու վայր"
+    },
+    "partners": {
+      "title": "Գործընկերներ"
+    },
+    "priceAmd": "Գին AMD",
+    "rating": "Ցուցանիշ",
+    "seller": {
+      "title": "Վաճառող",
+      "citizen": "Իրավաբանական անձ",
+      "physical_person": "Ֆիզիկական անձ"
+    }
+  },
+  "requirements_categories": "ԿԱՏԵԳՈՐԻԱՆԵՐՈՒՄ ՊԱՀԱՆՋՎԱԾՆԵՐ",
+  "related_products": "ՀԱՄԱՆՄԱՆ ԱՊՐԱՆՔՆԵՐ"
+}

@@ -1,0 +1,39 @@
+.modal {
+  padding: 60px 30px;
+  max-width: 510px;
+  width: 100%;
+
+  .form {
+    margin-top: 20px;
+    &__item {
+      margin-bottom: 20px;
+
+      &:first-child {
+        margin-bottom: 23px;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 85%;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    button {
+      flex: 0 1 48%;
+      padding: 14px 0px;
+    }
+
+    @media screen and (max-width: 500px) {
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: 90vw;
+    padding: 40px 16px 21px 16px;
+  }
+}

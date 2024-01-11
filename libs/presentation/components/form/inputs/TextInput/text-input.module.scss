@@ -1,0 +1,67 @@
+@import "@styles/vars.scss";
+
+.container {
+  width: 100% !important;
+
+  :global {
+    .MuiFormControl-root {
+      width: 100%;
+    }
+  }
+}
+
+.control {
+  label {
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+
+.text_field {
+  .input {
+    input {
+      padding: 16px 20px;
+      @media screen and (max-width: 600px) {
+        font-size: 14px;
+        padding: 14px 16px;
+      }
+    }
+    textarea {
+      @media screen and (max-width: 600px) {
+        font-size: 14px;
+      }
+    }
+  }
+  fieldset {
+    padding: 0 !important;
+    border: 1px solid $grey-1 !important;
+    border-radius: 0px !important;
+
+    &:hover {
+      border: 1px solid $grey-1 !important;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      color: #989898 !important;
+
+      @media screen and (max-width: 580px) {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      padding: 14px 16px !important;
+    }
+  }
+
+  &_error {
+    fieldset {
+      border: 1px solid $red-1 !important;
+    }
+  }
+}

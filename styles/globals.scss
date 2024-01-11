@@ -1,0 +1,301 @@
+@import "vars";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import "modal-content";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif !important;
+  color: $black;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e8e8e8;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey-2;
+    border: 3px solid $grey-2;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+textarea,
+input,
+select {
+  outline: none;
+  display: block;
+  border: none;
+  background: none;
+}
+
+select {
+  appearance: none;
+}
+
+textarea {
+  resize: none;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.container {
+  max-width: 1660px;
+  padding: 0px 30px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (max-width: 800px) {
+    padding: 0px 15px;
+  }
+}
+
+.app_content {
+  min-height: 77vh;
+}
+
+.blue_btn {
+  width: 100%;
+  padding: 14px 30px;
+  background: $blue;
+  letter-spacing: 0px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid $blue;
+  transition: all 0.2s linear;
+
+  span {
+    color: #fff;
+  }
+
+  &:hover {
+    box-shadow: none;
+    color: #fff !important;
+    * {
+      color: #fff !important;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+    * {
+      font-size: 14px;
+    }
+  }
+}
+
+.outlined_btn {
+  width: 100%;
+  padding: 14px 30px;
+  background: transparent !important;
+  background-color: transparent !important;
+  letter-spacing: 0px;
+  color: $blue !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  //box-shadow: 0px 10px 16px rgba(226, 0, 15, 0.2);
+  border: 1px solid $blue !important;
+  transition: all 0.2s linear;
+
+  * {
+    color: $red !important;
+    transition: all 0.2s linear;
+    font-weight: bold;
+  }
+
+  &:hover {
+    background: $blue !important;
+    background-color: $blue !important;
+    color: #fff !important;
+    * {
+      color: #fff !important;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+    * {
+      font-size: 14px;
+    }
+  }
+}
+
+.zoom {
+  min-width: 1920px;
+
+  @media (max-width: 1080px) {
+    min-width: 100%;
+  }
+}
+
+.slider_arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1150;
+  padding: 11px 15px;
+  border: 1px solid $grey-1;
+  border-radius: 5px;
+  background: #fff;
+  transition: all 0.2s linear;
+
+  display: flex;
+  align-items: center;
+
+  &_desc {
+    @media screen and (max-width: 1500px) {
+      display: none;
+    }
+  }
+
+  &_prev {
+    left: -56px;
+
+    svg {
+      transform: rotate(180deg);
+    }
+
+    @media screen and (max-width: 1720px) {
+      left: -26px;
+    }
+  }
+
+  &_next {
+    right: -56px;
+    @media screen and (max-width: 1720px) {
+      right: -26px;
+    }
+  }
+
+  &:hover {
+    border-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transition: all 0.1s ease;
+    transform: scale(0.9);
+  }
+  @media screen and (max-width: 1500px) {
+    padding-bottom: 8px;
+  }
+}
+
+.link {
+  color: $blue;
+  font-size: 18px;
+}
+
+.form_error {
+  color: red;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  margin-top: 5px;
+}
+
+.blue_text {
+  color: $blue-2;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.page_title {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.grecaptcha-badge {
+  bottom: 10vh !important;
+}
+
+.title {
+  display: block;
+  color: $black;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
+
+  &_account {
+    text-transform: none;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+  }
+}
+
+.account_content {
+  padding: 30px;
+
+  @media screen and (max-width: 500px) {
+    padding: 16px;
+  }
+}
+
+.desktop_block {
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+.mobile_block {
+  @media screen and (min-width: 801px) {
+    display: none;
+  }
+}
+
+.react-player__shadow {
+  background: rgba(0, 0, 0, 0.75) !important;
+
+  .react-player__play-icon {
+    border-width: 12px 0px 12px 19px !important;
+    border-radius: 2px;
+  }
+}
+
+#transition-popper {
+  z-index: 2100 !important;
+}
+
+.MuiDialog-root,
+.MuiPickersPopper-root {
+  z-index: 3000 !important;
+}
+
+.MuiPopover-root {
+  z-index: 3000 !important;
+}
+
+.red {
+  color: $red-1;
+}

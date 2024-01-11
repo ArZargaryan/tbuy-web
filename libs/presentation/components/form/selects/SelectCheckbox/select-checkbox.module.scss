@@ -1,0 +1,107 @@
+@import "@/styles/vars.scss";
+
+.form {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+
+  svg {
+    cursor: pointer;
+    width: 10px !important;
+    margin-left: -10px;
+    height: auto;
+  }
+
+  label {
+    position: relative;
+    color: $blue-2;
+    padding-right: 10px;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  .label_sup {
+    position: absolute;
+    top: -7px;
+    right: 0px;
+    background: $blue-2;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
+
+  fieldset {
+    border: none !important;
+    outline: none !important;
+  }
+
+  :global {
+    .MuiSelect-select {
+      border: none !important;
+      border-color: transparent !important;
+    }
+    .MuiOutlinedInput-input {
+      border-color: transparent !important;
+      padding: 0 !important;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    padding-top: 5px;
+  }
+}
+
+.select {
+  min-width: 10px;
+  height: auto !important;
+  border: none !important;
+  border-color: transparent !important;
+  div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    border-color: transparent !important;
+  }
+  :global {
+    .MuiSelect-select {
+      border: none !important;
+      border-color: transparent !important;
+    }
+
+    .MuiPopover-paper {
+      border-radius: 0px !important;
+      border-top-left-radius: 0px !important;
+      border-top-right-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+    }
+  }
+}
+
+.menu_item {
+  background: #fff !important;
+  margin-left: -15px;
+  min-width: 250px;
+  padding-bottom: 12px;
+  border-radius: 0px !important;
+  :global {
+    .MuiCheckbox-root {
+      margin-left: 13px;
+      margin-right: 13px;
+    }
+  }
+}
+
+.menu_paper {
+  max-height: 65vh;
+  border-radius: 0px !important;
+  padding-top: 8px;
+}
+
+.rotate_image {
+  transform: rotate(180deg);
+  margin-right: 0px;
+}

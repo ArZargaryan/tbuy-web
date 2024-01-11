@@ -1,0 +1,130 @@
+@import "@styles/vars.scss";
+
+.navbar__menu {
+  position: relative;
+  z-index: 2100;
+  background: #f0f3f3;
+
+  &_content {
+    display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  &_list {
+    display: flex;
+    grid-gap: 30px;
+    align-items: center;
+
+    &_link {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &_downloadApp {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .list__item_1100 {
+      @media screen and (max-width: 1100px) {
+        display: none;
+      }
+    }
+
+    .list__item_900 {
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 1300px) {
+      grid-gap: 15px;
+    }
+  }
+
+  &_giftCard {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    margin: 0 50px;
+
+    &_txt {
+      font-size: 14px;
+      color: $blue;
+      font-weight: bold;
+      @media screen and (max-width: 1200px) {
+        font-size: 14px;
+      }
+    }
+
+    &_icon {
+      width: 37px;
+      height: 25px;
+    }
+    @media screen and (max-width: 1300px) {
+      margin: 0 15px;
+      grid-gap: 5px;
+    }
+    @media screen and (max-width: 900px) {
+      margin-left: 0px;
+    }
+  }
+
+  &_vacancies {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+
+    &_icon {
+      width: 28px;
+      height: 25px;
+    }
+
+    &_txt {
+      font-weight: bold;
+      @media screen and (max-width: 1200px) {
+        font-size: 14px;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      grid-gap: 5px;
+    }
+  }
+
+  &_sets {
+    display: flex;
+    grid-gap: 30px;
+    align-items: center;
+    margin-left: auto;
+
+    &_phone {
+      display: flex;
+      align-items: center;
+      grid-gap: 6px;
+
+      &_icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      &_txt {
+        margin-bottom: -2px;
+        @media screen and (max-width: 1200px) {
+          font-size: 14px;
+          margin-bottom: 0px;
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        grid-gap: 4px;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      grid-gap: 15px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}

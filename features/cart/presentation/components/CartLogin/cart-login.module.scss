@@ -1,0 +1,135 @@
+@import "@styles/vars.scss";
+
+.cart_login {
+  padding: 20px 30px;
+  border: 1px solid $grey-1;
+  margin-bottom: 30px;
+
+  .cart_login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .form__input {
+      flex-grow: 1;
+
+      input {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .input__forgot_password {
+        color: $blue;
+        text-decoration: underline;
+        margin-top: 10px;
+        cursor: pointer;
+        @media screen and (max-width: 650px) {
+          margin-top: 14px;
+        }
+      }
+    }
+
+    .form__btn {
+      button {
+        height: 53px;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      gap: 0px;
+      grid-gap: 18px;
+    }
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+    }
+  }
+
+  .cart_login__socials {
+    max-width: 560px;
+    display: flex;
+    grid-gap: 10px;
+    margin-top: 25px;
+    flex-direction: column;
+    @media screen and (max-width: 580px) {
+      flex-direction: column;
+    }
+
+    .form_social_link {
+      cursor: pointer;
+      user-select: none;
+      width: 100%;
+      padding: 13px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 12px;
+      border: 1px solid $black;
+      transition: all 0.2s linear;
+
+      &:hover {
+        box-shadow: 0px 6px 10px rgba(#000, 0.3);
+      }
+
+      &:active {
+        transform: scale(0.95);
+        box-shadow: 0px 0px 0px #fff;
+      }
+    }
+
+    .form_social_icon {
+      height: 20px;
+    }
+
+    .form_social_text {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      @media screen and (max-width: 580px) {
+        font-size: 14px;
+      }
+    }
+
+    .apple {
+      display: none;
+
+      @media screen and (max-width: 580px) {
+        display: flex;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      grid-gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 20px 16px;
+  }
+}
+
+.cart_suptitle {
+  font-size: 18px;
+  margin-bottom: 14px;
+  font-weight: bold;
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.or {
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  color: $grey-2;
+  max-width: 100px;
+  transform: translateY(50%);
+  background: #fff;
+}
+
+.or_line {
+  border: 1px solid $grey-1;
+  border-top: none;
+}

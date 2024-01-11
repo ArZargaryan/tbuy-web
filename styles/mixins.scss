@@ -1,0 +1,106 @@
+@mixin img($objFit) {
+  img,
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: $objFit;
+  }
+}
+
+%displayFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin click-icon($size, $bruh) {
+  img,
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  cursor: pointer;
+  width: calc($size + $size / 2);
+  height: calc($size + $size / 2);
+  padding: calc($size / 4);
+  transform: translate(calc($size / 4 * $bruh));
+}
+
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+);
+
+@mixin sm-u {
+  @media (min-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}
+
+@mixin md-u {
+  @media (min-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+
+@mixin lg-u {
+  @media (min-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+
+// Only
+
+@mixin sm {
+  @media (max-width: calc(map-get($breakpoints, md) - 0.2px)) and (min-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: calc(map-get($breakpoints, lg) - 0.2px)) and (min-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: calc(map-get($breakpoints, xl) - 0.2px)) and (min-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: map-get($breakpoints, xl)) {
+    @content;
+  }
+}
+
+// Desktop only
+
+@mixin lg-d {
+  @media (max-width: calc(map-get($breakpoints, xl) - 0.2px)) {
+    @content;
+  }
+}
+
+@mixin md-d {
+  @media (max-width: calc(map-get($breakpoints, lg) - 0.2px)) {
+    @content;
+  }
+}
+
+@mixin sm-d {
+  @media (max-width: calc(map-get($breakpoints, md) - 0.2px)) {
+    @content;
+  }
+}
+
+$maxWidth: 1920;
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 375;
+  font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 375px) / #{$maxWidth}));
+}

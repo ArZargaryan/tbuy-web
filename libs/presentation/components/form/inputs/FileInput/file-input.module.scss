@@ -1,0 +1,62 @@
+@import "@styles/vars.scss";
+
+.control {
+  width: 100%;
+}
+
+.file_input {
+  border: 1px solid $grey-1;
+  padding: 14px 20px;
+  padding-bottom: 15px;
+  color: #ccc;
+  font-weight: 400;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s linear;
+
+  path {
+    transition: all 0.2s linear;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $black;
+    path {
+      fill: $blue;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+    padding: 11px 16px;
+  }
+}
+
+.file_list {
+  margin-top: 16px;
+  &__item {
+    color: #1ecb40;
+    font-weight: bold;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+      path {
+        fill: #1ecb40;
+      }
+    }
+
+    button {
+      color: #1ecb40;
+      padding: 0;
+      margin-left: 12px;
+      margin-bottom: -1px;
+      font-size: 20px;
+    }
+  }
+}

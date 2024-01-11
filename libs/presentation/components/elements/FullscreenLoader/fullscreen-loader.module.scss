@@ -1,0 +1,39 @@
+@import "@/styles/vars.scss";
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+
+  background: $blue-2;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.2s linear;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    transform: scale(1.8);
+
+    @media screen and (max-width: 800px) {
+      transform: scale(1.5);
+    }
+    @media screen and (max-width: 450px) {
+      transform: scale(1.3);
+    }
+    @media screen and (max-width: 380px) {
+      transform: scale(1);
+    }
+  }
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+}

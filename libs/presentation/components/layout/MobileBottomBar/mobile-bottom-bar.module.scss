@@ -1,0 +1,54 @@
+@import "@styles/vars.scss";
+
+.bottom_bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1150;
+  display: none;
+  box-shadow: 0px -3px 6px #0000001a;
+
+  &__item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s linear;
+
+    &_active,
+    &:hover {
+      svg {
+        path {
+          fill: $blue;
+        }
+      }
+    }
+  }
+
+  :global {
+    .MuiBadge-badge {
+      position: absolute !important;
+      transform: scale(0.8) !important;
+      top: -6px !important;
+      right: -5px !important;
+      padding: 4px 2px !important;
+      background: $red !important;
+      font-size: 14px !important;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 400px) {
+    :global {
+      .MuiButtonBase-root {
+        min-width: initial;
+      }
+    }
+  }
+}

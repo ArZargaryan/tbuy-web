@@ -1,0 +1,270 @@
+@import "@styles/vars.scss";
+
+.individual {
+  padding: 30px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1150px;
+
+    .content__image_container {
+      @media screen and (max-width: 700px) {
+        order: 2;
+        flex: 0 1 35%;
+      }
+    }
+    .content__image {
+      width: 100%;
+      width: 233px;
+      height: 233px;
+      background-size: cover;
+      border-radius: 12px;
+      margin-right: -40px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+
+      @media screen and (max-width: 1100px) {
+        width: 170px;
+        height: 170px;
+        //margin-right: -10px;
+        margin-right: -200px;
+      }
+
+      @media screen and (max-width: 900px) {
+        margin-right: 0px;
+      }
+      @media screen and (max-width: 700px) {
+        order: 1;
+        margin-bottom: 0;
+        border-radius: 0px;
+      }
+      @media screen and (max-width: 600px) {
+        order: 1;
+        margin-bottom: 0;
+        border-radius: 0px;
+        width: 130px;
+        height: 130px;
+      }
+      @media screen and (max-width: 370px) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    .contacts__title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+
+      &_mobile {
+        display: none;
+        margin-bottom: 8px;
+        font-size: 18px;
+        @media screen and (max-width: 700px) {
+          display: block;
+        }
+      }
+    }
+    .contacts__rating {
+      margin-bottom: 5px;
+    }
+    .content__contacts {
+      word-wrap: break-word;
+      max-width: 20vw;
+
+      .socials {
+        display: flex;
+        margin-top: 15px;
+        gap: 10px;
+        svg {
+          width: 24px;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        flex-grow: 1;
+        max-width: 30vw;
+      }
+      @media screen and (max-width: 700px) {
+        margin-top: 20px;
+        order: 3;
+        flex: 0 1 100%;
+        max-width: 100%;
+
+        .socials {
+          display: none;
+        }
+        .contacts__title {
+          display: none;
+        }
+      }
+    }
+
+    .content__actions {
+      margin-top: auto;
+
+      .subscribe_btn {
+        max-width: 230px;
+        padding-right: 40px;
+        padding-left: 40px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        &:hover {
+          path {
+            fill: $blue;
+          }
+        }
+
+        .subscribe_btn__followers {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          path {
+            transition: all 0.2s linear;
+          }
+        }
+
+        span {
+          font-weight: 400;
+          color: #fff;
+          transition: all 0.2s linear;
+        }
+
+        &:hover {
+          box-shadow: none;
+          span {
+            font-weight: 400;
+            color: $blue;
+          }
+        }
+
+        @media screen and (max-width: 500px) {
+          max-width: 177px;
+          padding: 5px 0px 5px 16px;
+          font-size: 14px;
+          gap: 14px;
+
+          span {
+            font-size: 14px;
+          }
+        }
+        @media screen and (max-width: 370px) {
+          max-width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 10px 15px;
+          font-size: 16px;
+          span {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .socials {
+        display: none;
+        @media screen and (max-width: 700px) {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 12px;
+          svg {
+            width: 24px;
+          }
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        order: 2;
+        flex: 0 1 65%;
+
+        .subscribe_btn {
+          margin: 0 !important;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        flex: auto;
+        padding-left: 14px;
+
+        margin-top: -2px;
+      }
+      @media screen and (max-width: 370px) {
+        flex: 0 1 100%;
+        padding-top: 14px;
+        padding-left: 0px;
+      }
+    }
+
+    .actions__btns {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      gap: 30px;
+
+      &_mobile {
+        display: none !important;
+        @media screen and (max-width: 700px) {
+          display: flex !important;
+        }
+      }
+
+      .chat_btn {
+        min-width: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 28px;
+
+        svg {
+          width: 30px;
+          margin-top: -2px;
+        }
+
+        path {
+          transition: all 0.2s linear;
+        }
+
+        &:hover {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+
+      .report_btn {
+      }
+
+      @media screen and (max-width: 1100px) {
+        gap: 15px;
+        .chat_btn {
+          width: 64px;
+          min-width: auto;
+          padding: 12px 12px;
+          justify-content: center;
+          svg {
+            width: 20.5px;
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 16px;
+  }
+}

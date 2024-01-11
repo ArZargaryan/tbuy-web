@@ -1,0 +1,49 @@
+@import "@styles/vars.scss";
+
+.my_lang {
+  .my_lang__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0px 16px 0px;
+    border-bottom: 1px solid $grey;
+    a {
+      margin-right: auto;
+      svg {
+        scale: 0.8;
+        rotate: 180deg;
+        margin-bottom: -1px;
+      }
+    }
+    :global {
+      .title {
+        margin-right: auto;
+        margin-left: -9px;
+      }
+    }
+  }
+
+  .my_lang__list {
+    .list__item {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0px 14px 0px;
+      border-bottom: 1px solid $grey;
+
+      .item__image {
+        width: 20px;
+        height: 13px;
+      }
+
+      .item__text {
+        font-size: 14px;
+      }
+
+      .item__choosed {
+        margin-left: auto;
+      }
+    }
+  }
+}

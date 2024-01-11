@@ -1,0 +1,37 @@
+@import "@styles/vars.scss";
+
+.primaryButton {
+  background-color: $blue;
+  color: white;
+  width: 240px;
+  height: 49px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  max-width: 200px;
+
+  &:hover {
+    background-color: transparent;
+    border: 2px solid $blue;
+    color: $blue;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+}
+.outline {
+  background-color: white;
+  color: $blue;
+  border: 2px solid $blue;
+
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+}

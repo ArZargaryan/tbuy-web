@@ -1,0 +1,162 @@
+@import "@/styles/vars.scss";
+
+.form {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+
+  svg {
+    cursor: pointer;
+    width: 10px !important;
+    margin-left: -10px;
+    transition: all 0.2s linear;
+  }
+
+  label {
+    position: relative;
+    color: $blue-2;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+
+  .label_sup {
+    position: absolute;
+    top: -7px;
+    right: 0px;
+    background: $blue-2;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
+
+  fieldset {
+    border: none !important;
+    outline: none !important;
+  }
+
+  :global {
+    .MuiSelect-select {
+      border: none !important;
+      border-color: transparent !important;
+    }
+    .MuiOutlinedInput-input {
+      border-color: transparent !important;
+      padding: 0 !important;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    padding-top: 5px;
+  }
+}
+
+.select {
+  min-width: 10px;
+  height: auto !important;
+  border: none !important;
+  border-color: transparent !important;
+  div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    border-color: transparent !important;
+  }
+  :global {
+    .MuiSelect-select {
+      border: none !important;
+      border-color: transparent !important;
+    }
+
+    .MuiPopover-paper {
+      border-radius: 0px !important;
+      border-top-left-radius: 0px !important;
+      border-top-right-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+    }
+  }
+}
+
+.menu_item {
+  display: flex !important;
+  align-items: center !important;
+  word-wrap: break-word;
+  max-width: 100%;
+  width: 100%;
+  background: #fff !important;
+  border-radius: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+
+  &_image {
+    width: 100px;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    margin-right: 10px !important;
+    border-radius: 5px !important;
+
+    &_choosed {
+      border-color: $blue !important;
+      box-shadow: 0px 1px 10px rgba(#000, 0.1);
+    }
+
+    img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  }
+
+  &_text {
+    word-wrap: break-word !important;
+
+    span {
+      display: block !important;
+      white-space: pre-wrap;
+      max-width: 220px !important;
+    }
+  }
+}
+
+.menu_paper {
+  padding: 10px !important;
+  max-width: 355px !important;
+  width: 100% !important;
+
+  @media screen and (max-width: 370px) {
+    max-width: 300px !important;
+  }
+}
+
+.menu_list {
+  max-height: 440px !important;
+  max-width: 100% !important;
+  overflow-y: auto !important;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 16px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $grey-1;
+    border-radius: 16px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 16px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

@@ -1,0 +1,37 @@
+@import "@/styles/vars.scss";
+.page_title {
+  a {
+    color: $blue !important;
+    text-decoration: underline;
+    font-weight: 700;
+  }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.mobile_page_title {
+  margin-top: 16px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mobile_page_title_link {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: $blue;
+}
+
+.mobile_page_title,
+.mobile_page_title_link {
+  @media screen and (min-width: 501px) {
+    display: none;
+  }
+}

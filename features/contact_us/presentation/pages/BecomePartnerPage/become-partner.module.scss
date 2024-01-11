@@ -1,0 +1,95 @@
+@import "@/styles/vars.scss";
+
+.wrapper {
+  background: $grey-0;
+  min-height: 82vh;
+  margin-bottom: -80px;
+  padding-bottom: 80px;
+  padding-top: 40px;
+  .content {
+    max-width: 1330px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    padding: 80px 15px;
+
+    &__container {
+      text-align: center;
+    }
+
+    .content__title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+
+      @media screen and (max-width: 500px) {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+    }
+
+    .content__text {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      @media screen and (max-width: 500px) {
+        font-size: 16px;
+      }
+    }
+
+    form {
+      max-width: 1056px;
+      margin: 0 auto;
+    }
+
+    .content__form {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .form__item {
+        flex: 0 1 49%;
+        text-align: left;
+        margin-bottom: 16px;
+
+        @media screen and (max-width: 700px) {
+          flex: 0 1 100%;
+          max-width: 100%;
+        }
+      }
+    }
+    .form__submit {
+      text-transform: uppercase;
+      font-weight: 700;
+      max-width: 200px;
+      margin: 0 auto;
+      margin-top: -5px;
+
+      @media screen and (max-width: 500px) {
+        max-width: 100%;
+      }
+    }
+
+    .form__modal_btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 auto;
+      margin-top: 20px;
+      font-size: 14px;
+      color: $grey-2;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    @media screen and (max-width: 700px) {
+      padding: 20px 16px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 60px;
+  }
+}

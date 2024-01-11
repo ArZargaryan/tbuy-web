@@ -1,0 +1,18 @@
+.wrapper {
+  button {
+    margin-bottom: 30px;
+    box-shadow: none !important;
+  }
+
+  .in_progress {
+    button {
+      border: 1px solid orange !important;
+      color: orange !important;
+
+      &:hover {
+        background: orange;
+        color: #fff !important;
+      }
+    }
+  }
+}

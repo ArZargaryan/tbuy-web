@@ -1,0 +1,23 @@
+.choose_address {
+  padding: 20px;
+  border: 1px solid $grey-1;
+
+  &__list {
+    padding-bottom: 21px;
+    border-bottom: 1px solid $grey-1;
+    margin-bottom: 16px;
+    .list__item {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .add_more {
+    display: flex;
+    align-items: center;
+
+    &__home_icon {
+      margin-right: 10px;
+    }
+  }
+}

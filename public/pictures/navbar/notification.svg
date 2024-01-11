@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_149838" data-name="Rectangle 149838" width="24" height="24" transform="translate(160 476)" fill="$black"/>
+    </clipPath>
+  </defs>
+  <g id="notification" transform="translate(-160 -476)" clip-path="url(#clip-path)">
+    <g id="notification-2" data-name="notification" transform="translate(162.358 476.379)">
+      <path id="Path_12503" data-name="Path 12503" d="M47.284,11.933V9.76A7.01,7.01,0,0,0,42.57,3.027V2.043a1.932,1.932,0,1,0-3.857,0v.984A7.01,7.01,0,0,0,34,9.76v2.173a11.037,11.037,0,0,1-2.821,7.434.711.711,0,0,0-.127.738.643.643,0,0,0,.591.414h5.85a3.183,3.183,0,0,0,6.3,0h5.85a.643.643,0,0,0,.591-.414.711.711,0,0,0-.127-.738A11.037,11.037,0,0,1,47.284,11.933ZM40,2.043a.644.644,0,1,1,1.286,0v.714a6.268,6.268,0,0,0-1.286,0Zm.643,19.838a1.942,1.942,0,0,1-1.818-1.362h3.636A1.942,1.942,0,0,1,40.641,21.881Zm-7.614-2.724a12.519,12.519,0,0,0,2.257-7.224V9.76A5.366,5.366,0,1,1,46,9.76v2.173a12.519,12.519,0,0,0,2.257,7.224Z" transform="translate(-30.999)" fill="$black"/>
+    </g>
+  </g>
+</svg>

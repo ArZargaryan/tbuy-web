@@ -1,0 +1,62 @@
+@import "@styles/vars.scss";
+
+.categories_slider {
+  margin-top: 20px;
+  background: $grey;
+
+  padding: 15px 18px;
+
+  svg {
+    path {
+      fill: $black !important;
+    }
+  }
+
+  :global {
+    .swiper {
+      margin-bottom: 0px;
+    }
+
+    .swiper-button-next {
+      padding-left: 40px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-next_img {
+      background: $grey !important;
+    }
+
+    .swiper-slide {
+      a {
+        display: block;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+
+        sup {
+          background: $grey-1;
+          padding: 3px 10px;
+          border-radius: 12px;
+          margin-left: 12px;
+          font-size: 14px;
+          line-height: 19px;
+        }
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 1px;
+        height: 100%;
+        background: $black;
+        margin-right: -15px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}

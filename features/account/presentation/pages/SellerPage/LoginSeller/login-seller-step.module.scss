@@ -1,0 +1,76 @@
+@import "@/styles/vars.scss";
+
+.activeCircle {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  stroke-width: 1px;
+}
+
+.btn_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  height: 49px;
+  padding: 15px 74px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--Primary-color, $blue);
+}
+
+.loginAs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  padding: 25px 15px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 510px;
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+    grid-column: 1 / 3;
+  }
+  &__link {
+    display: block;
+    padding: 20px;
+    border: 1px solid $grey-1;
+    transition: all 0.2s linear;
+    border-radius: 8px;
+
+    &_icon {
+      display: block;
+      margin: 0 auto;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 16px;
+    }
+    &_title {
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    &_active {
+      border-color: $blue-2;
+      transform: scale(1.05);
+    }
+
+    &_active1 {
+      border-color: $grey-1;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

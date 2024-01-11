@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_149801" data-name="Rectangle 149801" width="24" height="24" transform="translate(-11163 -17869)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="telegram" transform="translate(11163 17869)" clip-path="url(#clip-path)">
+    <path id="telegram-2" data-name="telegram" d="M8.6,14.042l-.363,5.1a1.268,1.268,0,0,0,1.013-.491l2.433-2.325,5.041,3.692c.925.515,1.576.244,1.825-.851l3.309-15.5h0c.293-1.367-.494-1.9-1.395-1.566L1.018,9.543C-.31,10.058-.29,10.8.792,11.134L5.765,12.68l11.55-7.227c.544-.36,1.038-.161.631.2Z" transform="translate(-11161.963 -17868.137)"/>
+  </g>
+</svg>

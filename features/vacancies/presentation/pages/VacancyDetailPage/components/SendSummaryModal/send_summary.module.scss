@@ -1,0 +1,19 @@
+.modal {
+  @media screen and (max-width: 500px) {
+    padding: 60px 16px;
+
+    * {
+      font-size: 14px;
+    }
+
+    :global {
+      .modal-content__title {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.modal__text {
+  max-width: 730px;
+}

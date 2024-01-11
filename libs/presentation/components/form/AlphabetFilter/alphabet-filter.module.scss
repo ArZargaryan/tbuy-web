@@ -1,0 +1,103 @@
+@import "@styles/vars.scss";
+
+.alphabet_filter {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 32px;
+  .form__content {
+    display: flex;
+    align-items: center;
+    min-width: 1px;
+
+    background: $grey;
+    padding: 18px 30px 18px 15px;
+    .content__nums {
+      white-space: nowrap;
+      margin-left: 15px;
+      background: $grey-1;
+      padding: 3px 9px;
+
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      padding: 9px 5px;
+    }
+  }
+
+  .alphabet_group {
+    display: flex;
+    flex-direction: row !important;
+    min-width: 1px;
+
+    .alphabet_group__slider {
+      min-width: 1px;
+      flex-grow: 1;
+
+      .slider__item {
+        width: auto;
+        :global {
+          .MuiTypography-root {
+            @media screen and (max-width: 800px) {
+              padding-right: 10px;
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    :global {
+      .MuiButtonBase-root {
+        display: none;
+      }
+
+      .Mui-checked + span {
+        color: red;
+      }
+
+      label {
+        margin: 0;
+      }
+
+      .MuiFormControlLabel-label {
+        display: block;
+        padding: 0px 15px;
+        transition: all 0.2s linear;
+        &:hover {
+          transform: translateY(-2px);
+          color: #1976d2;
+        }
+      }
+    }
+  }
+
+  .search_btn {
+    border-radius: 50%;
+    background: $grey;
+    padding: 15px 16px;
+    padding-bottom: 13px;
+
+    transition: all 0.2s linear;
+    path {
+      transition: all 0.2s linear;
+    }
+
+    &:hover {
+      background: $black;
+      path {
+        fill: $grey;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      padding: 9px;
+      padding-bottom: 6px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    gap: 15px;
+  }
+}

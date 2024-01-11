@@ -1,0 +1,29 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100 !important;
+
+  &__content {
+    position: relative;
+    background: #fff;
+    padding: 60px 65px;
+    padding-bottom: 50px;
+  }
+
+  .close_btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 200;
+
+    svg {
+      width: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+      top: 20px;
+      right: 20px;
+    }
+  }
+}

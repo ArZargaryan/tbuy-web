@@ -1,0 +1,283 @@
+@import "@/styles/vars.scss";
+
+.wrapper {
+  width: 100%;
+  min-height: 77vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  margin-bottom: -80px;
+  padding-bottom: 80px;
+}
+
+.register {
+  width: 100%;
+  max-width: 543px;
+  padding: 40px 16px 100px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1000px) {
+    padding: 40px 16px 90px;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 40px 16px 80px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 40px 16px 70px;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding: 40px 16px 60px;
+  }
+
+  @media screen and (max-width: 580px) {
+    padding: 30px 16px 50px;
+  }
+
+  &__links {
+    padding-bottom: 31px;
+    display: flex;
+    grid-gap: 60px;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+      grid-gap: 46px;
+    }
+
+    @media screen and (max-width: 580px) {
+      padding-bottom: 20px;
+      grid-gap: 28px;
+    }
+
+    &_log-in,
+    &_registr {
+      font-size: 24px;
+      text-transform: uppercase;
+
+      @media screen and (max-width: 768px) {
+        font-size: 21px;
+      }
+
+      @media screen and (max-width: 580px) {
+        font-size: 18px;
+      }
+    }
+
+    &_registr {
+      font-weight: bold;
+    }
+
+    &_log-in {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 1px;
+        height: 30px;
+        background: $black;
+
+        @media screen and (max-width: 768px) {
+          height: 25px;
+          right: -23px;
+        }
+
+        @media screen and (max-width: 580px) {
+          height: 20px;
+          right: -14px;
+        }
+      }
+    }
+  }
+
+  &__form {
+    &_label {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+
+      @media screen and (max-width: 580px) {
+        margin-bottom: 18px;
+      }
+
+      &_iconView {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        width: 27px;
+        height: 17px;
+
+        @media screen and (max-width: 580px) {
+          right: 16px;
+        }
+      }
+    }
+
+    &_inp {
+      width: 100%;
+      padding: 17px 20px;
+      border: 1px solid $grey-1;
+
+      @media screen and (max-width: 580px) {
+        padding: 14px 16px;
+      }
+
+      &::placeholder {
+        font-size: 16px;
+        color: #989898;
+
+        @media screen and (max-width: 580px) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &_checked {
+      margin-bottom: 30px;
+    }
+
+    .checked-label {
+      width: auto;
+      height: 100%;
+      margin-bottom: 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      grid-gap: 12px;
+      cursor: pointer;
+
+      @media screen and (max-width: 580px) {
+        font-size: 14px;
+      }
+    }
+
+    &_checkbox {
+      padding-left: 36px;
+      cursor: pointer;
+    }
+
+    .logIn__form_forgotPassword {
+      font-size: 16px;
+      text-decoration: underline;
+      color: $blue !important;
+      margin-left: 5px;
+
+      @media screen and (max-width: 580px) {
+        font-size: 14px;
+      }
+    }
+
+    &_btn {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      @media screen and (max-width: 580px) {
+        padding: 14px 20px;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &_or {
+      display: block;
+      margin-bottom: 25px;
+      font-size: 16px;
+      text-align: center;
+      justify-content: space-between;
+
+      @media screen and (max-width: 580px) {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+    }
+
+    &_social {
+      width: 100%;
+      display: flex;
+      grid-gap: 16px;
+
+      @media screen and (max-width: 580px) {
+        flex-direction: column;
+      }
+
+      &_link {
+        width: 100%;
+        padding: 13px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 12px;
+        border: 1px solid $black;
+      }
+
+      &_icon {
+        height: 20px;
+      }
+
+      &_text {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        @media screen and (max-width: 580px) {
+          font-size: 14px;
+        }
+      }
+
+      .apple {
+        display: none;
+
+        @media screen and (max-width: 580px) {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.login_or_register {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 38px;
+
+  span,
+  a {
+    font-size: 18px;
+  }
+
+  a {
+    color: $red;
+    transition: all 0.2s linear;
+    text-decoration: underline;
+    &:hover {
+      color: $blue-2;
+    }
+  }
+}
+
+.register_success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-size: 16px;
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+}

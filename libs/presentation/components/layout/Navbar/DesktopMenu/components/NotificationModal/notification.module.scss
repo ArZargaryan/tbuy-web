@@ -1,0 +1,40 @@
+.modal {
+  max-width: 1056px;
+  width: 100%;
+  padding: 60px 30px;
+
+  @media screen and (max-width: 1100px) {
+    max-width: 90vw;
+  }
+  @media screen and (max-width: 500px) {
+    max-width: 95vw;
+    padding: 40px 16px;
+  }
+}
+
+.form {
+  max-width: 783px;
+  margin: 0 auto;
+
+  :global {
+    .modal-content__card {
+      @media screen and (max-width: 500px) {
+        justify-content: flex-start;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+.buttons {
+  margin-left: auto;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  button {
+    @media screen and (max-width: 500px) {
+      padding: 14px 0px !important;
+    }
+  }
+}

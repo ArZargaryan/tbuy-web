@@ -1,0 +1,38 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlnsXlink="http://www.w3.org/1999/xlink"
+  width="30"
+  height="24"
+  viewBox="0 0 30 24"
+>
+  <defs>
+    <clipPath id="clip-path">
+      <rect
+        id="Rectangle_149921"
+        data-name="Rectangle 149921"
+        width="30"
+        height="24"
+        fill="$black"
+      />
+    </clipPath>
+  </defs>
+  <g id="search" clip-path="url(#clip-path)">
+    <g id="search-2" data-name="search" transform="translate(0.512)">
+      <path
+        id="Path_17"
+        data-name="Path 17"
+        d="M107.219,106.3l-4.86-4.876.164-.2a10.073,10.073,0,1,0-1.311,1.312l.2-.164,4.86,4.876a.694.694,0,0,0,.942,0,.668.668,0,0,0,0-.943Zm-12.43-2.775a8.731,8.731,0,1,1,8.727-8.731A8.743,8.743,0,0,1,94.789,103.524Z"
+        transform="translate(-77.926 -84.74)"
+        fill="$black"
+      />
+      <path
+        id="Subtraction_16"
+        data-name="Subtraction 16"
+        d="M6.286,11.5H.751a.75.75,0,1,1,0-1.5H5.564a10.984,10.984,0,0,0,.721,1.5Zm-1.461-5H.751a.75.75,0,1,1,0-1.5H4.814V6c0,.166,0,.333.011.5Zm.274-5H.751a.75.75,0,1,1,0-1.5H5.564A10.95,10.95,0,0,0,5.1,1.5Z"
+        transform="translate(0 5)"
+        fill="$black"
+      />
+    </g>
+  </g>
+</svg>
+

@@ -1,0 +1,22 @@
+@import "@/styles/vars.scss";
+
+.select {
+  color: $blue-2;
+  cursor: pointer;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 10px !important;
+    margin-left: 10px;
+  }
+  @media screen and (max-width: 500px) {
+    padding-top: 5px;
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}

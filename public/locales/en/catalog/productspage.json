@@ -1,0 +1,27 @@
+{
+  "title": "Discount products",
+  "filters": {
+    "sections": {
+      "title": "Sections"
+    },
+    "brand": "Brand",
+    "geo": {
+      "title": "Location"
+    },
+    "partners": {
+      "title": "Companies"
+    },
+    "color": "Color",
+    "condition": "Condition",
+    "country": "Country of manufacture",
+    "priceAmd": "Price in AMD",
+    "rating": "Rating",
+    "seller": {
+      "title": "Seller",
+      "citizen": "Law abiding citizen",
+      "physical_person": "Individual"
+    }
+  },
+  "requirements_categories": "Requirements in categories",
+  "related_products": "Related products"
+}

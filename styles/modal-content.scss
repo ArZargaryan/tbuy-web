@@ -1,0 +1,253 @@
+@import "mixins";
+
+.modal-content {
+  max-width: 996px;
+  position: relative;
+
+  &__title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.667em;
+
+    &_big {
+      @include adaptiv-font(34, 18);
+      margin-bottom: 0.412em;
+    }
+  }
+
+  &__text {
+    margin-bottom: 1.75em;
+    line-height: 24px;
+
+    &_center {
+      text-align: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: bold;
+    margin-bottom: 0.875em;
+    text-align: center;
+  }
+
+  //-----------------------------------------------------------------------------
+
+  &__checkbox {
+    margin-bottom: 30px;
+    text-align: center;
+
+    .checkbox__label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .label__real-checkbox {
+      width: 0;
+      height: 0;
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+
+      &:checked + .label__custom-checkbox::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  &__input-file {
+    display: flex;
+    align-items: center;
+    margin-bottom: 26px;
+
+    .input-file__file-image {
+      margin-right: 6px;
+    }
+
+    .input-file__file-name {
+      margin-right: 24px;
+    }
+
+    .input-file__label {
+    }
+
+    .label__text {
+      color: $blue;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .label__input {
+      width: 0;
+      height: 0;
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  //-----------------------------------------------------------------------------
+
+  &__input-text {
+    margin-bottom: 20px;
+
+    .input-text__input {
+      border: 1px solid $grey-1;
+      height: 53px;
+      width: 100%;
+      padding: 16px 20px;
+
+      &::placeholder {
+        color: $grey-2;
+        font-size: inherit;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > * {
+      &:first-child {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__button-container {
+    text-align: center;
+  }
+
+  &__button {
+    padding: 0.875em 2.5em;
+  }
+
+  &__card {
+    height: 100px;
+    margin-bottom: 16px;
+
+    @extend %displayFlex;
+
+    background: $grey;
+
+    .card__img {
+      @include img(cover);
+      width: 75px;
+      height: 70px;
+      margin-right: 16px;
+    }
+
+    .card__info {
+    }
+
+    .info__name {
+      display: block;
+      margin-bottom: 16px;
+      font-weight: bold;
+
+      @include sm-d {
+        margin-bottom: 12px;
+      }
+    }
+
+    .info__price {
+    }
+
+    .price__count {
+      font-weight: normal;
+      margin-left: 7px;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .user__avatar {
+      @include img(cover);
+
+      margin-right: 20px;
+
+      flex: 0 0 50px;
+      height: 50px;
+
+      border-radius: 50%;
+      overflow: hidden;
+
+      @include sm-d {
+        margin-right: 12px;
+      }
+    }
+
+    .user__name {
+    }
+
+    @include sm-d {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__answer {
+    display: block;
+    margin-bottom: 0.875em;
+    font-weight: bold;
+
+    @include sm-d {
+      margin-bottom: 6px;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 14px;
+    }
+  }
+
+  &__textarea {
+    margin-bottom: 20px;
+  }
+
+  @include sm-d {
+    &__title {
+      margin-bottom: 14px;
+
+      &_big {
+        margin-bottom: 12px;
+      }
+    }
+
+    &__text {
+      margin-bottom: 20px;
+    }
+
+    &__button {
+      padding: 14px;
+      width: 100%;
+    }
+
+    &__buttons {
+      > * {
+        flex: 1 1 50%;
+        &:first-child {
+          margin-right: 15px;
+        }
+      }
+    }
+
+    &__input-text {
+      margin-bottom: 14px;
+    }
+
+    &__input-file {
+      .input-file__file-name {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}

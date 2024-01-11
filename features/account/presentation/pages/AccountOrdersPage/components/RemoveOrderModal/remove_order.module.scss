@@ -1,0 +1,39 @@
+.modal {
+  max-width: 510px;
+  width: 100%;
+  padding: 80px 30px;
+
+  &__text {
+    margin-bottom: 16px;
+  }
+
+  @media screen and (max-width: 700px) {
+    max-width: 95vw;
+    padding: 40px 16px 20px 16px;
+  }
+}
+
+.checkbox {
+  margin-top: 16px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 29px;
+
+  :global {
+    .red_btn,
+    .outlined_btn {
+      flex-grow: 1 !important;
+      padding: 13px 0px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    gap: 16px;
+    * {
+      font-size: 14px;
+    }
+  }
+}

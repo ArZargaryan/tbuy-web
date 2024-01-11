@@ -1,0 +1,82 @@
+@import "@styles/mixins.scss";
+
+.easy-info-page {
+  padding-top: 30px;
+  margin-bottom: 100px;
+  &__title {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &__text {
+    line-height: 1.5;
+    white-space: pre-line;
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    @include img(cover);
+    height: 450px;
+  }
+
+  &__link {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    &__title {
+      margin-bottom: 25px;
+    }
+    &__text {
+      margin-bottom: 25px;
+    }
+    &__img {
+      height: 400px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__text {
+      margin-bottom: 20px;
+    }
+    &__img {
+      height: 350px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 16px;
+    margin-bottom: 50px;
+    &__title {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    &__text {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    &__img {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__img {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 375px) {
+  }
+}
+
+.last_text {
+  font-size: 14px;
+  margin-bottom: 25px;
+}

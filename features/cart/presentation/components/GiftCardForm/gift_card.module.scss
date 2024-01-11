@@ -1,0 +1,53 @@
+.cart_suptitle {
+  font-size: 18px;
+  margin-bottom: 14px;
+  font-weight: bold;
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 550px) {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}
+
+.checkout_form {
+  max-width: 783px;
+  margin-bottom: 50px;
+  &__row {
+    display: flex;
+    gap: 32px;
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
+  &__col {
+    flex-grow: 1;
+    &__item {
+      margin-bottom: 20px;
+
+      &_select {
+        margin-top: 26px;
+      }
+
+      &_checkbox {
+        @media screen and (max-width: 500px) {
+          label {
+            width: auto;
+            min-width: 80vw;
+          }
+        }
+      }
+    }
+  }
+
+  &__notification_type {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    margin-bottom: 20px;
+  }
+}

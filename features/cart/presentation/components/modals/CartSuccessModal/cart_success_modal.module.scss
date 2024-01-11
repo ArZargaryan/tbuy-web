@@ -1,0 +1,73 @@
+@import "@/styles/vars.scss";
+
+.cart_success__container {
+  max-width: 784px;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    max-width: 600px;
+  }
+  @media screen and (max-width: 500px) {
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+  @media screen and (max-width: 450px) {
+    max-width: 343px;
+  }
+}
+
+.cart_success {
+  text-align: center;
+  &__title {
+    max-width: 282px;
+
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 36px;
+  }
+  &__text {
+    margin-bottom: 12px;
+    line-height: 24px;
+
+    a {
+      color: $red-1;
+    }
+  }
+
+  &__button {
+    margin: 30px auto 20px auto;
+    max-width: 168px;
+  }
+
+  @media screen and (max-width: 500px) {
+    &__title {
+      font-size: 18px;
+      line-height: 30px;
+      margin-top: 0px;
+    }
+
+    &__text,
+    a {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &__button {
+      font-size: 14px;
+      margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    &__text,
+    a {
+      max-width: 272px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+}

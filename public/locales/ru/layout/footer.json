@@ -1,0 +1,34 @@
+{
+  "citeMap": {
+    "title": "Карта сайта",
+    "about_us": "О нас",
+    "sell_on": "Продавать на Tbuy",
+    "news": "Новости",
+    "sale": "Распродажа",
+    "help": "Помощь",
+    "support": "Обратная связь",
+    "colleagues": "Коллеги"
+  },
+  "info": {
+    "title": "Информация",
+    "how_buy": "Как делать покупки?",
+    "public_agreement": "Публичное соглашение",
+    "website_terms": "Условия веб-сайта",
+    "privacy_policy": "Политика конфиденциальности",
+    "payment_method": "Метод оплаты",
+    "become_partner": "Стать партнером",
+    "agreement": "Соглашение"
+  },
+  "terms": {
+    "title": "Условия",
+    "return_policy": "14-дневная политика возврата",
+    "free_shipping": "Бесплатная доставка",
+    "installment_plan": "Рассрочка онлайн",
+    "warranty_service": "Гарантийное обслуживание",
+    "delivery_terms": "Условия доставки",
+    "return_conditions": "Условия возврата"
+  },
+  "subscribe": "Подписаться",
+  "your_email": "Ваша электронная почта",
+  "download_app": "Скачать приложение"
+}

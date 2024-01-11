@@ -1,0 +1,55 @@
+@import "@/styles/vars.scss";
+
+.organizations {
+  margin-top: 30px;
+
+  &__title {
+    margin-bottom: 30px;
+    a {
+      text-decoration: none !important;
+      pointer-events: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__slider {
+    .slider__mobile_slide {
+      @media screen and (max-width: 500px) {
+        border: 1px solid $grey-1;
+        margin-right: 0px !important;
+        padding-bottom: 0px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3px;
+        flex-grow: 1;
+
+        .mobile_slide__checkbox {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding: 5px 12px;
+
+          label {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .desktop_item {
+    @media screen and (max-width: 500px) {
+      display: none !important;
+    }
+  }
+}
+.mobile_slide__checkbox__item {
+  @media screen and (max-width: 500px) {
+    width: 100vw !important;
+    transform: translateX(0%);
+  }
+}

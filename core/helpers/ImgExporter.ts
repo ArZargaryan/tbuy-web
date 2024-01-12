@@ -117,6 +117,7 @@ import DownArrow from "@public/pictures/icons/down-arrow.svg";
 import SumSign from "@public/pictures/icons/sumSigns.svg";
 import MinusSign from "@public/pictures/icons/minusSign.svg"
 import LogoExample from "@public/pictures/icons/logoExample.svg"
+import DoubleLeftBlue from "@public/pictures/arrows/leftDoubleArrow.svg"
 
 export class ImgExporter {
   static Icons = {
@@ -221,7 +222,8 @@ export class ImgExporter {
     Submit: SubmitArrow,
     ArrowRight: ArrowRightIcon,
     DoubleRight: DoubleRightIcon,
-    DoubleRightBlue: DoubleRightBlueIcon
+    DoubleRightBlue: DoubleRightBlueIcon,
+    DoubleLeftBlue: DoubleLeftBlue
   };
   static Flags = {
     Arm: ArmeniaFlag,

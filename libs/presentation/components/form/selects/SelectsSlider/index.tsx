@@ -15,6 +15,7 @@ function SelectsSlider(props: PropsWithChildren & SwiperProps) {
   const { children } = props;
 
   const navigationNextRef = React.useRef(null);
+  const navigationPrevRef = React.useRef(null);
   const { Arrows } = ImgExporter;
 
   const cls = classNames(styles.slider, props?.className);
@@ -32,17 +33,28 @@ function SelectsSlider(props: PropsWithChildren & SwiperProps) {
         onSwiper={(swiper) => console.log(swiper)}
         watchOverflow={true}
         navigation={{
-          nextEl: navigationNextRef.current
+          nextEl: navigationNextRef.current,
+          prevEl: navigationPrevRef.current
         }}
         onBeforeInit={({ params: { navigation } }) => {
           if (navigation && typeof navigation !== "boolean") {
             navigation.nextEl = navigationNextRef.current;
           }
         }}
+        onAfterInit={({ params: { navigation } }) => {
+          if (navigation && typeof navigation !== "boolean") {
+            navigation.prevEl = navigationPrevRef.current;
+          }
+        }}
         {...props}
         className={cls}
       >
         {children}
+        <div ref={navigationPrevRef} className={"swiper-button-prev"}>
+          <div className={"swiper-button-prev_img"}>
+            <Arrows.DoubleLeftBlue />
+          </div>
+        </div>
         <div ref={navigationNextRef} className={"swiper-button-next"}>
           <div className={"swiper-button-next_img"}>
             <Arrows.DoubleRightBlue />

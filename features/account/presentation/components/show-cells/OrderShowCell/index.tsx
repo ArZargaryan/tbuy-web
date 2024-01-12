@@ -125,7 +125,9 @@ function OrderShowCell(props: Props) {
             </div>
           </div>
           {product.buyerConfirmed ? (
-            <button className={`blue_text ${styles.actions__btn}`}>Ծանուցել նորից</button>
+            <a href="/">
+              <button className={`blue_text ${styles.actions__btn}`}>Ծանուցել նորից</button>
+            </a>
           ) : (
             <button
               className={`blue_text ${styles.actions__btn} ${styles.actions__btn_cancel}`}

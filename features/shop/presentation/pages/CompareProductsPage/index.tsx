@@ -58,7 +58,7 @@ function CompareProductsPage() {
                           <Icons.Close />
                         </button>
                         <div className={styles.product__img}>
-                          <img src="https://tbuy.run/imgs/prod_img/3203e90.webp" alt="" />
+                          <img src="https://cdn.thewirecutter.com/wp-content/media/2023/09/lcdledtv-2048px-tclQM8-2109-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=1024" alt="" />
                         </div>
                         <div className={`${styles.product__model} ${styles.px}`}>
                           LED Հեռուստացույց HIESNSE 325487

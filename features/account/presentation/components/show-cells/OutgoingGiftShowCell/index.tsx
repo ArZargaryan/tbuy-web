@@ -50,7 +50,9 @@ function OutgoingGiftShowCell(props: Props) {
         </div>
 
         <div className={styles.info__actions}>
-          <button className={`blue_text ${styles.actions__gift_card}`}>Ծանուցել նորից</button>
+          <a href="/">
+            <button className={`blue_text ${styles.actions__gift_card}`}>Ծանուցել նորից</button>
+          </a>
         </div>
       </div>
     </div>

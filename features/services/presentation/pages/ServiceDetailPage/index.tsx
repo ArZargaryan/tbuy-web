@@ -61,35 +61,37 @@ function ProductDetailPage() {
     category: { label: "Sample Category" },
     linkUrl: "/sample-product",
     images: [
-      { original: "https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800" },
-      { original: "image_url_2.jpg" },
+      {
+        original:
+          "https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      { original: "image_url_2.jpg" }
     ],
     rating: 4.5,
     price: { price: 5000, currency: "AMD" },
     exchanges: [
       { rate: 1.2, currency: "USD" },
-      { rate: 0.8, currency: "EUR" },
+      { rate: 0.8, currency: "EUR" }
     ],
     wholesales: [
       { price: 4500, fromAmount: 10, fromAmountText: "10 units" },
-      { price: 4000, fromAmount: 20, fromAmountText: "20 units" },
+      { price: 4000, fromAmount: 20, fromAmountText: "20 units" }
     ],
     company: {
       name: "Sample Company",
-      phones: ["123-456-7890", "987-654-3210"],
-    },
+      phones: ["123-456-7890", "987-654-3210"]
+    }
   };
-
 
   const suggestedProducts = [
     {
       id: "1",
-      title: "Suggested Product 1",
+      title: "Suggested Product 1"
     },
     {
       id: "2",
-      title: "Suggested Product 2",
-    },
+      title: "Suggested Product 2"
+    }
   ];
 
   const reviews = [
@@ -97,16 +99,15 @@ function ProductDetailPage() {
       id: "1",
       user: "John Doe",
       rating: 4,
-      comment: "Great product!",
+      comment: "Great product!"
     },
     {
       id: "2",
       user: "Jane Smith",
       rating: 5,
-      comment: "Excellent service!",
-    },
+      comment: "Excellent service!"
+    }
   ];
-  
 
   return (
     <ProductDetailLayout>
@@ -135,7 +136,7 @@ function ProductDetailPage() {
                     <button className={styles.btn}>
                       <Icons.Heart />
                     </button>
-                    <button className={styles.btn}>
+                    <button className={styles.btn1}>
                       <Icons.Compare />
                     </button>
                   </div>

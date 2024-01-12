@@ -122,7 +122,7 @@ function ProductCard({
 
         <div className={styles.productCard__desc_footer}>
           <div className={styles.productCard__desc_footer_manufacturer}>
-            <Link href={`/organizations`}>
+            <Link href={`/legal_partner`}>
               <Icons.LogoExample />
             </Link>
             {/* <Shimmer height={32} width={400} className={styles.shimmer} /> */}

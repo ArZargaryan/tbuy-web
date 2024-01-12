@@ -103,7 +103,7 @@
     }
 
     &__img {
-      width: 240px;
+      width: 310px;
       height: 240px;
       @include img(cover);
       margin-bottom: 20px;
@@ -137,7 +137,8 @@
             fill: #fff;
             stroke: #fff;
           }
-          margin-right: 10px;
+          // margin-right: -10px;
+          width: 35px;
         }
         &:hover {
           svg {
@@ -195,8 +196,8 @@
 
     .product {
       &__img {
-        width: 220px;
-        height: 220px;
+        width: 310px !important;
+        height: 250px;
       }
 
       &__model {

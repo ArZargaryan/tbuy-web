@@ -81,9 +81,7 @@ function CartGiftCardPage() {
               </div>
               <br />
               <div className={styles.controls__btns}>
-                <PrimaryButton>
-                  ՎՃԱՐԵԼ
-                </PrimaryButton>
+                <PrimaryButton>ՎՃԱՐԵԼ</PrimaryButton>
               </div>
             </div>
           </div>

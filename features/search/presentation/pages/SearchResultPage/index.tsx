@@ -74,7 +74,6 @@ function SearchResultPage() {
           <TbuyPagination count={5} />
         </div>
 
-        <CardSlider title={`Համանման ապրանքներ`} cards={items} isProducts />
       </div>
     </SearchLayout>
   );

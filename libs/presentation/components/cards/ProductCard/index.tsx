@@ -76,7 +76,7 @@ function ProductCard({
                     "https://eaqsljoklawqvumyxpio.supabase.co/storage/v1/object/public/Project%20Images/nver.khachatryan.y@gmail.com/b5e009a7-ed4a-45ad-a876-54df12261f64"
                   }
                   alt={imageSrc.original}
-                  width={290}
+                  width={333}
                   height={333}
                   className={styles.slide_img_blur}
                   style={{ position: "relative" }}

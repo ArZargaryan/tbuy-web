@@ -117,7 +117,7 @@ function ProductCategoriesSlider() {
       <div className={styles.slider}>
         <SelectsSlider        >
           <Swiper navigation>
-            <SwiperSlide style={{ paddingLeft: 30}}>
+            <SwiperSlide>
               <SelectCustom
                 activeSelect={assortmentActive}
                 onClick={() => setAssortmentActive((prev) => !prev)}

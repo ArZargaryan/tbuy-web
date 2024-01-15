@@ -14,6 +14,7 @@ import ProductCategoriesSlider from "@features/shop/presentation/pages/ProductsP
 import FiltersList from "@features/shop/presentation/components/Filters/FiltersList";
 
 import styles from "./products-page.module.scss";
+import ProductMainCategoriesSlider from "./components/ProductMainCategoriesSlider";
 
 function ProductsPage() {
   const { t } = useTranslation(["catalog/productspage", "common"]);
@@ -22,15 +23,23 @@ function ProductsPage() {
     <DefaultLayout>
       <div className={"container"}>
         <section className={styles.products_section}>
-          <TitleWithSort
-            sortItems={[
-              { id: 0, value: "Գինը ըստ նվազման" },
-              { id: 1, value: "Գինը ըստ նվազման" }
-            ]}
-            selectLabel={"Գինը ըստ նվազման"}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingTop: 30
+            }}
           >
-            {t("title")}
-          </TitleWithSort>
+            <ProductMainCategoriesSlider />
+            <TitleWithSort
+              sortItems={[
+                { id: 0, value: "Գինը ըստ նվազման" },
+                { id: 1, value: "Գինը ըստ նվազման" }
+              ]}
+              selectLabel={"Գինը ըստ նվազման"}
+            />
+          </div>
 
           <ProductCategoriesSlider />
           <FiltersList

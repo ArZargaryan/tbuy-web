@@ -1,13 +1,8 @@
 @import "@/styles/vars.scss";
 
 .block {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   word-wrap: break-word;
   grid-gap: 40px;
-  margin-top: 30px;
-  margin-bottom: 20px;
   .title {
     display: block;
     color: $black;
@@ -93,7 +88,8 @@
 .form {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
+  width: '100%';
 
   img {
     cursor: pointer;

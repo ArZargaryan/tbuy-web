@@ -17,6 +17,7 @@ import CalendarIcon from "@public/pictures/icons/calendar.svg";
 import ArrowRightIcon from "@public/pictures/arrows/right-arrow.svg";
 import DoubleRightIcon from "@public/pictures/arrows/right-double-arrow.svg";
 import DoubleRightBlueIcon from "@public/pictures/arrows/right-double-arrow-blue.svg";
+import DoubleLeftIcon from "@public/pictures/arrows/left-double-arrow.svg"
 import CrossIcon from "@public/pictures/icons/cross.svg";
 import EyeIcon from "@public/pictures/icons/eye.svg";
 import BuyerIcon from "@public/pictures/icons/buyer.svg";
@@ -117,7 +118,6 @@ import DownArrow from "@public/pictures/icons/down-arrow.svg";
 import SumSign from "@public/pictures/icons/sumSigns.svg";
 import MinusSign from "@public/pictures/icons/minusSign.svg"
 import LogoExample from "@public/pictures/icons/logoExample.svg"
-import DoubleLeftBlue from "@public/pictures/arrows/leftDoubleArrow.svg"
 
 export class ImgExporter {
   static Icons = {
@@ -223,7 +223,7 @@ export class ImgExporter {
     ArrowRight: ArrowRightIcon,
     DoubleRight: DoubleRightIcon,
     DoubleRightBlue: DoubleRightBlueIcon,
-    DoubleLeftBlue: DoubleLeftBlue
+    DoubleLeftIcon: DoubleLeftIcon
   };
   static Flags = {
     Arm: ArmeniaFlag,

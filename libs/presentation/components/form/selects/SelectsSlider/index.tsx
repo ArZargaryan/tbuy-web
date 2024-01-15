@@ -40,8 +40,6 @@ function SelectsSlider(props: PropsWithChildren & SwiperProps) {
           if (navigation && typeof navigation !== "boolean") {
             navigation.nextEl = navigationNextRef.current;
           }
-        }}
-        onAfterInit={({ params: { navigation } }) => {
           if (navigation && typeof navigation !== "boolean") {
             navigation.prevEl = navigationPrevRef.current;
           }
@@ -52,12 +50,12 @@ function SelectsSlider(props: PropsWithChildren & SwiperProps) {
         {children}
         <div ref={navigationPrevRef} className={"swiper-button-prev"}>
           <div className={"swiper-button-prev_img"}>
-            <Arrows.DoubleLeftBlue />
+            <Arrows.DoubleLeftIcon />
           </div>
         </div>
         <div ref={navigationNextRef} className={"swiper-button-next"}>
           <div className={"swiper-button-next_img"}>
-            <Arrows.DoubleRightBlue />
+            <Arrows.DoubleRight />
           </div>
         </div>
       </Swiper>

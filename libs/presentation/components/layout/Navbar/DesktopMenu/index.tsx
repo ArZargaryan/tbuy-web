@@ -247,7 +247,7 @@ function DesktopMenu({ toggleActive }: Props) {
             <div className={styles.user__alert}></div>
           </div>
         </div>
-        <Link href="/compare_products" className={styles.navbar__sets_compare}>
+        {/* <Link href="/compare_products" className={styles.navbar__sets_compare}>
           <Badge badgeContent={1} color="primary">
             <Icons.Compare className={styles.navbar__sets_compare_icon} />
           </Badge>
@@ -256,7 +256,7 @@ function DesktopMenu({ toggleActive }: Props) {
           <Badge badgeContent={1} color="primary">
             <Icons.Heart className={styles.navbar__sets_favorites_icon} />
           </Badge>
-        </Link>
+        </Link> */}
         <div className={styles.navbar__sets_basket}>
           <div className={styles.navbar__sets_basket_btn}>
             <Tooltip

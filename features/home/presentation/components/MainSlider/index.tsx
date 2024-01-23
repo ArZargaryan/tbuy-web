@@ -33,7 +33,7 @@ function MainSlider({ banners, slides, loading }: Props) {
               className={`${styles.header__pictures_item} ${styles.header__pictures_item_banner}`}
             >
               <Link href={banner.url}>
-                <BlurImage
+                {/* <BlurImage
                   src={banner.image.currentImage}
                   alt={banner.image.currentImage}
                   blurHash={banner.image.blurHash}
@@ -41,7 +41,8 @@ function MainSlider({ banners, slides, loading }: Props) {
                   height={248}
                   imageClassName={styles.header__pictures_item_img}
                   loading="eager"
-                />
+                /> */}
+                <img src={banner.image.currentImage} className={styles.header__pictures_item_img}></img>
               </Link>
             </div>
           ))}
@@ -77,7 +78,7 @@ function MainSlider({ banners, slides, loading }: Props) {
             {slides.map((slide, i) => (
               <SwiperSlide key={`${slide}_${i}`}>
                 <Link href={slide.url} className={styles.header__slider_item}>
-                  <BlurImage
+                  {/* <BlurImage
                     src={slide.image.desktop}
                     alt={slide.image.desktop}
                     width={1050}
@@ -86,7 +87,8 @@ function MainSlider({ banners, slides, loading }: Props) {
                     imageClassName={styles.header__pictures_item_img}
                     loading="eager"
                     blurHash={slide.image.blurHash}
-                  />
+                  /> */}
+                  <img src={slide.image.currentImage} style={{height: 535}} className={styles.header__slider_item}></img>
                 </Link>
               </SwiperSlide>
             ))}

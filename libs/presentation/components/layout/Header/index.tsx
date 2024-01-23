@@ -45,9 +45,13 @@ function Header() {
             </span>
           </Link>
           <div className={styles.navbar__menu_sets}>
-            <Link href={"/"} className={styles.navbar__menu_sets_phone}>
-              <Icons.Phone className={styles.navbar__menu_sets_phone_icon} />
-              <span className={styles.navbar__menu_sets_phone_txt}>012-600-600</span>
+            <Link href={"/en/compare_products/"} className={styles.navbar__menu_sets_phone}>
+              <Icons.Compare className={styles.navbar__menu_sets_phone_icon} />
+              <span className={styles.navbar__menu_sets_phone_txt}>Համեմատել (2)</span>
+            </Link>
+            <Link href={"/account/favorite/"} className={styles.navbar__menu_sets_phone}>
+              <Icons.Heart className={styles.navbar__menu_sets_phone_icon} />
+              <span className={styles.navbar__menu_sets_phone_txt}>Հավանածներ (12)</span>
             </Link>
             <LanguageSelect />
           </div>

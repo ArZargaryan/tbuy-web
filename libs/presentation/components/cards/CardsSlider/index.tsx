@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Scrollbar } from "swiper";
+import { FreeMode, Navigation, Scrollbar, Autoplay} from "swiper";
 import { v4 as uuidv4 } from "uuid";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
@@ -56,7 +56,11 @@ function ProductCardSlider(props: Props) {
           <Swiper
             slidesPerView={5}
             speed={600}
-            modules={[Navigation, FreeMode, Scrollbar]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false
+            }}
+            modules={[Navigation, FreeMode, Scrollbar, Autoplay]}
             navigation={{
               prevEl: `#${prevArrowId}`,
               nextEl: `#${nextArrowId}`

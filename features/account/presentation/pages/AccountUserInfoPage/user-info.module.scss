@@ -74,6 +74,7 @@
 .block__actions {
   display: flex;
   grid-gap: 30px;
+  padding-bottom: 50px;
 
   @media screen and (max-width: 374px) {
     flex-direction: column;

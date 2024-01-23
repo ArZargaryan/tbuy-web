@@ -24,6 +24,7 @@ import {
   getProductReviews
 } from "@features/services/presentation/store/serviceDetailPageSlice";
 import styles from "./service-detail-page.module.scss";
+import VerticalCard from "@libs/presentation/components/cards/VerticalCard";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
@@ -232,7 +233,7 @@ function ProductDetailPage() {
             <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
 
             <div className={styles.mobile_similar_cards}>
-              <CardsSlider
+              <VerticalCard
                 title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
                 cards={suggestedProducts as any}
                 extraType={"short_550"}

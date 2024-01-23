@@ -20,6 +20,10 @@ import BlurImage from "@libs/presentation/components/elements/BlurImage";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
 
 import styles from "./HomePage.module.scss";
+import { Product } from "@libs/domain/model/product";
+import { VacancyShort } from "@libs/domain/model/vacancy";
+import { Service } from "@libs/domain/model/service";
+import { Category } from "@libs/domain/model/category";
 
 function HomePage() {
   const {
@@ -36,23 +40,406 @@ function HomePage() {
     dispatch(getHomeData(locale as Lang));
   }, [dispatch, locale]);
 
+  const fakeHomeBanner = [
+    {
+      id: 1,
+      image: {
+        desktop:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        mobile: "https://example.com",
+        blurHash: "",
+        currentImage:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      },
+      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+    },
+    {
+      id: 2,
+      image: {
+        desktop:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        mobile: "https://example.com",
+        blurHash: "",
+        currentImage:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      },
+      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+    },
+    {
+      id: 3,
+      image: {
+        desktop:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        mobile: "https://example.com",
+        blurHash: "",
+        currentImage:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      },
+      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+    }
+  ];
+
+  const fakeHomeSlides = [
+    {
+      id: 1,
+      image: {
+        desktop:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        mobile: "https://example.com",
+        blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
+        currentImage:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      },
+      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+    },
+    {
+      id: 2,
+      image: {
+        desktop:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        mobile: "https://example.com",
+        blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
+        currentImage:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      },
+      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+    },
+    {
+      id: 3,
+      image: {
+        desktop:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        mobile: "https://example.com",
+        blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
+        currentImage:
+          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      },
+      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+    }
+  ];
+
+  const fakeProducts: Product[] = [
+    new Product({
+      id: 1,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: true,
+      company: { id: 101, name: "Company A", logo: "" },
+      price: 50,
+      discountPrice: 40
+      // discount: 20,
+    }),
+    new Product({
+      id: 2,
+      title: "Product 2",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: true,
+      addedToCompare: false,
+      company: { id: 102, name: "Company B", logo: "" },
+      price: 75,
+      discountPrice: 60
+      // discount: 20,
+    }),
+    // Add more products as needed
+    new Product({
+      id: 3,
+      title: "Product 3",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: true,
+      addedToCompare: false,
+      company: { id: 102, name: "Company B", logo: "" },
+      price: 75,
+      discountPrice: 60
+      // discount: 20,
+    }),
+    new Product({
+      id: 4,
+      title: "Product 4",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: true,
+      addedToCompare: false,
+      company: { id: 102, name: "Company B", logo: "" },
+      price: 75,
+      discountPrice: 60
+      // discount: 20,
+    }),
+    new Product({
+      id: 4,
+      title: "Product 4",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: true,
+      addedToCompare: false,
+      company: { id: 102, name: "Company B", logo: "" },
+      price: 75,
+      discountPrice: 60
+      // discount: 20,
+    })
+  ];
+
+  const fakeVacansy: VacancyShort[] = [
+    new VacancyShort({
+      id: 1,
+      title: "Product 1",
+      shortDesc: "hello",
+      location: "Masis",
+      date: "13 Մարտ 2024",
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new VacancyShort({
+      id: 2,
+      title: "Product 1",
+      shortDesc: "hello",
+      location: "Masis",
+      date: "13 Մարտ 2022",
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    // Add more products as needed
+    new VacancyShort({
+      id: 3,
+      title: "Product 1",
+      shortDesc: "hello",
+      location: "Masis",
+      date: "13 Մարտ 2022",
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new VacancyShort({
+      id: 4,
+      title: "Product 1",
+      shortDesc: "hello",
+      location: "Masis",
+      date: "13 Մարտ 2022",
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new VacancyShort({
+      id: 5,
+      title: "Product 1",
+      shortDesc: "hello",
+      location: "Masis",
+      date: "13 Մարտ 2022",
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    })
+  ];
+
+  const fakeService: Service[] = [
+    new Service({
+      id: 1,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
+      id: 2,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    // Add more products as needed
+    new Service({
+      id: 3,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
+      id: 4,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
+      id: 5,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    })
+  ];
+
+  const fakeCategories: Category[] = [
+    new Category({
+      id: 1,
+      label: 'Category 1',
+      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      numberOfSubcategories: 3,
+      subcategories: [
+        new Category({ id: 11, label: 'Subcategory 1-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+        new Category({ id: 12, label: 'Subcategory 1-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+        new Category({ id: 13, label: 'Subcategory 1-3', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+      ],
+    }),
+    new Category({
+      id: 2,
+      label: 'Category 2',
+      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      numberOfSubcategories: 2,
+      subcategories: [
+        new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+        new Category({ id: 22, label: 'Subcategory 2-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+      ],
+    }),
+    new Category({
+      id: 3,
+      label: 'Category 2',
+      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      numberOfSubcategories: 2,
+      subcategories: [
+        new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+        new Category({ id: 22, label: 'Subcategory 2-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+      ],
+    }),
+    new Category({
+      id: 4,
+      label: 'Category 2',
+      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      numberOfSubcategories: 2,
+      subcategories: [
+        new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+        new Category({ id: 22, label: 'Subcategory 2-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
+      ],
+    }),
+    // Add more categories as needed
+  ];
   return (
     <>
       <OGPMeta />
       <DefaultLayout>
-        <CategoryBar categories={categories} />
+        <CategoryBar categories={fakeCategories} />
         <div className={"container"}>
-          <TitleWithLink
+          {/* <TitleWithLink
             linkPath={"/"}
             linkText={`${t("see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
             {t("organizations")}
-          </TitleWithLink>
+          </TitleWithLink> */}
 
-          <CompaniesSlider companies={companies} loading={loading} />
+          {/* <CompaniesSlider companies={companies} loading={loading} /> */}
 
-          <MainSlider banners={banners} slides={slides} loading={loading} />
+          <MainSlider
+            banners={fakeHomeBanner as any}
+            slides={fakeHomeSlides as any}
+            loading={false}
+          />
 
           <TitleWithLink
             linkPath={`/services`}
@@ -61,22 +448,22 @@ function HomePage() {
           >
             {t("services")}
           </TitleWithLink>
-          <CardsList className={styles.section_margin} cards={services} loading={loading} />
+          <CardsList className={styles.section_margin} cards={fakeService} loading={false} />
 
           <TitleWithLink
             linkPath={`/products`}
             linkText={`${t("see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
-            {!!products?.length && products[0]?.title && products[0]?.title}
+            {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
           </TitleWithLink>
           <CardsList
             className={styles.section_margin}
-            cards={(!!products?.length && products[0].products) || []}
-            loading={loading}
+            cards={(!!fakeProducts?.length && fakeProducts) || []}
+            loading={false}
           />
 
-          {vacancies?.length && (
+          {fakeVacansy?.length && (
             <>
               <TitleWithLink
                 linkPath={"/vacancies"}
@@ -86,11 +473,11 @@ function HomePage() {
                 {t("vacancies")}
               </TitleWithLink>
 
-              <VacancySlider vacancies={vacancies} />
+              <VacancySlider vacancies={fakeVacansy} />
             </>
           )}
 
-          {(products || [1, 2, 3]).slice(1).map((productCategory, i) => (
+          {/* {(fakeProducts || [1, 2, 3]).slice(1).map((productCategory, i) => (
             <Fragment key={`${productCategory.id}_${i}`}>
               <TitleWithLink
                 linkPath={"/products"}
@@ -101,27 +488,31 @@ function HomePage() {
               </TitleWithLink>
               <CardsList
                 className={styles.section_margin}
-                cards={productCategory.products}
+                cards={productCategory as any}
                 loading={loading}
               />
             </Fragment>
-          ))}
+          ))} */}
 
           <div className={styles.suggestions}>
-            {!!banners &&
-              banners.slice(2, 4).map((banner, i) => (
+            {!!fakeHomeBanner &&
+              fakeHomeBanner.slice(0, 2).map((banner, i) => (
                 <Link
                   href={banner.url}
                   key={`${banner.url}_${i}`}
                   className={styles.suggestions__picture}
                 >
-                  <BlurImage
+                  {/* <BlurImage
                     src={banner.image.currentImage}
                     alt={banner.image.currentImage}
                     blurHash={banner.image.blurHash}
                     className={styles.suggestions__picture_img}
                     width={754}
                     height={384}
+                  /> */}
+                  <img
+                    src={banner.image.currentImage}
+                    className={styles.suggestions__picture_img}
                   />
                 </Link>
               ))}

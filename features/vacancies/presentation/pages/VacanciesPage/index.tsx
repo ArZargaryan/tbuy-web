@@ -8,9 +8,12 @@ import styles from "./vacancies-page.module.scss";
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import { useAppSelector } from "@core/store";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
+import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";
 
 function VacanciesPage() {
   const { items } = useAppSelector((state) => state.vacancies);
+  const [itemss, setItemss] = useState(items);
+  const [loading, setLoading] = useState(false);
 
   const [screenWidth, setScreenWidth] = useState<number | null>(null);
 
@@ -27,6 +30,14 @@ function VacanciesPage() {
       window.removeEventListener("resize", updateScreenWidth);
     };
   }, []);
+  const fetchMoreData = async () => {
+    setLoading(true);
+    setTimeout(() => {
+      setItemss((prevItems) => [...prevItems, ...prevItems]);
+    }, 3000);
+    setLoading(false);
+  };
+
   return (
     <DefaultLayout>
       <div className={"container"}>
@@ -46,7 +57,7 @@ function VacanciesPage() {
 
         <p className={`${styles.mobile_page_title_link}`}>Ստեղծել օնլայն ռեզյումե</p>
 
-        <CardsList cards={items} loading={false} />
+        <InfiniteCard cards={itemss} loading={loading} loadMore={fetchMoreData} />
       </div>
     </DefaultLayout>
   );

@@ -39,9 +39,9 @@ function FavoritePage() {
 
         <section className={styles.products_section}>
           <CardSlider title={`Համանման ապրանքներ`} cards={items} isProducts />
-          <Link href={"/"} className={`link ${styles.see_all}`}>
+          {/* <Link href={"/"} className={`link ${styles.see_all}`}>
             {t("see_all", { ns: "common" })}
-          </Link>
+          </Link> */}
         </section>
 
         <CardSlider title={`ՀԱՏՈՒԿ ԱՌԱՋԱՐԿՆԵՐ`} cards={items} isProducts />

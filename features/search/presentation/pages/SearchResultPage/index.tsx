@@ -16,11 +16,14 @@ import FiltersList from "@features/shop/presentation/components/Filters/FiltersL
 
 import styles from "./search-result.module.scss";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
+import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";
 
 function SearchResultPage() {
   const router = useRouter();
   const { q } = router.query;
   const { items } = useAppSelector((state) => state.search_result);
+  const [itemss, setItemss] = useState(items);
+  const [loading, setLoading] = useState(false);
 
   const [screenWidth, setScreenWidth] = useState<number | null>(null);
 
@@ -41,6 +44,14 @@ function SearchResultPage() {
   if (router.query?.company) {
     return <SearchResultByCompanyPage />;
   }
+
+  const fetchMoreData = async () => {
+    setLoading(true);
+    setTimeout(() => {
+      setItemss((prevItems) => [...prevItems, ...prevItems]);
+    }, 3000);
+    setLoading(false);
+  };
 
   return (
     <SearchLayout q={q as string}>
@@ -70,8 +81,8 @@ function SearchResultPage() {
 
         {/*mock loading*/}
         <div className={styles.list_section}>
-          <CardsList cards={items} loading={false} />
-          <TbuyPagination count={5} />
+          <InfiniteCard cards={itemss} loading={loading} loadMore={fetchMoreData} />
+          {/* <TbuyPagination count={5} /> */}
         </div>
 
       </div>

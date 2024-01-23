@@ -1,0 +1,140 @@
+@import "@/styles/vars.scss";
+
+.slider_container {
+  position: relative;
+  padding-bottom: 20px;
+  :global {
+    .slider_arrow {
+      @media screen and (max-width: 1500px) {
+        display: block !important;
+        top: 0 !important;
+        margin-top: 0 !important;
+
+        &_prev {
+          left: 0px;
+        }
+
+        &_next {
+          right: 0px;
+        }
+      }
+      @media screen and (max-width: 700px) {
+        border: none;
+        background: transparent;
+        box-shadow: none;
+
+        &_prev {
+          padding-left: 0;
+        }
+
+        &_next {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.products_slider {
+  padding-bottom: 90px !important;
+  margin-bottom: -80px;
+}
+
+.slider {
+  :global {
+    .swiper-scrollbar {
+      display: none;
+    }
+  }
+  &_title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 550px) {
+      font-size: 18px;
+      padding-top: 8px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.slide {
+  transition: all 0.2s linear;
+
+  &:hover {
+    transform: translateY(20px);
+  }
+}
+
+@mixin shortSlider() {
+  .slider_title {
+    display: block;
+  }
+
+  :global {
+    .slider_arrow {
+      display: none !important;
+    }
+
+    .swiper-scrollbar {
+      display: block !important;
+      border-radius: 0px !important;
+      width: 100% !important;
+      padding: 0 !important;
+      height: 3px !important;
+      background: #e8e8e8 !important;
+      bottom: 0;
+      left: 0;
+      &-drag {
+        border-radius: 0px !important;
+        height: 3px !important;
+        background: $blue-2;
+      }
+
+      @media screen and (min-width: 901px) {
+        display: none;
+      }
+    }
+  }
+}
+
+// extraTypes
+
+.short {
+  .slider {
+    padding-bottom: 10px;
+  }
+  @media screen and (max-width: 1500px) {
+    @include shortSlider;
+    margin-right: -30px;
+    padding-bottom: 30px;
+    :global {
+      .slider_arrow {
+        display: none !important;
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    margin-right: -15px;
+  }
+}
+
+.short_550 {
+  .slider_title + div {
+    padding-bottom: 80px;
+    margin-bottom: -80px;
+  }
+  @media screen and (max-width: 549px) {
+    @include shortSlider;
+    margin-right: -15px;
+
+    .slider_title + div {
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -90,52 +90,41 @@ function GeneralForm() {
         <FormError errors={errors} name={"email"} />
       </div>
       <div className={styles.block__field}>
-        <UploadFile
-          control={control}
-          {...register("passport")}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            e.target?.files && e.target.files.length && setValue("passport", e.target?.files[0])
-          }
-          label={"Անձնագրի պատճեն"}
-          withStar={false}
-        />
-        <FormError errors={errors} name={"passport"} />
-      </div>
-      <div className={styles.block__field}>
-        <UploadFile
-          control={control}
-          {...register("passport_with_face")}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            e.target?.files &&
-            e.target.files.length &&
-            setValue("passport_with_face", e.target?.files[0])
-          }
-          label={"Անձնագրի հետ սելֆի"}
-          withStar={false}
-        />
-        <FormError errors={errors} name={"passport_with_face"} />
-      </div>
-      <div className={styles.block__field}>
         <TextInput
           control={control}
           {...register("social_card")}
           inputProps={{
-            placeholder: `Սոց. քարտ`
+            placeholder: `Սեռ`
           }}
           defaultValue={socialCard}
         />
 
         <FormError errors={errors} name={"social_card"} />
       </div>
-      {(watchPassport || watchPassportWithFace) && (
-        <div className={styles.block__images}>
-          <FileImage file={watchPassport} onCancel={() => resetField("passport")} />
-          <FileImage
-            file={watchPassportWithFace}
-            onCancel={() => resetField("passport_with_face")}
-          />
-        </div>
-      )}
+      <div className={styles.block__field}>
+        <TextInput
+          control={control}
+          {...register("social_card")}
+          inputProps={{
+            placeholder: `տարիք`
+          }}
+          defaultValue={socialCard}
+        />
+
+        <FormError errors={errors} name={"social_card"} />
+      </div>
+      <div className={styles.block__field}>
+        <TextInput
+          control={control}
+          {...register("social_card")}
+          inputProps={{
+            placeholder: `էջեր`
+          }}
+          defaultValue={socialCard}
+        />
+
+        <FormError errors={errors} name={"social_card"} />
+      </div>
       <PrimaryButton>ՓՈՓՈԽԵԼ</PrimaryButton>
     </form>
   );

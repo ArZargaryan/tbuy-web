@@ -100,9 +100,14 @@
 
     &_phone {
       display: flex;
-      align-items: center;
       grid-gap: 6px;
 
+
+      svg {
+        path {
+          fill: #1D1D1D;
+        }
+      }
       &_icon {
         width: 24px;
         height: 24px;

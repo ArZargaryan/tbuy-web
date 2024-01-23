@@ -5,6 +5,11 @@
   padding: 20px 0px 20px 0px;
   margin-top: 80px;
   border-top: 1px solid $grey-1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3500;
 
   &__content {
     display: flex;

@@ -17,7 +17,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const TitleWithSort: FC<PropsWithChildren<Props>> = (props: Props) => {
-  const { sortItems } = props;
+  const { children, sortItems } = props;
   const [open, setOpen] = useState(false);
   const [chosenItem, setChosenItem] = React.useState<number>(0);
   const cls = classNames(styles.block, props.className);
@@ -36,6 +36,11 @@ const TitleWithSort: FC<PropsWithChildren<Props>> = (props: Props) => {
 
   return (
     <div {...props} className={cls}>
+      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <h2 className={styles.title}>{children}</h2>
+        <h2 className={styles.subtitle}>{'Տեսակ'}</h2>
+      </div>
+
       <div className={styles.form}>
         <Select
           open={open}

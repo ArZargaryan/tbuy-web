@@ -26,9 +26,9 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
 
 function CategoryBar(props: Props) {
   const { t } = useTranslation(["catalog/homepage", "catalog/categories", "common"]);
-  const { items, currSubcategory, loading } = useAppSelector(
-    (state) => state.libs_categories.categories
-  );
+  // const { items, currSubcategory, loading } = useAppSelector(
+  //   (state) => state.libs_categories.categories
+  // );
   const navigationNextRef = React.useRef(null);
 
   const [currentCategory, setCurrentCategory] = useState<number>();
@@ -47,29 +47,31 @@ function CategoryBar(props: Props) {
 
   const changeCategory = async (id: number) => {
     setCurrentCategory(id);
-    openPoppup(id);
+    // openPoppup(id);
   };
 
   const openPoppup = async (id: number) => {
-    if (id !== currentId) {
-      if (!items.find((item) => id === item.id)?.subcategories?.length) {
-        await getSubcategories(id);
-      }
-      if (items.find((item) => id === item.id)?.subcategories?.length) {
-        dispatch(setCurrSubcategory(items.find((item) => id === item.id)?.subcategories));
-      }
-      setCurrentId(id);
-      setPoppupOpened(true);
-    } else {
-      if (id === currentCategory) {
-        setPoppupOpened((prev) => !prev);
-      }
-    }
+    // if (id !== currentId) {
+    //   if (!items.find((item) => id === item.id)?.subcategories?.length) {
+    //     await getSubcategories(id);
+    //   }
+    //   if (items.find((item) => id === item.id)?.subcategories?.length) {
+    //     dispatch(setCurrSubcategory(items.find((item) => id === item.id)?.subcategories));
+    //   }
+    //   setCurrentId(id);
+    //   setPoppupOpened(true);
+    // } else {
+    //   if (id === currentCategory) {
+    //     setPoppupOpened((prev) => !prev);
+    //   }
+    // }
   };
 
   useEffect(() => {
     dispatch(getCategories({ lang: locale as Lang }));
   }, [dispatch, locale]);
+
+  // props.categpires should be changed to items
 
   return (
     <div {...props} className={styles.category_bar}>
@@ -89,7 +91,7 @@ function CategoryBar(props: Props) {
             swiper!.params!.navigation!.nextEl = navigationNextRef.current;
           }}
         >
-          {items?.map((category, i) => (
+          {props.categories?.map((category, i) => (
             <SwiperSlide key={`${category.label}_${i}`}>
               <button
                 type="button"
@@ -122,13 +124,13 @@ function CategoryBar(props: Props) {
           <img src="" alt="" className={styles.assortment__scrollBtn_icon} />
         </button>
 
-        {items.find((item) => item.id === currentCategory)?.subcategories && (
+        {props.categories.find((item) => item.id === currentCategory)?.subcategories && (
           <SubcategoriesPoppup
             active={poppupOpened}
-            items={items.find((item) => item.id === currentCategory)?.subcategories || []}
-            mobileItems={currSubcategory}
+            items={props.categories.find((item) => item.id === currentCategory)?.subcategories || []}
+            mobileItems={props.categories}
             onSubClick={openPoppup}
-            loading={loading}
+            loading={false}
           />
         )}
       </div>

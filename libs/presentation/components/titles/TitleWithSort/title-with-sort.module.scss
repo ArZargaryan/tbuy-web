@@ -1,8 +1,13 @@
 @import "@/styles/vars.scss";
 
 .block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   word-wrap: break-word;
   grid-gap: 40px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   .title {
     display: block;
     color: $black;
@@ -10,7 +15,18 @@
     font-size: 24px;
     font-weight: 600;
     flex-grow: 1;
-    width: 30%;
+    // width: 50%;
+    margin-right: 10px;
+  }
+  .subtitle {
+    display: block;
+    color: $black;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    flex-grow: 1;
+    // width: 30%;
+    margin-right: 10px;
   }
   .link {
     color: $blue;
@@ -89,7 +105,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  width: '100%';
+  width: "100%";
 
   img {
     cursor: pointer;

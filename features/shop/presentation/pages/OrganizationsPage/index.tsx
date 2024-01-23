@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAppSelector } from "@core/store";
 import DefaultLayout from "@layouts/default";
 
@@ -9,9 +9,20 @@ import CardsList from "@libs/presentation/components/cards/CardsList";
 import AlphabetFilter from "@libs/presentation/components/form/AlphabetFilter";
 
 import styles from "./organizations.module.scss";
+import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";
 
 function OrganizationsPage() {
   const { items, loading } = useAppSelector((state) => state.shop_organizations);
+  const [itemss, setItemss] = useState(items);
+  const [loadings, setLoadings] = useState(loading);
+
+  const fetchMoreData = async () => {
+    setLoadings(true);
+    setTimeout(() => {
+      setItemss((prevItems) => [...prevItems, ...prevItems]);
+    }, 3000);
+    setLoadings(false);
+  };
 
   return (
     <DefaultLayout>
@@ -25,7 +36,7 @@ function OrganizationsPage() {
 
         <AlphabetFilter style={{ marginBottom: 30 }} />
 
-        <CardsList cards={items} loading={loading} />
+        <InfiniteCard cards={itemss} loading={loadings} loadMore={fetchMoreData} />
       </div>
     </DefaultLayout>
   );

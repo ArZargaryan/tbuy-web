@@ -1,8 +1,14 @@
 .contacts_phone {
   display: flex;
-  align-items: center;
+  // align-items: center;
   gap: 10px;
-  margin-bottom: 12px;
+  width: fit-content;
+  margin-bottom: 14px;
+
+  svg {
+    display: flex;
+    align-items: center;
+  }
 
   span {
     max-width: calc(100% - 32px);

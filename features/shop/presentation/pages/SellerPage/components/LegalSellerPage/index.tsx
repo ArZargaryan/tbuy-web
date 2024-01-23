@@ -13,12 +13,14 @@ import StarsRating from "@libs/presentation/components/elements/StarsRating";
 import { map } from "lodash";
 import VacancySlider from "@libs/presentation/components/cards/VacancySlider";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 
 import dynamic from "next/dynamic";
 import MessageModal from "@libs/presentation/components/modals/MessageModal";
 import { useModal } from "@core/hooks/useModal";
 import PrimaryButton from "@core/button/primary";
+import Contacts from "../Contacts";
+import { Contact } from "@features/shop/presentation/store/aboutSellerPageSlice";
 const Video = dynamic(() => import("@libs/presentation/components/elements/Video"), { ssr: false });
 
 const { blob, Logos, Icons, Arrows } = ImgExporter;
@@ -26,6 +28,24 @@ const { blob, Logos, Icons, Arrows } = ImgExporter;
 //TODO: разбить ВСЁ на компоненты
 
 function LegalSellerPage() {
+  const contacts: Contact[] = [
+    {
+      type: 'email',
+      value: 'barev@gmail.com'
+    },
+    {
+      type: 'phone',
+      value: '+3741234567'
+    },
+    {
+      type: 'viber',
+      value: '+3741234567'
+    },
+    {
+      type: 'whatsapp',
+      value: '+3741234567'
+    },
+  ]
   const { products, services, vacancies } = useAppSelector((state) => state.shop_about_seller);
   const [openMessageModal, changeMessageModal] = useModal(false);
 
@@ -46,10 +66,7 @@ function LegalSellerPage() {
                       <StarsRating defaultValue={4} readOnly />
                     </div>
                     <div className={styles.info__mail}>
-                      <div className={styles.mail__icon}>
-                        <Icons.Mail />
-                      </div>
-                      <span>testuser@gmail.com</span>
+                      <Contacts contacts={contacts} className={styles.contacts__info} />
                     </div>
                     <div className={styles.info__links}>
                       <a href="" className={styles.links__link}>
@@ -91,9 +108,18 @@ function LegalSellerPage() {
               </div>
               {/*//Тут слайдер*/}
               <Swiper
-                modules={[Navigation]}
+                modules={[Pagination, Autoplay, Navigation]}
                 spaceBetween={50}
+                speed={1500}
                 slidesPerView={1}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false
+                }}
+                pagination={{
+                  el: `.${styles.pagination}`,
+                  clickable: true
+                }}
                 className={styles.header__swiper}
                 navigation={{
                   nextEl: ".seller_header_swiper_next",
@@ -312,7 +338,7 @@ function LegalSellerPage() {
         />
         {/*mock loading*/}
         <CardsList cards={products} loading={false} />
-        <TbuyPagination count={5} />
+        {/* <TbuyPagination count={5} /> */}
       </div>
 
       <div className={styles.legal_partner_services}>

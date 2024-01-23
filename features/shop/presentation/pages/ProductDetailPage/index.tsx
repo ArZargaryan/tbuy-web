@@ -26,6 +26,7 @@ import { Lang } from "@core/store/global";
 import { map } from "lodash";
 import CardsSlider from "@libs/presentation/components/cards/CardsSlider";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
+import VerticalCard from "@libs/presentation/components/cards/VerticalCard";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
@@ -53,64 +54,66 @@ function ProductDetailPage() {
     }
   };
 
+  const { gifts, similar_products } = useAppSelector((state) => state.cart_gift_cards);
+
   const product = {
     title: "Dummy Product",
     linkUrl: "https://example.com/product-details",
     category: {
-      label: "Electronics",
+      label: "Electronics"
     },
     images: [{ original: "https://example.com/image.jpg" }],
     rating: 4.2,
     price: {
       price: 150.99,
-      currency: "USD",
+      currency: "USD"
     },
     exchanges: [
       {
         currency: "USD",
-        rate: 1.2,
-      },
+        rate: 1.2
+      }
     ],
     wholesales: [
       {
         price: 120,
         fromAmountText: "From 10 units",
-        fromAmount: 10,
-      },
+        fromAmount: 10
+      }
     ],
     availability: [
       {
         availability: "In Stock",
-        location: "Warehouse A",
-      },
+        location: "Warehouse A"
+      }
     ],
     company: {
       type: "legal",
-      phones: ["123-456-7890"],
+      phones: ["123-456-7890"]
     },
     parameters: [
       {
         type: "color",
         values: [{ value: "Red", label: "Color Label" }],
-        image: "https://example.com/color-image.jpg",
-      },
+        image: "https://example.com/color-image.jpg"
+      }
     ],
     details: [
       {
         id: 1,
         label: "Detail Label",
-        value: "Detail Value",
-      },
-    ],
+        value: "Detail Value"
+      }
+    ]
   };
-  
+
   const suggestedProducts = [
     {
-      id: 2,
+      id: 1,
       title: "Suggested Product",
       price: {
         price: 120.99,
-        currency: "USD",
+        currency: "USD"
       },
       images: [{ original: "https://example.com/suggested-image.jpg" }],
       rating: 4.0,
@@ -122,23 +125,65 @@ function ProductDetailPage() {
         images: {
           background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
           largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg",
-        },
-      },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
     },
+    {
+      id: 2,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    }
   ];
-  
+
   const reviews = {
     totalItems: 20,
-    data: [
+    author: [
       {
         id: 1,
         user: "John Doe",
         comment: "This product is amazing!",
         rating: 5,
-        date: new Date().toISOString(),
-      },
-    ],
+        date: new Date().toISOString()
+      }
+    ]
   };
 
   // if (loading) {
@@ -247,7 +292,10 @@ function ProductDetailPage() {
                   </>
                 ))}
 
-                <ProductDetailForm companyType={product?.company?.type} data={product.parameters as any} />
+                <ProductDetailForm
+                  companyType={product?.company?.type}
+                  data={product.parameters as any}
+                />
 
                 <p className={`${styles.text} ${styles.mobile_none}`}>
                   <strong>Կիսվել</strong>
@@ -263,15 +311,15 @@ function ProductDetailPage() {
                   characteristics={product.details}
                 />
               </div>
+              <div className={styles.mobile_similar_cards}>
+                <VerticalCard
+                  title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
+                  cards={similar_products as any}
+                  extraType={"short_550"}
+                />
+              </div>
             </div>
-            <Reviews id={id as string} reviews={"reviews" as any} onPageChange={changeReviewPage} />
-            <div className={styles.mobile_similar_cards}>
-              <CardsSlider
-                title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
-                cards={suggestedProducts as any}
-                extraType={"short_550"}
-              />
-            </div>
+            <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
           </div>
           <div className={styles.layout__similar}>
             {suggestedProducts?.map((product, i) => (

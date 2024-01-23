@@ -18,22 +18,22 @@ function DownloadAppModal(props: Props) {
           To proceed with downloading the app, verification is required.
         </p>
         <div className={styles.hi}>
-          <div className={styles.bye}>
+          {/* <div className={styles.bye}>
             <p className={styles.download_modal__text}>Android</p>
             <MobileAppQr className={styles.download_modal__qr_image} />
-          </div>
+          </div> */}
 
           <div className={styles.bye}>
-            <p className={styles.download_modal__text}>IOS</p>
+            {/* <p className={styles.download_modal__text}>Lorem Ipsum</p> */}
             <MobileAppQr className={styles.download_modal__qr_image} />
           </div>
         </div>
-        {/* <button
+        <button
           className={`${styles.download_modal__btn} blue_btn`}
           onClick={(e) => !!props?.onClose && props?.onClose(e, "backdropClick")}
         >
           ՓԱԿԵԼ
-        </button> */}
+        </button>
       </>
     </Modal>
   );

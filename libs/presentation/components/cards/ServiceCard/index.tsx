@@ -33,9 +33,9 @@ function ServiceCard({ service }: { service: Service | GiftCard }) {
             <Link href={url}>
               <div className={styles.slide_img}>
                 <BlurImage
-                  src={'https://web.tbuy.am/_next/static/media/gift_card.51b44087.png'}
+                  src={"https://web.tbuy.am/_next/static/media/gift_card.51b44087.png"}
                   alt={imageSrc.original}
-                  blurHash={imageSrc.blurHash}
+                  blurHash={'Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6'}
                   width={300}
                   height={486}
                   className={styles.slide_img_blur}

@@ -44,12 +44,15 @@
 .layout {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   grid-gap: 32px;
-  margin-top: 30px;
-
+  
   &__content {
-    flex: 0 1 75%;
-    min-width: 0;
+    // flex: 0 1 100%;
+    // min-width: 0;
+
+    width: 100%;
+
     .content__product {
       display: flex;
       align-items: flex-start;
@@ -64,7 +67,7 @@
         padding-top: 20px;
 
         overflow: hidden;
-        flex: 0 1 56%;
+        flex: 0 1 90%;
         min-width: 0;
 
         .slider__wrapper {
@@ -91,7 +94,7 @@
             transition: all 0.1s linear;
 
             svg {
-              width: 27px;
+              width: 23px;
             }
 
             &:hover {
@@ -125,7 +128,7 @@
       }
 
       .product__info {
-        flex: 0 1 45%;
+        flex: 0 1 75%;
 
         .info__title {
           font-size: 24px;
@@ -286,7 +289,9 @@
 
     @media screen and (max-width: 1500px) {
       display: block;
-      margin-top: 30px;
+      // margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 

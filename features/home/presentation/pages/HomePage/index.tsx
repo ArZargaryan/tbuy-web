@@ -24,8 +24,11 @@ import { Product } from "@libs/domain/model/product";
 import { VacancyShort } from "@libs/domain/model/vacancy";
 import { Service } from "@libs/domain/model/service";
 import { Category } from "@libs/domain/model/category";
+import { ImgExporter } from "@core/helpers/ImgExporter";
 
 function HomePage() {
+  const { Icons } = ImgExporter;
+
   const {
     homeData: { companies, products, services, vacancies, banners, slides, categories },
     loading
@@ -134,7 +137,7 @@ function HomePage() {
       addedToCompare: true,
       company: { id: 101, name: "Company A", logo: "" },
       price: 50,
-      discountPrice: 40
+      // discountPrice: 40,
       // discount: 20,
     }),
     new Product({
@@ -152,7 +155,7 @@ function HomePage() {
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
       price: 75,
-      discountPrice: 60
+      // discountPrice: 60,
       // discount: 20,
     }),
     // Add more products as needed
@@ -171,7 +174,7 @@ function HomePage() {
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
       price: 75,
-      discountPrice: 60
+      // discountPrice: 60
       // discount: 20,
     }),
     new Product({
@@ -189,7 +192,7 @@ function HomePage() {
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
       price: 75,
-      discountPrice: 60
+      // discountPrice: 60
       // discount: 20,
     }),
     new Product({
@@ -207,7 +210,7 @@ function HomePage() {
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
       price: 75,
-      discountPrice: 60
+      // discountPrice: 60
       // discount: 20,
     })
   ];
@@ -379,7 +382,7 @@ function HomePage() {
     new Category({
       id: 1,
       label: 'Category 1',
-      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
       numberOfSubcategories: 3,
       subcategories: [
         new Category({ id: 11, label: 'Subcategory 1-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
@@ -390,7 +393,7 @@ function HomePage() {
     new Category({
       id: 2,
       label: 'Category 2',
-      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
         new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
@@ -400,7 +403,7 @@ function HomePage() {
     new Category({
       id: 3,
       label: 'Category 2',
-      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
         new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
@@ -410,7 +413,7 @@ function HomePage() {
     new Category({
       id: 4,
       label: 'Category 2',
-      icon: '<svg>...</svg>', // Replace with your SVG icon content
+      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
         new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),

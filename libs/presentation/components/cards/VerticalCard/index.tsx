@@ -50,7 +50,7 @@ function VerticalCard(props: Props) {
 
   return (
     <div {...props} className={cls}>
-      {/* {!!title && <h3 className={titleCls}>{title}</h3>} */}
+      {!!title && <h3 className={titleCls}>{title}</h3>}
       {prevArrowId && nextArrowId && (
         <div style={{ width: '100%', height: 1000, display: 'flex', flexDirection: 'column', overflowY: 'auto', paddingLeft: 10}}>
         {cards?.map((card, i) => {

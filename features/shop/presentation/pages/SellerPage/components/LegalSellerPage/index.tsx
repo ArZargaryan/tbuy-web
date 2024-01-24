@@ -139,14 +139,14 @@ function LegalSellerPage() {
                   <img src={blob.Promotion.src} />
                 </SwiperSlide>
 
-                <div className={styles.swiper__buttons}>
+                {/* <div className={styles.swiper__buttons}>
                   <button className={`${styles.buttons__prevButton} seller_header_swiper_prev`}>
                     <Arrows.Down />
                   </button>
                   <button className={`${styles.buttons__nextButton} seller_header_swiper_next`}>
                     <Arrows.Down />
                   </button>
-                </div>
+                </div> */}
               </Swiper>
             </div>
 

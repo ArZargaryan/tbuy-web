@@ -2,6 +2,7 @@ import React, { HTMLAttributes } from "react";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import { Contact } from "@features/shop/presentation/store/aboutSellerPageSlice";
 import styles from "./contacts.module.scss";
+import { ViberShareButton, WhatsappShareButton } from "react-share";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   contacts: Contact[];
@@ -14,6 +15,8 @@ const {
 
 function Contacts(props: Props) {
   const { contacts } = props;
+  const shareUrl = "http://github.com";
+  const title = "GitHub";
   return (
     <div {...props}>
       {contacts?.map((phone, i) => (
@@ -31,16 +34,19 @@ function Contacts(props: Props) {
             </a>
           )}
           {phone.type === "viber" && (
-            <a href="viber://chat/?number=%2B37412345676" className={styles.contacts_phone}>
+            <ViberShareButton title={title} url={shareUrl} className={styles.contacts_phone}>
               <Viber />
               <span>{phone.value}</span>
-            </a>
+            </ViberShareButton>
           )}
           {phone.type === "whatsapp" && (
-            <a href="viber://chat/?number=%2B37412345676" className={styles.contacts_phone}>
-              <WhatsApp />
-              <span>{phone.value}</span>
-            </a>
+            <>
+              <WhatsappShareButton title={title} url={shareUrl} className={styles.contacts_phone}>
+                {" "}
+                <WhatsApp />
+                 <span>{phone.value}</span>
+              </WhatsappShareButton>
+            </>
           )}
         </div>
       ))}

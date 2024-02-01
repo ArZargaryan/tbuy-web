@@ -73,13 +73,13 @@ function ProductCard({
                 /> */}
                 <img
                   src={
-                    "https://eaqsljoklawqvumyxpio.supabase.co/storage/v1/object/public/Project%20Images/nver.khachatryan.y@gmail.com/b5e009a7-ed4a-45ad-a876-54df12261f64"
+                    "https://m.media-amazon.com/images/W/MEDIAX_849526-T3/images/I/615EV2TABUL._AC_UL640_FMwebp_QL65_.jpg"
                   }
                   alt={imageSrc.original}
                   width={333}
-                  height={333}
+                  height={233}
                   className={styles.slide_img_blur}
-                  style={{ position: "relative" }}
+                  style={{ position: "relative", objectFit: 'contain' }}
                 />
                 <div
                   style={{

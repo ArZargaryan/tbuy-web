@@ -87,8 +87,15 @@ import ArmeniaFlag from "@public/pictures/flags/armenia.svg";
 import EngFlag from "@public/pictures/flags/eng.svg";
 import RusFlag from "@public/pictures/flags/rus.svg";
 
+// category
+import ElectronicsIcon from "@public/pictures/categories/electronics.svg";
+import TransportIcon from "@public/pictures/categories/transport.svg";
+import HouseIcon from "@public/pictures/categories/household-appliances.svg";
+import ConstructionIcon from "@public/pictures/categories/construction.svg";
+import WeaponsIcon from "@public/pictures/categories/weapons.svg";
+import BeautyIcon from "@public/pictures/categories/beauty.svg";
+
 // blob
-import CategoryIcon from "@public/pictures/categories/electronics.svg";
 import BlobFirstSuggestionImage from "@public/pictures/blob/ad_1.png";
 import BlobSecondSuggestionImage from "@public/pictures/blob/ad_2.png";
 import BlobThirdSuggestionImage from "@public/pictures/blob/ad_3.png";
@@ -116,8 +123,8 @@ import TbuyIcon from "@public/pictures/icons/tbuy_icon.svg";
 import MobileFilter from "@public/pictures/icons/mobile-filter.svg";
 import DownArrow from "@public/pictures/icons/down-arrow.svg";
 import SumSign from "@public/pictures/icons/sumSigns.svg";
-import MinusSign from "@public/pictures/icons/minusSign.svg"
-import LogoExample from "@public/pictures/icons/logoExample.svg"
+import MinusSign from "@public/pictures/icons/minusSign.svg";
+import LogoExample from "@public/pictures/icons/logoExample.svg";
 
 export class ImgExporter {
   static Icons = {
@@ -176,11 +183,16 @@ export class ImgExporter {
     Language: LanguageIcon,
     Success: SuccessIcon,
     Filter: FilterIcon,
-    TbuyIcon: TbuyIcon
+    TbuyIcon: TbuyIcon,
+    categoryIcon: ElectronicsIcon,
+    TransportIcon: TransportIcon,
+    HouseIcon: HouseIcon,
+    ConstructionIcon: ConstructionIcon,
+    WeaponsIcon: WeaponsIcon,
+    BeautyIcon: BeautyIcon,
   };
   static blob = {
     avatar: BlobAvatar,
-    categoryIcon: CategoryIcon,
     companyLogos: {
       first: BlobCompanyLogo,
       second: BlobCompanyLogo2

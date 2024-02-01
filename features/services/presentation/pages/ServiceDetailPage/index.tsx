@@ -86,12 +86,67 @@ function ProductDetailPage() {
 
   const suggestedProducts = [
     {
-      id: "1",
-      title: "Suggested Product 1"
+      id: 1,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
     },
     {
-      id: "2",
-      title: "Suggested Product 2"
+      id: 2,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
     }
   ];
 

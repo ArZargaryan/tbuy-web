@@ -35,14 +35,7 @@ function ProductsPage() {
     <DefaultLayout>
       <div className={"container"}>
         <section className={styles.products_section}>
-          {/* <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingTop: 30
-            }}
-          > */}
+
             {/* <ProductMainCategoriesSlider /> */}
             <TitleWithSort
               sortItems={[
@@ -54,7 +47,6 @@ function ProductsPage() {
               {" "}
               {t("title")}
             </TitleWithSort>
-          {/* </div> */}
 
           <ProductCategoriesSlider />
           <FiltersList

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./desktop-footer.module.scss";
 import FooterSelect from "@libs/presentation/components/layout/Footer/components/DesktopFooter/components/FooterSelect";
 import { useTranslation } from "next-i18next";
@@ -12,9 +12,27 @@ const { Arrows, Logos } = ImgExporter;
 function DesktopFooter() {
   const { t } = useTranslation(["layout/footer", "common"]);
   const links = useMemo(() => getFooterLinks(t), [t]);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [scrolledDown, setScrolledDown] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isScrolledDown = currentScrollY > prevScrollY;
+
+      setPrevScrollY(currentScrollY);
+      setScrolledDown(isScrolledDown);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollY]); 
+  
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${scrolledDown ? styles.footerHidden : ""}`}>
       <div className={`container ${styles.footer__content}`}>
         <div className={styles.content__routes}>
           <div className={styles.routes__select}>

@@ -53,7 +53,7 @@ function SubcategoriesPoppup({ active, items, mobileItems, onSubClick, loading, 
             onClick={() => onSubClick(listItem.id)}
             style={{ cursor: "pointer" }}
           >
-            <img src={listItem.icon} alt="" className={styles.list__link_icon} />
+            <img src={listItem.icon as string} alt="" className={styles.list__link_icon} />
             <span className={styles.list__link_txt}>{listItem.label}</span>
             {!!listItem.numberOfSubcategories && (
               <span className={styles.arrow}>
@@ -88,7 +88,7 @@ function SubcategoriesPoppup({ active, items, mobileItems, onSubClick, loading, 
                   className={styles.li__link}
                 >
                   <div className={styles.li__link_icon}>
-                    <img src={ImgExporter.blob.categoryIcon.src} alt="" />
+                    <img src={ImgExporter.Icons.categoryIcon.src} alt="" />
                   </div>
                   <span className={styles.li__link_txt}>{listItem.label}</span>
                   {!!listItem.numberOfSubcategories && (

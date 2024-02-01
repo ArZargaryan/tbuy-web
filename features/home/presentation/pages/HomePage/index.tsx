@@ -27,7 +27,7 @@ import { Category } from "@libs/domain/model/category";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
 function HomePage() {
-  const { Icons } = ImgExporter;
+  const { Icons, blob } = ImgExporter;
 
   const {
     homeData: { companies, products, services, vacancies, banners, slides, categories },
@@ -47,36 +47,30 @@ function HomePage() {
     {
       id: 1,
       image: {
-        desktop:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
     {
       id: 2,
       image: {
-        desktop:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
     {
       id: 3,
       image: {
-        desktop:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     }
@@ -86,36 +80,30 @@ function HomePage() {
     {
       id: 1,
       image: {
-        desktop:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
-        currentImage:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
     {
       id: 2,
       image: {
-        desktop:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
-        currentImage:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
     {
       id: 3,
       image: {
-        desktop:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
+        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
-        currentImage:
-          "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     }
@@ -136,7 +124,7 @@ function HomePage() {
       addedToFavorite: false,
       addedToCompare: true,
       company: { id: 101, name: "Company A", logo: "" },
-      price: 50,
+      price: 50
       // discountPrice: 40,
       // discount: 20,
     }),
@@ -154,7 +142,7 @@ function HomePage() {
       addedToFavorite: true,
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
-      price: 75,
+      price: 75
       // discountPrice: 60,
       // discount: 20,
     }),
@@ -173,7 +161,7 @@ function HomePage() {
       addedToFavorite: true,
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
-      price: 75,
+      price: 75
       // discountPrice: 60
       // discount: 20,
     }),
@@ -191,7 +179,7 @@ function HomePage() {
       addedToFavorite: true,
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
-      price: 75,
+      price: 75
       // discountPrice: 60
       // discount: 20,
     }),
@@ -209,7 +197,7 @@ function HomePage() {
       addedToFavorite: true,
       addedToCompare: false,
       company: { id: 102, name: "Company B", logo: "" },
-      price: 75,
+      price: 75
       // discountPrice: 60
       // discount: 20,
     })
@@ -287,8 +275,7 @@ function HomePage() {
         {
           original:
             "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
-          blurHash:
-            ""
+          blurHash: ""
         }
       ],
       addedToFavorite: false,
@@ -306,8 +293,7 @@ function HomePage() {
         {
           original:
             "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
-          blurHash:
-            ""
+          blurHash: ""
         }
       ],
       addedToFavorite: false,
@@ -326,8 +312,7 @@ function HomePage() {
         {
           original:
             "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
-          blurHash:
-            ""
+          blurHash: ""
         }
       ],
       addedToFavorite: false,
@@ -345,8 +330,7 @@ function HomePage() {
         {
           original:
             "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
-          blurHash:
-            ""
+          blurHash: ""
         }
       ],
       addedToFavorite: false,
@@ -364,8 +348,7 @@ function HomePage() {
         {
           original:
             "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
-          blurHash:
-            ""
+          blurHash: ""
         }
       ],
       addedToFavorite: false,
@@ -381,45 +364,99 @@ function HomePage() {
   const fakeCategories: Category[] = [
     new Category({
       id: 1,
-      label: 'Category 1',
-      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
+      label: "Category 1",
+      icon: (
+        <Icons.categoryIcon />
+      ), // Replace with your SVG icon content
       numberOfSubcategories: 3,
       subcategories: [
-        new Category({ id: 11, label: 'Subcategory 1-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-        new Category({ id: 12, label: 'Subcategory 1-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-        new Category({ id: 13, label: 'Subcategory 1-3', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-      ],
+        new Category({
+          id: 11,
+          label: "Subcategory 1-1",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 1
+        }),
+        new Category({
+          id: 12,
+          label: "Subcategory 1-2",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        }),
+        new Category({
+          id: 13,
+          label: "Subcategory 1-3",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        })
+      ]
     }),
     new Category({
       id: 2,
-      label: 'Category 2',
-      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
+      label: "Category 2",
+      icon: (
+       <Icons.HouseIcon />
+      
+      ), // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
-        new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-        new Category({ id: 22, label: 'Subcategory 2-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-      ],
+        new Category({
+          id: 21,
+          label: "Subcategory 2-1",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        }),
+        new Category({
+          id: 22,
+          label: "Subcategory 2-2",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        })
+      ]
     }),
     new Category({
       id: 3,
-      label: 'Category 2',
-      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
+      label: "Category 3",
+      icon: (
+       <Icons.ConstructionIcon />
+      ), // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
-        new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-        new Category({ id: 22, label: 'Subcategory 2-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-      ],
+        new Category({
+          id: 21,
+          label: "Subcategory 2-1",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        }),
+        new Category({
+          id: 22,
+          label: "Subcategory 2-2",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        })
+      ]
     }),
     new Category({
       id: 4,
-      label: 'Category 2',
-      icon: 'https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png', // Replace with your SVG icon content
+      label: "Category 2",
+      icon: (
+       <Icons.TransportIcon />
+      ), // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
-        new Category({ id: 21, label: 'Subcategory 2-1', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-        new Category({ id: 22, label: 'Subcategory 2-2', icon: '<svg>...</svg>', numberOfSubcategories: 0 }),
-      ],
-    }),
+        new Category({
+          id: 21,
+          label: "Subcategory 2-1",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        }),
+        new Category({
+          id: 22,
+          label: "Subcategory 2-2",
+          icon: "<svg>...</svg>",
+          numberOfSubcategories: 0
+        })
+      ]
+    })
     // Add more categories as needed
   ];
   return (

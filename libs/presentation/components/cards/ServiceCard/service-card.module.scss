@@ -78,6 +78,11 @@
     .slide_img {
       border: 1px solid $grey-1;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 233px;
+      // width: 333px;
       &_blur {
         &::before {
           content: "";

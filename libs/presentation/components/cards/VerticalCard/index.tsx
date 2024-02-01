@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Scrollbar } from "swiper";
 import { v4 as uuidv4 } from "uuid";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
@@ -52,8 +50,8 @@ function VerticalCard(props: Props) {
     <div {...props} className={cls}>
       {!!title && <h3 className={titleCls}>{title}</h3>}
       {prevArrowId && nextArrowId && (
-        <div style={{ width: '100%', height: 1000, display: 'flex', flexDirection: 'column', overflowY: 'auto', paddingLeft: 10}}>
-        {cards?.map((card, i) => {
+        <div style={{overflowY: "auto", height: 800}}>
+          {cards?.map((card, i) => {
             return (
               <div key={`${card.id}_${card.title}_${i}`}>
                 {card instanceof Service && <ServiceCard service={card} />}

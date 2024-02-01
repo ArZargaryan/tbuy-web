@@ -32,13 +32,14 @@ function ServiceCard({ service }: { service: Service | GiftCard }) {
           <SwiperSlide key={`${imageSrc}_${i}`}>
             <Link href={url}>
               <div className={styles.slide_img}>
-                <BlurImage
+                <img
                   src={"https://web.tbuy.am/_next/static/media/gift_card.51b44087.png"}
                   alt={imageSrc.original}
-                  blurHash={'Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6'}
-                  width={300}
-                  height={486}
+                  // blurHash={'Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6'}
+                  // width={333}
+                  height={233}
                   className={styles.slide_img_blur}
+                  style={{ position: "relative", objectFit: 'contain' }}
                 />
               </div>
             </Link>

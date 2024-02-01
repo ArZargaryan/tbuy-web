@@ -10,6 +10,7 @@
   left: 0;
   right: 0;
   z-index: 3500;
+  transition: transform 0.3s ease;
 
   &__content {
     display: flex;
@@ -77,6 +78,10 @@
   @media screen and (max-width: 800px) {
     display: none;
   }
+}
+
+.footerHidden {
+  transform: translateY(100%); 
 }
 
 .select__item {

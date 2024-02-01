@@ -99,7 +99,8 @@ function CategoryBar(props: Props) {
                 onClick={() => changeCategory(category.id)}
               >
                 {category?.icon && (
-                  <img src={category.icon} alt="" className={styles.menu__btn_icon} />
+                  // <img src={category?.icon as string} alt="" className={styles.menu__btn_icon} />
+                  category.icon
                 )}
                 <span
                   className={`${styles.menu__btn_txt} ${
@@ -127,7 +128,9 @@ function CategoryBar(props: Props) {
         {props.categories.find((item) => item.id === currentCategory)?.subcategories && (
           <SubcategoriesPoppup
             active={poppupOpened}
-            items={props.categories.find((item) => item.id === currentCategory)?.subcategories || []}
+            items={
+              props.categories.find((item) => item.id === currentCategory)?.subcategories || []
+            }
             mobileItems={props.categories}
             onSubClick={openPoppup}
             loading={false}

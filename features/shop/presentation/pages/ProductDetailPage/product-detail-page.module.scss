@@ -67,7 +67,8 @@
         padding-top: 20px;
 
         overflow: hidden;
-        flex: 0 1 90%;
+        // flex: 0 1 90%;
+        width: 40%;
         min-width: 0;
 
         .slider__wrapper {
@@ -128,7 +129,8 @@
       }
 
       .product__info {
-        flex: 0 1 75%;
+        // flex: 0 1 75%;
+        width: 40%;
 
         .info__title {
           font-size: 24px;
@@ -290,8 +292,9 @@
     @media screen and (max-width: 1500px) {
       display: block;
       // margin-top: 30px;
-      display: flex;
-      justify-content: flex-end;
+      // display: flex;
+      // justify-content: flex-end;
+      width: 20%;
     }
   }
 

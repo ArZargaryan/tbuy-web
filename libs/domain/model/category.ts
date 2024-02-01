@@ -1,7 +1,7 @@
 type CategoryEntity = {
   id: number;
   label: string;
-  icon: string; // SVG ICON
+  icon: string | JSX.Element; 
   numberOfSubcategories: number;
   subcategories?: Category[];
 };
@@ -9,7 +9,7 @@ type CategoryEntity = {
 export class Category implements CategoryEntity {
   id: number;
   label: string;
-  icon: string; // SVG ICON
+  icon: string | JSX.Element; 
   numberOfSubcategories: number;
   subcategories?: Category[];
 

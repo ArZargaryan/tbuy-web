@@ -24,10 +24,11 @@ type Props = {
   items: SelectItem[];
   checkBoxCircle?: boolean;
   poppupItemClassName?: string;
+  labelStyle?: React.CSSProperties; 
 } & SelectProps<number[]>;
 
 function SelectCheckbox(props: Props) {
-  const { label = "", items, handleChange } = props;
+  const { label = "", items, handleChange, labelStyle } = props;
   const [open, setOpen] = useState(false);
   const [choosedItems, setChoosedItems] = React.useState<number[]>([]);
 
@@ -63,7 +64,7 @@ function SelectCheckbox(props: Props) {
 
   return (
     <FormControl className={`${styles.form} ${props?.className}`}>
-      <label onClick={showSelection}>
+      <label onClick={showSelection} style={labelStyle}>
         {label}
         {!!choosedItems.length && <sup className={styles.label_sup}>{choosedItems.length}</sup>}
       </label>

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import Fade from "@mui/material/Fade";
@@ -16,6 +16,7 @@ type Props = Partial<PopperProps> & {
 function FooterSelect(props: Props) {
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const popperRef = React.useRef<HTMLDivElement>(null);
 
   const canBeOpen = open && Boolean(anchorEl);
   const id = canBeOpen ? "transition-popper" : undefined;
@@ -31,8 +32,22 @@ function FooterSelect(props: Props) {
 
   const { Arrows } = ImgExporter;
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (popperRef.current && !popperRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={popperRef}>
       <button aria-describedby={id} type="button" onClick={showSelect} className={styles.label}>
         {props.label}
         <Arrows.Down_blue className={imgCls} />

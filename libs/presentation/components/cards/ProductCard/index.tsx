@@ -76,20 +76,10 @@ function ProductCard({
                     "https://m.media-amazon.com/images/W/MEDIAX_849526-T3/images/I/615EV2TABUL._AC_UL640_FMwebp_QL65_.jpg"
                   }
                   alt={imageSrc.original}
-                  width={333}
-                  height={233}
-                  className={styles.slide_img_blur}
-                  style={{ position: "relative", objectFit: 'contain' }}
+                  className={styles.slide_img}
                 />
                 <div
-                  style={{
-                    position: "absolute",
-                    top: "5%",
-                    left: "5%",
-                    padding: "8px",
-                    background: "#2DC949",
-                    zIndex: 1
-                  }}
+                  className={styles.discount}
                 >
                   <h1 style={{ color: "white" }}>-10%</h1>
                 </div>

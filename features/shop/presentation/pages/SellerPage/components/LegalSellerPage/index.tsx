@@ -6,6 +6,7 @@ import CardsList from "@libs/presentation/components/cards/CardsList";
 import TbuyPagination from "@libs/presentation/components/elements/TbuyPagination";
 import { useAppSelector } from "@core/store";
 import CardsSlider from "@libs/presentation/components/cards/CardsSlider";
+import { Link } from "react-scroll";
 
 import styles from "../../about-seller.module.scss";
 import { ImgExporter } from "@core/helpers/ImgExporter";
@@ -30,24 +31,32 @@ const { blob, Logos, Icons, Arrows } = ImgExporter;
 function LegalSellerPage() {
   const contacts: Contact[] = [
     {
-      type: 'email',
-      value: 'barev@gmail.com'
+      type: "email",
+      value: "barev@gmail.com"
     },
     {
-      type: 'phone',
-      value: '+3741234567'
+      type: "phone",
+      value: "+3741234567"
     },
     {
-      type: 'viber',
-      value: '+3741234567'
+      type: "viber",
+      value: "+3741234567"
     },
     {
-      type: 'whatsapp',
-      value: '+3741234567'
-    },
-  ]
+      type: "whatsapp",
+      value: "+3741234567"
+    }
+  ];
   const { products, services, vacancies } = useAppSelector((state) => state.shop_about_seller);
   const [openMessageModal, changeMessageModal] = useModal(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className={styles.legal_partner}>
@@ -103,7 +112,9 @@ function LegalSellerPage() {
                     <Icons.Chat className={styles.button__icon} />
                     ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ
                   </PrimaryButton>
-                  <PrimaryButton className={`${styles.buttons__button}`} buttonStyle="outline">ԲՈՂՈՔԵԼ</PrimaryButton>
+                  <PrimaryButton className={`${styles.buttons__button}`} buttonStyle="outline">
+                    ԲՈՂՈՔԵԼ
+                  </PrimaryButton>
                 </div>
               </div>
               {/*//Тут слайдер*/}
@@ -157,19 +168,55 @@ function LegalSellerPage() {
                 freeMode
                 onSwiper={(swiper) => console.log(swiper)}
               >
-                <SwiperSlide className={`${styles.tabs__tab} ${styles.active}`}>
-                  Մասնաճյուղեր
+                <SwiperSlide
+                  className={`${styles.tabs__tab} ${styles.active}`}
+                  onClick={() => scrollToSection("showBranches")}
+                >
+                  <Link to="showBranches" spy={true} smooth={true} offset={-100} duration={500}>
+                    Մասնաճյուղեր
+                  </Link>
                 </SwiperSlide>
-                <SwiperSlide className={styles.tabs__tab}>Թափուր աշխատատեղեր</SwiperSlide>
-                <SwiperSlide className={styles.tabs__tab}>Տեսադարան</SwiperSlide>
-                <SwiperSlide className={styles.tabs__tab}>Վիդեոդարան</SwiperSlide>
-                <SwiperSlide className={styles.tabs__tab}>Տեսականի</SwiperSlide>
+                <SwiperSlide
+                  className={styles.tabs__tab}
+                  onClick={() => scrollToSection("openJobs")}
+                >
+                  {" "}
+                  <Link to="openJobs" spy={true} smooth={true} offset={-100} duration={500}>
+                    Թափուր աշխատատեղեր{" "}
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={styles.tabs__tab}
+                  onClick={() => scrollToSection("gallery")}
+                >
+                  {" "}
+                  <Link to="gallery" spy={true} smooth={true} offset={-100} duration={500}>
+                    Տեսադարան
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={styles.tabs__tab}
+                  onClick={() => scrollToSection("gallery")}
+                >
+                  {" "}
+                  <Link to="gallery" spy={true} smooth={true} offset={-100} duration={500}>
+                    Վիդեոդարան{" "}
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={styles.tabs__tab}
+                  onClick={() => scrollToSection("collection")}
+                >
+                  <Link to="collection" spy={true} smooth={true} offset={-100} duration={500}>
+                    Տեսականի{" "}
+                  </Link>
+                </SwiperSlide>
               </Swiper>
             </div>
 
             <div className={styles.company__body}>
               <div className={styles.body__content}>
-                <div className={styles.content__showBranches}>
+                <div className={styles.content__showBranches} id="showBranches">
                   <div className={styles.showBranches__box}>
                     <div className={`${styles.showBranches__title} title title_account`}>
                       Ցույց տալ բոլոր մասնաճյուղերը
@@ -234,11 +281,11 @@ function LegalSellerPage() {
         </div>
       </section>
 
-      <div className={styles.legal_partner_vacancies}>
+      <div className={styles.legal_partner_vacancies} id="openJobs">
         <h3 className={"title"}>ԹԱՓՈՒՐ ԱՇԽԱՏԱՏԵՂԵՐ</h3>
         <VacancySlider vacancies={vacancies || []} />
       </div>
-      <section className={styles.gallery}>
+      <section className={styles.gallery} id="gallery">
         <div className={styles.container}>
           <div className={styles.gallery__flexbox}>
             <div className={styles.flexbox__photo}>
@@ -322,7 +369,7 @@ function LegalSellerPage() {
         </div>
       </section>
 
-      <div className={styles.legal_partner_products}>
+      <div className={styles.legal_partner_products} id="collection">
         <TitleWithSort
           sortItems={[
             { id: 0, value: "Գինը ըստ նվազման" },

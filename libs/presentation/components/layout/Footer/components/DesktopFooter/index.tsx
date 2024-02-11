@@ -29,8 +29,8 @@ function DesktopFooter() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [prevScrollY]); 
-  
+  }, [prevScrollY]);
+
   return (
     <footer className={`${styles.footer} ${scrolledDown ? styles.footerHidden : ""}`}>
       <div className={`container ${styles.footer__content}`}>

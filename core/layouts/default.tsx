@@ -12,8 +12,11 @@ interface Props extends PropsWithChildren {
 const DefaultLayout: FC<Props> = ({ children, withoutFooter }) => {
   return (
     <>
-      <Header />
-      <Navbar />
+      <div style={{ position: "sticky", top: 0, zIndex: 3000 }}>
+        <Header />
+        <Navbar />
+      </div>
+
       <div className={"app_content"}>{children}</div>
       <MobileBottomBar />
       {!withoutFooter && <Footer pageWithMobileBar={true} />}

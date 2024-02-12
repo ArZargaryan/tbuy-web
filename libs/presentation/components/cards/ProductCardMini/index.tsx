@@ -36,7 +36,6 @@ function ProductCardMini({ product }: { product: Product | Service | GiftCard })
           }
           alt=""
         />
-        max-wi
         <button className={styles.product_image__to_cart}>
           <div>
             <Icons.Compare />
@@ -51,18 +50,25 @@ function ProductCardMini({ product }: { product: Product | Service | GiftCard })
 
         <div className={styles.info__purchase}>
           <div className={styles.purchase__price}>
-            {product instanceof Product && !!product.price && (
+            {/* {product instanceof Product && !!product.price && (
               <h4 className={`${product.discount ? styles.price__grey : styles.price}`}>
                 {product.price} AMD
               </h4>
             )}
             {product instanceof Product && !!product.discount && (
               <span className={styles.price}>{product.discount} AMD</span>
-            )}
+            )} */}
+            <h4 className={`${true ? styles.price__grey : styles.price}`}>{300} ֏</h4>
+            <span className={styles.price}>{599} ֏</span>
           </div>
 
           <div className={styles.purchase__company}>
-            <img src={product?.company?.logo} alt="" />
+            <img
+              src={
+                "https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=800"
+              }
+              alt=""
+            />
           </div>
         </div>
       </div>

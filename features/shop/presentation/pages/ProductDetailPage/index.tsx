@@ -170,6 +170,90 @@ function ProductDetailPage() {
           smallLogo: "https://example.com/small-logo.jpg"
         }
       }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
     }
   ];
 
@@ -311,13 +395,13 @@ function ProductDetailPage() {
                   characteristics={product.details}
                 />
               </div>
-              <div className={styles.mobile_similar_cards}>
+              {/* <div className={styles.mobile_similar_cards}>
                 <VerticalCard
                   title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
                   cards={similar_products as any}
                   extraType={"short_550"}
                 />
-              </div>
+              </div> */}
             </div>
             <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
           </div>

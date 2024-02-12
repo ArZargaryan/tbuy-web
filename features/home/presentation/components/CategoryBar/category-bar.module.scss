@@ -256,6 +256,8 @@
 .category_bar__content {
   display: flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
 
   .content__services {
     display: block;

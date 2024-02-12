@@ -30,7 +30,7 @@
         flex: 0 1 78%;
       }
       @media screen and (max-width: 1100px) {
-        flex: 0 1 100%;
+        flex: 0 1 65%;
 
         .routes__select {
           flex-grow: 1;
@@ -60,8 +60,7 @@
         }
       }
       @media screen and (max-width: 1100px) {
-        flex: 0 1 100%;
-        margin-top: 20px;
+        flex: 0 1 35%;
         .socials__links {
           gap: 20px;
         }
@@ -81,7 +80,7 @@
 }
 
 .footerHidden {
-  transform: translateY(100%); 
+  transform: translateY(100%);
 }
 
 .select__item {

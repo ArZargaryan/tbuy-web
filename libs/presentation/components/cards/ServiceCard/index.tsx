@@ -39,7 +39,7 @@ function ServiceCard({ service }: { service: Service | GiftCard }) {
                   // width={333}
                   height={233}
                   className={styles.slide_img_blur}
-                  style={{ position: "relative", objectFit: 'contain' }}
+                  style={{ position: "relative", objectFit: "contain" }}
                 />
               </div>
             </Link>
@@ -51,34 +51,37 @@ function ServiceCard({ service }: { service: Service | GiftCard }) {
           <h3 className={styles.serviceCard__desc_title}>{title}</h3>
         </Link>
 
-        <div
-          className={`${styles.serviceCard__desc_btns} ${styles.serviceCard__desc_btns_service}`}
-        >
-          <button type="button" className={styles.serviceCard__desc_btns_btn}>
-            <Icons.Heart
-              className={`${styles.serviceCard__desc_btns_btn_icon} ${
-                styles.serviceCard__desc_btns_btn_icon_heart
-              } ${
-                service.addedToFavorite ? styles.serviceCard__desc_btns_btn_icon_heart_active : ""
-              }`}
-            />
-          </button>
-          <button type="button" className={styles.serviceCard__desc_btns_btn}>
-            <Icons.Compare
-              className={`${styles.serviceCard__desc_btns_btn_icon} ${
-                styles.serviceCard__desc_btns_btn_icon_compare
-              } ${
-                service.addedToCompare ? styles.serviceCard__desc_btns_btn_icon_compare_active : ""
-              }`}
-            />
-          </button>
-        </div>
-
         <div className={styles.serviceCard__desc_footer}>
           <p className={styles.serviceCard__desc_footer_credit}></p>
           <div className={styles.serviceCard__desc_footer_manufacturer}>
             <Icons.LogoExample />
             {/* <Shimmer height={32} width={400} className={styles.shimmer} /> */}
+            <div
+              className={`${styles.serviceCard__desc_btns} ${styles.serviceCard__desc_btns_service}`}
+            >
+              <button type="button" className={styles.serviceCard__desc_btns_btn}>
+                <Icons.Heart
+                  className={`${styles.serviceCard__desc_btns_btn_icon} ${
+                    styles.serviceCard__desc_btns_btn_icon_heart
+                  } ${
+                    service.addedToFavorite
+                      ? styles.serviceCard__desc_btns_btn_icon_heart_active
+                      : ""
+                  }`}
+                />
+              </button>
+              <button type="button" className={styles.serviceCard__desc_btns_btn}>
+                <Icons.Compare
+                  className={`${styles.serviceCard__desc_btns_btn_icon} ${
+                    styles.serviceCard__desc_btns_btn_icon_compare
+                  } ${
+                    service.addedToCompare
+                      ? styles.serviceCard__desc_btns_btn_icon_compare_active
+                      : ""
+                  }`}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>

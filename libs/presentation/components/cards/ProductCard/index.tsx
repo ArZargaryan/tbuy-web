@@ -25,7 +25,7 @@ function ProductCard({
   extraType?: "" | "short" | "short_550";
 }) {
   const {
-    images,
+    // images,
     title,
     discount,
     price,
@@ -45,6 +45,13 @@ function ProductCard({
 
   const router = useRouterPrefetch();
 
+  const images: any = [
+    "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2F0Y2h8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0Y2h8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhdGNofGVufDB8fDB8fHww",
+    "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdhdGNofGVufDB8fDB8fHww"
+  ];
+
   return (
     <div className={cls}>
       {!!discount && <div className={styles.discount}>{discount}%</div>}
@@ -59,7 +66,7 @@ function ProductCard({
         </div>
       )}
       <Swiper slidesPerView={1} pagination={true} modules={[Pagination]}>
-        {images.map((imageSrc, i) => (
+        {images.map((imageSrc: string, i: string) => (
           <SwiperSlide key={`${imageSrc}_${i}`}>
             <Link href={`/products/${id}`}>
               <div className={styles.slide_img}>
@@ -72,15 +79,12 @@ function ProductCard({
                   className={styles.slide_img_blur}
                 /> */}
                 <img
-                  src={
-                    "https://m.media-amazon.com/images/W/MEDIAX_849526-T3/images/I/615EV2TABUL._AC_UL640_FMwebp_QL65_.jpg"
+                  src={imageSrc
                   }
-                  alt={imageSrc.original}
+                  alt={imageSrc}
                   className={styles.slide_img}
                 />
-                <div
-                  className={styles.discount}
-                >
+                <div className={styles.discount}>
                   <h1 style={{ color: "white" }}>-10%</h1>
                 </div>
               </div>
@@ -102,11 +106,11 @@ function ProductCard({
                   : styles.productCard__desc_footer_price_current
               }`}
             >
-              {price} AMD
+              {price} ֏
             </h4>
           )}
           {!discountPrice && (
-            <span className={styles.productCard__desc_footer_price_current}>{500} AMD</span>
+            <span className={styles.productCard__desc_footer_price_current}>{500} ֏</span>
           )}
         </div>
 

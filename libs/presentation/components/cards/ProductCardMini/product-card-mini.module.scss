@@ -16,6 +16,8 @@
     align-items: center;
     img {
       width: max-content;
+      height: 100%;
+      object-fit: cover;
       max-width: 100%;
       user-select: none;
     }
@@ -42,7 +44,7 @@
       transition: all 0.2s linear;
 
       svg {
-        opacity: 0.5;
+        // opacity: 0.5;
         width: 24px;
         margin-bottom: -2px;
       }

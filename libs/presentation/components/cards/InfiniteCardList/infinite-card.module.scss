@@ -1,136 +1,144 @@
 .product_card_list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    //justify-content: space-between;
-    margin-right: -1%;
-  
-    &__item {
-      position: relative;
-      max-width: 19%;
-      flex: 0 1 19%;
-      margin-bottom: 0.5%;
-      margin-right: 1%;
-  
-      &_vacancy {
-        flex: 0 1 24%;
-        max-width: 24%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  //justify-content: space-between;
+  margin-right: -1%;
+
+  &__item {
+    position: relative;
+    max-width: 19%;
+    flex: 0 1 19%;
+    margin-bottom: 0.5%;
+    margin-right: 1%;
+
+    &_vacancy {
+      flex: 0 1 24%;
+      max-width: 24%;
+      @media screen and (max-width: 1200px) {
+        max-width: 32.3% !important;
+        flex: 0 1 32.3% !important;
+      }
+      @media screen and (max-width: 800px) {
+        max-width: 48.6% !important;
+        flex: 0 1 48.6% !important;
+      }
+      @media screen and (max-width: 500px) {
+        max-width: 100% !important;
+        flex: 0 1 100% !important;
+        margin-bottom: 1%;
+        margin-right: 1% !important;
+      }
+    }
+
+    &_company {
+      flex: 0 1 15.6%;
+      max-width: 15.6%;
+      //@media screen and (max-width: 1200px) {
+      //  max-width: 32.3% !important;
+      //  flex: 0 1 32.3% !important;
+      //}
+      //@media screen and (max-width: 800px) {
+      //  max-width: 48.6% !important;
+      //  flex: 0 1 48.6% !important;
+      //}
+      //@media screen and (max-width: 500px) {
+      //  max-width: 100% !important;
+      //  flex: 0 1 100% !important;
+      //  margin-bottom: 1%;
+      //  margin-right: 1% !important;
+      //}
+    }
+
+    &_account_columns_4 {
+      flex: 0 1 24%;
+      max-width: 24%;
+      @media screen and (max-width: 1300px) {
+        max-width: 32.3% !important;
+        flex: 0 1 32.3% !important;
+      }
+      @media screen and (max-width: 1000px) {
+        max-width: 48.6% !important;
+        flex: 0 1 48.6% !important;
+      }
+      @media screen and (max-width: 800px) {
+        max-width: 32% !important;
+        flex: 0 1 32% !important;
+      }
+      @media screen and (max-width: 600px) {
+        max-width: 48.6% !important;
+        flex: 0 1 48.6% !important;
+      }
+      @media screen and (max-width: 340px) {
+        max-width: 48.6% !important;
+        flex: 0 1 48.6% !important;
+      }
+    }
+
+    :global {
+      .shimmer {
+        max-width: 100%;
+        height: 350px !important;
+
         @media screen and (max-width: 1200px) {
-          max-width: 32.3% !important;
-          flex: 0 1 32.3% !important;
+          height: 300px !important;
         }
+
+        @media screen and (max-width: 900px) {
+          height: 270px !important;
+        }
+
         @media screen and (max-width: 800px) {
-          max-width: 48.6% !important;
-          flex: 0 1 48.6% !important;
+          height: 300px !important;
         }
-        @media screen and (max-width: 500px) {
-          max-width: 100% !important;
-          flex: 0 1 100% !important;
-          margin-bottom: 1%;
-          margin-right: 1% !important;
-        }
-      }
-  
-      &_company {
-        flex: 0 1 15.6%;
-        max-width: 15.6%;
-        //@media screen and (max-width: 1200px) {
-        //  max-width: 32.3% !important;
-        //  flex: 0 1 32.3% !important;
-        //}
-        //@media screen and (max-width: 800px) {
-        //  max-width: 48.6% !important;
-        //  flex: 0 1 48.6% !important;
-        //}
-        //@media screen and (max-width: 500px) {
-        //  max-width: 100% !important;
-        //  flex: 0 1 100% !important;
-        //  margin-bottom: 1%;
-        //  margin-right: 1% !important;
-        //}
-      }
-  
-      &_account_columns_4 {
-        flex: 0 1 24%;
-        max-width: 24%;
-        @media screen and (max-width: 1300px) {
-          max-width: 32.3% !important;
-          flex: 0 1 32.3% !important;
-        }
-        @media screen and (max-width: 1000px) {
-          max-width: 48.6% !important;
-          flex: 0 1 48.6% !important;
-        }
-        @media screen and (max-width: 800px) {
-          max-width: 32% !important;
-          flex: 0 1 32% !important;
-        }
+
         @media screen and (max-width: 600px) {
-          max-width: 48.6% !important;
-          flex: 0 1 48.6% !important;
+          height: 270px !important;
         }
-        @media screen and (max-width: 340px) {
-          max-width: 48.6% !important;
-          flex: 0 1 48.6% !important;
-        }
-      }
-  
-      :global {
-        .shimmer {
-          max-width: 100%;
-          height: 350px !important;
-  
-          @media screen and (max-width: 1200px) {
-            height: 300px !important;
-          }
-  
-          @media screen and (max-width: 900px) {
-            height: 270px !important;
-          }
-  
-          @media screen and (max-width: 800px) {
-            height: 300px !important;
-          }
-  
-          @media screen and (max-width: 600px) {
-            height: 270px !important;
-          }
-  
-          @media screen and (max-width: 400px) {
-            height: 230px !important;
-          }
+
+        @media screen and (max-width: 400px) {
+          height: 230px !important;
         }
       }
-    }
-  
-    @media screen and (max-width: 1300px) {
-      &__item {
-        max-width: 24%;
-        flex: 0 1 24%;
-      }
-    }
-  
-    @media screen and (max-width: 800px) {
-      margin-right: -1.3333%;
-      &__item {
-        max-width: 32%;
-        flex: 0 1 32%;
-        margin-right: 1.3333%;
-      }
-    }
-  
-    @media screen and (max-width: 600px) {
-      margin-right: -1%;
-      &__item {
-        max-width: 49%;
-        flex: 0 1 49%;
-        margin-right: 1%;
-        margin-bottom: 2%;
-      }
-    }
-  
-    @media screen and (max-width: 340px) {
-      overflow: hidden;
     }
   }
-  
+
+  @media screen and (max-width: 1300px) {
+    &__item {
+      max-width: 24%;
+      flex: 0 1 24%;
+    }
+  }
+
+  @media screen and (max-width: 1080px) {
+    margin-right: -1.3333%;
+    &__item {
+      max-width: 32%;
+      flex: 0 1 32%;
+      margin-right: 1.3333%;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-right: -1.3333%;
+    &__item {
+      max-width: 32%;
+      flex: 0 1 32%;
+      margin-right: 1.3333%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    margin-right: -1%;
+    &__item {
+      max-width: 49%;
+      flex: 0 1 49%;
+      margin-right: 1%;
+      margin-bottom: 2%;
+    }
+  }
+
+  @media screen and (max-width: 340px) {
+    overflow: hidden;
+  }
+}

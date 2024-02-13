@@ -74,6 +74,7 @@ function MainSlider({ banners, slides, loading }: Props) {
               el: `.${styles.pagination}`,
               clickable: true
             }}
+            className={styles.header__slider_swiper}
           >
             {slides.map((slide, i) => (
               <SwiperSlide key={`${slide}_${i}`}>
@@ -88,7 +89,7 @@ function MainSlider({ banners, slides, loading }: Props) {
                     loading="eager"
                     blurHash={slide.image.blurHash}
                   /> */}
-                  <img src={slide.image.currentImage} style={{height: 535}} className={styles.header__slider_item}></img>
+                  <img src={slide.image.currentImage} className={styles.header__slider_item}></img>
                 </Link>
               </SwiperSlide>
             ))}

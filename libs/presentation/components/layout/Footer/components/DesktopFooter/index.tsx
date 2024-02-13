@@ -32,7 +32,7 @@ function DesktopFooter() {
   }, [prevScrollY]);
 
   return (
-    <footer className={`${styles.footer} ${scrolledDown ? styles.footerHidden : ""}`}>
+    <footer className={`${styles.footer} ${!scrolledDown ? styles.footerHidden : ""}`}>
       <div className={`container ${styles.footer__content}`}>
         <div className={styles.content__routes}>
           <div className={styles.routes__select}>

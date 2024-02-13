@@ -44,7 +44,7 @@
 .layout {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   grid-gap: 32px;
 
   &__content {

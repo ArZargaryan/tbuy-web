@@ -4,7 +4,7 @@ const { i18n } = require("./next-i18next.config");
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["tbuy.run", "tbuy.am"] // временные домены для теста
+    domains: ["tbuy.run", "tbuy.am", "web.tbuy.am"] // временные домены для теста
   },
   trailingSlash: true,
   i18n,

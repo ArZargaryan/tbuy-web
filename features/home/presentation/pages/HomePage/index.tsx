@@ -476,8 +476,8 @@ function HomePage() {
           {/* <CompaniesSlider companies={companies} loading={loading} /> */}
 
           <MainSlider
-            banners={fakeHomeBanner as any}
-            slides={fakeHomeSlides as any}
+            banners={fakeHomeBanner}
+            slides={fakeHomeSlides}
             loading={false}
           />
 
@@ -551,6 +551,9 @@ function HomePage() {
                     height={384}
                   /> */}
                   <img
+                    alt="img"
+                    width={1000}
+                    height={1000}
                     src={banner.image.currentImage}
                     className={styles.suggestions__picture_img}
                   />

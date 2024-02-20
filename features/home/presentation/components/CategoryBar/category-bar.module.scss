@@ -21,16 +21,14 @@
   }
 
   &__btn {
+    width: 100%;
     display: flex;
     align-items: center;
     padding: 10px 20px;
     position: relative;
     transition: 0.2s;
     background: #fafafa;
-    position: relative;
     z-index: 1020;
-
-    width: 100%;
 
     &:hover,
     &.active {
@@ -54,6 +52,7 @@
       width: 30px;
       height: 30px;
       margin-right: 5px;
+
       @media screen and (max-width: 900px) {
         display: none;
       }
@@ -73,11 +72,10 @@
     }
 
     @media screen and (max-width: 900px) {
+      height: 46px;
       font-size: 14px;
-      padding-left: 0px;
-      background: $grey !important;
-      padding-right: 0px;
-      padding: 8px 10px !important;
+      background: $grey;
+      padding: 8px 10px;
       margin-top: 7px;
 
       &::before {
@@ -255,19 +253,20 @@
 
 .category_bar__content {
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   .content__services {
-    display: block;
-    padding: 10px 20px;
-    padding-top: 14px;
+    display: flex;
+    align-items: center;
+    padding: 14px 20px 10px;
     text-align: right;
+
     @media screen and (max-width: 900px) {
+      height: 46px;
       font-size: 14px;
-      padding-left: 0px;
-      padding: 8px 10px !important;
+      padding: 8px 10px;
       margin-top: 7px;
       margin-right: 4px;
       background: $grey;
@@ -315,9 +314,5 @@
         display: none;
       }
     }
-  }
-
-  @media screen and (max-width: 900px) {
-    padding-right: 0px !important;
   }
 }

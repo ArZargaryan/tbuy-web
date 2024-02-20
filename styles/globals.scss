@@ -72,17 +72,21 @@ img {
 
 .container {
   max-width: 1660px;
-  padding: 0px 30px;
+  padding: 0 30px;
   width: 100%;
   margin: 0 auto;
 
   @media screen and (max-width: 800px) {
-    padding: 0px 15px;
+    padding: 0 15px;
   }
 }
 
 .app_content {
   min-height: 77vh;
+
+  @media screen and (min-width: 800px) {
+    padding-bottom: 50px;
+  }
 }
 
 .blue_btn {

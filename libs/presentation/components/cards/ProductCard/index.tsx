@@ -1,21 +1,18 @@
-import React, { useEffect, useMemo } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import classNames from "classnames";
-import { Shimmer } from "react-shimmer";
 import Link from "next/link";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
 import { Product } from "@libs/domain/model/product";
-import BlurImage from "@libs/presentation/components/elements/BlurImage";
 
 import styles from "./product-card.module.scss";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useRouterPrefetch from "@core/helpers/routerUtils";
 
 function ProductCard({
   product,
@@ -32,20 +29,17 @@ function ProductCard({
     discountPrice,
     id,
     addedToFavorite,
-    addedToCompare,
-    company
+    addedToCompare
   } = product;
 
-  const cls = classNames(styles.productCard, styles.productCard__slider, {
+  const cls = classNames(styles.product_card, {
     [styles.withButton]: extraType !== "short" && price,
     [styles[extraType]]: !!extraType.length
   });
 
   const { Icons } = ImgExporter;
 
-  const router = useRouterPrefetch();
-
-  const images: any = [
+  const images: string[] = [
     "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2F0Y2h8ZW58MHx8MHx8fDA%3D",
     "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0Y2h8ZW58MHx8MHx8fDA%3D",
     "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhdGNofGVufDB8fDB8fHww",
@@ -65,97 +59,77 @@ function ProductCard({
           </button>
         </div>
       )}
-      <Swiper slidesPerView={1} pagination={true} modules={[Pagination]}>
-        {images.map((imageSrc: string, i: string) => (
-          <SwiperSlide key={`${imageSrc}_${i}`}>
-            <Link href={`/products/${id}`}>
-              <div className={styles.slide_img}>
-                {/* <BlurImage
-                  src={imageSrc.original}
-                  alt={imageSrc.original}
-                  blurHash={imageSrc.blurHash}
-                  width={300}
-                  height={486}
-                  className={styles.slide_img_blur}
-                /> */}
-                <img
-                  src={imageSrc
-                  }
-                  alt={imageSrc}
-                  className={styles.slide_img}
-                />
-                <div className={styles.discount}>
-                  <h1 style={{ color: "white" }}>-10%</h1>
+      <div className={styles.image_section}>
+        <Swiper
+          slidesPerView={1}
+          pagination={true}
+          modules={[Pagination]}
+          className={styles.product_card__slider}
+        >
+          {images.map((imageSrc: string, idx: number) => (
+            <SwiperSlide key={`${imageSrc}_${idx}`}>
+              <Link href={`/products/${id}`}>
+                <div className={styles.slide_container}>
+                  {/* <BlurImage
+                    src={imageSrc.original}
+                    alt={imageSrc.original}
+                    blurHash={imageSrc.blurHash}
+                    width={300}
+                    height={486}
+                    className={styles.slide_img_blur}
+                  /> */}
+                  <img src={imageSrc} alt={imageSrc} className={styles.slide_img} />
                 </div>
-              </div>
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className={styles.productCard__desc}>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className={styles.discount_badge}>
+          <p className={styles.discount_text}>-10%</p>
+        </div>
+      </div>
+      <div className={styles.info_section}>
         <Link href={`/products/${id}`}>
-          <h3 className={styles.productCard__desc_title}>{title}</h3>
+          <h3 className={styles.title}>{title}</h3>
         </Link>
 
-        <div className={`${styles.productCard__desc_btns}`}>
+        <div className={styles.price_section}>
           {!!price && (
-            <h4
-              className={`${
-                !discountPrice
-                  ? styles.productCard__desc_footer_price_last
-                  : styles.productCard__desc_footer_price_current
-              }`}
-            >
+            <h4 className={`${discountPrice ? styles.current_price : styles.last_price}`}>
               {price} ֏
             </h4>
           )}
-          {!discountPrice && (
-            <span className={styles.productCard__desc_footer_price_current}>{500} ֏</span>
-          )}
+          {!discountPrice && <span className={styles.current_price}>{500} ֏</span>}
         </div>
 
-        <div className={styles.productCard__desc_footer}>
-          <div className={styles.productCard__desc_footer_manufacturer}>
+        <div className={styles.footer}>
+          <div className={styles.company}>
             <Link href={`/legal_partner`}>
               <Icons.LogoExample />
             </Link>
             {/* <Shimmer height={32} width={400} className={styles.shimmer} /> */}
           </div>
-          <p className={styles.productCard__desc_footer_credit}></p>
 
-          <div className={styles.productCard__desc_footer_price}>
-            <button type="button" className={styles.productCard__desc_btns_btn}>
+          <div className={styles.action_buttons}>
+            <button type="button" className={styles.button}>
               <Icons.Compare
-                className={`${styles.productCard__desc_btns_btn_icon} ${
-                  styles.productCard__desc_btns_btn_icon_compare
-                } ${addedToCompare ? styles.productCard__desc_btns_btn_icon_compare_active : ""}`}
+                className={`${styles.icon} ${styles.icon_compare} ${
+                  addedToCompare ? styles.icon_compare_active : ""
+                }`}
               />
             </button>
-            <button type="button" className={styles.productCard__desc_btns_btn}>
+            <button type="button" className={styles.button}>
               <Icons.Heart
-                className={`${styles.productCard__desc_btns_btn_icon} ${
-                  styles.productCard__desc_btns_btn_icon_heart
-                } ${addedToFavorite ? styles.productCard__desc_btns_btn_icon_heart_active : ""}`}
+                className={`${styles.icon} ${styles.icon_heart} ${
+                  addedToFavorite ? styles.icon_heart_active : ""
+                }`}
               />
             </button>
-            <button type="button" className={styles.productCard__desc_btns_btn}>
-              <div style={{ background: "#2463BF", padding: 9 }}>
-                <Icons.CartWhite
-                  className={`${styles.productCard__desc_btns_btn_icon} ${
-                    styles.productCard__desc_btns_btn_icon
-                  } ${
-                    addedToCompare ? styles.productCard__desc_btns_btn_icon_compare_active1 : ""
-                  }`}
-                />
-              </div>
+            <button type="button" className={`${styles.button} ${styles.cart_button}`}>
+              <Icons.CartWhite className={`${styles.icon} ${styles.cart_icon}`} />
             </button>
           </div>
         </div>
-
-        {/* <button type="button" className={styles.productCard__btn}>
-          <Icons.CartWhite className={styles.productCard__btn_icon} />
-          <span className={styles.productCard__btn_text}>ԱՎԵԼԱՑՆԵԼ ԶԱՄԲՅՈՒՂ</span>
-        </button> */}
       </div>
     </div>
   );

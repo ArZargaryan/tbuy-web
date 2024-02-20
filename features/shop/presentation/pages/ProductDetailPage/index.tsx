@@ -283,7 +283,7 @@ function ProductDetailPage() {
         url={product?.linkUrl}
       />
 
-      <ProductNav product={product as any} />
+      <ProductNav product={product as never} />
       <div className={`${styles.wrapper} container`}>
         <BreadCrumbs
           items={[

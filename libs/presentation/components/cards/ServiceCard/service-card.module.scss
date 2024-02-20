@@ -1,45 +1,10 @@
 @import "@styles/vars.scss";
 
-.serviceCard {
-  width: 100%;
-  max-width: 100%;
-  transition: 0.2s;
-  position: relative;
-  background: #fff;
-  max-height: fit-content;
+.service_card {
+  border: 1px solid $grey-1;
 
-  &__btn {
-    max-width: calc(100% - 20px);
-    margin: 20px auto 0;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    grid-gap: 12px;
-    background: $red-1;
-    transition: 0.3s;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 16px;
-    z-index: 1010;
-    opacity: 0;
-
-    &:hover {
-      box-shadow: 0px 10px 16px $red;
-      //transform: .3s;
-    }
-    &_icon {
-      width: 23px;
-    }
-    &_text {
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }
   &__slider {
-    position: relative;
-    z-index: 1010;
+    aspect-ratio: 1;
 
     :global {
       .swiper-pagination {
@@ -67,307 +32,125 @@
             background: #fff;
           }
         }
-
-        @media screen and (max-width: 700px) {
-          margin: 0;
-          margin-right: 5px;
-          margin-left: auto;
-        }
       }
     }
-    .slide_img {
-      border: 1px solid $grey-1;
-      border-bottom: none;
-      overflow: hidden;
+
+    .slide_container {
+      width: 100%;
+      height: 100%;
       display: flex;
-      align-items: center;
       justify-content: center;
-      height: 233px;
-      // width: 333px;
-      &_blur {
-        &::before {
-          content: "";
-          display: block;
-          width: 100%;
-          padding-top: 93%;
-        }
-        img {
-          top: 50%;
-          transform: translateY(-50%);
-        }
+      align-items: center;
+
+      .slide_img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
       }
     }
   }
-  &__desc {
-    border: 1px solid $grey-1;
-    border-top: none;
-    padding: 16px 6px;
-    position: relative;
-    z-index: 1020;
-    transition: 0.2s;
-    background: #fff;
 
-    &_title {
-      padding: 0px 8px;
-      font-size: 18px;
-      margin-bottom: 10px;
-      max-width: calc(100% - 38px);
-      height: 65px;
+  .info_section {
+    padding: 16px;
+
+    .title {
+      height: 38px;
+      font-size: 16px;
+      margin-bottom: 16px;
       overflow: hidden;
       word-wrap: break-word;
       white-space: break-spaces;
       text-overflow: ellipsis;
       display: -moz-box;
       display: -webkit-box;
-      line-clamp: 3;
+      line-clamp: 2;
       box-orient: vertical;
       -moz-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-
-      @media screen and (max-width: 900px) {
-        font-size: 16px;
-        height: 60px;
-      }
-      @media screen and (max-width: 710px) {
-        max-width: 100%;
-      }
-      @media screen and (max-width: 700px) {
-        height: 60px;
-      }
-      @media screen and (max-width: 450px) {
-        font-size: 14px;
-        height: 51px;
-      }
-      @media screen and (max-width: 450px) {
-        margin-bottom: 5px;
-      }
     }
-    &_btns {
-      z-index: 1120;
+
+    .footer {
       display: flex;
       justify-content: space-between;
-      grid-gap: 15px;
+      align-items: center;
 
-      &_service {
-        @media screen and (max-width: 700px) {
-          justify-content: flex-start !important;
-          padding-left: 6px !important;
-          margin-top: 30px !important;
-          margin-bottom: -50px !important;
-
-          .serviceCard__desc_btns_btn {
-            &_icon {
-              margin-bottom: 10px !important;
-            }
-          }
-        }
-        @media screen and (max-width: 340px) {
-          margin-top: 23px !important;
-        }
-      }
-
-      &_btn {
-        width: 26px;
-        height: 24px;
-        &_icon {
-          width: 100%;
-          height: 100%;
-          transition: all 0.1s linear;
-
-          path {
-            transition: all 0.1s linear;
-          }
-
-          &_heart {
-            &:hover,
-            &_active {
-              transform: scale(1.05);
-              path {
-                fill: $blue;
-              }
-            }
-          }
-
-          &_compare {
-            &:hover,
-            &_active {
-              transform: scale(1.05);
-              opacity: 0.65;
-              path {
-                fill: $blue;
-              }
-            }
-          }
-        }
-        @media screen and (max-width: 710px) {
-          width: 22px;
-          margin-bottom: 7px;
-        }
-        @media screen and (max-width: 550px) {
-          width: 24px;
-          height: 22px;
-        }
-        @media screen and (max-width: 450px) {
-          width: 22px;
-        }
-        @media screen and (max-width: 350px) {
-          width: 20px;
-        }
-      }
-
-      @media screen and (max-width: 710px) {
-        position: relative;
-        top: 0;
+      .company {
         display: flex;
-        justify-content: flex-end;
-      }
-    }
-    &_footer {
-      background: #fff;
-      position: relative;
-      z-index: 1020;
-
-      &_manufacturer {
-        width: 100%;
-        min-width: 84px;
-        height: 38px;
-        display: flex;
-        justify-content: space-between;
         align-items: center;
-        border-radius: 5px;
-        //margin-left: auto;
-        position: relative;
-        padding: 0px 8px;
 
-        img {
-          max-width: 90%;
-          max-height: 30px;
+        svg {
+          width: 75px;
+          height: 32px;
 
-          @media screen and (max-width: 500px) {
-            max-height: 25px;
+          @media screen and (max-width: 480px) {
+            width: 56px;
+            height: 24px;
           }
         }
-
-        .shimmer {
-          position: absolute;
-        }
-
-        .loaded_image + .shimmer {
-          display: none !important;
-        }
-
-        :global {
-          .shimmer {
-            max-width: 90%;
-            max-height: 30px;
-          }
-        }
-
-        @media screen and (max-width: 710px) {
-          position: absolute;
-          right: -0px;
-          bottom: -13px;
-        }
-        @media screen and (max-width: 600px) {
-          max-width: 50px;
-          min-width: 50px;
-          height: 33px;
-        }
       }
-      &_credit {
-        align-self: flex-end;
-        width: 100%;
-        @media screen and (max-width: 710px) {
-          display: none;
-        }
-      }
-      &_price {
+
+      .action_buttons {
         display: flex;
-        flex-wrap: wrap;
-        grid-gap: 12px;
-        grid-column: 1 / 3;
+        justify-content: center;
+        align-items: center;
 
-        &_last {
-          color: $grey-2;
-          text-decoration: line-through;
-          font-size: 18px;
-          @media screen and (max-width: 900px) {
-            font-size: 16px;
-            display: block;
+        .button {
+          width: 40px;
+          height: 40px;
+          margin-right: 8px;
+
+          &:nth-last-child(1) {
+            margin-right: 0;
           }
-          @media screen and (max-width: 400px) {
-            font-size: 12px;
-            margin-bottom: -5px;
+
+          .icon {
+            width: 26px;
+            height: 24px;
+            object-fit: contain;
+            object-position: center;
+            transition: all 0.1s linear;
+
+            &_heart {
+              &:hover,
+              &_active {
+                transform: scale(1.1);
+              }
+            }
+
+            &_compare {
+              &:hover,
+              &_active {
+                transform: scale(1.1);
+              }
+            }
+
+            @media screen and (max-width: 480px) {
+              width: 22px;
+              height: 22px;
+            }
           }
-          @media screen and (max-width: 350px) {
-            font-size: 11px;
+
+          @media screen and (max-width: 480px) {
+            width: 34px;
+            height: 34px;
+            margin-right: 4px;
           }
         }
-        &_current {
-          font-weight: bold;
-          font-size: 18px;
-          transition: 0.2s;
-          @media screen and (max-width: 900px) {
-            font-size: 16px;
-            margin-bottom: 5px;
-          }
-          @media screen and (max-width: 400px) {
-            font-size: 14px;
-          }
-          @media screen and (max-width: 350px) {
-            font-size: 13px;
-          }
-        }
-        @media screen and (max-width: 700px) {
-          position: absolute;
-          flex-direction: column;
-          bottom: -13px;
-        }
-      }
-      @media screen and (max-width: 715px) {
-        padding-bottom: 34px;
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        justify-content: space-between;
-        grid-gap: 0 12px;
-      }
-      @media screen and (max-width: 400px) {
-        margin-top: -10px;
       }
     }
-  }
-}
 
-.withButton {
-  &:hover {
-    box-shadow: 0px 10px 20px #0000001a;
-    transition: 0.2s;
-
-    z-index: 2000;
-
-    @media screen and (min-width: 751px) {
-      margin-bottom: -68px;
+    @media screen and (max-width: 900px) {
+      padding: 14px;
     }
-  }
 
-  &:hover .serviceCard__desc_footer_price_current {
-    transition: 0.2s;
-    color: $red-1;
-  }
-  &:hover .serviceCard__btn {
-    transition: 0.3s;
-    opacity: 1;
-
-    @media screen and (max-width: 750px) {
-      display: none;
+    @media screen and (max-width: 768px) {
+      padding: 10px;
     }
-  }
-  &:hover .serviceCard__desc {
-    transition: 0.2s;
 
-    @media screen and (min-width: 751px) {
-      padding-bottom: 84px;
+    @media screen and (max-width: 480px) {
+      padding: 8px;
     }
   }
 }

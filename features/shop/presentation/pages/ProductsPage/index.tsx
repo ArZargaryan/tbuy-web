@@ -1,20 +1,15 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import Link from "next/link";
 
 import { useAppSelector } from "@core/store";
 import DefaultLayout from "@layouts/default";
 
-import TbuyPagination from "@libs/presentation/components/elements/TbuyPagination";
-import CardSlider from "@libs/presentation/components/cards/CardsSlider";
 import TitleWithSort from "@libs/presentation/components/titles/TitleWithSort";
-import CardsList from "@libs/presentation/components/cards/CardsList";
 
 import ProductCategoriesSlider from "@features/shop/presentation/pages/ProductsPage/components/ProductCategoriesSlider";
 import FiltersList from "@features/shop/presentation/components/Filters/FiltersList";
 
 import styles from "./products-page.module.scss";
-import ProductMainCategoriesSlider from "./components/ProductMainCategoriesSlider";
 import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";
 
 function ProductsPage() {
@@ -35,18 +30,17 @@ function ProductsPage() {
     <DefaultLayout>
       <div className={"container"}>
         <section className={styles.products_section}>
-
-            {/* <ProductMainCategoriesSlider /> */}
-            <TitleWithSort
-              sortItems={[
-                { id: 0, value: "Գինը ըստ նվազման" },
-                { id: 1, value: "Գինը ըստ նվազման" }
-              ]}
-              selectLabel={"Գինը ըստ նվազման"}
-            >
-              {" "}
-              {t("title")}
-            </TitleWithSort>
+          {/* <ProductMainCategoriesSlider /> */}
+          <TitleWithSort
+            sortItems={[
+              { id: 0, value: "Գինը ըստ նվազման" },
+              { id: 1, value: "Գինը ըստ նվազման" }
+            ]}
+            selectLabel={"Գինը ըստ նվազման"}
+          >
+            {" "}
+            {t("title")}
+          </TitleWithSort>
 
           <ProductCategoriesSlider />
           <FiltersList

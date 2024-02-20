@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./desktop-footer.module.scss";
 import FooterSelect from "@libs/presentation/components/layout/Footer/components/DesktopFooter/components/FooterSelect";
 import { useTranslation } from "next-i18next";

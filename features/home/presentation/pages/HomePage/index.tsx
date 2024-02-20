@@ -130,7 +130,8 @@ function HomePage() {
     }),
     new Product({
       id: 2,
-      title: "Product 2",
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       images: [
         {
           original:
@@ -270,11 +271,17 @@ function HomePage() {
   const fakeService: Service[] = [
     new Service({
       id: 1,
-      title: "Product 1",
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       images: [
         {
           original:
-            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: ""
         }
       ],
@@ -288,11 +295,17 @@ function HomePage() {
     }),
     new Service({
       id: 2,
-      title: "Product 1",
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       images: [
         {
           original:
-            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: ""
         }
       ],
@@ -311,7 +324,12 @@ function HomePage() {
       images: [
         {
           original:
-            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: ""
         }
       ],
@@ -329,7 +347,12 @@ function HomePage() {
       images: [
         {
           original:
-            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: ""
         }
       ],
@@ -347,7 +370,12 @@ function HomePage() {
       images: [
         {
           original:
-            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: ""
         }
       ],
@@ -365,9 +393,7 @@ function HomePage() {
     new Category({
       id: 1,
       label: "Category 1",
-      icon: (
-        <Icons.categoryIcon />
-      ), // Replace with your SVG icon content
+      icon: <Icons.categoryIcon />, // Replace with your SVG icon content
       numberOfSubcategories: 3,
       subcategories: [
         new Category({
@@ -393,10 +419,7 @@ function HomePage() {
     new Category({
       id: 2,
       label: "Category 2",
-      icon: (
-       <Icons.HouseIcon />
-      
-      ), // Replace with your SVG icon content
+      icon: <Icons.HouseIcon />, // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
         new Category({
@@ -416,9 +439,7 @@ function HomePage() {
     new Category({
       id: 3,
       label: "Category 3",
-      icon: (
-       <Icons.ConstructionIcon />
-      ), // Replace with your SVG icon content
+      icon: <Icons.ConstructionIcon />, // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
         new Category({
@@ -438,9 +459,7 @@ function HomePage() {
     new Category({
       id: 4,
       label: "Category 2",
-      icon: (
-       <Icons.TransportIcon />
-      ), // Replace with your SVG icon content
+      icon: <Icons.TransportIcon />, // Replace with your SVG icon content
       numberOfSubcategories: 2,
       subcategories: [
         new Category({
@@ -475,11 +494,7 @@ function HomePage() {
 
           {/* <CompaniesSlider companies={companies} loading={loading} /> */}
 
-          <MainSlider
-            banners={fakeHomeBanner}
-            slides={fakeHomeSlides}
-            loading={false}
-          />
+          <MainSlider banners={fakeHomeBanner} slides={fakeHomeSlides} loading={false} />
 
           <TitleWithLink
             linkPath={`/services`}

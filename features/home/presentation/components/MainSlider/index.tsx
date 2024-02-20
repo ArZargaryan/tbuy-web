@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 import Link from "next/link";
-import BlurImage from "@libs/presentation/components/elements/BlurImage";
 import { Shimmer } from "react-shimmer";
 import { HomeBanner } from "@features/home/domain/model/home_banner";
 import { HomeSlides } from "@features/home/domain/model/home_slider";

@@ -1,5 +1,5 @@
 .header {
-  display: flex; 
+  display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   padding: 15px 0 30px;
@@ -7,13 +7,13 @@
 
   &__pictures {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 35px;
 
     &_item {
       width: 100%;
       height: 100%;
-      
+
       &::before {
         content: "";
         display: block;
@@ -41,7 +41,6 @@
         .header__pictures_item_img {
           position: relative !important;
           width: 100%;
-          height: 250px;
           max-width: 100%;
           transform: translateY(0%);
           object-fit: fill;
@@ -75,10 +74,10 @@
       }
     }
   }
+
   &__slider {
     position: relative;
     width: 100%;
-    height: 535px;
     margin-top: 20px; /* Add margin to create space between the two sections */
 
     &_swiper {
@@ -86,18 +85,17 @@
     }
 
     &_item {
-      // position: relative;
       width: 100%;
       height: 100%;
+
       img {
         position: relative !important;
         transform: translateY(0%) !important;
         object-fit: fill;
         object-position: center;
-        // width: 100%;
       }
+
       &_img {
-        //position: absolute;
         position: relative !important;
         overflow: visible !important;
         top: 0;
@@ -139,7 +137,7 @@
     }
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1281px) {
     &__pictures {
       order: 2;
       display: flex;
@@ -166,7 +164,8 @@
       &_item {
         &_banner {
           .header__pictures_item_img {
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
           }
         }
       }
@@ -176,90 +175,24 @@
       order: 1;
       margin: 0 auto;
       max-width: 100%;
-
-      &_item {
-        img {
-          object-fit: cover;
-        }
-      }
+      height: auto;
     }
   }
-  @media screen and (max-width: 950px) {
-    &__pictures {
-      height: 200px;
 
-      &_item {
-        &_banner {
-          .header__pictures_item_img {
-            height: 100%;
-          }
-        }
-      }
-    }
-
-    &__slider {
-      height: 400px;
-    }
-  }
-  @media screen and (max-width: 850px) {
-    &__slider {
-      height: 400px;
-    }
-  }
   @media screen and (max-width: 700px) {
     gap: 10px;
 
     &__pictures {
       gap: 10px;
-      height: 150px;
-    }
-
-    &__slider {
-      height: 350px;
     }
   }
+
   @media screen and (max-width: 600px) {
-    &__pictures {
-      display: none;
-    }
-
-    &__slider {
-      height: 300px;
-    }
-  }
-  @media screen and (max-width: 530px) {
     margin-top: 5px;
 
     &__pictures {
       display: flex;
-      height: auto;
       flex-direction: column;
-
-      &_item {
-        height: 220px;
-      }
-    }
-
-    &__slider {
-      height: 220px;
-    }
-  }
-  @media screen and (max-width: 400px) {
-    &__pictures {
-      height: 200px;
-    }
-
-    &__slider {
-      height: 200px;
-    }
-  }
-  @media screen and (max-width: 400px) {
-    &__pictures {
-      height: 160px;
-    }
-
-    &__slider {
-      height: 160px;
     }
   }
 }

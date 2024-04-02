@@ -51,7 +51,9 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
                   width={400}
                   height={400}
                 /> */}
-                <img src="https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hi" />
+                <img
+                  style={{ aspectRatio: 1, objectFit: "cover" }}
+                  src="https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hi" />
               </div>
             </SwiperSlide>
           </>

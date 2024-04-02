@@ -54,6 +54,7 @@
     &_account_columns_4 {
       flex: 0 1 24%;
       max-width: 24%;
+
       @media screen and (max-width: 1300px) {
         max-width: 32.3% !important;
         flex: 0 1 32.3% !important;

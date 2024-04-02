@@ -20,13 +20,12 @@ import { GiftCard } from "@libs/domain/model/giftCard";
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   cards: Product[] | Service[] | GiftCard[];
   title?: string;
-  isProducts?: boolean;
   titleClassName?: string;
   extraType?: "" | "short" | "short_550";
 }
 
 function ProductCardSlider(props: Props) {
-  const { cards, title, isProducts = false, extraType = "" } = props;
+  const { cards, title, extraType = "" } = props;
 
   const [prevArrowId, setPrevArrowId] = useState("");
   const [nextArrowId, setNextArrowId] = useState("");
@@ -37,9 +36,7 @@ function ProductCardSlider(props: Props) {
 
   const titleCls = classNames(styles.slider_title, props?.titleClassName);
 
-  const sliderCls = classNames(styles.slider, {
-    [styles.products_slider]: (cards[0] && cards[0] instanceof Product) || isProducts
-  });
+  const sliderCls = classNames(styles.slider);
 
   const { Arrows } = ImgExporter;
 
@@ -76,23 +73,19 @@ function ProductCardSlider(props: Props) {
                 spaceBetween: 14
               },
               550: {
-                slidesPerView: ((extraType === "short_550" || extraType === "short") && 2.1) || 3,
+                slidesPerView: ((extraType === "short_550" || extraType === "short") && 2) || 2,
                 spaceBetween: 14
               },
-              600: {
+              850: {
                 slidesPerView: (extraType === "short" && 3.1) || 3,
                 spaceBetween: 14
               },
-              900: {
+              1150: {
                 slidesPerView: (extraType === "short" && 4.1) || 4,
                 spaceBetween: 14
               },
-              1100: {
-                slidesPerView: (extraType === "short" && 5.1) || 5,
-                spaceBetween: 14
-              },
               1535: {
-                slidesPerView: (extraType === "short" && 6) || 5,
+                slidesPerView: (extraType === "short" && 5.1) || 5,
                 spaceBetween: 14
               }
             }}

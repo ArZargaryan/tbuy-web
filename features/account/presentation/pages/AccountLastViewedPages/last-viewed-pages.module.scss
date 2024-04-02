@@ -2,12 +2,13 @@
   border-radius: 20px;
 
   @media screen and (max-width: 500px) {
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
 .last_viewed {
   position: relative;
+
   &__head {
     display: flex;
     align-items: center;

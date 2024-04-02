@@ -5,9 +5,6 @@ import { ImgExporter } from "@core/helpers/ImgExporter";
 import { Tabs, Tab } from "@mui/material";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-// {/*<a href="" className={`${styles["back-link"]} ${styles.pxs}`}>*/}
-// {/*  Վերադառնալ*/}
-// {/*</a>*/}
 
 // TODO: разбить на компоненты
 

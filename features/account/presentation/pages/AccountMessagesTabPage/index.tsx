@@ -3,10 +3,7 @@ import AccountMessanges from "./AccountMessagesPage";
 import AccountMailingPage from "./AccountMailingPage";
 import AccountSupportPage from "./AccountSupportPage";
 import styles from "./account-chat.module.scss";
-import Link from "next/link";
 import { ImgExporter } from "@core/helpers/ImgExporter";
-import DefaultLayout from "@core/layouts/default";
-import AccountLayout from "@core/layouts/account-layout";
 
 function AccountSupportTabPage() {
   const [tabNumber, setTabNumber] = useState(0);
@@ -45,15 +42,15 @@ function AccountSupportTabPage() {
           <section className={styles.messanger__messages}>
             <div className={styles.messages__header}>
               <div className={styles.msg}>
-              <div className={styles.header__avatar}>
-                <img src={blob?.avatar.src} className={styles.img} alt="" />
-              </div>
-              <div className={styles.header__center}>
-                <div className={styles.header__username}>@aramayissahakyan</div>
-                <a href="" className={styles.header__link}>
-                  online | 12:04
-                </a>
-              </div>
+                <div className={styles.header__avatar}>
+                  <img src={blob?.avatar.src} className={styles.img} alt="" />
+                </div>
+                <div className={styles.header__center}>
+                  <div className={styles.header__username}>@aramayissahakyan</div>
+                  <a href="" className={styles.header__link}>
+                    online | 12:04
+                  </a>
+                </div>
               </div>
               <div className={`${styles.header__more} ${styles["more-1"]}`}>
                 <div className={styles.more__point}></div>

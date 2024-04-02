@@ -57,7 +57,7 @@ function SearchResultByCompanyPage() {
             <p className={"title"}> Որոնում &quot;{company}&quot;</p>
           </div>
         </TitleWithSort>
-        
+
         {screenWidth && screenWidth > 500 ? (
           <ResultFiltersSlider mode={"by_company"} />
         ) : (
@@ -74,7 +74,9 @@ function SearchResultByCompanyPage() {
           <TbuyPagination count={5} />
         </div>
 
-        <CardSlider title={`Համանման ապրանքներ`} cards={items} isProducts />
+        <section className={styles.similar_products_slider}>
+          <CardSlider title={`Համանման ապրանքներ`} cards={items} />
+        </section>
       </div>
     </SearchLayout>
   );

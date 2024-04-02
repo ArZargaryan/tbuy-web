@@ -47,7 +47,7 @@
     display: flex;
     align-items: center;
     grid-gap: 12px;
-    margin: 0 50px;
+    margin: 0 30px;
 
     &_txt {
       font-size: 14px;
@@ -101,7 +101,7 @@
     &_phone {
       display: flex;
       grid-gap: 6px;
-
+      align-items: center;
 
       svg {
         path {
@@ -109,8 +109,8 @@
         }
       }
       &_icon {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
       }
 
       &_txt {

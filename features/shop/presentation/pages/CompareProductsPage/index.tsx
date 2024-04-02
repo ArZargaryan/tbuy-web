@@ -54,29 +54,29 @@ function CompareProductsPage() {
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                     <SwiperSlide key={item} className={styles.items__item}>
                       <div className={styles.item__product}>
-                        <button className={styles.product__close}>
-                          <Icons.Close />
-                        </button>
+                        <div className={styles.action_buttons}>
+                          <button className={styles.close_button}>
+                            <Icons.Close />
+                          </button>
+
+                          <button className={`${styles.action_button} ${styles.cart_button}`}>
+                            <Icons.Cart />
+                          </button>
+
+                          <button className={`${styles.action_button} ${styles.favorite_button}`}>
+                            <Icons.Heart />
+                          </button>
+                        </div>
                         <div className={styles.product__img}>
-                          <img src="https://cdn.thewirecutter.com/wp-content/media/2023/09/lcdledtv-2048px-tclQM8-2109-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=1024" alt="" />
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcfZcQIVNIvjgjZvH1mPIHwwbLf6ggyzhTxDlmndeAsQ&s"
+                            alt=""
+                          />
                         </div>
                         <div className={`${styles.product__model} ${styles.px}`}>
                           LED Հեռուստացույց HIESNSE 325487
                         </div>
                         <div className={`${styles.product__price} ${styles.px}`}>124.000 AMD</div>
-
-                        <div className={styles.product__buttons}>
-                          <a href="">
-                            <PrimaryButton className={`${styles.buttons__buy} ${styles.px}`}>
-                              <Icons.Cart />
-                              ԱՎԵԼԱՑՆԵԼ ԶԱՄԲՅՈՒՂ
-                            </PrimaryButton>
-                          </a>
-
-                          <button className={styles.buttons__like}>
-                            <Icons.Heart />
-                          </button>
-                        </div>
 
                         <div className={styles.product__info}>
                           <div className={`${styles["info__param-q"]} ${styles.pxs}`}>Վիճակ</div>

@@ -66,7 +66,7 @@
         align-items: center;
 
         .right__price {
-          min-width: 220px;
+          margin-right: 16px;
 
           .price__single {
             font-size: 20px;
@@ -76,59 +76,62 @@
             font-size: 14px;
           }
 
-          @media screen and (max-width: 1100px) {
-            min-width: 180px;
-          }
-
           @media screen and (max-width: 1000px) {
             display: none;
           }
         }
 
         .right__btn {
-          margin-left: 15px;
+          margin-left: 16px;
           border-radius: 25px;
           padding: 10px 30px;
-          width: 500px !important;
+          width: auto !important;
 
           display: flex;
           align-items: center;
 
           svg {
             width: 50px;
-            height: 26;
+            height: 26px;
+
             @media screen and (max-width: 800px) {
-              margin-right: 0px;
+              width: 40px;
+              height: 24px;
             }
           }
 
           span {
-            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
             color: #fff;
+            margin-left: 8px;
+
             @media screen and (max-width: 800px) {
               display: none;
-              margin-left: 0px;
             }
           }
 
           &:hover {
-            background: "white";
+            background: white;
+
             span {
               color: $blue;
             }
+
             svg {
               // width: 21px;
               path {
                 fill: $blue;
               }
+
               @media screen and (max-width: 800px) {
-                margin-right: 0px;
+                margin-right: 0;
               }
             }
           }
 
           @media screen and (max-width: 800px) {
-            padding: 14px;
+            padding: 10px 14px;
           }
         }
       }
@@ -140,10 +143,11 @@
     position: fixed;
     top: initial;
     bottom: 56px;
+
     &__content {
       box-shadow: inset 0px -3px 3px rgba(#000, 0.1);
       min-height: auto;
-      padding: 12px 0px;
+      padding: 12px 0;
       background: $grey-0;
     }
   }

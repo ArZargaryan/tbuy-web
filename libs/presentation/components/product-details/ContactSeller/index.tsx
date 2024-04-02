@@ -20,41 +20,22 @@ function ContactSeller({ company, methods }: Props) {
   if (!company) return <div></div>;
 
   return (
-    <div className={styles.contact_seller}>
-      <div className={styles.contact_seller__info}>
-        <div className={styles.info__avatar}>
-          <Avatar
-            src={company?.images?.smallLogo}
-            sx={{
-              width: 87,
-              height: 55,
-              "@media (max-width: 780px)": {
-                width: 56,
-                height: 36
-              }
-            }}
-          />
-          <span className={styles.avatar_span}>
-            {company.name}
-            <div className={styles.stars_container}>
-              <StarsRating
-                value={company.rating}
-                readOnly
-                className={styles.mobile_stars}
-                size={"small"}
-              />
-              <span className={styles.by_user}>By Users</span>
-            </div>
-          </span>
-        </div>
+    <div className={styles.seller}>
+      <div className={styles.seller__details}>
+        {/* AVATAR */}
+        <Avatar src={company?.images?.smallLogo} className={styles.seller_avatar} />
+        {/* SELLER INFO */}
+        <div className={styles.seller_info}>
+          <p className={styles.seller_name}>{company.name}</p>
 
-        <div className={styles.info__stars}>
-          <StarsRating value={4} readOnly />
-          <span>By Users</span>
+          <div className={styles.seller_rating}>
+            <StarsRating value={company.rating} readOnly />
+            <p className={styles.rating_description}>By Users</p>
+          </div>
         </div>
       </div>
 
-      <div className={styles.contact_seller__controls}>
+      <div className={styles.seller__contact_actions}>
         {methods.chat && (
           <button onClick={changeMessageModalOpen}>
             <svg

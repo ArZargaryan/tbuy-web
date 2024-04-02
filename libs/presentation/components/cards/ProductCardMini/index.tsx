@@ -32,10 +32,11 @@ function ProductCardMini({ product }: { product: Product | Service | GiftCard })
         {/* <img src={images[0]?.original} alt="" /> */}
         <img
           src={
-            "https://images.pexels.com/photos/1451040/pexels-photo-1451040.jpeg?auto=compress&cs=tinysrgb&w=800"
+            "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg"
           }
           alt=""
         />
+        <div className={styles.product_image__discount}>10%</div>
         <button className={styles.product_image__to_cart}>
           <div>
             <Icons.Compare />
@@ -48,7 +49,7 @@ function ProductCardMini({ product }: { product: Product | Service | GiftCard })
           {title}
         </Link>
 
-        <div className={styles.info__purchase}>
+        <div className={styles.info__price}>
           <div className={styles.purchase__price}>
             {/* {product instanceof Product && !!product.price && (
               <h4 className={`${product.discount ? styles.price__grey : styles.price}`}>
@@ -58,14 +59,14 @@ function ProductCardMini({ product }: { product: Product | Service | GiftCard })
             {product instanceof Product && !!product.discount && (
               <span className={styles.price}>{product.discount} AMD</span>
             )} */}
-            <h4 className={`${true ? styles.price__grey : styles.price}`}>{300} ֏</h4>
+            <h4 className={`${styles.price__grey}`}>{300} ֏</h4>
             <span className={styles.price}>{599} ֏</span>
           </div>
 
           <div className={styles.purchase__company}>
             <img
               src={
-                "https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=800"
+                "https://cdn.vox-cdn.com/thumbor/ln4IHgPYpvNoIWpJ2Y1_c9msxXA=/0x0:2012x1341/2000x1333/filters:focal(1006x670:1007x671)/cdn.vox-cdn.com/uploads/chorus_asset/file/15483559/google2.0.0.1441125613.jpg"
               }
               alt=""
             />

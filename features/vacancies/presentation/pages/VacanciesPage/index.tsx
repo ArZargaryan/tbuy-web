@@ -5,7 +5,6 @@ import VacancyCategoriesSlider from "@features/vacancies/presentation/pages/Vaca
 import FiltersList from "@features/shop/presentation/components/Filters/FiltersList";
 
 import styles from "./vacancies-page.module.scss";
-import CardsList from "@libs/presentation/components/cards/CardsList";
 import { useAppSelector } from "@core/store";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
 import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";

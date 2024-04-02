@@ -7,7 +7,6 @@ import FiltersList from "@features/shop/presentation/components/Filters/FiltersL
 import CardsList from "@libs/presentation/components/cards/CardsList";
 // import TbuyPagination from "@libs/presentation/components/elements/TbuyPagination";
 import CardSlider from "@libs/presentation/components/cards/CardsSlider";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useAppSelector } from "@core/store";
 
@@ -38,13 +37,15 @@ function FavoritePage() {
         </section>
 
         <section className={styles.products_section}>
-          <CardSlider title={`Համանման ապրանքներ`} cards={items} isProducts />
+          <CardSlider title={`Համանման ապրանքներ`} cards={items} />
           {/* <Link href={"/"} className={`link ${styles.see_all}`}>
             {t("see_all", { ns: "common" })}
           </Link> */}
         </section>
 
-        <CardSlider title={`ՀԱՏՈՒԿ ԱՌԱՋԱՐԿՆԵՐ`} cards={items} isProducts />
+        <section className={styles.products_section}>
+          <CardSlider title={`ՀԱՏՈՒԿ ԱՌԱՋԱՐԿՆԵՐ`} cards={items} />
+        </section>
       </div>
     </DefaultLayout>
   );

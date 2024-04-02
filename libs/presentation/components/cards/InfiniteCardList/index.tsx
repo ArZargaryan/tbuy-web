@@ -44,7 +44,13 @@ function InfiniteCard(props: Props) {
       style={{ overflow: "hidden" }}
       next={loadMoreHandler}
       hasMore={!loading}
-      loader={<Shimmer height={333} width={265} />}
+      loader={
+        <div className={cls}>
+          {shimmers.map((shimmer) => (
+            <Shimmer key={shimmer} className={styles.product_card_list__item} />
+          ))}
+        </div>
+      }
       endMessage={<p>No more items to load</p>}
     >
       <div className={cls}>
@@ -57,13 +63,6 @@ function InfiniteCard(props: Props) {
               {card instanceof Product && <ProductCard product={card} />}
               {card instanceof VacancyShort && <VacancyCard vacancy={card} adaptive />}
               {card instanceof CompanyCardInfo && <CompanyCard card={card} />}
-            </div>
-          ))}
-
-        {loading &&
-          shimmers.map((shimmer) => (
-            <div key={shimmer} className={styles.product_card_list__item}>
-              <Shimmer height={400} width={300} />
             </div>
           ))}
       </div>

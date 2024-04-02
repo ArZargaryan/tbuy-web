@@ -1,0 +1,75 @@
+@import "@styles/vars.scss";
+
+.service_mini_card {
+  height: 155px;
+  display: flex;
+  border: 1px solid $grey-1;
+
+  .image_container {
+    height: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+
+    .image {
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+
+  .info_section {
+    padding: 16px;
+
+    .title {
+      //height: 38px;
+      font-size: 16px;
+      overflow: hidden;
+      word-wrap: break-word;
+      white-space: break-spaces;
+      text-overflow: ellipsis;
+      display: -moz-box;
+      display: -webkit-box;
+      line-clamp: 2;
+      box-orient: vertical;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+
+      .company {
+        max-width: 57px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+
+        svg {
+          width: 75px;
+          height: 32px;
+
+          @media screen and (max-width: 480px) {
+            width: 56px;
+            height: 24px;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      padding: 14px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 10px;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 8px;
+    }
+  }
+}

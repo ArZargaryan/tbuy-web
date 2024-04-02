@@ -11,6 +11,7 @@ import AccountContent from "@layouts/account-layout/components/AccountContent";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import styles from "./account-layout.module.scss";
+import Header from "@libs/presentation/components/layout/Header";
 
 interface Props extends PropsWithChildren {
   contentClassName?: string;
@@ -33,6 +34,7 @@ const AccountLayout = ({ children, contentClassName, desktopBack }: Props) => {
 
   return (
     <>
+      <Header />
       <Navbar />
       <div className={"app_content container"}>
         {/* {desktopBack && (

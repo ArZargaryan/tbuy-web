@@ -13,16 +13,18 @@ interface Props {
 
 function ProductCharacteristicBlock({ title, characteristics }: Props) {
   return (
-    <div className={styles.block}>
+    <>
       <h4 className={styles.title}>{title}</h4>
-      <ul>
+      <ul className={styles.char_items_wrapper}>
         {characteristics?.map((char, i) => (
-          <p key={`${char.label}_${i}`} className={styles.text}>
-            <strong>{char.label}</strong> {char.value}
-          </p>
+          <div key={`${char.label}_${i}`} className={styles.chat_item}>
+            <p>
+              <strong>{char.label}:</strong> {char.value}
+            </p>
+          </div>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 

@@ -77,7 +77,7 @@
     &:last-child {
       margin-right: 0;
     }
-    box-shadow: 0px 10px 20px #0000001a;
+    box-shadow: 0 10px 20px #0000001a;
 
     &:active {
       box-shadow: none;
@@ -90,23 +90,79 @@
     padding: 20px 20px 30px;
   }
 
-  .product {
-    &__close {
-      display: block;
-      background: transparent;
-      width: 20px;
-      height: 20px;
-      @include img(contain);
-      position: absolute;
-      right: 20px;
-      top: 20px;
+  .action_buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .action_button {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      padding: 12px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+
+      &.cart_button {
+        svg {
+          path {
+            fill: $grey-2;
+            stroke: $grey-2;
+          }
+        }
+      }
+
+      &.favorite_button {
+        svg {
+          path {
+            fill: $grey-2;
+            stroke: $grey-2;
+          }
+        }
+      }
+
+      &:hover {
+
+        &.cart_button {
+          background: $blue;
+        }
+
+        &.favorite_button {
+          background: $red;
+        }
+
+        svg {
+          path {
+            fill: #fff;
+            stroke: #fff;
+          }
+        }
+      }
     }
 
+    .close_button {
+      display: block;
+      width: 50px;
+      height: 50px;
+      padding: 14px;
+      @include img(contain);
+    }
+  }
+
+  .product {
     &__img {
-      width: 310px;
-      height: 240px;
-      @include img(cover);
-      margin-bottom: 20px;
+      width: 100%;
+      min-height: 150px;
+      max-height: 200px;
+      padding-right: 50px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      @include img(contain);
     }
 
     &__model {
@@ -119,53 +175,10 @@
       font-weight: bold;
     }
 
-    &__buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 18px;
-
-      .buttons__buy {
-        display: flex;
-        padding-right: 20px;
-        padding-left: 20px;
-
-        display: flex;
-        align-items: center;
-
-        svg {
-          path {
-            fill: #fff;
-            stroke: #fff;
-          }
-          // margin-right: -10px;
-          width: 35px;
-        }
-        &:hover {
-          svg {
-            path {
-              fill: $blue;
-              stroke: $blue;
-            }
-          }
-        }
-      }
-
-      .buttons__like {
-        width: 49px;
-        height: 49px;
-        background: $grey;
-        border-radius: 50%;
-        @extend %displayFlex;
-
-        svg {
-          fill: $blue;
-        }
-      }
-    }
-
     &__info {
       padding: 12px 0;
       border-bottom: 1px solid $grey-1;
+
       &:last-child {
         border-bottom: none;
         padding-bottom: 0;
@@ -195,11 +208,6 @@
     }
 
     .product {
-      &__img {
-        width: 310px !important;
-        height: 250px;
-      }
-
       &__model {
         margin-bottom: 10px;
       }
@@ -210,21 +218,11 @@
 
       &__buttons {
         margin-bottom: 10px;
-        .buttons__buy {
-          padding-left: 15px;
-          padding-right: 15px;
-          span {
-            font-size: 14px;
-          }
-        }
-
-        .buttons__like {
-        }
       }
     }
   }
 
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (max-width: 991px) {
     &__title {
       margin-bottom: 20px;
     }
@@ -248,9 +246,7 @@
 
     .product {
       &__img {
-        width: 180px;
-        height: 180px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
       }
 
       &__model {
@@ -265,35 +261,6 @@
         margin-bottom: 10px;
         justify-content: flex-start;
         gap: 10px;
-
-        .buttons__buy {
-          flex: 0 0 47px;
-          height: 47px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          padding: 0;
-          box-shadow: 0px 8px 12px $red;
-          padding: 0px 10px;
-
-          span {
-            display: none;
-          }
-
-          svg {
-            margin-right: 0px;
-          }
-        }
-        .buttons__like {
-          flex: 0 0 47px;
-          height: 47px;
-          background: $grey;
-          img {
-            width: 25px;
-            height: 22px;
-          }
-        }
       }
     }
   }
@@ -302,13 +269,15 @@
     line-height: 1.5;
     padding-top: 16px; //? header
     margin-bottom: 50px; //? footer
+
     &__title {
       margin-bottom: 16px;
     }
+
     &__select {
       border: 1px solid $grey-1;
-      margin-right: 0px !important;
-      padding-bottom: 0px !important;
+      margin-right: 0 !important;
+      padding-bottom: 0 !important;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -319,7 +288,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        padding: 0px 12px;
+        padding: 0 12px;
 
         label {
           padding-top: 10px;
@@ -334,17 +303,11 @@
     .items__item {
       flex: 0 0 268px;
       margin-right: 16px;
-      box-shadow: 0px 3px 6px $black;
     }
     .item__product {
       padding: 16px 14px;
     }
     .product {
-      &__img {
-        width: 162px;
-        height: 162px;
-        margin-bottom: 10px;
-      }
       &__model {
         margin-bottom: 10px;
       }
@@ -356,35 +319,6 @@
         margin-bottom: 10px;
         justify-content: flex-start;
         gap: 10px;
-
-        .buttons__buy {
-          flex: 0 0 47px;
-          height: 47px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          padding: 0;
-          box-shadow: 0px 8px 12px $red;
-          padding: 0px 10px;
-
-          span {
-            display: none;
-          }
-
-          svg {
-            margin-right: 0px;
-          }
-        }
-        .buttons__like {
-          flex: 0 0 47px;
-          height: 47px;
-          background: $grey;
-          img {
-            width: 25px;
-            height: 22px;
-          }
-        }
       }
 
       &__info {

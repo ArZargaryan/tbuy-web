@@ -44,10 +44,6 @@ function Reviews({ id, reviews, onPageChange }: Props) {
       <h3 className={styles.reviews__title}>
         Ակնարկներ <sup>{reviews.totalItems}</sup>
       </h3>
-      <p className={styles.reviews__text}>
-        Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման
-        վրա:
-      </p>
 
       <div className={listCls}>
         {!!reviews.data.length &&

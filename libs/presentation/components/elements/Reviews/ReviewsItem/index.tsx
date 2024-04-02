@@ -4,6 +4,7 @@ import { Avatar } from "@mui/material";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
 import styles from "./reviews-items.module.scss";
 import { map } from "lodash";
+
 interface Props {
   review: Review;
 }
@@ -23,7 +24,9 @@ function ReviewsItem(props: Props) {
         </div>
         <span className={styles.header__date}>{review.createdAt}</span>
       </div>
-      <StarsRating value={review.rating} readOnly />
+      <div className={styles.rating_wrapper}>
+        <StarsRating value={review.rating} readOnly />
+      </div>
       <div className={styles.reviews_item__content}>
         <h4 className={styles.content__title}>{review.title}</h4>
 

@@ -54,7 +54,7 @@ export type ParameterEntity = {
   image?: string;
 };
 
-type ParameterValueEntity = {
+export type ParameterValueEntity = {
   label?: string;
   value: string;
 };

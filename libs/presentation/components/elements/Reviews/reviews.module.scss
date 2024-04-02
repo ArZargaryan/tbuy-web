@@ -1,13 +1,13 @@
 @import "@/styles/vars.scss";
 
 .reviews {
-  padding-top: 100px;
-  max-width: 785px;
+  max-width: 1080px;
   margin: 0 auto;
+  padding-top: 100px;
+
   &__title {
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 16px;
 
     sup {
       background: #e8e8e8;
@@ -15,12 +15,8 @@
       border-radius: 50%;
       font-weight: bold;
       font-size: 14px;
+      margin-left: 4px;
     }
-  }
-
-  &__text {
-    margin-bottom: 30px;
-    color: $black;
   }
 
   &__list {
@@ -33,7 +29,21 @@
     margin-top: 10px;
   }
 
-  @media screen and (max-width: 980px) {
-    padding-top: 10px;
+  @media screen and (max-width: 1080px) {
+    padding-top: 30px;
+
+    &__title {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    &__title {
+      font-size: 18px;
+
+      sup {
+        font-size: 12px;
+      }
+    }
   }
 }

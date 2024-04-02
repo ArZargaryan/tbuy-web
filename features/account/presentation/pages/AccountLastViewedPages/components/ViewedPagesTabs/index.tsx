@@ -7,6 +7,7 @@ import styles from "./viewed-pages-tabs.module.scss";
 import { Product } from "@libs/domain/model/product";
 import { Service } from "@libs/domain/model/service";
 import CardsList from "@libs/presentation/components/cards/CardsList";
+import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";
 
 interface TabPanelProps {
   children?: React.ReactNode;

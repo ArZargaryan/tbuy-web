@@ -46,7 +46,8 @@
   padding: 30px;
 
   flex: 1 1 auto;
-  max-height: clamp(600px, 100vh - 110px, 800px); //110px это header + отступ от него
+  max-height: clamp(600px, 100vh - 110px, 800px); // 110px это header + отступ от него
+  //max-height: calc(100vh - 125px - 30px - 72px - 50px); // 125px весь header + 30px отступ от header + 72px header messenger'а(табы) + 50px нижний отступ мессенджера
 
   display: grid;
   grid-template-columns: clamp(360px, 40%, 346px) 1fr;

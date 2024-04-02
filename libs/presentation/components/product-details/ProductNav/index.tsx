@@ -47,7 +47,7 @@ export default function ProductNav({ product }: Props) {
 
             <PrimaryButton className={`${styles.right__btn}`}>
               <Icons.CartWhite />
-              <span>ԱՎԵԼԱՑՆԵԼ ԶԱՄԲՅՈՒՂ</span>
+              <span>Ավելացնել Զամբյուղ</span>
             </PrimaryButton>
           </div>
         </div>

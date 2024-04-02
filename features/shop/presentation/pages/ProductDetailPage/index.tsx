@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import { useAppDispatch, useAppSelector } from "@core/store";
 import { ImgExporter } from "@core/helpers/ImgExporter";
@@ -13,7 +13,6 @@ import ProductDetailSlider from "@libs/presentation/components/product-details/P
 import ProductDetailLayout from "@layouts/product-detail";
 import ProductNav from "@libs/presentation/components/product-details/ProductNav";
 
-import Link from "next/link";
 import ProductDetailForm from "@libs/presentation/components/product-details/ProductDetailForm";
 
 import styles from "./product-detail-page.module.scss";
@@ -24,9 +23,9 @@ import {
 import { useRouter } from "next/router";
 import { Lang } from "@core/store/global";
 import { map } from "lodash";
-import CardsSlider from "@libs/presentation/components/cards/CardsSlider";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
-import VerticalCard from "@libs/presentation/components/cards/VerticalCard";
+import _ from "lodash";
+import CardSlider from "@libs/presentation/components/cards/CardsSlider";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
@@ -62,7 +61,12 @@ function ProductDetailPage() {
     category: {
       label: "Electronics"
     },
-    images: [{ original: "https://example.com/image.jpg" }],
+    images: [
+      {
+        original:
+          "https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800"
+      }
+    ],
     rating: 4.2,
     price: {
       price: 150.99,
@@ -77,32 +81,79 @@ function ProductDetailPage() {
     wholesales: [
       {
         price: 120,
-        fromAmountText: "From 10 units",
+        fromAmountText: "հատ ապրանք",
         fromAmount: 10
       }
     ],
     availability: [
       {
-        availability: "In Stock",
-        location: "Warehouse A"
+        availability: "Ներմուծվում է / 15 օր",
+        location: "Վանաձոր"
       }
     ],
     company: {
+      name: "Lorem ipsum",
       type: "legal",
+      rating: 3,
       phones: ["123-456-7890"]
     },
     parameters: [
       {
         type: "color",
-        values: [{ value: "Red", label: "Color Label" }],
-        image: "https://example.com/color-image.jpg"
+        values: [
+          {
+            value: "white",
+            label: "White"
+          },
+          {
+            value: "blue",
+            label: "Blue"
+          }
+        ]
+      },
+      {
+        type: "size",
+        values: [
+          {
+            value: "l",
+            label: "L"
+          },
+          {
+            value: "xl",
+            label: "XL"
+          },
+          {
+            value: "xxl",
+            label: "XXL"
+          }
+        ]
       }
     ],
     details: [
       {
         id: 1,
-        label: "Detail Label",
-        value: "Detail Value"
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 2,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 2,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 2,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 2,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
       }
     ]
   };
@@ -259,16 +310,53 @@ function ProductDetailPage() {
 
   const reviews = {
     totalItems: 20,
-    author: [
+    data: [
       {
         id: 1,
-        user: "John Doe",
-        comment: "This product is amazing!",
+        author: {
+          id: 1,
+          name: "John Doe",
+          image:
+            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
+        },
+        images: [
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?cs=srgb&dl=pexels-photomix-company-212372.jpg&fm=jpg"
+        ],
+        title: "Amazing product!",
+        text: "This product is amazing!",
         rating: 5,
         date: new Date().toISOString()
       }
     ]
   };
+
+  const ratingComponent = useMemo(
+    () => (
+      <div className={styles.product__rating_container}>
+        <StarsRating value={product?.rating} readOnly />
+      </div>
+    ),
+    []
+  );
+
+  const availabilityComponent = useMemo(
+    () => (
+      <div className={styles.availability_wrapper}>
+        {map(product.availability, (item) => (
+          <div className={styles.availability_item}>
+            <p className={styles.availability_text}>
+              <strong>Հասանելություն։ </strong> {item.availability}
+            </p>
+            <p className={styles.availability_text}>
+              <strong>Վաճառվում է։ </strong> {item.location}
+            </p>
+          </div>
+        ))}
+      </div>
+    ),
+    []
+  );
 
   // if (loading) {
   //   return <div></div>;
@@ -284,7 +372,7 @@ function ProductDetailPage() {
       />
 
       <ProductNav product={product as never} />
-      <div className={`${styles.wrapper} container`}>
+      <div className={styles.wrapper}>
         <BreadCrumbs
           items={[
             { value: "Գլխավոր ", link: "/products" },
@@ -294,14 +382,14 @@ function ProductDetailPage() {
 
         <div className={`${styles.layout}`}>
           <div className={styles.layout__content}>
-            <div className={styles.content__product}>
+            <div className={styles.product}>
               <div className={styles.product__slider}>
                 <div className={styles.slider__wrapper}>
                   <div className={styles.slider__actions}>
-                    <button className={styles.btn}>
+                    <button className={styles.slider__action_btn}>
                       <Icons.Heart />
                     </button>
-                    <button className={styles.btn}>
+                    <button className={styles.slider__action_btn}>
                       <Icons.Compare />
                     </button>
                   </div>
@@ -310,90 +398,101 @@ function ProductDetailPage() {
               </div>
 
               <div className={styles.product__info}>
-                <h2 className={styles.info__title}> {product.title} </h2>
-                <div className={styles.info__product_price_container}>
-                  <div className={styles.product_price__stars}>
-                    <StarsRating value={product?.rating} readOnly />
-
-                    <div className={styles.socials}>
-                      <Link href={"/"}>
-                        <Logos.linked_in />
-                      </Link>
-
-                      <Link href={"/"}>
-                        <Logos.facebook />
-                      </Link>
-
-                      <Link href={"/"}>
-                        <Logos.twitter />
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className={styles.info__price}>
-                    <span className={styles.price__amd}>
-                      {product?.price?.price} {product?.price?.currency}
-                    </span>
-                    <Arrows.Down />
-
-                    <div className={styles.prices__poppup}>
-                      {map(product.exchanges, (exchange) => (
-                        <p>
-                          {(product?.price?.price / exchange.rate).toFixed(2)} {exchange.currency}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
+                {/* TITLE */}
+                <div className={styles.price_section_tablet_wrapper}>
+                  <h2 className={styles.product__info_title}>{product.title}</h2>
+                  {ratingComponent}
                 </div>
+                {/* RATING */}
+                {ratingComponent}
+                {/* PRICES WITH CURRENCIES POPUP */}
+                <div className={styles.product__price_wrapper}>
+                  <div className={styles.product__price_row}>
+                    <div className={styles.product__price}>
+                      <div className={styles.main_price}>
+                        <span className={`${styles.price__text} ${styles.discounted__price}`}>
+                          {120.2} {product?.price?.currency}
+                        </span>
+                        <Arrows.Down />
+                      </div>
+                      {_.isNumber(1 /* Discount check */) && (
+                        <span className={styles.discount_price}>
+                          {product?.price?.price} {product?.price?.currency}
+                        </span>
+                      )}
 
-                <p className={`${styles.text} ${styles.mobile_none}`}>36 ամիս / 4.647AMD</p>
+                      <div className={styles.prices__popup}>
+                        {map(product.exchanges, (exchange) => (
+                          <p>
+                            {(product?.price?.price / exchange.rate).toFixed(2)} {exchange.currency}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
 
-                {map(product.wholesales, (whosale) => (
-                  <div className={styles.info__wholesale}>
-                    <p className={styles.text}>
-                      Գինը ըստ քանակի։
-                      <strong className={styles.text_bold_info}>{whosale.price} AMD</strong>
-                    </p>
-                    <p className={styles.text}>
-                      Գործում է սկսած ({whosale.fromAmountText})։
-                      <strong className={styles.text_bold_info}>{whosale.fromAmount}</strong>
-                    </p>
+                    <div className={styles.product__price_row_social_medias}>
+                      <a href={"/"} className={styles.social_media_item}>
+                        <Logos.facebook />
+                      </a>
+                      <a href={"/"} className={styles.social_media_item}>
+                        <Logos.twitter />
+                      </a>
+                    </div>
                   </div>
-                ))}
-                <ContactSeller
-                  company={product?.company as any}
-                  methods={{ call: !!product?.company?.phones?.length, chat: true }}
-                />
 
-                {map(product.availability, (item) => (
-                  <>
-                    <p className={styles.text} style={{ marginTop: 30 }}>
-                      <strong>Հասանելություն։</strong> {item.availability}
-                    </p>
-                    <p className={styles.text}>
-                      <strong>Վաճառվում է։</strong> {item.location}
-                    </p>
-                  </>
-                ))}
-
+                  <p className={`${styles.installment_price}`}>36 ամիս / 4.647AMD</p>
+                </div>
+                {/* WHOLESALES DETAILS */}
+                <div className={styles.wholesale_section_tablet_wrapper}>
+                  <div className={styles.wholesale_info_wrapper}>
+                    {map(product.wholesales, (whosale) => (
+                      <div className={styles.wholesale_info}>
+                        <p className={styles.wholesale_label}>
+                          Գինը ըստ քանակի։ <strong> {whosale.price} AMD</strong>
+                        </p>
+                        <p className={styles.wholesale_label}>
+                          Գործում է սկսած ({whosale.fromAmountText})։
+                          <strong> {whosale.fromAmount}</strong>
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  {availabilityComponent}
+                </div>
+                {/* SELLER */}
+                <div className={styles.contact_seller_wrapper}>
+                  <ContactSeller
+                    company={product?.company as any}
+                    methods={{ call: !!product?.company?.phones?.length, chat: true }}
+                  />
+                </div>
+                {/* AVAILABILITY */}
+                {availabilityComponent}
+                {/* PRODUCT DETAIL FORMS */}
                 <ProductDetailForm
                   companyType={product?.company?.type}
                   data={product.parameters as any}
                 />
+                {/* SHARE ON SOCIAL MEDIAS */}
+                <div className={`${styles.share_on_social}`}>
+                  <p className={styles.label}>Կիսվել</p>
 
-                <p className={`${styles.text} ${styles.mobile_none}`}>
-                  <strong>Կիսվել</strong>
-                  <a href={"/"} className={styles.text__social}>
-                    <Logos.facebook />
-                  </a>
-                </p>
-
-                <br />
-
-                <ProductCharacteristicBlock
-                  title={"Основные параметры"}
-                  characteristics={product.details}
-                />
+                  <div className={styles.social_medias}>
+                    <a href={"/"} className={styles.social_media_item}>
+                      <Logos.facebook />
+                    </a>
+                    <a href={"/"} className={styles.social_media_item}>
+                      <Logos.twitter />
+                    </a>
+                  </div>
+                </div>
+                {/* PRODUCT PARAMETERS */}
+                <div className={styles.product_parameters_wrapper}>
+                  <ProductCharacteristicBlock
+                    title={"Հիմնական պարամետրերը"}
+                    characteristics={product.details}
+                  />
+                </div>
               </div>
               {/* <div className={styles.mobile_similar_cards}>
                 <VerticalCard
@@ -403,8 +502,14 @@ function ProductDetailPage() {
                 />
               </div> */}
             </div>
-            <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
+            <div className={styles.content_padding_wrapper}>
+              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
+              <div className={styles.product__parameters_wrapper}>
+                <CardSlider title={`ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ`} cards={similar_products} />
+              </div>
+            </div>
           </div>
+          {/* SIMILAR ITEMS SLIDER */}
           <div className={styles.layout__similar}>
             {suggestedProducts?.map((product, i) => (
               <ProductCardMini key={`${product.id}_${i}`} product={product as any} />

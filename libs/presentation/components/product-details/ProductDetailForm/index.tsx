@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import _ from "lodash";
 import styles from "./product-detail-form.module.scss";
 import { ImgExporter } from "@core/helpers/ImgExporter";
-import { ParameterEntity } from "@features/shop/domain/model/DetailedProduct";
-import { map } from "lodash";
+import { ParameterEntity, ParameterValueEntity } from "@features/shop/domain/model/DetailedProduct";
 
 interface Props {
   companyType: string;
@@ -11,12 +11,25 @@ interface Props {
 
 function ProductDetailForm({ companyType, data }: Props) {
   const [count, setCount] = useState(1);
-  const [colors, setColors] = useState<ParameterEntity[]>([]);
-  const [sizes, setSizes] = useState<ParameterEntity[]>([]);
+  const [colors, setColors] = useState<ParameterEntity | null>(null);
+  const [sizes, setSizes] = useState<ParameterEntity | null>(null);
+  const [selectedColor, setSelectedColor] = useState<ParameterValueEntity | null>(null);
+  const [selectedSize, setSelectedSize] = useState<ParameterValueEntity | null>(null);
 
   useEffect(() => {
-    setColors(data?.filter((item) => item.type === "color"));
-    setSizes(data?.filter((item) => item.type === "size"));
+    const colors = data?.filter((item) => item.type === "color");
+    const sizes = data?.filter((item) => item.type === "size");
+
+    if (!_.isEmpty(colors)) {
+      setColors(colors[0]);
+
+      if (colors[0].values.length > 0) {
+        setSelectedColor(colors[0].values[0]);
+      }
+    }
+    if (!_.isEmpty(sizes)) {
+      setSizes(sizes[0]);
+    }
   }, [data]);
 
   const incrementCount = () => setCount((prev) => ++prev);
@@ -28,28 +41,69 @@ function ProductDetailForm({ companyType, data }: Props) {
 
   return (
     <div>
-      {!!colors?.length && (
-        <div className={styles.form_block} style={{ marginTop: 20 }}>
-          <p className={styles.text}>
-            <strong>Ապրանքի գույն</strong>
-          </p>
+      {!!colors && !_.isEmpty(colors.values) && (
+        <div className={styles.form_block}>
+          <p className={styles.label}>Ապրանքի գույն</p>
+
           <div className={styles.choose_color}>
-            {map(colors, (color, i) => (
-              <label key={`${color.values[0]}_${i}`}>
-                <input type="radio" name={"color"} />
-                <div className={styles.choose_color__block}>
-                  {map(color.values, (value, i) => (
-                    <>
-                      <div
-                        key={`${value}_${i}`}
-                        className={styles.choose_color__item}
-                        style={{
-                          background: `rgb(${value.value})`,
-                          width: `${100 / color.values.length}%`
-                        }}
-                      ></div>
-                    </>
-                  ))}
+            {_.map(colors.values, (color, i) => (
+              <div className={styles.color__block}>
+                <label key={`${color.value}_${i}`}>
+                  <input
+                    type="radio"
+                    name={"color"}
+                    onChange={(event) => {
+                      if (event.target.checked) {
+                        setSelectedColor(color);
+                      }
+                    }}
+                  />
+                  <div
+                    className={` ${styles.color_item_wrapper} ${
+                      (selectedColor?.value == color.value && styles.active) || ""
+                    }`}
+                  >
+                    <div
+                      key={`${color}_${i}`}
+                      className={styles.color_item}
+                      style={{
+                        background: color.value.match(/^[0-9, ]+$/)
+                          ? `rgb(${color.value})`
+                          : color.value
+                      }}
+                    ></div>
+                  </div>
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!!sizes && !_.isEmpty(sizes.values) && (
+        <div className={styles.form_block}>
+          <p className={styles.label}>Չափ</p>
+
+          <div className={styles.choose_size}>
+            {_.map(sizes.values, (size, index) => (
+              <label>
+                <div
+                  key={`${size}_${index}`}
+                  className={`${styles.size_item} ${
+                    selectedSize?.value === size.value ? styles.active : ""
+                  }`}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  <input
+                    type="radio"
+                    name={"size"}
+                    onChange={(event) => {
+                      if (event.target.checked) {
+                        setSelectedSize(size);
+                      }
+                    }}
+                  />
+                  {size.label}
                 </div>
               </label>
             ))}
@@ -57,24 +111,7 @@ function ProductDetailForm({ companyType, data }: Props) {
         </div>
       )}
 
-      {!!sizes?.length && (
-        <div className={styles.form_block}>
-          <p className={styles.text}>
-            <strong>Չափ</strong>
-          </p>
-
-          <div className={styles.choose_count}>
-            {map(sizes, (size) => (
-              <label>
-                <input type="radio" name={"count"} />
-                <div className={styles.choose_count__item}>{size.values[0].value}</div>
-              </label>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <p className={styles.text} style={{ marginBottom: 20 }}>
+      <div className={styles.check_product_availability}>
         <svg
           id="Сгруппировать_3583"
           data-name="Сгруппировать 3583"
@@ -128,15 +165,15 @@ function ProductDetailForm({ companyType, data }: Props) {
           </g>
         </svg>
         <span>Ճշտել ապրանքի առկայությունը</span>
-      </p>
+      </div>
 
-      <div className={`${styles.form_block} ${styles.form_block_flex}`}>
-        <div className={styles.count}>
-          <button onClick={decrementCount} style={{ marginTop: -5 }}>
+      <div className={styles.product_amount_wrapper}>
+        <div className={styles.product_amount}>
+          <button onClick={decrementCount}>
             <Icons.Minus />
           </button>
 
-          <p>{count}</p>
+          <p className={styles.amount}>{count}</p>
 
           <button onClick={incrementCount}>
             <Icons.Plus />
@@ -144,9 +181,9 @@ function ProductDetailForm({ companyType, data }: Props) {
         </div>
 
         {companyType === "legal" ? (
-          <button className={`${styles.submit} blue_btn`}>ԳՆԵԼ ՀԻՄԱ</button>
+          <button className={`${styles.submit_button} blue_btn`}>ԳՆԵԼ ՀԻՄԱ</button>
         ) : (
-          <button className={`${styles.submit} blue_btn`}>Ավելացնել զամբյուղի մեջ</button>
+          <button className={`${styles.submit_button} blue_btn`}>Ավելացնել զամբյուղ</button>
         )}
       </div>
     </div>

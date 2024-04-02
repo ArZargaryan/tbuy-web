@@ -1,92 +1,88 @@
 @import "@styles/vars.scss";
 
-.contact_seller {
-  padding: 20px 30px;
-  background: $grey;
-
+.seller {
+  padding: 16px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // margin-right: 50px;
+  background: $grey;
+  max-width: 550px;
 
-  &__info {
+  &__details {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: 16px;
 
-    .info__avatar,
-    .info__stars {
+    .seller_avatar {
+      width: 55px;
+      height: 55px;
+      border-radius: 100%;
+      overflow: hidden;
+      background: $grey-1;
+    }
+
+    .seller_info {
       display: flex;
-      align-items: center;
-      grid-gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      grid-gap: 8px;
 
-      .avatar_span {
+      .seller_name {
         font-size: 18px;
-      }
-    }
-
-    .info__avatar {
-      margin-bottom: 16px;
-
-      .avatar_span {
         font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
-        .stars_container {
-          display: flex;
-          //justify-content: center;
-          align-items: center;
-          .by_user {
-            display: block;
-            margin-bottom: -7px;
-            margin-left: 7px;
-            font-size: 14px;
-            color: $grey-2;
+        @media (max-width: 1080px) {
+          font-size: 16px;
+        }
 
-            @media screen and (max-width: 600px) {
-              display: none;
-            }
-          }
-          @media screen and (max-width: 600px) {
-            display: block;
+        @media (max-width: 360px) {
+          width: 100px;
+        }
+      }
+
+      .seller_rating {
+        display: flex;
+        gap: 10px;
+
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+
+        .rating_description {
+          font-size: 14px;
+          color: $grey-2;
+
+          @media (max-width: 400px) {
+            display: none;
           }
         }
       }
 
-      :global {
-        .MuiAvatar-root {
-          border: 1px solid $grey-1;
-          border-radius: 0px;
-        }
+      @media (max-width: 650px) {
+        grid-gap: 10px;
       }
-    }
-
-    .mobile_stars {
-      display: none;
     }
   }
 
-  &__controls {
+  &__contact_actions {
     display: flex;
     justify-content: center;
-    grid-gap: 30px;
-    margin-top: 30px;
+    align-items: center;
+    gap: 24px;
 
     button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       width: 40px;
       height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 1px solid $blue;
       transition: all 0.2s linear;
-
-      gap: 10px;
-
-      span {
-        color: $blue;
-        font-weight: bold;
-        transition: all 0.2s linear;
-      }
 
       path {
         transition: all 0.2s linear;
@@ -94,10 +90,6 @@
       }
 
       &:hover {
-        span {
-          color: #fff;
-        }
-
         background: $blue;
 
         path {
@@ -105,59 +97,31 @@
         }
       }
 
-      @media screen and (max-width: 600px) {
-        width: auto;
-        height: auto;
-        border: none;
-        padding: 0px;
-        svg {
-          width: 30px;
-          height: 30px;
-        }
-        span {
-          display: none;
-        }
-      }
+      @media (max-width: 400px) {
+        width: 36px;
+        height: 36px;
 
-      @media screen and (max-width: 370px) {
-        svg {
-          width: 22px;
-          height: 22px;
+        path, svg {
+          width: 18px;
+          height: 18px;
         }
       }
     }
 
-    @media screen and (max-width: 370px) {
-      grid-gap: 15px;
+    @media (max-width: 650px) {
+      gap: 18px;
+    }
+
+    @media (max-width: 400px) {
+      gap: 14px;
     }
   }
 
-  &__info {
-    .info__stars {
-      display: none;
-    }
-
-    .info__avatar {
-      margin-bottom: 0px;
-    }
-
-    .mobile_stars {
-      display: flex;
-      margin-top: 3px;
-
-      svg {
-        width: 14px;
-        height: 14px;
-      }
-    }
+  @media (max-width: 1080px) {
+    padding: 12px 16px;
   }
 
-  &__controls {
-    margin-top: 0;
-  }
-
-  @media screen and (max-width: 600px) {
-    padding: 20px 16px;
-    margin-top: 20px;
+  @media (max-width: 600px) {
+    padding: 10px;
   }
 }

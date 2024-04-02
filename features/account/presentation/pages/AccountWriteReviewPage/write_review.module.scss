@@ -1,11 +1,12 @@
 @import "@styles/vars.scss";
 
-
 .write_review {
+  padding-bottom: 60px;
+
   @media screen and (max-width: 600px) {
-    padding-top: 20px !important;
+    padding-top: 20px;
+    padding-bottom: 50px;
   }
-  padding-bottom: 100px;
 }
 
 .product_info {
@@ -57,7 +58,7 @@
 
     @media screen and (max-width: 600px) {
       font-size: 16px;
-      font-weight: normal !important;
+      font-weight: normal;
     }
     @media screen and (max-width: 500px) {
       font-size: 14px;
@@ -111,12 +112,14 @@
       align-items: center;
       gap: 9px;
       box-shadow: none;
-      border-radius: 0px;
-      padding: 14px 30px !important;
-      font-weight: bold !important;
+      border-radius: 0;
+      padding: 14px 30px;
+      font-weight: bold;
+      min-width: 200px;
 
       svg {
         width: 24px;
+
         * {
           transition: all 0.2s linear;
         }
@@ -138,7 +141,7 @@
     @media screen and (max-width: 600px) {
       flex-direction: column;
       align-items: flex-start;
-      .send_file__button,
+
       .send_file__text {
         max-width: 100%;
       }

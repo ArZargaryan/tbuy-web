@@ -12,9 +12,8 @@
 .tbuy-contact {
   flex: 1 1 auto;
   height: 860px;
-  height: clamp(600px, 100vh - 110px, 860px); //110px это header + отступ от него
-  display: flex;
-  box-shadow: 0px 6px 18px #00000029;
+  //height: clamp(600px, 100vh - 110px, 860px); //110px это header + отступ от него
+  max-height: calc(100vh - 125px - 30px - 72px - 50px); // 125px весь header + 30px отступ от header + 72px header messenger'а(табы) + 50px нижний отступ мессенджера
   display: flex;
   flex-direction: column;
 
@@ -25,7 +24,7 @@
     align-items: center;
     background: #f9fafb;
     border-bottom: 1px solid $grey-1;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px 20px 0 0;
   }
 
   &__form {

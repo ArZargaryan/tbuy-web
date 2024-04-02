@@ -12,7 +12,7 @@ interface Props extends PropsWithChildren {
 const DefaultLayout: FC<Props> = ({ children, withoutFooter }) => {
   return (
     <>
-      <div style={{ position: "sticky", top: 0, zIndex: 3000 }}>
+      <div style={{ position: "sticky", top: 0, zIndex: 2000 }}>
         <Header />
         <Navbar />
       </div>

@@ -1,12 +1,13 @@
 @import "@/styles/vars.scss";
 
 .reviews_item {
-  padding: 20px 0px;
+  padding: 20px 0;
   border-bottom: 1px solid $grey-1;
 
   &:last-child {
     border-bottom: none;
   }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -25,12 +26,36 @@
       }
     }
 
-    .header__name {
-    }
-
     .header__date {
       font-size: 16px;
       color: $grey-2;
+    }
+
+    @media (max-width: 1080px) {
+      margin-bottom: 14px;
+
+      .header__account {
+        grid-gap: 16px;
+
+        .account__name {
+          font-size: 16px;
+        }
+      }
+    }
+
+    @media (max-width: 650px) {
+      margin-bottom: 12px;
+
+      .header__account {
+        grid-gap: 10px;
+      }
+    }
+  }
+
+  .rating_wrapper {
+    svg {
+      width: 14px;
+      height: 14px;
     }
   }
 
@@ -52,13 +77,14 @@
       grid-gap: 32px;
 
       .images__item {
+        max-height: 150px;
         flex: 0 1 20%;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         margin-top: 20px;
-        max-height: 150px;
+
         img {
           max-width: 100%;
         }
@@ -68,6 +94,7 @@
         .images__item {
           flex: 0 1 20%;
           height: auto;
+
           img {
             max-width: 100%;
           }
@@ -76,9 +103,27 @@
 
       @media screen and (max-width: 700px) {
         grid-gap: 12px;
+
         .images__item {
           flex: 0 1 30%;
         }
+      }
+    }
+
+    @media screen and (max-width: 1080px) {
+      .content__title {
+        margin-bottom: 8px;
+      }
+    }
+
+    @media screen and (max-width: 650px) {
+      .content__title {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .content__text {
+        font-size: 14px;
       }
     }
   }

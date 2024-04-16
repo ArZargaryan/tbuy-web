@@ -71,7 +71,12 @@ function LegalSellerPage() {
               <div className={styles.header__content}>
                 <div className={styles.content__flexbox}>
                   <div className={styles.flexbox__avatar}>
-                    <img src={blob.avatar.src} alt="" />
+                    <img
+                      src={
+                        "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg?ts=1672291305"
+                      }
+                      alt=""
+                    />
                   </div>
                   <div className={styles.flexbox__info}>
                     <h1 className={`${styles.info__name} title title_account`}>Alpine</h1>
@@ -188,7 +193,7 @@ function LegalSellerPage() {
                   onClick={() => scrollToSection("services")}
                 >
                   <Link to="services" spy={true} smooth={true} offset={-200} duration={500}>
-                    ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ
+                    Ծառայություններ
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
@@ -197,7 +202,7 @@ function LegalSellerPage() {
                 >
                   {" "}
                   <Link to="openJobs" spy={true} smooth={true} offset={-200} duration={500}>
-                    Թափուր աշխատատեղեր{" "}
+                    Թափուր աշխատատեղեր
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
@@ -217,7 +222,7 @@ function LegalSellerPage() {
       <div className={styles.legal_partner_products} id="collection">
         <CardsSlider
           cards={products || []}
-          title={"Տեսականի"}
+          title={"Ապրանքներ"}
           titleClassName={styles.slider_title_left}
         />
       </div>
@@ -319,69 +324,72 @@ function LegalSellerPage() {
         </div>
       </section>*/}
 
-      <section className={styles.branches} id="branches">
-        <div className={styles.branches__content}>
-          <div className={styles.content__showBranches} id="showBranches">
-            <div className={styles.showBranches__box}>
-              <div className={`${styles.showBranches__title} title title_account`}>
-                Ցույց տալ բոլոր մասնաճյուղերը
+      <div className={styles.branches_wrapper}>
+        <h3 className={`title ${styles.branches_title}`}>Մասնաճյուղեր</h3>
+        <section className={styles.branches} id="branches">
+          <div className={styles.branches__content}>
+            <div className={styles.content__showBranches} id="showBranches">
+              <div className={styles.showBranches__box}>
+                <div className={`${styles.showBranches__title} title title_account`}>
+                  Ցույց տալ բոլոր մասնաճյուղերը
+                </div>
+                <p className={styles.showBranches__text}>
+                  Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի
+                  ձևավորման վրա:
+                </p>
               </div>
-              <p className={styles.showBranches__text}>
-                Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի
-                ձևավորման վրա:
-              </p>
+              <button
+                className={`${styles.showBranches__button} ${styles.showBranches__button_active}`}
+              >
+                <Arrows.Down />
+              </button>
             </div>
-            <button
-              className={`${styles.showBranches__button} ${styles.showBranches__button_active}`}
-            >
-              <Arrows.Down />
+
+            <button className={`${styles.branches__showMap} outlined_btn`}>
+              <div className={styles.showMap__icon}>
+                <Icons.Pin />
+              </div>
+              <span>ՑՈՒՅՑ ՏԱԼ ՔԱՐՏԵԶԻ ՎՐԱ</span>
             </button>
-          </div>
 
-          <button className={`${styles.branches__showMap} outlined_btn`}>
-            <div className={styles.showMap__icon}>
-              <Icons.Pin />
+            <div className={styles.content__addresses}>
+              {map([1, 2], (item) => (
+                <div key={item} className={styles.addresses__item}>
+                  <h2 className={styles.item__title}>«Երևան Մոլ» վաճառասրահ</h2>
+                  <div className={styles.item__address}>
+                    <Icons.Pin className={styles.address__icon} />
+                    Արշակունյաց պող., 34/3 շենք
+                  </div>
+                  <div className={styles.item__branchNumber}>
+                    Մասնաճյուղի հեռախոսահամար
+                    <div className={styles.branchNumber__number}>
+                      <Icons.Phone className={styles.number__icon} />
+                      <span className={styles.number__text}>+374 (01) 02 03 04</span>
+                      <a href="" className={styles.number__link}>
+                        {" "}
+                        <Logos.WhatsApp />
+                      </a>
+                    </div>
+                  </div>
+                  <div className={styles.item__marketingNumber}>
+                    Մարկետինգի բաժնի հեռախոսահամար
+                    <div className={styles.marketingNumber__number}>
+                      <Icons.Phone className={styles.number__icon} />
+                      <span className={styles.number__text}>+374 (01) 02 03 04</span>
+                    </div>
+                  </div>
+                  <div className={styles.item__time}>
+                    <Icons.Time className={styles.time__icon} />
+                    <span className={styles.time__weekDays}>Երկ. - Ուրբ.</span>
+                    <span className={styles.time__clock}>09:00 - 22:00</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <span>ՑՈՒՅՑ ՏԱԼ ՔԱՐՏԵԶԻ ՎՐԱ</span>
-          </button>
-
-          <div className={styles.content__addresses}>
-            {map([1, 2], (item) => (
-              <div key={item} className={styles.addresses__item}>
-                <h2 className={styles.item__title}>«Երևան Մոլ» վաճառասրահ</h2>
-                <div className={styles.item__address}>
-                  <Icons.Pin className={styles.address__icon} />
-                  Արշակունյաց պող., 34/3 շենք
-                </div>
-                <div className={styles.item__branchNumber}>
-                  Մասնաճյուղի հեռախոսահամար
-                  <div className={styles.branchNumber__number}>
-                    <Icons.Phone className={styles.number__icon} />
-                    <span className={styles.number__text}>+374 (01) 02 03 04</span>
-                    <a href="" className={styles.number__link}>
-                      {" "}
-                      <Logos.WhatsApp />
-                    </a>
-                  </div>
-                </div>
-                <div className={styles.item__marketingNumber}>
-                  Մարկետինգի բաժնի հեռախոսահամար
-                  <div className={styles.marketingNumber__number}>
-                    <Icons.Phone className={styles.number__icon} />
-                    <span className={styles.number__text}>+374 (01) 02 03 04</span>
-                  </div>
-                </div>
-                <div className={styles.item__time}>
-                  <Icons.Time className={styles.time__icon} />
-                  <span className={styles.time__weekDays}>Երկ. - Ուրբ.</span>
-                  <span className={styles.time__clock}>09:00 - 22:00</span>
-                </div>
-              </div>
-            ))}
           </div>
-        </div>
-        <div className={styles.branches__map}></div>
-      </section>
+          <div className={styles.branches__map}></div>
+        </section>
+      </div>
 
       <MessageModal
         recipient={{ name: "Alpine" }}

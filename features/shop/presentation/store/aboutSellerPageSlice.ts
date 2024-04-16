@@ -25,7 +25,8 @@ interface IState {
 
 const initialState: IState = {
   info: {
-    originalImage: "https://tbuy.am/imgs/partnersimg/9c637cd.jpeg",
+    originalImage:
+      "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg",
     sellerType: "individual",
     fullName: "Arman Sahakyan",
     email: "testuser@gmail.com",
@@ -245,7 +246,8 @@ const initialState: IState = {
       title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
-          original: "https://tbuy.run/imgs/prod_img/3203e90.webp",
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -262,7 +264,8 @@ const initialState: IState = {
       title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
-          original: "https://tbuy.run/imgs/prod_img/3203e90.webp",
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -279,7 +282,8 @@ const initialState: IState = {
       title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
-          original: "https://tbuy.run/imgs/prod_img/3203e90.webp",
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -296,7 +300,8 @@ const initialState: IState = {
       title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
-          original: "https://tbuy.run/imgs/prod_img/3203e90.webp",
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -313,7 +318,8 @@ const initialState: IState = {
       title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
-          original: "https://tbuy.run/imgs/prod_img/3203e90.webp",
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -330,7 +336,8 @@ const initialState: IState = {
       title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
-          original: "https://tbuy.run/imgs/prod_img/3203e90.webp",
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],

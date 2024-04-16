@@ -129,7 +129,9 @@
 			}
 
 			&__info {
-				margin-bottom: 3.25em;
+				display: flex;
+				gap: 20px;
+				margin-bottom: 30px;
 
 				.info {
 					&__text {
@@ -433,8 +435,17 @@
 
 	//?------------------------------------------------------ BRANCHES ------------------------------------------------------//
 
-	.branches {
+	.branches_wrapper {
 		margin-top: 100px;
+
+		.branches_title {
+			margin-left: 2px;
+			margin-bottom: 30px;
+		}
+	}
+
+	.branches {
+		margin-bottom: 75px;
 		display: flex;
 		justify-content: space-between;
 		@include img(cover);
@@ -707,7 +718,7 @@
 }
 
 .legal_partner_products {
-	margin-top: 100px;
+	margin-top: 75px;
 
 	&__title {
 		margin: 20px 0 30px;
@@ -767,6 +778,7 @@
 
 .modal {
 	max-width: 1000px !important;
+
 	p {
 		margin: 0;
 	}

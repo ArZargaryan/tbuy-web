@@ -50,7 +50,7 @@ function VerticalCard(props: Props) {
     <div {...props} className={cls}>
       {!!title && <h3 className={titleCls}>{title}</h3>}
       {prevArrowId && nextArrowId && (
-        <div style={{overflowY: "auto", height: 854}}>
+        <div style={{ overflowY: "auto", height: 854 }}>
           {cards?.map((card, i) => {
             return (
               <div key={`${card.id}_${card.title}_${i}`}>

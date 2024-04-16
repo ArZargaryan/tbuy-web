@@ -75,11 +75,15 @@ function IndividualSellerInfo(props: Props) {
           </div>
 
           <div className={styles.actions__btns}>
-            <PrimaryButton buttonStyle="outline" className={`${styles.chat_btn}`} onClick={changeMessageModal}>
+            <PrimaryButton
+              buttonStyle="outline"
+              className={`${styles.chat_btn}`}
+              onClick={changeMessageModal}
+            >
               <Chat />
               ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ
             </PrimaryButton>
-            <PrimaryButton buttonStyle="outline" >ԲՈՂՈՔԵԼ</PrimaryButton>
+            <PrimaryButton buttonStyle="outline">ԲՈՂՈՔԵԼ</PrimaryButton>
           </div>
 
           <PrimaryButton className={`${styles.subscribe_btn}`}>

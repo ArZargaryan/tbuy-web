@@ -320,7 +320,9 @@ function DesktopMenu({ toggleActive }: Props) {
                 </div>
 
                 <Link href={"/cart"}>
-                  <PrimaryButton className={`${styles.basket__button}`}>ՀԱՍՏԱՏԵԼ ՊԱՏՎԵՐԸ</PrimaryButton>
+                  <PrimaryButton className={`${styles.basket__button}`}>
+                    ՀԱՍՏԱՏԵԼ ՊԱՏՎԵՐԸ
+                  </PrimaryButton>
                 </Link>
               </div>
             </Tooltip>

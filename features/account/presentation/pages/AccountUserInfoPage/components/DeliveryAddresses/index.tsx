@@ -47,9 +47,7 @@ function DeliveryAddresses() {
 
         <div className={styles.block__actions}>
           <PrimaryButton>ՓՈՓՈԽԵԼ</PrimaryButton>
-          <PrimaryButton buttonStyle="outline">
-            ՋՆՋԵԼ
-          </PrimaryButton>
+          <PrimaryButton buttonStyle="outline">ՋՆՋԵԼ</PrimaryButton>
         </div>
       </div>
       <AddAddressModal open={openModal} onClose={changeModalVisibility} />

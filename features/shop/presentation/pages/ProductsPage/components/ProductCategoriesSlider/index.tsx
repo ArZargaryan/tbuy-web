@@ -115,7 +115,7 @@ function ProductCategoriesSlider() {
         </div>
       )}
       <div className={styles.slider}>
-        <SelectsSlider        >
+        <SelectsSlider>
           <Swiper navigation>
             <SwiperSlide>
               <SelectCustom

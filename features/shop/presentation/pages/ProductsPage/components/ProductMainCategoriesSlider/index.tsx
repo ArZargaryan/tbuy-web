@@ -69,14 +69,14 @@ function ProductMainCategoriesSlider() {
   return (
     <div style={{ position: "relative" }}>
       <div className={styles.slider}>
-        <SelectsSlider        >
+        <SelectsSlider>
           <Swiper navigation>
             <SwiperSlide>
               <SelectCustom
                 activeSelect={assortmentActive}
                 onClick={() => setAssortmentActive((prev) => !prev)}
               >
-                <h1 style={{fontSize: 24, color: '#2463bf'}}> {t("filters.sections.title")}</h1>
+                <h1 style={{ fontSize: 24, color: "#2463bf" }}> {t("filters.sections.title")}</h1>
               </SelectCustom>
             </SwiperSlide>
 

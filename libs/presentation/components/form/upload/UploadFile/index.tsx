@@ -32,7 +32,11 @@ const UploadFile = React.forwardRef<HTMLDivElement, Props>((props: Props, ref) =
         {props?.label}
         {withStar && <span className={styles.info__star}>*</span>}
         {withStar && (
-          <PrimaryButton className={styles.info__question} onClick={onClickQuestion} buttonStyle="outline">
+          <PrimaryButton
+            className={styles.info__question}
+            onClick={onClickQuestion}
+            buttonStyle="outline"
+          >
             <Icons.QuestionCircle />
           </PrimaryButton>
         )}
@@ -45,10 +49,7 @@ const UploadFile = React.forwardRef<HTMLDivElement, Props>((props: Props, ref) =
           // @ts-expect-error
           ref={ref}
           render={({ field: { onChange } }) => (
-            <PrimaryButton
-              className={`${styles.upload_btn}`}
-              buttonStyle="outline"
-            >
+            <PrimaryButton className={`${styles.upload_btn}`} buttonStyle="outline">
               <Icons.Attach />
               ԿՑԵԼ
               <input

@@ -66,7 +66,9 @@ function SearchResultPage() {
           selectLabel={"Գինը ըստ նվազման"}
           defaultValue={1}
           className={styles.title}
-        >{"Container"}</TitleWithSort>
+        >
+          {"Container"}
+        </TitleWithSort>
         <div className={styles.categories_flex}>
           <FiltersList
             filters={[{ value: "Արագածոտն" }, { value: "1000 - 5000 AMD" }, { value: "200մ" }]}
@@ -84,7 +86,6 @@ function SearchResultPage() {
           <InfiniteCard cards={itemss} loading={loading} loadMore={fetchMoreData} />
           {/* <TbuyPagination count={5} /> */}
         </div>
-
       </div>
     </SearchLayout>
   );

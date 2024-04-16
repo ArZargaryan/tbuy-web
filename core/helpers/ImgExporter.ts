@@ -17,7 +17,7 @@ import CalendarIcon from "@public/pictures/icons/calendar.svg";
 import ArrowRightIcon from "@public/pictures/arrows/right-arrow.svg";
 import DoubleRightIcon from "@public/pictures/arrows/right-double-arrow.svg";
 import DoubleRightBlueIcon from "@public/pictures/arrows/right-double-arrow-blue.svg";
-import DoubleLeftIcon from "@public/pictures/arrows/left-double-arrow.svg"
+import DoubleLeftIcon from "@public/pictures/arrows/left-double-arrow.svg";
 import CrossIcon from "@public/pictures/icons/cross.svg";
 import EyeIcon from "@public/pictures/icons/eye.svg";
 import BuyerIcon from "@public/pictures/icons/buyer.svg";
@@ -111,7 +111,7 @@ import BlobAirpods from "@public/pictures/blob/airpods.png";
 import GiftCardBlob from "@public/pictures/blob/gift_card.png";
 
 // filter
-import FilterIcon from "@public/pictures/icons/filter.svg"
+import FilterIcon from "@public/pictures/icons/filter.svg";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -189,7 +189,7 @@ export class ImgExporter {
     HouseIcon: HouseIcon,
     ConstructionIcon: ConstructionIcon,
     WeaponsIcon: WeaponsIcon,
-    BeautyIcon: BeautyIcon,
+    BeautyIcon: BeautyIcon
   };
   static blob = {
     avatar: BlobAvatar,

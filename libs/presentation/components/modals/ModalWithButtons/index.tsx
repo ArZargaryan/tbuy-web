@@ -11,10 +11,11 @@ interface Props extends Omit<ModalProps, "children"> {
   textMode?: "default" | "custom";
   footer: React.ReactNode;
   contentClassName?: string;
+  children?: React.ReactNode;
 }
 
 function ModalWithButtons(props: Props) {
-  const { title, textMode = "default", footer, text, contentClassName } = props;
+  const { title, textMode = "default", footer, text, contentClassName, children } = props;
 
   const cls = classNames(styles.modal, contentClassName);
 
@@ -27,6 +28,8 @@ function ModalWithButtons(props: Props) {
         {textMode === "custom" && text}
 
         <div className={styles.modal__btns}>{footer}</div>
+
+        {children}
       </div>
     </Modal>
   );

@@ -109,9 +109,7 @@ function LoginSecondStep() {
             </div>
           </div>
           <div className={styles.btn_box}>
-            <PrimaryButton onClick={handleButtonClick}>
-              Continue
-            </PrimaryButton>
+            <PrimaryButton onClick={handleButtonClick}>Continue</PrimaryButton>
           </div>
         </>
       )}

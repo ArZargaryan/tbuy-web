@@ -1,5 +1,5 @@
-import React, { ReactNode, MouseEvent } from 'react';
-import styles from './primary-button.module.scss';
+import React, { ReactNode, MouseEvent } from "react";
+import styles from "./primary-button.module.scss";
 
 interface PrimaryButtonProps {
   children: ReactNode;
@@ -8,8 +8,15 @@ interface PrimaryButtonProps {
   buttonStyle?: string;
 }
 
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({ children, onClick, className, buttonStyle = 'solid'}) => {
-  const buttonClasses = `${styles.primaryButton} ${className} ${buttonStyle === 'outline' ? styles.outline : ''}`;
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({
+  children,
+  onClick,
+  className,
+  buttonStyle = "solid"
+}) => {
+  const buttonClasses = `${styles.primaryButton} ${className} ${
+    buttonStyle === "outline" ? styles.outline : ""
+  }`;
 
   return (
     <button className={buttonClasses} onClick={onClick}>

@@ -22,6 +22,7 @@ import { useModal } from "@core/hooks/useModal";
 import PrimaryButton from "@core/button/primary";
 import Contacts from "../Contacts";
 import { Contact } from "@features/shop/presentation/store/aboutSellerPageSlice";
+import ModalWithButtons from "@libs/presentation/components/modals/ModalWithButtons";
 const Video = dynamic(() => import("@libs/presentation/components/elements/Video"), { ssr: false });
 
 const { blob, Logos, Icons, Arrows } = ImgExporter;
@@ -49,6 +50,9 @@ function LegalSellerPage() {
   ];
   const { products, services, vacancies } = useAppSelector((state) => state.shop_about_seller);
   const [openMessageModal, changeMessageModal] = useModal(false);
+  const [openPhotoModal, changePhotoModal] = useModal(false);
+  const [openVideoModal, changeVideoModal] = useModal(false);
+  const [openTextModal, changeTextModal] = useModal(false);
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -96,12 +100,15 @@ function LegalSellerPage() {
                   <span className={styles.subscribe__counter}>236</span>
                 </PrimaryButton>
                 <div className={styles.content__info}>
-                  <span className={styles.info__text}>
-                    Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի
-                    ձևավորման վրա: Lorem Ipsum օգտագործելը բացատրվում է նրանով, որ այն բաշխում է
-                    բառերը...
-                  </span>
-                  <b className={styles.info__readMore}>ԿԱՐԴԱԼ ԱՎԵԼԻՆ</b>
+                  <b className={styles.info__readMore} onClick={changeTextModal}>
+                    ԿԱՐԴԱԼ ԱՎԵԼԻՆ
+                  </b>
+                  <b className={styles.info__readMore} onClick={changePhotoModal}>
+                    ՏԵՍԱԴԱՐԱՆ
+                  </b>
+                  <b className={styles.info__readMore} onClick={changeVideoModal}>
+                    ՎԻԴԵՈԴԱՐԱՆ
+                  </b>
                 </div>
                 <div className={styles.content__buttons}>
                   <PrimaryButton
@@ -170,10 +177,18 @@ function LegalSellerPage() {
               >
                 <SwiperSlide
                   className={`${styles.tabs__tab} ${styles.active}`}
-                  onClick={() => scrollToSection("showBranches")}
+                  onClick={() => scrollToSection("collection")}
                 >
-                  <Link to="showBranches" spy={true} smooth={true} offset={-100} duration={500}>
-                    Մասնաճյուղեր
+                  <Link to="collection" spy={true} smooth={true} offset={-200} duration={500}>
+                    Ապրանքներ
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={styles.tabs__tab}
+                  onClick={() => scrollToSection("services")}
+                >
+                  <Link to="services" spy={true} smooth={true} offset={-200} duration={500}>
+                    ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
@@ -181,111 +196,46 @@ function LegalSellerPage() {
                   onClick={() => scrollToSection("openJobs")}
                 >
                   {" "}
-                  <Link to="openJobs" spy={true} smooth={true} offset={-100} duration={500}>
+                  <Link to="openJobs" spy={true} smooth={true} offset={-200} duration={500}>
                     Թափուր աշխատատեղեր{" "}
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
                   className={styles.tabs__tab}
-                  onClick={() => scrollToSection("gallery")}
+                  onClick={() => scrollToSection("branches")}
                 >
-                  {" "}
-                  <Link to="gallery" spy={true} smooth={true} offset={-100} duration={500}>
-                    Տեսադարան
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={styles.tabs__tab}
-                  onClick={() => scrollToSection("gallery")}
-                >
-                  {" "}
-                  <Link to="gallery" spy={true} smooth={true} offset={-100} duration={500}>
-                    Վիդեոդարան{" "}
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={styles.tabs__tab}
-                  onClick={() => scrollToSection("collection")}
-                >
-                  <Link to="collection" spy={true} smooth={true} offset={-100} duration={500}>
-                    Տեսականի{" "}
+                  <Link to="branches" spy={true} smooth={true} offset={-200} duration={500}>
+                    Մասնաճյուղեր
                   </Link>
                 </SwiperSlide>
               </Swiper>
-            </div>
-
-            <div className={styles.company__body}>
-              <div className={styles.body__content}>
-                <div className={styles.content__showBranches} id="showBranches">
-                  <div className={styles.showBranches__box}>
-                    <div className={`${styles.showBranches__title} title title_account`}>
-                      Ցույց տալ բոլոր մասնաճյուղերը
-                    </div>
-                    <p className={styles.showBranches__text}>
-                      Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ
-                      տեքստի ձևավորման վրա:
-                    </p>
-                  </div>
-                  <button
-                    className={`${styles.showBranches__button} ${styles.showBranches__button_active}`}
-                  >
-                    <Arrows.Down />
-                  </button>
-                </div>
-
-                <button className={`${styles.body__showMap} outlined_btn`}>
-                  <div className={styles.showMap__icon}>
-                    <Icons.Pin />
-                  </div>
-                  <span>ՑՈՒՅՑ ՏԱԼ ՔԱՐՏԵԶԻ ՎՐԱ</span>
-                </button>
-
-                <div className={styles.content__addresses}>
-                  {map([1, 2], (item) => (
-                    <div key={item} className={styles.addresses__item}>
-                      <h2 className={styles.item__title}>«Երևան Մոլ» վաճառասրահ</h2>
-                      <div className={styles.item__address}>
-                        <Icons.Pin className={styles.address__icon} />
-                        Արշակունյաց պող., 34/3 շենք
-                      </div>
-                      <div className={styles.item__branchNumber}>
-                        Մասնաճյուղի հեռախոսահամար
-                        <div className={styles.branchNumber__number}>
-                          <Icons.Phone className={styles.number__icon} />
-                          <span className={styles.number__text}>+374 (01) 02 03 04</span>
-                          <a href="" className={styles.number__link}>
-                            {" "}
-                            <Logos.WhatsApp />
-                          </a>
-                        </div>
-                      </div>
-                      <div className={styles.item__marketingNumber}>
-                        Մարկետինգի բաժնի հեռախոսահամար
-                        <div className={styles.marketingNumber__number}>
-                          <Icons.Phone className={styles.number__icon} />
-                          <span className={styles.number__text}>+374 (01) 02 03 04</span>
-                        </div>
-                      </div>
-                      <div className={styles.item__time}>
-                        <Icons.Time className={styles.time__icon} />
-                        <span className={styles.time__weekDays}>Երկ. - Ուրբ.</span>
-                        <span className={styles.time__clock}>09:00 - 22:00</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={styles.body__map}></div>
             </div>
           </div>
         </div>
       </section>
 
+      <div className={styles.legal_partner_products} id="collection">
+        <CardsSlider
+          cards={products || []}
+          title={"Տեսականի"}
+          titleClassName={styles.slider_title_left}
+        />
+      </div>
+
+      <div className={styles.legal_partner_services} id="services">
+        <CardsSlider
+          cards={services || []}
+          title={"ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ"}
+          titleClassName={styles.slider_title_left}
+        />
+      </div>
+
       <div className={styles.legal_partner_vacancies} id="openJobs">
         <h3 className={"title"}>ԹԱՓՈՒՐ ԱՇԽԱՏԱՏԵՂԵՐ</h3>
         <VacancySlider vacancies={vacancies || []} />
       </div>
-      <section className={styles.gallery} id="gallery">
+
+      {/*<section className={styles.gallery} id="gallery">
         <div className={styles.container}>
           <div className={styles.gallery__flexbox}>
             <div className={styles.flexbox__photo}>
@@ -367,39 +317,183 @@ function LegalSellerPage() {
             </div>
           </div>
         </div>
+      </section>*/}
+
+      <section className={styles.branches} id="branches">
+        <div className={styles.branches__content}>
+          <div className={styles.content__showBranches} id="showBranches">
+            <div className={styles.showBranches__box}>
+              <div className={`${styles.showBranches__title} title title_account`}>
+                Ցույց տալ բոլոր մասնաճյուղերը
+              </div>
+              <p className={styles.showBranches__text}>
+                Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի
+                ձևավորման վրա:
+              </p>
+            </div>
+            <button
+              className={`${styles.showBranches__button} ${styles.showBranches__button_active}`}
+            >
+              <Arrows.Down />
+            </button>
+          </div>
+
+          <button className={`${styles.branches__showMap} outlined_btn`}>
+            <div className={styles.showMap__icon}>
+              <Icons.Pin />
+            </div>
+            <span>ՑՈՒՅՑ ՏԱԼ ՔԱՐՏԵԶԻ ՎՐԱ</span>
+          </button>
+
+          <div className={styles.content__addresses}>
+            {map([1, 2], (item) => (
+              <div key={item} className={styles.addresses__item}>
+                <h2 className={styles.item__title}>«Երևան Մոլ» վաճառասրահ</h2>
+                <div className={styles.item__address}>
+                  <Icons.Pin className={styles.address__icon} />
+                  Արշակունյաց պող., 34/3 շենք
+                </div>
+                <div className={styles.item__branchNumber}>
+                  Մասնաճյուղի հեռախոսահամար
+                  <div className={styles.branchNumber__number}>
+                    <Icons.Phone className={styles.number__icon} />
+                    <span className={styles.number__text}>+374 (01) 02 03 04</span>
+                    <a href="" className={styles.number__link}>
+                      {" "}
+                      <Logos.WhatsApp />
+                    </a>
+                  </div>
+                </div>
+                <div className={styles.item__marketingNumber}>
+                  Մարկետինգի բաժնի հեռախոսահամար
+                  <div className={styles.marketingNumber__number}>
+                    <Icons.Phone className={styles.number__icon} />
+                    <span className={styles.number__text}>+374 (01) 02 03 04</span>
+                  </div>
+                </div>
+                <div className={styles.item__time}>
+                  <Icons.Time className={styles.time__icon} />
+                  <span className={styles.time__weekDays}>Երկ. - Ուրբ.</span>
+                  <span className={styles.time__clock}>09:00 - 22:00</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.branches__map}></div>
       </section>
-
-      <div className={styles.legal_partner_products} id="collection">
-        <TitleWithSort
-          sortItems={[
-            { id: 0, value: "Գինը ըստ նվազման" },
-            { id: 1, value: "Գինը ըստ նվազման" }
-          ]}
-          selectLabel={"Գինը ըստ նվազման"}
-        >
-          {/*{t("title")}*/}Տեսականի
-        </TitleWithSort>
-        <AboutSellerCategoriesSlider />
-        <FiltersList
-          filters={[{ value: "Ականջակալներ" }, { value: "1000 - 5000 AMD" }, { value: "ZIGZAG" }]}
-        />
-        {/*mock loading*/}
-        <CardsList cards={products} loading={false} />
-        {/* <TbuyPagination count={5} /> */}
-      </div>
-
-      <div className={styles.legal_partner_services}>
-        <CardsSlider
-          cards={services || []}
-          title={"ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ"}
-          titleClassName={styles.slider_title_left}
-        />
-      </div>
 
       <MessageModal
         recipient={{ name: "Alpine" }}
         open={openMessageModal}
         onClose={changeMessageModal}
+      />
+
+      <ModalWithButtons
+        contentClassName={styles.modal}
+        title="ՎԻԴԵՈԴԱՐԱՆ"
+        text={null}
+        footer={null}
+        open={openVideoModal}
+        onClose={changeVideoModal}
+      >
+        <div className={styles.gallery}>
+          <div className={styles.video}>
+            <div className={styles.video__header}>
+              <div className={styles.header__buttons}>
+                <button
+                  className={`${styles.buttons__button} ${styles.buttons__prevButton} seller_body_videos_swiper_prev`}
+                >
+                  <Arrows.ArrowRight />
+                </button>
+                <button
+                  className={`${styles.buttons__button} ${styles.buttons__nextButton} seller_body_videos_swiper_next`}
+                >
+                  <Arrows.ArrowRight />
+                </button>
+              </div>
+            </div>
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={32}
+              slidesPerView={3}
+              freeMode
+              onSwiper={(swiper) => console.log(swiper)}
+              className={styles.video__items}
+              navigation={{
+                nextEl: ".seller_body_videos_swiper_next",
+                prevEl: ".seller_body_videos_swiper_prev"
+              }}
+            >
+              {map([1, 2, 3, 4, 5], (item) => (
+                <SwiperSlide key={item}>
+                  <Video
+                    url={"https://www.youtube.com/watch?v=LXb3EKWsInQ"}
+                    width={"100%"}
+                    height={"100%"}
+                    controls
+                    light
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </ModalWithButtons>
+
+      <ModalWithButtons
+        contentClassName={styles.modal}
+        title="ՏԵՍԱԴԱՐԱՆ"
+        text={null}
+        footer={null}
+        open={openPhotoModal}
+        onClose={changePhotoModal}
+      >
+        <div className={styles.gallery}>
+          <div className={styles.photo}>
+            <div className={`${styles.photo__header}`}>
+              <div className={styles.header__buttons}>
+                <button
+                  className={`${styles.buttons__button} ${styles.buttons__prevButton} seller_body_photos_swiper_prev`}
+                >
+                  <Arrows.ArrowRight />
+                </button>
+                <button
+                  className={`${styles.buttons__button} ${styles.buttons__nextButton} seller_body_photos_swiper_next`}
+                >
+                  <Arrows.ArrowRight />
+                </button>
+              </div>
+            </div>
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={32}
+              slidesPerView={3}
+              freeMode
+              onSwiper={(swiper) => console.log(swiper)}
+              className={styles.photo__items}
+              navigation={{
+                nextEl: ".seller_body_photos_swiper_next",
+                prevEl: ".seller_body_photos_swiper_prev"
+              }}
+            >
+              {map([1, 2, 3, 4, 5, 6], (item) => (
+                <SwiperSlide key={item}>
+                  <img src={blob.Promotion.src} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </ModalWithButtons>
+
+      <ModalWithButtons
+        contentClassName={styles.modal}
+        title="ԿԱՐԴԱԼ ԱՎԵԼԻՆ"
+        text="Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: Lorem Ipsum օգտագործելը բացատրվում է նրանով, որ այն բաշխում է բառերը..."
+        footer={null}
+        open={openTextModal}
+        onClose={changeTextModal}
       />
     </div>
   );

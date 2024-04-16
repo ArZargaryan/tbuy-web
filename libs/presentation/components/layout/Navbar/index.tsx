@@ -22,11 +22,11 @@ type Props = {
 type Category = {
   id: number;
   name: string;
-  label: string; 
+  label: string;
   icon: string;
   numberOfSubcategories: number;
   subcategories: Category[];
-}
+};
 
 export default function Navbar(props: Props) {
   const { items, currSubcategory, loading } = useAppSelector(
@@ -119,8 +119,7 @@ export default function Navbar(props: Props) {
       subcategories: []
     }
   ];
-  
-  
+
   const [toggle, setToggle] = useState(false);
 
   function toggleActive() {

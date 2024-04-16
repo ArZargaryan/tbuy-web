@@ -113,10 +113,7 @@ function VacancyDetailPage() {
               </div>
 
               <Link href="">
-                <PrimaryButton
-                  className={styles.marketing__button}
-                  onClick={changeModalVisibility}
-                >
+                <PrimaryButton className={styles.marketing__button} onClick={changeModalVisibility}>
                   ԴԻՄԵԼ
                 </PrimaryButton>
               </Link>

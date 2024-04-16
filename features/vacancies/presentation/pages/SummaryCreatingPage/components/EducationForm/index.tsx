@@ -182,9 +182,7 @@ function EducationForm() {
           <PrimaryButton buttonStyle="outline" onClick={cancelHandler}>
             Cancel
           </PrimaryButton>
-          <PrimaryButton>
-            CONTINUE
-          </PrimaryButton>
+          <PrimaryButton>CONTINUE</PrimaryButton>
         </div>
       </form>
     </>

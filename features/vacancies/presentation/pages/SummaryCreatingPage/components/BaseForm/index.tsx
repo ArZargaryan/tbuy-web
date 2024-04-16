@@ -144,9 +144,7 @@ function BaseForm() {
           <PrimaryButton buttonStyle="outline" onClick={cancelHandler}>
             Cancel
           </PrimaryButton>
-          <PrimaryButton>
-            CONTINUE
-          </PrimaryButton>
+          <PrimaryButton>CONTINUE</PrimaryButton>
         </div>
       </form>
     </>

@@ -41,7 +41,10 @@ function MainSlider({ banners, slides, loading }: Props) {
                   imageClassName={styles.header__pictures_item_img}
                   loading="eager"
                 /> */}
-                <img src={banner.image.currentImage} className={styles.header__pictures_item_img}></img>
+                <img
+                  src={banner.image.currentImage}
+                  className={styles.header__pictures_item_img}
+                ></img>
               </Link>
             </div>
           ))}

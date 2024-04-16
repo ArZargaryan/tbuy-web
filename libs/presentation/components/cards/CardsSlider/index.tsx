@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Scrollbar, Autoplay} from "swiper";
+import { FreeMode, Navigation, Scrollbar, Autoplay } from "swiper";
 import { v4 as uuidv4 } from "uuid";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";

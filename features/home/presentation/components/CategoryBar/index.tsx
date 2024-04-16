@@ -98,10 +98,9 @@ function CategoryBar(props: Props) {
                 className={styles.menu__btn}
                 onClick={() => changeCategory(category.id)}
               >
-                {category?.icon && (
+                {category?.icon &&
                   // <img src={category?.icon as string} alt="" className={styles.menu__btn_icon} />
-                  category.icon
-                )}
+                  category.icon}
                 <span
                   className={`${styles.menu__btn_txt} ${
                     currentCategory === category.id && poppupOpened

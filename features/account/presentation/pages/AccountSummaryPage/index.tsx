@@ -23,12 +23,8 @@ function AccountSummaryPage() {
             </div>
           </div>
           <div className={styles.resumeContent__buttons}>
-            <PrimaryButton buttonStyle="outline">
-              DELETE
-            </PrimaryButton>
-            <PrimaryButton>
-              EDIT
-            </PrimaryButton>
+            <PrimaryButton buttonStyle="outline">DELETE</PrimaryButton>
+            <PrimaryButton>EDIT</PrimaryButton>
           </div>
         </form>
       </div>

@@ -44,7 +44,7 @@ function Contacts(props: Props) {
               <WhatsappShareButton title={title} url={shareUrl} className={styles.contacts_phone}>
                 {" "}
                 <WhatsApp />
-                 <span>{phone.value}</span>
+                <span>{phone.value}</span>
               </WhatsappShareButton>
             </>
           )}

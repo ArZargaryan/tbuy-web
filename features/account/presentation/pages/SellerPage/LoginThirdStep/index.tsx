@@ -22,12 +22,12 @@ function LoginThirdStep() {
   const [step, setStep] = useState(0);
   const router = useRouter();
 
-  const handleNext = (event:any) => {
+  const handleNext = (event: any) => {
     event.preventDefault();
     setStep(step + 1);
   };
 
-  const handleBack = (event:any) => {
+  const handleBack = (event: any) => {
     event.preventDefault();
     if (step === 0) {
       router.reload();
@@ -218,9 +218,7 @@ function LoginThirdStep() {
                         </div>
                       </div>
                       <Captcha size={"invisible"} />
-                      <PrimaryButton className={styles.btn_center}>
-                        ԳՐԱՆՑՈՒՄ
-                      </PrimaryButton>
+                      <PrimaryButton className={styles.btn_center}>ԳՐԱՆՑՈՒՄ</PrimaryButton>
                       <button
                         type={"button"}
                         className={`${styles.form__modal_btn}`}
@@ -244,10 +242,7 @@ function LoginThirdStep() {
               </PrimaryButton>
             )}
             {step < 2 && (
-              <PrimaryButton
-                onClick={handleNext}
-                className={styles.btn_next}
-              >
+              <PrimaryButton onClick={handleNext} className={styles.btn_next}>
                 Next
               </PrimaryButton>
             )}

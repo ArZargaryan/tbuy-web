@@ -55,8 +55,6 @@ function PaymentVariantForm(props: Props) {
     );
   }
 
-
-
   if (props.variant === "rassrochka") {
     const watchPassport = watch("passport_file");
     const watchPassportWithFace = watch("passport_with_face_file");

@@ -114,12 +114,8 @@ function CheckoutGiftCardPage() {
               </div>
 
               <div className={styles.controls__btns}>
-                <PrimaryButton>
-                  ՈՒՂԱՐԿԵԼ ՊԱՏՎԵՐԸ
-                </PrimaryButton>
-                <PrimaryButton buttonStyle="outline">
-                  ԴԻՏԵԼ ՊԱՏՎԵՐԸ
-                </PrimaryButton>
+                <PrimaryButton>ՈՒՂԱՐԿԵԼ ՊԱՏՎԵՐԸ</PrimaryButton>
+                <PrimaryButton buttonStyle="outline">ԴԻՏԵԼ ՊԱՏՎԵՐԸ</PrimaryButton>
               </div>
             </div>
           </form>

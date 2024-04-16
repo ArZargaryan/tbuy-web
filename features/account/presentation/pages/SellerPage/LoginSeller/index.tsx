@@ -70,7 +70,9 @@ function LoginSellerStep() {
 
             <div
               className={`${styles.loginAs__link} ${
-                activeItem === "service" ? styles.loginAs__link_active : styles.loginAs__link_active1
+                activeItem === "service"
+                  ? styles.loginAs__link_active
+                  : styles.loginAs__link_active1
               }`}
               onClick={() => handleItemClick("service")}
             >
@@ -107,9 +109,7 @@ function LoginSellerStep() {
             </div>
           </div>
           <div className={styles.btn_box}>
-            <PrimaryButton onClick={handleButtonClick}>
-              Continue
-            </PrimaryButton>
+            <PrimaryButton onClick={handleButtonClick}>Continue</PrimaryButton>
           </div>
         </>
       )}

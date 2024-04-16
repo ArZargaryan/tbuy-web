@@ -24,7 +24,7 @@ type Props = {
   items: SelectItem[];
   checkBoxCircle?: boolean;
   poppupItemClassName?: string;
-  labelStyle?: React.CSSProperties; 
+  labelStyle?: React.CSSProperties;
 } & SelectProps<number[]>;
 
 function SelectCheckbox(props: Props) {

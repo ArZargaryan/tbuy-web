@@ -122,7 +122,7 @@ function LegalSellerPage() {
                     onClick={changeMessageModal}
                   >
                     <Icons.Chat className={styles.button__icon} />
-                    ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ
+                    <span>ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ</span>
                   </PrimaryButton>
                   <PrimaryButton className={`${styles.buttons__button}`} buttonStyle="outline">
                     ԲՈՂՈՔԵԼ

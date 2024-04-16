@@ -169,6 +169,11 @@
 					justify-content: center;
 					gap: 10px;
 
+					span {
+						color: inherit;
+						font-weight: inherit;
+					}
+
 					&:nth-child(1) {
 						max-width: 275px;
 					}
@@ -193,8 +198,8 @@
 				}
 
 				.button__icon {
-					flex: 0 0 24px;
-					height: 24px;
+					flex: 0 0 20.5px;
+					height: 20.5px;
 				}
 			}
 		}
@@ -702,6 +707,23 @@
 
 			.item__marketingNumber {
 				margin-bottom: 14px;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			flex-direction: column;
+			gap: 20px;
+
+			&__map {
+				flex: 0 1 auto;
+				width: 100%;
+				order: 1;
+			}
+
+			&__content {
+				order: 2;
+				flex: 0 1 auto;
+				padding-right: 0;
 			}
 		}
 	}

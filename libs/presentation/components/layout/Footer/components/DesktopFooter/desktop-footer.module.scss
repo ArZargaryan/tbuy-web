@@ -1,131 +1,123 @@
 @import "@styles/vars.scss";
 
 .footer {
-  background: $grey-0;
-  padding: 20px 0 20px 0;
-  border-top: 1px solid $grey-1;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 3500;
-  transition: transform 0.3s ease;
+	background: $grey-0;
+	padding: 20px 0 20px 0;
+	border-top: 1px solid $grey-1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 3500;
+	transition: transform 0.3s ease;
 
-  &__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	&__content {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: 20px;
 
-    .content__routes {
-      flex: 0 1 70%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+		.content__routes {
+			flex: 0 1 70%;
+			display: flex;
+			gap: 20px;
+			align-items: center;
+			justify-content: space-between;
+			text-align: center;
 
-      .routes__select {
-        font-weight: bold;
-      }
+			.routes__select {
+				font-weight: bold;
+			}
+		}
 
-      @media screen and (max-width: 1200px) {
-        flex: 0 1 78%;
-      }
-      @media screen and (max-width: 1100px) {
-        flex: 0 1 65%;
+		.content__socials {
+			flex: 0 1 22%;
+			gap: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: right;
 
-        .routes__select {
-          flex-grow: 1;
-        }
-      }
-    }
+			.socials__links {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+			}
 
-    .content__socials {
-      flex: 0 1 22%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+			.socials__copyright {
+				font-size: 14px;
+			}
+		}
+	}
 
-      .socials__links {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
+	@media screen and (max-width: 1000px) {
+		column-gap: 15px;
 
-      .socials__copyright {
-        font-size: 14px;
-      }
-      @media screen and (max-width: 1200px) {
-        flex: 0 1 21%;
-        .socials__links {
-          gap: 10px;
-        }
-      }
-      @media screen and (max-width: 1100px) {
-        flex: 0 1 35%;
-        .socials__links {
-          gap: 20px;
-        }
-        .socials__copyright {
-          font-size: 16px;
-        }
-      }
-    }
-    @media screen and (max-width: 1100px) {
-      flex-wrap: wrap;
-    }
-  }
+		.content__socials,
+		.socials__links,
+		.content__routes {
+			gap: 15px;
+		}
+	}
 
-  @media screen and (max-width: 800px) {
+	@media screen and (max-width: 800px) {
     display: none;
   }
 }
 
 .footerHidden {
-  transform: translateY(100%);
+	transform: translateY(100%);
 }
 
 .select__item {
-  margin-bottom: 10px;
-  a {
-    transition: all 0.2s linear;
-    &:hover {
-      color: $blue;
-    }
-  }
+	margin-bottom: 10px;
+
+	a {
+		transition: all 0.2s linear;
+
+		&:hover {
+			color: $blue;
+		}
+	}
 }
 
 .footer__capabilities_form {
-  padding-bottom: 10px;
-  max-width: 376px;
-  width: 376px;
-  &_title {
-    font-weight: bold;
-  }
-  &_lab {
-    display: flex;
+	padding-bottom: 10px;
+	max-width: 376px;
+	width: 376px;
 
-    &_inp {
-      padding: 10px 16px;
-      font-size: 14px;
-      color: #979797;
-      border: 1px solid #979797;
-      border-right: none;
-      width: 100%;
-    }
-    &_btn {
-      background: $blue;
-      padding: 10px;
+	&_title {
+		font-weight: bold;
+	}
 
-      &_icon {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
+	&_lab {
+		display: flex;
 
-  @media screen and (max-width: 1050px) {
-    max-width: 300px;
-  }
-  @media screen and (max-width: 850px) {
-    max-width: 270px;
-  }
+		&_inp {
+			padding: 10px 16px;
+			font-size: 14px;
+			color: #979797;
+			border: 1px solid #979797;
+			border-right: none;
+			width: 100%;
+		}
+
+		&_btn {
+			background: $blue;
+			padding: 10px;
+
+			&_icon {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 1050px) {
+		max-width: 300px;
+	}
+
+	@media screen and (max-width: 850px) {
+		max-width: 270px;
+	}
 }

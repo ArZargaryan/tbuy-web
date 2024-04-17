@@ -1,159 +1,184 @@
 @import "@styles/vars.scss";
+@import "@styles/z-vars.scss";
 
 .footer {
-  width: 100%;
-  background: $grey-0;
-  margin-top: 80px;
+	position: fixed;
+	bottom: 56px;
+	left: 0;
+	right: 0;
+	z-index: $z-sidebar;
 
-  &__container {
-    width: 100%;
-    max-width: 1630px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  &__content {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 30px;
-    align-items: flex-start;
-    padding: 40px 0;
+	//margin-top: 80px;
+	//padding: 20px 0 20px 0;
 
-    @media screen and (max-width: 900px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+	width: 100%;
 
-    @media screen and (max-width: 700px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 15px;
-    }
-    @media screen and (max-width: 450px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  &__item {
-    &_title {
-      font-weight: bold;
-      margin-bottom: 16px;
+	background: $grey-0;
+	border-top: 1px solid $grey-1;
+	transition: transform 0.3s ease;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+	&__container {
+		width: 100%;
+		max-width: 1630px;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
 
-      span {
-        display: none;
-        transition: all 0.2s linear;
-        @media screen and (max-width: 450px) {
-          display: block;
-        }
-      }
-    }
-    &_title_active {
-      span {
-        transform: rotate(180deg);
-      }
-    }
-    &_menu {
-      display: grid;
-      grid-gap: 10px;
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		flex-wrap: wrap;
+		gap: 15px;
 
-      @media screen and (max-width: 450px) {
-        display: none;
-      }
-    }
-    &_menu_active {
-      @media screen and (max-width: 450px) {
-        display: grid;
-      }
-    }
-  }
-  &__capabilities {
-    display: grid;
-    grid-gap: 40px;
+		padding: 20px 0;
 
-    &_form {
-      &_title {
-        font-weight: bold;
-        margin-bottom: 16px;
-      }
-      &_lab {
-        display: flex;
+		@media screen and (max-width: 900px) {
+		}
 
-        &_inp {
-          padding: 10px 16px;
-          font-size: 14px;
-          color: #979797;
-          border: 1px solid #979797;
-          border-right: none;
-          width: 100%;
-        }
-        &_btn {
-          background: $blue;
-          padding: 10px;
+		@media screen and (max-width: 500px) {
+		}
 
-          &_icon {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
-    }
-    &_qr {
-      &_title {
-        font-weight: bold;
-        margin-bottom: 16px;
-      }
-      &_img {
-        width: 90px;
-        height: 90px;
-      }
+		@media screen and (max-width: 450px) {
+		}
+	}
 
-      @media screen and (max-width: 450px) {
-        display: none;
-      }
-    }
-  }
-  &__social {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px 0;
-    border-top: 1px solid #00000030;
+	&__item {
+		&_title {
+			font-weight: bold;
+			margin-bottom: 16px;
 
-    &_create {
-      text-transform: uppercase;
-    }
-    &_links {
-      display: flex;
-      grid-gap: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
-      &_link {
-      }
-    }
-  }
+			span {
+				display: none;
+				transition: all 0.2s linear;
 
-  @media screen and (min-width: 801px) {
-    display: none;
-  }
+				@media screen and (max-width: 450px) {
+					display: block;
+				}
+			}
+		}
 
-  @media screen and (max-width: 700px) {
-    margin-top: 50px;
-  }
+		&_title_active {
+			span {
+				transform: rotate(180deg);
+			}
+		}
+
+		&_menu {
+			display: grid;
+			grid-gap: 10px;
+
+			@media screen and (max-width: 450px) {
+				display: none;
+			}
+		}
+
+		&_menu_active {
+			@media screen and (max-width: 450px) {
+				display: grid;
+			}
+		}
+	}
+
+	&__capabilities {
+		display: grid;
+		grid-gap: 40px;
+
+		&_form {
+			&_title {
+				font-weight: bold;
+				margin-bottom: 16px;
+			}
+
+			&_lab {
+				display: flex;
+
+				&_inp {
+					padding: 10px 16px;
+					font-size: 14px;
+					color: #979797;
+					border: 1px solid #979797;
+					border-right: none;
+					width: 100%;
+				}
+
+				&_btn {
+					background: $blue;
+					padding: 10px;
+
+					&_icon {
+						width: 20px;
+						height: 20px;
+					}
+				}
+			}
+		}
+
+		&_qr {
+			&_title {
+				font-weight: bold;
+				margin-bottom: 16px;
+			}
+
+			&_img {
+				width: 90px;
+				height: 90px;
+			}
+
+			@media screen and (max-width: 450px) {
+				display: none;
+			}
+		}
+	}
+
+	&__social {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px 0;
+		border-top: 1px solid #00000030;
+
+		&_create {
+			text-transform: uppercase;
+		}
+
+		&_links {
+			display: flex;
+			grid-gap: 20px;
+
+			&_link {}
+		}
+	}
+
+	@media screen and (min-width: 801px) {
+		display: none;
+	}
+
+	@media screen and (max-width: 700px) {
+		//margin-top: 50px;
+	}
+}
+
+.footerHidden {
+	transform: translateY(100%);
 }
 
 .download_btn {
-  width: 100%;
-  margin-bottom: 30px;
-  margin-top: -20px;
 
-  display: none;
+	display: none;
 
-  @media screen and (max-width: 450px) {
-    display: block;
-  }
+	@media screen and (max-width: 450px) {
+		//display: block;
+	}
 }
 
 .mb {
-  @media screen and (max-width: 800px) {
-    margin-bottom: 56px;
-  }
+	@media screen and (max-width: 800px) {
+		//margin-bottom: 56px;
+	}
 }

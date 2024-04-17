@@ -23,13 +23,17 @@
 
 .label {
   font-weight: bold;
+	display: flex;
+	align-items: center;
+	gap: 6px;
 }
 
 .arrow {
-  width: 10px;
-  margin-left: 6px;
-  margin-top: -2px;
+	flex: 0 0 10px;
+	height: 6px;
+	margin-top: 6px;
   transform: rotate(180deg) translateY(2px);
+
   path {
     fill: #000;
   }

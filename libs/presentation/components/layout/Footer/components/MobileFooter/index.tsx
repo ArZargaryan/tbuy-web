@@ -1,10 +1,12 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import dayjs from "dayjs";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import { useTranslation } from "next-i18next";
 import { getFooterLinks } from "@libs/presentation/components/layout/Footer/model/links";
 import styles from "./footer.module.scss";
+import { join } from "path";
+import FooterSelect from "@libs/presentation/components/layout/Footer/components/DesktopFooter/components/FooterSelect";
 
 type Props = {
   pageWithMobileBar?: boolean;
@@ -16,6 +18,10 @@ function Index({ pageWithMobileBar = false }: Props) {
     info: false,
     terms: false
   });
+
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [scrolledDown, setScrolledDown] = useState(false);
+
   const mb = pageWithMobileBar ? styles.mb : "";
 
   const { t } = useTranslation(["layout/footer", "common"]);
@@ -28,106 +34,77 @@ function Index({ pageWithMobileBar = false }: Props) {
     setAccordions((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
+  const footerClassName = [styles.footer, mb].join(" ");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isScrolledDown = currentScrollY > prevScrollY;
+
+      setPrevScrollY(currentScrollY);
+      setScrolledDown(isScrolledDown);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollY]);
+
   return (
-    <footer className={`${styles.footer} ${mb}`}>
+    <footer className={footerClassName}>
       <div className={styles.footer__container}>
         <div className={styles.footer__content}>
-          <div className={styles.footer__item}>
-            <h3
-              className={`${styles.footer__item_title} ${
-                accordions.map ? styles.footer__item_title_active : ""
-              }`}
-              onClick={() => changeAccordions("map")}
-            >
-              {t("citeMap.title")}
-              <span>
-                <Arrows.Down />
-              </span>
-            </h3>
-            <ul
-              className={`${styles.footer__item_menu} ${
-                accordions.map ? styles.footer__item_menu_active : ""
-              }`}
-            >
+          <div>
+            <FooterSelect label={t("citeMap.title")}>
               {links.citeMap.map((link) => (
-                <li key={`${link.route}_${link.text}`}>
-                  <Link href={link.route} className={styles.footer__item_menu_link}>
-                    {link.text}
-                  </Link>
-                </li>
+                <div key={`${link.route}_${link.text}`} className={styles.select__item}>
+                  <Link href={link.route}>{link.text}</Link>
+                </div>
               ))}
-            </ul>
+            </FooterSelect>
           </div>
-          <div className={styles.footer__item}>
-            <h3
-              className={`${styles.footer__item_title} ${
-                accordions.info ? styles.footer__item_title_active : ""
-              }`}
-              onClick={() => changeAccordions("info")}
-            >
-              {t("info.title")}
-              <span>
-                <Arrows.Down />
-              </span>
-            </h3>
-            <ul
-              className={`${styles.footer__item_menu} ${
-                accordions.info ? styles.footer__item_menu_active : ""
-              }`}
-            >
+
+          <div>
+            <FooterSelect label={t("info.title")}>
               {links.info.map((link) => (
-                <li key={`${link.route}_${link.text}`}>
-                  <Link href={link.route} className={styles.footer__item_menu_link}>
-                    {link.text}
-                  </Link>
-                </li>
+                <div key={`${link.route}_${link.text}`} className={styles.select__item}>
+                  <Link href={link.route}>{link.text}</Link>
+                </div>
               ))}
-            </ul>
+            </FooterSelect>
           </div>
-          <div className={styles.footer__item}>
-            <h3
-              className={`${styles.footer__item_title} ${
-                accordions.terms ? styles.footer__item_title_active : ""
-              }`}
-              onClick={() => changeAccordions("terms")}
-            >
-              {t("terms.title")}
-              <span>
-                <Arrows.Down />
-              </span>
-            </h3>
-            <ul
-              className={`${styles.footer__item_menu} ${
-                accordions.terms ? styles.footer__item_menu_active : ""
-              }`}
-            >
+
+          <div>
+            <FooterSelect label={t("terms.title")}>
               {links.terms.map((link) => (
-                <li key={`${link.route}_${link.text}`}>
-                  <Link href={link.route} className={styles.footer__item_menu_link}>
-                    {link.text}
-                  </Link>
-                </li>
+                <div key={`${link.route}_${link.text}`} className={styles.select__item}>
+                  <Link href={link.route}>{link.text}</Link>
+                </div>
               ))}
-            </ul>
+            </FooterSelect>
           </div>
-          <div className={styles.footer__item}>
-            <div className={styles.footer__capabilities_form}>
-              <form action="">
-                <h3 className={styles.footer__capabilities_form_title}>{t("subscribe")}</h3>
-                <label htmlFor="" className={styles.footer__capabilities_form_lab}>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    className={styles.footer__capabilities_form_lab_inp}
-                    placeholder={`${t("your_email")}`}
-                  />
-                  <button type="button" className={styles.footer__capabilities_form_lab_btn}>
-                    <Arrows.Submit className={styles.footer__capabilities_form_lab_btn_icon} />
-                  </button>
-                </label>
-              </form>
-            </div>
+
+          <div>
+            <FooterSelect label={t("subscribe")}>
+              <div className={styles.footer__capabilities_form}>
+                <form action="">
+                  <label htmlFor="" className={styles.footer__capabilities_form_lab}>
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      className={styles.footer__capabilities_form_lab_inp}
+                      placeholder={`${t("your_email")}`}
+                    />
+                    <button type="button" className={styles.footer__capabilities_form_lab_btn}>
+                      <Arrows.Submit className={styles.footer__capabilities_form_lab_btn_icon} />
+                    </button>
+                  </label>
+                </form>
+              </div>
+            </FooterSelect>
           </div>
         </div>
         <button className={`blue_btn ${styles.download_btn}`}>{t("download_app")}</button>

@@ -387,7 +387,9 @@ function LegalSellerPage() {
               ))}
             </div>
           </div>
-          <div className={styles.branches__map}></div>
+          <div className={styles.branches__map}>
+            <img src="https://www.tuttotech.net/wp-content/uploads/2022/12/mappa.jpg" alt="" />
+          </div>
         </section>
       </div>
 
@@ -406,46 +408,17 @@ function LegalSellerPage() {
         onClose={changeVideoModal}
       >
         <div className={styles.gallery}>
-          <div className={styles.video}>
-            <div className={styles.video__header}>
-              <div className={styles.header__buttons}>
-                <button
-                  className={`${styles.buttons__button} ${styles.buttons__prevButton} seller_body_videos_swiper_prev`}
-                >
-                  <Arrows.ArrowRight />
-                </button>
-                <button
-                  className={`${styles.buttons__button} ${styles.buttons__nextButton} seller_body_videos_swiper_next`}
-                >
-                  <Arrows.ArrowRight />
-                </button>
-              </div>
+          {map([1, 2, 3, 4, 5], (item) => (
+            <div className={styles.gallery__item} key={item}>
+              <Video
+                url={"https://www.youtube.com/watch?v=LXb3EKWsInQ"}
+                width={"100%"}
+                height={"100%"}
+                controls
+                light
+              />
             </div>
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={32}
-              slidesPerView={3}
-              freeMode
-              onSwiper={(swiper) => console.log(swiper)}
-              className={styles.video__items}
-              navigation={{
-                nextEl: ".seller_body_videos_swiper_next",
-                prevEl: ".seller_body_videos_swiper_prev"
-              }}
-            >
-              {map([1, 2, 3, 4, 5], (item) => (
-                <SwiperSlide key={item}>
-                  <Video
-                    url={"https://www.youtube.com/watch?v=LXb3EKWsInQ"}
-                    width={"100%"}
-                    height={"100%"}
-                    controls
-                    light
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          ))}
         </div>
       </ModalWithButtons>
 
@@ -458,40 +431,11 @@ function LegalSellerPage() {
         onClose={changePhotoModal}
       >
         <div className={styles.gallery}>
-          <div className={styles.photo}>
-            <div className={`${styles.photo__header}`}>
-              <div className={styles.header__buttons}>
-                <button
-                  className={`${styles.buttons__button} ${styles.buttons__prevButton} seller_body_photos_swiper_prev`}
-                >
-                  <Arrows.ArrowRight />
-                </button>
-                <button
-                  className={`${styles.buttons__button} ${styles.buttons__nextButton} seller_body_photos_swiper_next`}
-                >
-                  <Arrows.ArrowRight />
-                </button>
-              </div>
+          {map([1, 2, 3, 4, 5], (item) => (
+            <div className={styles.gallery__item} key={item}>
+              <img src={blob.Promotion.src} />
             </div>
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={32}
-              slidesPerView={3}
-              freeMode
-              onSwiper={(swiper) => console.log(swiper)}
-              className={styles.photo__items}
-              navigation={{
-                nextEl: ".seller_body_photos_swiper_next",
-                prevEl: ".seller_body_photos_swiper_prev"
-              }}
-            >
-              {map([1, 2, 3, 4, 5, 6], (item) => (
-                <SwiperSlide key={item}>
-                  <img src={blob.Promotion.src} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          ))}
         </div>
       </ModalWithButtons>
 

@@ -1,6 +1,7 @@
 @import "vars";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import "modal-content";
+@import "z-vars";
 
 * {
   box-sizing: border-box;
@@ -167,7 +168,7 @@ img {
 .slider_arrow {
   position: absolute;
   top: 50%;
-  z-index: 1150;
+  z-index: $z-in-flow-2;
   padding: 11px 15px;
   border: 1px solid $grey-1;
   border-radius: 5px;

@@ -162,6 +162,7 @@
 			&__buttons {
 				display: flex;
 				gap: 30px;
+				align-items: center;
 
 				.buttons__button {
 					display: flex;
@@ -360,6 +361,8 @@
 				.button__icon {
 					margin-right: 0;
 				}
+
+				gap: 15px;
 			}
 		}
 
@@ -710,7 +713,7 @@
 			}
 		}
 
-		@media screen and (max-width: 800px) {
+		@media screen and (max-width: 1000px) {
 			flex-direction: column;
 			gap: 20px;
 
@@ -729,7 +732,7 @@
 	}
 
 	//?------------------------------------------------------GALLERY ------------------------------------------------------//
-	
+
 
 	// -------------
 
@@ -790,8 +793,7 @@
 .legal_partner_services {
 	margin-top: 100px;
 
-	@media screen and (max-width: 500px) {
-	}
+	@media screen and (max-width: 500px) {}
 
 	@media screen and (max-width: 500px) {
 		margin-top: 20px;
@@ -800,115 +802,48 @@
 
 .modal {
 	max-width: 1000px !important;
+	margin: 0 50px;
 
 	p {
 		margin: 0;
+	}
+
+	@media screen and (max-width: 800px) {
+		margin: 0 30px;
+	}
+
+	@media screen and (max-width: 500px) {
+		margin: 0 20px;
 	}
 }
 
 .gallery {
 	width: 100%;
-	.photo {
-		overflow: hidden;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+
+	//overflow-x: hidden;
+	//overflow-y: auto;
+	//max-height: 350px;
+
+	&__item {
+		aspect-ratio: 754/424;
 	}
 
-	.video {
-		overflow: hidden;
-	}
-
-	.header__title {}
-
-	.header__buttons {
-		display: flex;
-	}
-
-	.buttons {
-		&__button {
-			width: 40px;
-			height: 40px;
-			background: white;
-			box-shadow: 0px 6px 10px #0000001a;
-			cursor: pointer;
-			transition: box-shadow 0.2s linear;
-
-			&:hover {
-				box-shadow: none;
-				border: 1px solid $grey-1;
-			}
-
-			&:disabled {
-				border: 1px solid $grey-1;
-				box-shadow: none;
-				cursor: default;
-			}
-		}
-
-		&__prevButton {
-			margin-right: 20px;
-
-			svg {
-				margin-bottom: -0.5px;
-				rotate: 180deg;
-			}
-		}
-	}
-
-	.video__header,
-	.photo__header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		margin-bottom: 20px;
-	}
-
-	.video__items,
-	.photo__items {
-		max-height: 164px;
-		margin: unset;
-
-		overflow: hidden;
-		@include img(cover);
-	}
-
-	.photo__items {
-		aspect-ratio: 944/164;
-	}
-
-	.video__items {
-		aspect-ratio: 944/164;
-		video {
-			width: auto;
-		}
-	}
-
-	video {
+	video,
+	img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
 
-	@include lg-d {
-		.photo__items,
-		.video__items {
-			height: 164px;
-		}
-	}
-
 	@include md-d {
-		.video__items {
-			aspect-ratio: 944/164;
-		}
+		gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	@include sm-d {
-		.header__buttons {
-			display: none;
-		}
-
-		.photo__items,
-		.video__items {
-			height: 134px;
-		}
+		grid-template-columns: repeat(2, 1fr);
 	}
 }

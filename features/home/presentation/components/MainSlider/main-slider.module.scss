@@ -1,3 +1,5 @@
+@import "@styles/z-vars.scss";
+
 .header {
   display: flex;
   flex-direction: row-reverse;
@@ -200,7 +202,7 @@
 .pagination {
   position: absolute;
   bottom: 0 !important;
-  z-index: 1020;
+  z-index: $z-in-flow-2;
   width: 100%;
   display: flex;
   justify-content: center;

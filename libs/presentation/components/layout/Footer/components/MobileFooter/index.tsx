@@ -34,7 +34,7 @@ function Index({ pageWithMobileBar = false }: Props) {
     setAccordions((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
-  const footerClassName = [styles.footer, mb].join(" ");
+  const footerClassName = [styles.footer, mb, !scrolledDown ? styles.footerHidden : ""].join(" ");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,65 +56,59 @@ function Index({ pageWithMobileBar = false }: Props) {
     <footer className={footerClassName}>
       <div className={styles.footer__container}>
         <div className={styles.footer__content}>
-          <div>
-            <FooterSelect label={t("citeMap.title")}>
-              {links.citeMap.map((link) => (
-                <div key={`${link.route}_${link.text}`} className={styles.select__item}>
-                  <Link href={link.route}>{link.text}</Link>
-                </div>
-              ))}
-            </FooterSelect>
-          </div>
-
-          <div>
-            <FooterSelect label={t("info.title")}>
-              {links.info.map((link) => (
-                <div key={`${link.route}_${link.text}`} className={styles.select__item}>
-                  <Link href={link.route}>{link.text}</Link>
-                </div>
-              ))}
-            </FooterSelect>
-          </div>
-
-          <div>
-            <FooterSelect label={t("terms.title")}>
-              {links.terms.map((link) => (
-                <div key={`${link.route}_${link.text}`} className={styles.select__item}>
-                  <Link href={link.route}>{link.text}</Link>
-                </div>
-              ))}
-            </FooterSelect>
-          </div>
-
-          <div>
-            <FooterSelect label={t("subscribe")}>
-              <div className={styles.footer__capabilities_form}>
-                <form action="">
-                  <label htmlFor="" className={styles.footer__capabilities_form_lab}>
-                    <input
-                      type="text"
-                      name=""
-                      id=""
-                      className={styles.footer__capabilities_form_lab_inp}
-                      placeholder={`${t("your_email")}`}
-                    />
-                    <button type="button" className={styles.footer__capabilities_form_lab_btn}>
-                      <Arrows.Submit className={styles.footer__capabilities_form_lab_btn_icon} />
-                    </button>
-                  </label>
-                </form>
+          <FooterSelect label={t("citeMap.title")} className={styles.popper}>
+            {links.citeMap.map((link) => (
+              <div key={`${link.route}_${link.text}`} className={styles.select__item}>
+                <Link href={link.route}>{link.text}</Link>
               </div>
-            </FooterSelect>
-          </div>
+            ))}
+          </FooterSelect>
+
+          <FooterSelect label={t("info.title")} className={styles.popper}>
+            {links.info.map((link) => (
+              <div key={`${link.route}_${link.text}`} className={styles.select__item}>
+                <Link href={link.route}>{link.text}</Link>
+              </div>
+            ))}
+          </FooterSelect>
+
+          <FooterSelect label={t("terms.title")} className={styles.popper}>
+            {links.terms.map((link) => (
+              <div key={`${link.route}_${link.text}`} className={styles.select__item}>
+                <Link href={link.route}>{link.text}</Link>
+              </div>
+            ))}
+          </FooterSelect>
+
+          <FooterSelect label={t("subscribe")} className={styles.popper}>
+            <div className={styles.footer__capabilities_form}>
+              <form action="">
+                <label htmlFor="" className={styles.footer__capabilities_form_lab}>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    className={styles.footer__capabilities_form_lab_inp}
+                    placeholder={`${t("your_email")}`}
+                  />
+                  <button type="button" className={styles.footer__capabilities_form_lab_btn}>
+                    <Arrows.Submit className={styles.footer__capabilities_form_lab_btn_icon} />
+                  </button>
+                </label>
+              </form>
+            </div>
+          </FooterSelect>
         </div>
-        <button className={`blue_btn ${styles.download_btn}`}>{t("download_app")}</button>
         <div className={styles.footer__social}>
           <p className={styles.footer__social_create}>TBUY © {dayjs().year()}</p>
           <div className={styles.footer__social_links}>
             <Link href={""} className={styles.footer__social_links_link}>
               <ImgExporter.Logos.telegram className={styles.footer__social_links_link_icon} />
             </Link>
-            <Link href={""} className={styles.footer__social_links_link}>
+            <Link
+              href={""}
+              className={`${styles.footer__social_links_link} ${styles.footer__social_links_yt}`}
+            >
               <ImgExporter.Logos.youtube className={styles.footer__social_links_link_icon} />
             </Link>
             <Link href={""} className={styles.footer__social_links_link}>

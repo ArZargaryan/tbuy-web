@@ -8,9 +8,6 @@
 	right: 0;
 	z-index: $z-sidebar;
 
-	//margin-top: 80px;
-	//padding: 20px 0 20px 0;
-
 	width: 100%;
 
 	background: $grey-0;
@@ -28,19 +25,26 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		text-align: center;
-		flex-wrap: wrap;
 		gap: 15px;
 
-		padding: 20px 0;
+		text-align: center;
 
-		@media screen and (max-width: 900px) {
+		padding: 10px 0;
+		
+		button {
+			flex-direction: column;
+			gap: 2px;
 		}
 
-		@media screen and (max-width: 500px) {
+		svg {
+			flex: 0 0 6px;
+			width: 10px;
+			order: 1;
 		}
 
-		@media screen and (max-width: 450px) {
+		span {
+			order: 2;
+			font-size: 13px;
 		}
 	}
 
@@ -140,27 +144,37 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 20px 0;
+		padding: 8px 0 10px;
 		border-top: 1px solid #00000030;
-
+		
 		&_create {
+			font-size: 14px;
 			text-transform: uppercase;
 		}
 
 		&_links {
 			display: flex;
-			grid-gap: 20px;
+			align-items: center;
+			gap: 20px;
 
-			&_link {}
+			&_link {
+				transform: scale(0.9);
+			}
+
+			&_yt {
+			}
+
+		@media screen and (max-width: 500px) {
+			gap: 15px;
+			&_link {
+				transform: scale(0.8);
+			}
+		}
 		}
 	}
 
 	@media screen and (min-width: 801px) {
 		display: none;
-	}
-
-	@media screen and (max-width: 700px) {
-		//margin-top: 50px;
 	}
 }
 
@@ -168,17 +182,16 @@
 	transform: translateY(100%);
 }
 
-.download_btn {
-
-	display: none;
-
-	@media screen and (max-width: 450px) {
-		//display: block;
-	}
-}
-
 .mb {
 	@media screen and (max-width: 800px) {
 		//margin-bottom: 56px;
+	}
+}
+
+.popper {
+	>div {
+		&::after {
+			display: none;
+		}
 	}
 }

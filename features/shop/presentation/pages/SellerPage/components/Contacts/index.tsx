@@ -22,7 +22,10 @@ function Contacts(props: Props) {
       {contacts?.map((phone, i) => (
         <div key={`${phone.value}_${i}`} className={styles.contacts_phone}>
           {phone.type === "email" && (
-            <a href="mailto:someone@example.com" className={styles.contacts_phone}>
+            <a
+              href="mailto:someone@example.com"
+              className={`${styles.contacts_phone} ${styles.contacts_email}`}
+            >
               <Mail />
               <span>{phone.value}</span>
             </a>

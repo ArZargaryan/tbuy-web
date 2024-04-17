@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TitleWithSort from "@libs/presentation/components/titles/TitleWithSort";
 import AboutSellerCategoriesSlider from "@features/shop/presentation/pages/SellerPage/components/ProductCategoriesSlider";
 import FiltersList from "@features/shop/presentation/components/Filters/FiltersList";
@@ -33,7 +33,7 @@ function LegalSellerPage() {
   const contacts: Contact[] = [
     {
       type: "email",
-      value: "barev@gmail.com"
+      value: "barev_qqqqqqфывфывqqqqqqqqqaqцйуцйуqq@gmail.com"
     },
     {
       type: "phone",
@@ -48,11 +48,23 @@ function LegalSellerPage() {
       value: "+3741234567"
     }
   ];
+  const [showBranchesIsActive, setShowBranchesIsActive] = useState(false);
+
   const { products, services, vacancies } = useAppSelector((state) => state.shop_about_seller);
   const [openMessageModal, changeMessageModal] = useModal(false);
   const [openPhotoModal, changePhotoModal] = useModal(false);
   const [openVideoModal, changeVideoModal] = useModal(false);
   const [openTextModal, changeTextModal] = useModal(false);
+
+  const showBranchesButtonClassName = `
+		${styles.showBranches__button}
+		${showBranchesIsActive ? styles.showBranches__button_active : null}
+	`;
+
+  const branchesClassName = `
+		${styles.content__addresses}
+		${showBranchesIsActive ? styles.show : null}
+	`;
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -184,7 +196,7 @@ function LegalSellerPage() {
                   className={`${styles.tabs__tab} ${styles.active}`}
                   onClick={() => scrollToSection("collection")}
                 >
-                  <Link to="collection" spy={true} smooth={true} offset={-200} duration={500}>
+                  <Link to="collection" spy={true} smooth={true} offset={-150} duration={500}>
                     Ապրանքներ
                   </Link>
                 </SwiperSlide>
@@ -192,7 +204,7 @@ function LegalSellerPage() {
                   className={styles.tabs__tab}
                   onClick={() => scrollToSection("services")}
                 >
-                  <Link to="services" spy={true} smooth={true} offset={-200} duration={500}>
+                  <Link to="services" spy={true} smooth={true} offset={-150} duration={500}>
                     Ծառայություններ
                   </Link>
                 </SwiperSlide>
@@ -201,7 +213,7 @@ function LegalSellerPage() {
                   onClick={() => scrollToSection("openJobs")}
                 >
                   {" "}
-                  <Link to="openJobs" spy={true} smooth={true} offset={-200} duration={500}>
+                  <Link to="openJobs" spy={true} smooth={true} offset={-150} duration={500}>
                     Թափուր աշխատատեղեր
                   </Link>
                 </SwiperSlide>
@@ -209,7 +221,7 @@ function LegalSellerPage() {
                   className={styles.tabs__tab}
                   onClick={() => scrollToSection("branches")}
                 >
-                  <Link to="branches" spy={true} smooth={true} offset={-200} duration={500}>
+                  <Link to="branches" spy={true} smooth={true} offset={-150} duration={500}>
                     Մասնաճյուղեր
                   </Link>
                 </SwiperSlide>
@@ -240,93 +252,9 @@ function LegalSellerPage() {
         <VacancySlider vacancies={vacancies || []} />
       </div>
 
-      {/*<section className={styles.gallery} id="gallery">
-        <div className={styles.container}>
-          <div className={styles.gallery__flexbox}>
-            <div className={styles.flexbox__photo}>
-              <div className={`${styles.photo__header}`}>
-                <div className={"title"}>Տեսադարան</div>
-                <div className={styles.header__buttons}>
-                  <button
-                    className={`${styles.buttons__button} ${styles.buttons__prevButton} seller_body_photos_swiper_prev`}
-                  >
-                    <Arrows.ArrowRight />
-                  </button>
-                  <button
-                    className={`${styles.buttons__button} ${styles.buttons__nextButton} seller_body_photos_swiper_next`}
-                  >
-                    <Arrows.ArrowRight />
-                  </button>
-                </div>
-              </div>
-              <Swiper
-                modules={[Navigation]}
-                spaceBetween={32}
-                slidesPerView={3}
-                freeMode
-                onSwiper={(swiper) => console.log(swiper)}
-                className={styles.photo__items}
-                navigation={{
-                  nextEl: ".seller_body_photos_swiper_next",
-                  prevEl: ".seller_body_photos_swiper_prev"
-                }}
-              >
-                {map([1, 2, 3, 4, 5, 6], (item) => (
-                  <SwiperSlide key={item}>
-                    <img src={blob.Promotion.src} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-
-            <div className={styles.flexbox__video}>
-              <div className={styles.video__header}>
-                <div className={"title"}>Վիդեոդարան</div>
-                <div className={styles.header__buttons}>
-                  <button
-                    className={`${styles.buttons__button} ${styles.buttons__prevButton} seller_body_videos_swiper_prev`}
-                  >
-                    <Arrows.ArrowRight />
-                  </button>
-                  <button
-                    className={`${styles.buttons__button} ${styles.buttons__nextButton} seller_body_videos_swiper_next`}
-                  >
-                    <Arrows.ArrowRight />
-                  </button>
-                </div>
-              </div>
-              <Swiper
-                modules={[Navigation]}
-                spaceBetween={32}
-                slidesPerView={2}
-                freeMode
-                onSwiper={(swiper) => console.log(swiper)}
-                className={styles.video__items}
-                navigation={{
-                  nextEl: ".seller_body_videos_swiper_next",
-                  prevEl: ".seller_body_videos_swiper_prev"
-                }}
-              >
-                {map([1, 2, 3, 4, 5], (item) => (
-                  <SwiperSlide key={item}>
-                    <Video
-                      url={"https://www.youtube.com/watch?v=LXb3EKWsInQ"}
-                      width={"100%"}
-                      height={"100%"}
-                      controls
-                      light
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </div>
-        </div>
-      </section>*/}
-
-      <div className={styles.branches_wrapper}>
+      <div className={styles.branches_wrapper} id="branches">
         <h3 className={`title ${styles.branches_title}`}>Մասնաճյուղեր</h3>
-        <section className={styles.branches} id="branches">
+        <section className={styles.branches}>
           <div className={styles.branches__content}>
             <div className={styles.content__showBranches} id="showBranches">
               <div className={styles.showBranches__box}>
@@ -339,7 +267,8 @@ function LegalSellerPage() {
                 </p>
               </div>
               <button
-                className={`${styles.showBranches__button} ${styles.showBranches__button_active}`}
+                className={showBranchesButtonClassName}
+                onClick={(_) => setShowBranchesIsActive((prevState) => !prevState)}
               >
                 <Arrows.Down />
               </button>
@@ -352,7 +281,7 @@ function LegalSellerPage() {
               <span>ՑՈՒՅՑ ՏԱԼ ՔԱՐՏԵԶԻ ՎՐԱ</span>
             </button>
 
-            <div className={styles.content__addresses}>
+            <div className={branchesClassName}>
               {map([1, 2], (item) => (
                 <div key={item} className={styles.addresses__item}>
                   <h2 className={styles.item__title}>«Երևան Մոլ» վաճառասրահ</h2>
@@ -408,7 +337,7 @@ function LegalSellerPage() {
         onClose={changeVideoModal}
       >
         <div className={styles.gallery}>
-          {map([1, 2, 3, 4, 5], (item) => (
+          {map([1, 2, 3, 4, 5, 6, 7, 8, 9], (item) => (
             <div className={styles.gallery__item} key={item}>
               <Video
                 url={"https://www.youtube.com/watch?v=LXb3EKWsInQ"}
@@ -431,7 +360,7 @@ function LegalSellerPage() {
         onClose={changePhotoModal}
       >
         <div className={styles.gallery}>
-          {map([1, 2, 3, 4, 5], (item) => (
+          {map([1, 2, 3, 4, 5, 6, 7, 8, 9], (item) => (
             <div className={styles.gallery__item} key={item}>
               <img src={blob.Promotion.src} />
             </div>

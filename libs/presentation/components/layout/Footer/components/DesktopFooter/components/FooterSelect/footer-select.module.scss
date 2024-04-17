@@ -26,6 +26,11 @@
 	display: flex;
 	align-items: center;
 	gap: 6px;
+
+	&__text {
+		font-size: inherit;
+		font-weight: inherit;
+	}
 }
 
 .arrow {

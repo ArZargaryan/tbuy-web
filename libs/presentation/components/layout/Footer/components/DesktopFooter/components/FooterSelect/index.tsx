@@ -49,7 +49,7 @@ function FooterSelect(props: Props) {
   return (
     <div ref={popperRef}>
       <button aria-describedby={id} type="button" onClick={showSelect} className={styles.label}>
-        {props.label}
+        <span className={styles.label__text}>{props.label}</span>
         <Arrows.Down_blue className={imgCls} />
       </button>
       <Popper

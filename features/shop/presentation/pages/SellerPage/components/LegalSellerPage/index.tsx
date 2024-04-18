@@ -33,7 +33,7 @@ function LegalSellerPage() {
   const contacts: Contact[] = [
     {
       type: "email",
-      value: "barev_qqqqqqфывфывqqqqqqqqqaqцйуцйуqq@gmail.com"
+      value: "barev@gmail.com"
     },
     {
       type: "phone",

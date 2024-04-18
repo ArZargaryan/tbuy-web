@@ -195,3 +195,15 @@
 		}
 	}
 }
+
+.select__item {
+	margin-bottom: 8px;
+
+	a {
+		transition: all 0.2s linear;
+
+		&:hover {
+			color: $blue;
+		}
+	}
+}

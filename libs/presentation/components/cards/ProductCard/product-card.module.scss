@@ -122,6 +122,10 @@
       -moz-box-orient: vertical;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+
+			@media screen and (max-width: 500px) {
+				margin-bottom: 5px;
+			}
     }
 
     .price_section {

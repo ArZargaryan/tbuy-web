@@ -462,6 +462,10 @@
 			margin-left: 2px;
 			margin-bottom: 30px;
 		}
+
+		@media screen and (max-width: 500px) {
+			margin-top: 40px;
+		}
 	}
 
 	.branches {

@@ -21,6 +21,8 @@ interface Props {
 function MainSlider({ banners, slides, loading }: Props) {
   const [shimmers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
+  const fullSlides = [...slides, ...banners];
+
   return (
     <div className={styles.header}>
       <div className={styles.header__pictures}>
@@ -79,7 +81,7 @@ function MainSlider({ banners, slides, loading }: Props) {
             className={styles.header__slider_swiper}
           >
             {slides.map((slide, i) => (
-              <SwiperSlide key={`${slide}_${i}`}>
+              <SwiperSlide key={`${slide}_${i}`} className={styles.header__slider_slide}>
                 <Link href={slide.url} className={styles.header__slider_item}>
                   {/* <BlurImage
                     src={slide.image.desktop}
@@ -91,6 +93,17 @@ function MainSlider({ banners, slides, loading }: Props) {
                     loading="eager"
                     blurHash={slide.image.blurHash}
                   /> */}
+                  <img src={slide.image.currentImage} className={styles.header__slider_item}></img>
+                </Link>
+              </SwiperSlide>
+            ))}
+
+            {banners.map((slide, i) => (
+              <SwiperSlide
+                key={`${slide}_${i}`}
+                className={`${styles.header__slider_slide} ${styles.banner_in_slider}`}
+              >
+                <Link href={slide.url} className={styles.header__slider_item}>
                   <img src={slide.image.currentImage} className={styles.header__slider_item}></img>
                 </Link>
               </SwiperSlide>

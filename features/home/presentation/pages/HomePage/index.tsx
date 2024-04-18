@@ -50,7 +50,7 @@ function HomePage() {
         desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://frmall.ru/upload/iblock/c47/c4734d62dad2e35727e20debaa3c6767.jpg"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
@@ -60,7 +60,7 @@ function HomePage() {
         desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://frmall.ru/upload/iblock/c47/c4734d62dad2e35727e20debaa3c6767.jpg"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
@@ -70,7 +70,7 @@ function HomePage() {
         desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "https://frmall.ru/upload/iblock/c47/c4734d62dad2e35727e20debaa3c6767.jpg"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     }
@@ -151,6 +151,24 @@ function HomePage() {
     new Product({
       id: 3,
       title: "Product 3",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: true,
+      addedToCompare: false,
+      company: { id: 102, name: "Company B", logo: "" },
+      price: 75
+      // discountPrice: 60
+      // discount: 20,
+    }),
+    new Product({
+      id: 4,
+      title: "Product 4",
       images: [
         {
           original:
@@ -386,6 +404,29 @@ function HomePage() {
         name: "Company A",
         logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
       }
+    }),
+    new Service({
+      id: 5,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
     })
   ];
 
@@ -478,6 +519,7 @@ function HomePage() {
     })
     // Add more categories as needed
   ];
+
   return (
     <>
       <OGPMeta />

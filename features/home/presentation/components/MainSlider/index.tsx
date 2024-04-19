@@ -98,7 +98,7 @@ function MainSlider({ banners, slides, loading }: Props) {
               </SwiperSlide>
             ))}
 
-            {banners.map((slide, i) => (
+            {banners.slice(0, 2).map((slide, i) => (
               <SwiperSlide
                 key={`${slide}_${i}`}
                 className={`${styles.header__slider_slide} ${styles.banner_in_slider}`}

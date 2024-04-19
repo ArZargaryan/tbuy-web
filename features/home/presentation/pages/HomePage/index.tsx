@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import DefaultLayout from "@layouts/default";
@@ -42,6 +42,39 @@ function HomePage() {
   useEffect(() => {
     dispatch(getHomeData(locale as Lang));
   }, [dispatch, locale]);
+
+  // --------------------------------------------------------------------------------
+  const [fetchingProducts, setFetchingProducts] = useState(false);
+  const [productsSections, setProductsSections] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (fetchingProducts) {
+      setProductsSections([1]);
+      setFetchingProducts(false);
+    }
+  }, [fetchingProducts]);
+
+  useEffect(() => {
+    document.addEventListener("scroll", fullDownScrollTrigger);
+
+    return function () {
+      document.removeEventListener("scroll", fullDownScrollTrigger);
+    };
+  }, []);
+
+  function fullDownScrollTrigger() {
+    const height = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+    if (window.scrollY + window.innerHeight >= height) {
+      setFetchingProducts(true);
+    }
+  }
+  // --------------------------------------------------------------------------------
 
   const fakeHomeBanner = [
     {
@@ -591,6 +624,22 @@ function HomePage() {
             </Fragment>
           ))} */}
 
+          {productsSections?.map((el, id) => (
+            <div key={id}>
+              <TitleWithLink
+                linkPath={`/products`}
+                linkText={`${t("see_all", { ns: "common" })}`}
+                className={styles.title_marg}
+              >
+                {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
+              </TitleWithLink>
+              <CardsList
+                className={styles.section_margin}
+                cards={(!!fakeProducts?.length && fakeProducts) || []}
+                loading={false}
+              />
+            </div>
+          ))}
         </div>
       </DefaultLayout>
     </>

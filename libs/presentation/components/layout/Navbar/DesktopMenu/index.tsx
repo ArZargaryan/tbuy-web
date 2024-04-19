@@ -259,14 +259,10 @@ function DesktopMenu({ toggleActive }: Props) {
         </Link> */}
         <div className={styles.navbar__sets_basket}>
           <div className={styles.navbar__sets_basket_btn}>
-            <Tooltip
-              placement={"bottom-end"}
-              label={
-                <Badge badgeContent={2} color="primary">
-                  <Icons.Cart className={styles.navbar__sets_basket_btn_icon} />
-                </Badge>
-              }
-            >
+            <Badge badgeContent={2} color="primary">
+              <Icons.Cart className={styles.navbar__sets_basket_btn_icon} />
+            </Badge>
+            <div className={styles.basket_container}>
               <div className={styles.basket}>
                 <div className={styles.basket__header}>
                   <b>Զամբյուղ</b>
@@ -325,58 +321,52 @@ function DesktopMenu({ toggleActive }: Props) {
                   </PrimaryButton>
                 </Link>
               </div>
-            </Tooltip>
+            </div>
           </div>
           {/* <div className={styles.navbar__sets_basket_content}></div> */}
         </div>
         <div className={styles.navbar__sets_notifications}>
           <div className={styles.navbar__sets_notifications_btn}>
-            <Tooltip
-              placement={"bottom"}
-              label={
-                <Badge badgeContent={2} color="primary">
-                  <Icons.Notifications className={styles.navbar__sets_notifications_btn_icon} />
-                </Badge>
-              }
-            >
-              <div className={styles.notification}>
-                <div className={styles.notification__hidden}>
-                  <div className={styles.hidden__body}>
-                    <div className={styles.body__message}>
-                      <div className={styles.message__title}>Պատվերի հաստատում</div>
-                      <div className={styles.message__text}>
-                        Խնդրում ենք հաստատել #25987 պատվելի իրագործումը
-                      </div>
-                      <div className={styles.message__data}>2 րոպե առաջ</div>
+            <Badge badgeContent={2} color="primary">
+              <Icons.Notifications className={styles.navbar__sets_notifications_btn_icon} />
+            </Badge>
+            <div className={styles.notification}>
+              <div className={styles.notification__hidden}>
+                <div className={styles.hidden__body}>
+                  <div className={styles.body__message}>
+                    <div className={styles.message__title}>Պատվերի հաստատում</div>
+                    <div className={styles.message__text}>
+                      Խնդրում ենք հաստատել #25987 պատվելի իրագործումը
                     </div>
-
-                    <div className={styles.body__message} onClick={changeNotificationModalOpen}>
-                      <div className={styles.message__title}>Դուք ունեք նվեր քարտ</div>
-                      <div className={styles.message__text}>Խնդրում ենք հաստատման համար...</div>
-                      <div className={styles.message__data}>17.12.2020</div>
-                    </div>
-
-                    <div className={styles.body__message}>
-                      <div className={styles.message__title}>Lorm ipsum</div>
-                      <div className={styles.message__text}>
-                        Խնդրում ենք հաստատել #25987 պատվելի իրագործումը
-                      </div>
-                      <div className={styles.message__data}>17.12.2020</div>
-                    </div>
-
-                    <div className={styles.body__message}>
-                      <div className={styles.message__title}>Դուք ստացել եք #25987 ապրանքը</div>
-                      <div className={styles.message__text}>Կարող եք թողնել կարծիք</div>
-                      <div className={styles.message__data}>17.12.2020</div>
-                    </div>
-
-                    <Link href="/account/notifications" className={styles.body__link}>
-                      ՏԵՍՆԵԼ ԲՈԼՈՐԸ
-                    </Link>
+                    <div className={styles.message__data}>2 րոպե առաջ</div>
                   </div>
+
+                  <div className={styles.body__message} onClick={changeNotificationModalOpen}>
+                    <div className={styles.message__title}>Դուք ունեք նվեր քարտ</div>
+                    <div className={styles.message__text}>Խնդրում ենք հաստատման համար...</div>
+                    <div className={styles.message__data}>17.12.2020</div>
+                  </div>
+
+                  <div className={styles.body__message}>
+                    <div className={styles.message__title}>Lorm ipsum</div>
+                    <div className={styles.message__text}>
+                      Խնդրում ենք հաստատել #25987 պատվելի իրագործումը
+                    </div>
+                    <div className={styles.message__data}>17.12.2020</div>
+                  </div>
+
+                  <div className={styles.body__message}>
+                    <div className={styles.message__title}>Դուք ստացել եք #25987 ապրանքը</div>
+                    <div className={styles.message__text}>Կարող եք թողնել կարծիք</div>
+                    <div className={styles.message__data}>17.12.2020</div>
+                  </div>
+
+                  <Link href="/account/notifications" className={styles.body__link}>
+                    ՏԵՍՆԵԼ ԲՈԼՈՐԸ
+                  </Link>
                 </div>
               </div>
-            </Tooltip>
+            </div>
           </div>
           {/* <div className={styles.navbar__sets_notifications_content}></div> */}
         </div>

@@ -81,7 +81,6 @@
 	&__slider {
 		position: relative;
 		width: 100%;
-		margin-top: 20px;
 		/* Add margin to create space between the two sections */
 
 		&_swiper {
@@ -160,7 +159,7 @@
 
 		&__slider {
 			order: 1;
-			margin: 0 auto;
+			//margin: 0 auto;
 			max-width: 63%;
 		}
 	}

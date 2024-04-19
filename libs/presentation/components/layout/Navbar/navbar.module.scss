@@ -2,732 +2,757 @@
 @import "@styles/mixins.scss";
 
 .navbar {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 2090;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 2090;
 
-  &__content {
-    box-shadow: 0px 3px 6px #00000029;
-    position: relative;
-    z-index: 1030;
-    background: #fff;
+	&__content {
+		box-shadow: 0px 3px 6px #00000029;
+		position: relative;
+		z-index: 1030;
+		background: #fff;
 
-    &_container {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      margin: 0 auto;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      position: relative;
+		&_container {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			margin: 0 auto;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			position: relative;
 
-      @media screen and (max-width: 800px) {
-        padding-top: 16px;
-        padding-bottom: 16px;
-      }
-    }
-  }
+			@media screen and (max-width: 800px) {
+				padding-top: 16px;
+				padding-bottom: 16px;
+			}
+		}
+	}
 
-  .desktop_navbar {
-    display: flex;
-    align-items: center;
-    width: 100%;
+	.desktop_navbar {
+		display: flex;
+		align-items: center;
+		width: 100%;
 
-    @media screen and (max-width: 800px) {
-      display: none;
-    }
-  }
+		@media screen and (max-width: 800px) {
+			display: none;
+		}
+	}
 
-  &__logo {
-    display: block;
-    width: 100%;
-    max-width: 160px;
-    position: relative;
-    margin-right: 60px;
+	&__logo {
+		display: block;
+		width: 100%;
+		max-width: 160px;
+		position: relative;
+		margin-right: 60px;
 
-    &::before {
-      content: "";
-      display: block;
-      width: 100%;
-      padding-top: 17.5%;
-    }
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			padding-top: 17.5%;
+		}
 
-    &_img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+		&_img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 
-    @media screen and (max-width: 1100px) {
-      margin-right: 20px;
-    }
+		@media screen and (max-width: 1100px) {
+			margin-right: 20px;
+		}
 
-    @media screen and (max-width: 850px) {
-      max-width: 130px;
-      margin-right: 12px;
-    }
-    @media screen and (max-width: 800px) {
-      max-width: 103px;
-    }
-  }
+		@media screen and (max-width: 850px) {
+			max-width: 130px;
+			margin-right: 12px;
+		}
 
-  &__assortment_btn {
-    display: flex;
-    align-items: center;
-    grid-gap: 8px;
+		@media screen and (max-width: 800px) {
+			max-width: 103px;
+		}
+	}
 
-    //&_icon {
-    //  width: 24px;
-    //  height: 14px;
-    //}
+	&__assortment_btn {
+		display: flex;
+		align-items: center;
+		grid-gap: 8px;
 
-    &_txt {
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-bottom: -1px;
-    }
-  }
+		//&_icon {
+		//  width: 24px;
+		//  height: 14px;
+		//}
 
-  &__search {
-    width: 100%;
-    max-width: 470px;
-    position: relative;
-    margin: 0 40px;
+		&_txt {
+			text-transform: uppercase;
+			font-weight: bold;
+			margin-bottom: -1px;
+		}
+	}
 
-    &_area {
-      position: relative;
+	&__search {
+		width: 100%;
+		max-width: 470px;
+		position: relative;
+		margin: 0 40px;
 
-      &_inp {
-        input {
-          padding: 10px 52px 10px 16px !important;
-        }
-        fieldset {
-          width: 100%;
-          border: 1px solid #f0f3f3 !important;
+		&_area {
+			position: relative;
 
-          color: #979797;
+			&_inp {
+				input {
+					padding: 10px 52px 10px 16px !important;
+				}
 
-          &::placeholder {
-            color: #979797;
-          }
+				fieldset {
+					width: 100%;
+					border: 1px solid #f0f3f3 !important;
 
-          &::-webkit-search-cancel-button {
-            display: none;
-          }
-        }
-      }
+					color: #979797;
 
-      &_btn {
-        position: absolute;
-        top: 10px;
-        right: 16px;
+					&::placeholder {
+						color: #979797;
+					}
 
-        &_icon {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
+					&::-webkit-search-cancel-button {
+						display: none;
+					}
+				}
+			}
 
-    @media screen and (max-width: 1100px) {
-      margin: 0 20px;
-    }
-  }
+			&_btn {
+				position: absolute;
+				top: 10px;
+				right: 16px;
 
-  &__suggestions {
-    display: flex;
-    grid-gap: 30px;
+				&_icon {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
 
-    &_link {
-      &_icon {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
+		@media screen and (max-width: 1100px) {
+			margin: 0 20px;
+		}
+	}
 
-  &__sets {
-    position: relative;
-    display: flex;
-    grid-gap: 20px;
-    margin-left: auto;
-    :global {
-      .MuiBadge-badge {
-        position: absolute;
-        transform: scale(0.8);
-        top: -6px;
-        right: -5px;
-        padding: 4px 2px !important;
-        background: $blue !important;
-        font-size: 14px;
-      }
-    }
-    &_notifications {
-      &_btn {
-        position: relative;
+	&__suggestions {
+		display: flex;
+		grid-gap: 30px;
 
-        &_icon {
-          width: 24px;
-          height: 24px;
-        }
+		&_link {
+			&_icon {
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
 
-        &_amount {
-          position: absolute;
-        }
-      }
-    }
+	&__sets {
+		position: relative;
+		display: flex;
+		grid-gap: 20px;
+		margin-left: auto;
 
-    &_user {
-      &_btn {
-        position: relative;
+		:global {
+			.MuiBadge-badge {
+				position: absolute;
+				transform: scale(0.8);
+				top: -6px;
+				right: -5px;
+				padding: 4px 2px !important;
+				background: $blue !important;
+				font-size: 14px;
+			}
+		}
 
-        &_icon {
-          width: 24px;
-          height: 24px;
-        }
-      }
-    }
+		&_notifications {
+			&_btn {
+				position: relative;
 
-    &_compare,
-    &_favorites {
-      position: relative;
+				&_icon {
+					width: 24px;
+					height: 24px;
+				}
 
-      &_icon {
-        width: 24px;
-        height: 24px;
-      }
+				&_amount {
+					position: absolute;
+				}
 
-      &_amount {
-        position: absolute;
-      }
-    }
+				&:hover {
+					.notification {
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			}
+		}
 
-    &_basket {
-      &_btn {
-        position: relative;
+		&_user {
+			&_btn {
+				position: relative;
 
-        &_icon {
-          width: 24px;
-          height: 24px;
-        }
+				&_icon {
+					width: 24px;
+					height: 24px;
+				}
+			}
+		}
 
-        &_amount {
-          position: absolute;
-        }
-      }
-    }
-  }
+		&_compare,
+		&_favorites {
+			position: relative;
+
+			&_icon {
+				width: 24px;
+				height: 24px;
+			}
+
+			&_amount {
+				position: absolute;
+			}
+		}
+
+		&_basket {
+			&_btn {
+				position: relative;
+
+				&_icon {
+					width: 24px;
+					height: 24px;
+				}
+
+				&_amount {
+					position: absolute;
+				}
+
+				&:hover {
+					.basket_container {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+		}
+	}
 }
 
 .mobile_menu {
-  display: none;
-  align-items: center;
-  grid-gap: 22px;
-  margin-left: auto;
+	display: none;
+	align-items: center;
+	grid-gap: 22px;
+	margin-left: auto;
 
-  .navbar__search {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0px !important;
-    svg {
-      path {
-        fill: #979797;
-      }
-    }
-    :global {
-      .MuiInputBase-root {
-        display: flex;
-        input {
-          order: 2;
-          padding: 8px 5px !important;
-        }
-      }
-    }
-  }
+	.navbar__search {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0px !important;
 
-  @media screen and (max-width: 800px) {
-    display: flex;
-  }
+		svg {
+			path {
+				fill: #979797;
+			}
+		}
+
+		:global {
+			.MuiInputBase-root {
+				display: flex;
+
+				input {
+					order: 2;
+					padding: 8px 5px !important;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		display: flex;
+	}
 }
 
 .notification {
-  @include img(contain);
-  width: 24px;
-  height: 24px;
-  color: $black;
-  position: relative;
-  margin: 30px auto 0;
+	@include img(contain);
+	color: $black;
 
-  &__icon {
-    position: relative;
-    z-index: 10;
-    display: block;
-  }
-  &__hidden {
-    position: absolute;
-    background: #fff;
-    transition: 0.2s;
-    opacity: 0;
-    width: 360px;
-    top: 0%;
-    left: -308px;
-    padding-top: 1px;
+	position: absolute;
+	//left: -308px;
+	right: -20px;
+	transition: 0.2s;
+	padding-top: 31px;
+	opacity: 0;
+	visibility: hidden;
+	width: 360px;
 
-    @media screen and (max-width: 1750px) {
-      margin-left: -20px;
-    }
-  }
+	&__icon {
+		position: relative;
+		z-index: 10;
+		display: block;
+	}
+	
+	.hidden {
+		&__body {
+			background: #fff;
+			border-radius: 18px;
+			position: relative;
+			box-shadow: 0px 10px 20px #0000001a;
+			padding: 0px 16px;
 
-  .hidden {
-    &__body {
-      border-radius: 18px;
-      position: relative;
-      box-shadow: 0px 10px 20px #0000001a;
-      padding: 0px 16px;
+			&::after {
+				display: none;
+				box-shadow: 0px 10px 20px #0000001a;
+				content: "";
+				position: absolute;
+				top: -16px;
+				left: 118px;
+				clip-path: polygon(50% 60%, 0% 100%, 100% 100%);
+				width: 22px;
+				height: 16px;
+				background: white;
+				>div {
+					>div {
+						>div{}
+					}
+				}
+			}
+		}
+	}
 
-      &::after {
-        box-shadow: 0px 10px 20px #0000001a;
-        content: "";
-        position: absolute;
-        top: -16px;
-        left: 118px;
-        clip-path: polygon(50% 60%, 0% 100%, 100% 100%);
-        width: 22px;
-        height: 16px;
-        background: white;
-      }
-    }
-  }
+	.body {
+		&__message {
+			cursor: pointer !important;
+			padding: 10px 0;
+			border-bottom: 1px solid $grey-1;
+		}
 
-  .body {
-    &__message {
-      cursor: pointer !important;
-      padding: 10px 0;
-      border-bottom: 1px solid $grey-1;
-    }
-    &__link {
-      display: block;
-      color: $blue;
-      padding: 12px 0;
-      text-align: center;
-      text-decoration: underline;
-    }
-  }
+		&__link {
+			display: block;
+			color: $blue;
+			padding: 12px 0;
+			text-align: center;
+			text-decoration: underline;
+		}
+	}
 
-  .message {
-    &__title {
-      font-weight: bold;
-      margin-bottom: 6px;
-      max-width: 100%;
+	.message {
+		&__title {
+			font-weight: bold;
+			margin-bottom: 6px;
+			max-width: 100%;
 
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 
-    &__text {
-      max-width: 100%;
+		&__text {
+			max-width: 100%;
 
-      margin-bottom: 6px;
+			margin-bottom: 6px;
 
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
 
-    &__data {
-      color: #a1a1a1;
-      font-size: 12px;
-    }
-  }
+		&__data {
+			color: #a1a1a1;
+			font-size: 12px;
+		}
+	}
 
-  .notification__hidden {
-    visibility: visible;
-    opacity: 1;
-  }
+	@include lg-d {
+		.body {
+			&__message {
+				padding: 8px 0;
+			}
+		}
 
-  @include lg-d {
-    .body {
-      &__message {
-        padding: 8px 0;
-      }
-    }
+		.message {
+			&__title {
+				margin-bottom: 4px;
+			}
 
-    .message {
-      &__title {
-        margin-bottom: 4px;
-      }
+			&__text {
+				margin-bottom: 4px;
+			}
+		}
+	}
 
-      &__text {
-        margin-bottom: 4px;
-      }
-    }
-  }
+	@include md-d {
+		.body {
+			&__message {
+				padding: 6px 0;
+			}
+		}
 
-  @include md-d {
-    .body {
-      &__message {
-        padding: 6px 0;
-      }
-    }
+		.message {
+			&__title {
+				margin-bottom: 2px;
+			}
 
-    .message {
-      &__title {
-        margin-bottom: 2px;
-      }
+			&__text {
+				margin-bottom: 2px;
+			}
+		}
+	}
 
-      &__text {
-        margin-bottom: 2px;
-      }
-    }
-  }
+	@include sm-d {
+		&__hidden {
+			display: none;
+		}
+	}
+}
 
-  @include sm-d {
-    &__hidden {
-      display: none;
-    }
-  }
+.basket_container {
+	max-width: 347px;
+	padding-top: 31px;
+	position: absolute;
+	right: 0;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s;
 }
 
 .basket {
-  max-width: 347px;
-  padding: 22px 16px 30px;
-  background: #fff;
+	max-width: 347px;
+	padding: 22px 16px 30px;
+	margin-right: -25px;
 
-  margin-right: -25px;
+	background: #fff;
+	box-shadow: 0px 10px 20px #0000001a;
+	border-radius: 14px;
 
-  box-shadow: 0px 10px 20px #0000001a;
-  border-radius: 14px;
+	&__header {
+		display: flex;
+		justify-content: space-between;
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
+		padding-bottom: 12px;
+		margin-bottom: 12px;
+		border-bottom: 1px solid $grey-1;
 
-    padding-bottom: 12px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid $grey-1;
+		.header {
+			&__delete {
+				color: $blue;
+				background: transparent;
+			}
+		}
+	}
 
-    .header {
-      &__delete {
-        color: $blue;
-        background: transparent;
-      }
-    }
-  }
+	&__items {
+		.items__item {
+			padding-bottom: 20px;
+			border-bottom: 1px solid $grey-1;
+			margin-bottom: 12px;
 
-  &__items {
-    .items__item {
-      padding-bottom: 20px;
-      border-bottom: 1px solid $grey-1;
-      margin-bottom: 12px;
+			display: grid;
+			grid-template-columns: 74px 1fr 16px;
+			column-gap: 16px;
+			place-content: center;
+		}
+	}
 
-      display: grid;
-      grid-template-columns: 74px 1fr 16px;
-      column-gap: 16px;
-      place-content: center;
-    }
-  }
+	.item {
+		&__img {
+			height: 57px;
+			@include img(cover);
+		}
 
-  .item {
-    &__img {
-      height: 57px;
-      @include img(cover);
-    }
+		&__info {
+			align-self: center;
+		}
 
-    &__info {
-      align-self: center;
-    }
+		&__cancel {
+			aspect-ratio: 1/1;
+			@include img(contain);
+			background: transparent;
+		}
 
-    &__cancel {
-      aspect-ratio: 1/1;
-      @include img(contain);
-      background: transparent;
-    }
+		&__installation {
+			margin-top: 7px;
+			grid-column: 2/3;
 
-    &__installation {
-      margin-top: 7px;
-      grid-column: 2/3;
+			.installation__price {}
 
-      .installation__price {
-      }
+			.installation__text {
+				display: flex;
+				align-items: center;
+				gap: 12px;
 
-      .installation__text {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+				button {
+					line-height: 10px;
+				}
+			}
+		}
+	}
 
-        button {
-          line-height: 10px;
-        }
-      }
-    }
-  }
+	&__total {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
 
-  &__total {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
+		.total__price {}
+	}
 
-    .total__price {
-    }
-  }
+	&__button {
+		width: 100%;
+	}
 
-  &__button {
-    width: 100%;
-  }
-
-  @include sm-d {
-    max-width: 100%;
-    width: 100%;
-    padding: 26px 16px 20px;
-    border-radius: unset;
-    box-shadow: 0px 8px 16px #0000001a;
-  }
+	@include sm-d {
+		max-width: 100%;
+		width: 100%;
+		padding: 26px 16px 20px;
+		border-radius: unset;
+		box-shadow: 0px 8px 16px #0000001a;
+	}
 }
 
 .user {
-  position: relative;
+	position: relative;
 
-  color: $black;
+	color: $black;
 
-  &:hover {
-    .user__hidden {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
+	&:hover {
+		.user__hidden {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 
-  &__icon {
-    position: relative;
-    z-index: 10;
-    display: block;
-  }
+	&__icon {
+		position: relative;
+		z-index: 10;
+		display: block;
+	}
 
-  &__alert {
-    position: absolute;
-    top: 0px;
-    right: -5px;
+	&__alert {
+		position: absolute;
+		top: 0px;
+		right: -5px;
 
-    width: 6px;
-    height: 6px;
+		width: 6px;
+		height: 6px;
 
-    background: $blue;
-    border-radius: 50%;
-  }
+		background: $blue;
+		border-radius: 50%;
+	}
 
-  &__hidden {
-    visibility: hidden;
-    opacity: 0;
-    width: 373px;
-    position: absolute;
-    transition: 0.2s;
-    top: 0%;
-    left: -120px;
-    padding-top: 54px;
+	&__hidden {
+		visibility: hidden;
+		opacity: 0;
+		width: 373px;
+		position: absolute;
+		transition: 0.2s;
+		top: 0%;
+		left: -120px;
+		padding-top: 54px;
 
-    @media screen and (max-width: 1800px) {
-      margin-left: -90px;
-    }
-  }
+		@media screen and (max-width: 1800px) {
+			margin-left: -90px;
+		}
+	}
 
-  .hidden {
-    &__body {
-      box-shadow: 0px 10px 20px #0000001a;
-      border: 1px solid $grey;
-      opacity: 1;
-      background: white;
-      position: relative;
-      padding: 14px 0 6px;
+	.hidden {
+		&__body {
+			box-shadow: 0px 10px 20px #0000001a;
+			border: 1px solid $grey;
+			opacity: 1;
+			background: white;
+			position: relative;
+			padding: 14px 0 6px;
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: -16px;
-        left: 83px;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        width: 22px;
-        height: 16px;
-        background-color: white;
-      }
-    }
-  }
+			&::after {
+				display: none;
+				content: "";
+				position: absolute;
+				top: -16px;
+				left: 83px;
+				clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+				width: 22px;
+				height: 16px;
+				background-color: white;
+			}
+		}
+	}
 
-  .userinfo {
-    &__icon {
-      @include img(contain);
-      box-shadow: 0px 6px 10px #0000001a;
-      border-radius: 6px;
-      flex: 0 0 60px;
-      height: 60px;
-      overflow: hidden;
-      margin-right: 12px;
-    }
-  }
+	.userinfo {
+		&__icon {
+			@include img(contain);
+			box-shadow: 0px 6px 10px #0000001a;
+			border-radius: 6px;
+			flex: 0 0 60px;
+			height: 60px;
+			overflow: hidden;
+			margin-right: 12px;
+		}
+	}
 
-  .body {
-    &__userinfo {
-      display: flex;
-      align-items: center;
-      margin-bottom: 6px;
-      padding: 0 12px;
-      line-height: 1;
-    }
-  }
+	.body {
+		&__userinfo {
+			display: flex;
+			align-items: center;
+			margin-bottom: 6px;
+			padding: 0 12px;
+			line-height: 1;
+		}
+	}
 
-  .box {
-    &__email {
-      color: $grey-2;
-      font-size: 14px;
-    }
-    &__name {
-      display: flex;
-      margin-bottom: 10px;
-    }
-  }
+	.box {
+		&__email {
+			color: $grey-2;
+			font-size: 14px;
+		}
 
-  .name {
-    &__text {
-      align-self: flex-end;
-      white-space: nowrap;
-      max-width: 230px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-weight: bold;
-      margin-right: 12px;
-    }
+		&__name {
+			display: flex;
+			margin-bottom: 10px;
+		}
+	}
 
-    &__edit {
-      @include click-icon(16px, -1);
-      //transform: translate(-4px, -6px);
-      background: $grey;
-    }
-  }
+	.name {
+		&__text {
+			align-self: flex-end;
+			white-space: nowrap;
+			max-width: 230px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-weight: bold;
+			margin-right: 12px;
+		}
 
-  .list {
-    &__item {
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid $grey;
+		&__edit {
+			@include click-icon(16px, -1);
+			//transform: translate(-4px, -6px);
+			background: $grey;
+		}
+	}
 
-      &:last-child {
-        border: none;
-      }
-    }
+	.list {
+		&__item {
+			padding: 10px 12px;
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid $grey;
 
-    &__mailing {
-      .link__text {
-        margin-right: 15px;
-      }
-    }
-  }
+			&:last-child {
+				border: none;
+			}
+		}
 
-  .item {
-    &__link {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      color: $black;
-    }
-  }
+		&__mailing {
+			.link__text {
+				margin-right: 15px;
+			}
+		}
+	}
 
-  .link {
-    &__icon {
-      flex: 0 0 28px;
-      height: 22px;
-      margin-right: 10px;
-    }
+	.item {
+		&__link {
+			display: flex;
+			width: 100%;
+			align-items: center;
+			color: $black;
+		}
+	}
 
-    &__text {
-      position: relative;
-    }
+	.link {
+		&__icon {
+			flex: 0 0 28px;
+			height: 22px;
+			margin-right: 10px;
+		}
 
-    &__alert {
-      position: absolute;
-      top: -2px;
-      right: -10px;
-      width: 6px;
-      height: 6px;
-      background: $blue;
-      border-radius: 50%;
-    }
-  }
+		&__text {
+			position: relative;
+		}
 
-  .mailing {
-    &__button {
-      flex: 0 0 20px;
-      height: 20px;
-      //flex: 1 1 auto;
-    }
+		&__alert {
+			position: absolute;
+			top: -2px;
+			right: -10px;
+			width: 6px;
+			height: 6px;
+			background: $blue;
+			border-radius: 50%;
+		}
+	}
 
-    &__counter {
-      font-size: 12px;
-      margin-left: auto;
-      background: $grey;
-      padding: 4px 10px;
-      border-radius: 12px;
-    }
-  }
+	.mailing {
+		&__button {
+			flex: 0 0 20px;
+			height: 20px;
+			//flex: 1 1 auto;
+		}
 
-  @include lg-d {
-    .userinfo__icon {
-      flex: 0 0 50px;
-      height: 50px;
-    }
+		&__counter {
+			font-size: 12px;
+			margin-left: auto;
+			background: $grey;
+			padding: 4px 10px;
+			border-radius: 12px;
+		}
+	}
 
-    &__hidden {
-      padding-top: 44px;
-    }
+	@include lg-d {
+		.userinfo__icon {
+			flex: 0 0 50px;
+			height: 50px;
+		}
 
-    .box__name {
-      margin-bottom: 8px;
-    }
+		&__hidden {
+			padding-top: 54px;
+		}
 
-    .list__item {
-      padding: 8px 12px;
-    }
+		.box__name {
+			margin-bottom: 8px;
+		}
 
-    .link__icon {
-      flex: 0 0 27px;
-      height: 22px;
-      margin-right: 10px;
-    }
-  }
+		.list__item {
+			padding: 8px 12px;
+		}
 
-  @include md-d {
-    .hidden__body {
-      padding: 10px 0px;
-      .body__userinfo {
-      }
-    }
+		.link__icon {
+			flex: 0 0 27px;
+			height: 22px;
+			margin-right: 10px;
+		}
+	}
 
-    &__hidden {
-      padding-top: 44px;
-    }
+	@include md-d {
+		.hidden__body {
+			padding: 10px 0px;
 
-    .box__name {
-      margin-bottom: 6px;
-    }
+			.body__userinfo {}
+		}
 
-    .list__item {
-      padding: 6px 12px;
-    }
+		&__hidden {
+			padding-top: 54px;
+		}
 
-    .link__icon {
-      width: 25px;
-      height: 20px;
-      margin-right: 10px;
-    }
-  }
+		.box__name {
+			margin-bottom: 6px;
+		}
 
-  @include sm-d {
-    .user__hidden {
-      display: none;
-    }
-  }
+		.list__item {
+			padding: 6px 12px;
+		}
+
+		.link__icon {
+			width: 25px;
+			height: 20px;
+			margin-right: 10px;
+		}
+	}
+
+	@include sm-d {
+		.user__hidden {
+			display: none;
+		}
+	}
 }

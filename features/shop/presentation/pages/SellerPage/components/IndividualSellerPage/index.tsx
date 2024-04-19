@@ -7,6 +7,7 @@ import TbuyPagination from "@libs/presentation/components/elements/TbuyPaginatio
 import { useAppSelector } from "@core/store";
 import IndividualSellerInfo from "@features/shop/presentation/pages/SellerPage/components/IndividualSellerPage/IndividualSellerInfo";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
+import { Box } from "@mui/material";
 
 function IndividualSellerPage() {
   const { info, products } = useAppSelector((state) => state.shop_about_seller);

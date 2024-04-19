@@ -296,7 +296,6 @@
 	.hidden {
 		&__body {
 			background: #fff;
-			border-radius: 18px;
 			position: relative;
 			box-shadow: 0px 10px 20px #0000001a;
 			padding: 0px 16px;
@@ -426,8 +425,7 @@
 	margin-right: -25px;
 
 	background: #fff;
-	box-shadow: 0px 10px 20px #0000001a;
-	border-radius: 14px;
+	box-shadow: 0 10px 20px #0000001a;
 
 	&__header {
 		display: flex;
@@ -509,7 +507,7 @@
 		width: 100%;
 		padding: 26px 16px 20px;
 		border-radius: unset;
-		box-shadow: 0px 8px 16px #0000001a;
+		box-shadow: 0 8px 16px #0000001a;
 	}
 }
 

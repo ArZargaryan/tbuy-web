@@ -50,7 +50,7 @@ function HomePage() {
         desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage: "https://frmall.ru/upload/iblock/c47/c4734d62dad2e35727e20debaa3c6767.jpg"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
@@ -60,7 +60,7 @@ function HomePage() {
         desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage: "https://frmall.ru/upload/iblock/c47/c4734d62dad2e35727e20debaa3c6767.jpg"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
@@ -70,7 +70,7 @@ function HomePage() {
         desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
         mobile: "https://example.com",
         blurHash: "",
-        currentImage: "https://frmall.ru/upload/iblock/c47/c4734d62dad2e35727e20debaa3c6767.jpg"
+        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     }
@@ -591,32 +591,6 @@ function HomePage() {
             </Fragment>
           ))} */}
 
-          <div className={styles.suggestions}>
-            {!!fakeHomeBanner &&
-              fakeHomeBanner.slice(0, 2).map((banner, i) => (
-                <Link
-                  href={banner.url}
-                  key={`${banner.url}_${i}`}
-                  className={styles.suggestions__picture}
-                >
-                  {/* <BlurImage
-                    src={banner.image.currentImage}
-                    alt={banner.image.currentImage}
-                    blurHash={banner.image.blurHash}
-                    className={styles.suggestions__picture_img}
-                    width={754}
-                    height={384}
-                  /> */}
-                  <img
-                    alt="img"
-                    width={1000}
-                    height={1000}
-                    src={banner.image.currentImage}
-                    className={styles.suggestions__picture_img}
-                  />
-                </Link>
-              ))}
-          </div>
         </div>
       </DefaultLayout>
     </>

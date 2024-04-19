@@ -18,7 +18,7 @@ function Contacts(props: Props) {
   const shareUrl = "http://github.com";
   const title = "GitHub";
   return (
-    <div {...props}>
+    <div {...props} className={`${styles.contacts} ${props.className}`}>
       {contacts?.map((phone, i) => (
         <div key={`${phone.value}_${i}`} className={styles.contacts_phone}>
           {phone.type === "email" && (

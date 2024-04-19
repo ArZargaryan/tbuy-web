@@ -1,270 +1,273 @@
 @import "@styles/vars.scss";
+@import "@styles/mixins.scss";
 
 .individual {
-  padding: 30px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+	padding: 30px;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1150px;
 
-    .content__image_container {
-      @media screen and (max-width: 700px) {
-        order: 2;
-        flex: 0 1 35%;
-      }
-    }
-    .content__image {
-      width: 100%;
-      width: 233px;
-      height: 233px;
-      background-size: cover;
-      border-radius: 12px;
-      margin-right: -40px;
-      border: 1px solid #ccc;
-      margin-bottom: 20px;
+	@media screen and (max-width: 600px) {
+		padding: 16px;
+	}
 
-      @media screen and (max-width: 1100px) {
-        width: 170px;
-        height: 170px;
-        //margin-right: -10px;
-        margin-right: -200px;
-      }
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-      @media screen and (max-width: 900px) {
-        margin-right: 0px;
-      }
-      @media screen and (max-width: 700px) {
-        order: 1;
-        margin-bottom: 0;
-        border-radius: 0px;
-      }
-      @media screen and (max-width: 600px) {
-        order: 1;
-        margin-bottom: 0;
-        border-radius: 0px;
-        width: 130px;
-        height: 130px;
-      }
-      @media screen and (max-width: 370px) {
-        width: 150px;
-        height: 150px;
-      }
-    }
+	.body {
+		display: grid;
+		column-gap: 30px;
+		
+		grid-template-columns:
+			minmax(233px, calc(233px + 145px)) 
+			minmax(max-content, calc(180px + 195px))
+			1fr
+		;
 
-    .contacts__title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
+		grid-template-areas:
+			"avatar userName ."
+			"avatar contacts stars"
+			"avatar contacts white_buttons"
+			"avatar social_links button_followers"
+		;
 
-      &_mobile {
-        display: none;
-        margin-bottom: 8px;
-        font-size: 18px;
-        @media screen and (max-width: 700px) {
-          display: block;
-        }
-      }
-    }
-    .contacts__rating {
-      margin-bottom: 5px;
-    }
-    .content__contacts {
-      word-wrap: break-word;
-      max-width: 20vw;
+		grid-template-rows: 1fr;
+		align-items: start;
+		justify-content: start;
 
-      .socials {
-        display: flex;
-        margin-top: 15px;
-        gap: 10px;
-        svg {
-          width: 24px;
-        }
-      }
-      @media screen and (max-width: 900px) {
-        flex-grow: 1;
-        max-width: 30vw;
-      }
-      @media screen and (max-width: 700px) {
-        margin-top: 20px;
-        order: 3;
-        flex: 0 1 100%;
-        max-width: 100%;
+		@media screen and (max-width: 1100px) {
+			grid-template-columns: 191px minmax(max-content, 276px);
 
-        .socials {
-          display: none;
-        }
-        .contacts__title {
-          display: none;
-        }
-      }
-    }
+			grid-template-areas:
+				"avatar userName"
+				"avatar stars"
+				"avatar social_links"
+				"avatar button_followers"
+				"contacts contacts"
+				"white_buttons white_buttons"
+			;
 
-    .content__actions {
-      margin-top: auto;
+			grid-template-rows: auto auto auto 1fr;
+		}
 
-      .subscribe_btn {
-        max-width: 230px;
-        padding-right: 40px;
-        padding-left: 40px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
+		@media screen and (max-width: 550px) {
+			column-gap: 12px;
+			grid-template-columns: 130px minmax(auto, 250px);
+		}
 
-        &:hover {
-          path {
-            fill: $blue;
-          }
-        }
+		@media screen and (max-width: 400px) {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"avatar avatar"
+				"userName userName"
+				"stars stars"
+				"social_links social_links"
+				"button_followers button_followers"
+				"contacts contacts"
+				"white_buttons white_buttons"
+			;
+		}
 
-        .subscribe_btn__followers {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          path {
-            transition: all 0.2s linear;
-          }
-        }
+	}
 
-        span {
-          font-weight: 400;
-          color: #fff;
-          transition: all 0.2s linear;
-        }
+	.avatar {
+		aspect-ratio: 1;
+		border-radius: 12px;
+		overflow: hidden;
+		grid-area: avatar;
+		width: 233px;
+		box-shadow: 0px 6px 10px #0000001A;
 
-        &:hover {
-          box-shadow: none;
-          span {
-            font-weight: 400;
-            color: $blue;
-          }
-        }
+		@media screen and (max-width: 1100px) {
+			width: 100%;
+			border-radius: none;
+		}
 
-        @media screen and (max-width: 500px) {
-          max-width: 177px;
-          padding: 5px 0px 5px 16px;
-          font-size: 14px;
-          gap: 14px;
+		@media screen and (max-width: 400px) {
+			width: 130px;
+		}
+	}
+	
+	.userName {
+		grid-area: userName;
+		margin-bottom: 20px;
 
-          span {
-            font-size: 14px;
-          }
-        }
-        @media screen and (max-width: 370px) {
-          max-width: 100%;
-          display: flex;
-          justify-content: center;
-          padding: 10px 15px;
-          font-size: 16px;
-          span {
-            font-size: 16px;
-          }
-        }
-      }
+		@media screen and (max-width: 1100px) {
+			margin-bottom: 0;
+		}
 
-      .socials {
-        display: none;
-        @media screen and (max-width: 700px) {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin-bottom: 12px;
-          svg {
-            width: 24px;
-          }
-        }
-      }
+		@media screen and (max-width: 400px) {
+			margin-top: 6px;
+		}
+	}
 
-      @media screen and (max-width: 700px) {
-        order: 2;
-        flex: 0 1 65%;
+	.contacts {
+		grid-area: contacts;
 
-        .subscribe_btn {
-          margin: 0 !important;
-        }
-      }
-      @media screen and (max-width: 600px) {
-        flex: auto;
-        padding-left: 14px;
+		@media screen and (max-width: 1100px) and (min-width: 551px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 16px;
 
-        margin-top: -2px;
-      }
-      @media screen and (max-width: 370px) {
-        flex: 0 1 100%;
-        padding-top: 14px;
-        padding-left: 0px;
-      }
-    }
+			margin-top: 20px;
 
-    .actions__btns {
-      display: flex;
-      align-items: center;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      gap: 30px;
+			//max-width: 91.5%;
+			max-width: 455px;
 
-      &_mobile {
-        display: none !important;
-        @media screen and (max-width: 700px) {
-          display: flex !important;
-        }
-      }
+			>div {
+				&:nth-child(1) {order: 1;}
+				&:nth-child(2) {order: 3;}
+				&:nth-child(3) {order: 2;}
+				&:nth-child(4) {order: 4;}
+			}
+		}
 
-      .chat_btn {
-        min-width: 230px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-left: 20px;
-        padding-right: 28px;
+		@media screen and (max-width: 550px) {
+			margin-top: 20px;
+		}
 
-        svg {
-          width: 30px;
-          margin-top: -2px;
-        }
+		@media screen and (max-width: 400px) {
+			margin-top: 12px;
+		}
+	}
 
-        path {
-          transition: all 0.2s linear;
-        }
+	.social_links {
+		grid-area: social_links;
+		align-self: self-end;
 
-        &:hover {
-          path {
-            fill: #fff;
-          }
-        }
-      }
+		display: flex;
+		gap: 10px;
 
-      .report_btn {
-      }
+		a {
+			flex: 0 0 24px;
+			height: 24px;
+		}
 
-      @media screen and (max-width: 1100px) {
-        gap: 15px;
-        .chat_btn {
-          width: 64px;
-          min-width: auto;
-          padding: 12px 12px;
-          justify-content: center;
-          svg {
-            width: 20.5px;
-          }
-          span {
-            display: none;
-          }
-        }
-      }
+		@media screen and (max-width: 1100px) {
+			align-self: self-start;
+			margin-top: 7px;
+		}
 
-      @media screen and (max-width: 700px) {
-        display: none;
-      }
-    }
+		@media screen and (max-width: 550px) {
+		}
+	}
 
-    @media screen and (max-width: 700px) {
-      flex-wrap: wrap;
-    }
-  }
+	.stars {
+		grid-area: stars;
+		margin-bottom: 10px;
+		*{margin-bottom: unset;}
 
-  @media screen and (max-width: 600px) {
-    padding: 16px;
-  }
+		@media screen and (max-width: 1100px) {
+			margin-bottom: 0;
+			margin-top: 6px;
+			*{margin-top: unset;}
+		}
+
+		@media screen and (max-width: 550px) {
+			margin-top: 0;
+			svg {
+				width: 12px;
+				height: 12px;
+			}
+		}
+	}
+
+	.button_chat {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+
+		flex: 0 1 272px;
+		max-width: 272px;
+
+		&:hover {
+			path {
+				fill: white;
+			}
+		}
+
+		@media screen and (max-width: 550px) {
+			span {
+				display: none;
+			}
+		}
+	}
+
+	.button_empty {
+		max-width: 140px;
+	}
+
+	.button_followers {
+		grid-area: button_followers;
+		max-width: 230px;
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+
+		&:hover {
+			path {
+				fill: $blue;
+			}
+		}
+		
+		span {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+
+			color: inherit;
+		}
+
+		@media screen and (max-width: 1100px) {
+			width: 100%;
+			max-width: 100%;
+			align-self: self-end;
+		}
+
+		@media screen and (max-width: 550px) {
+			height: 40px;
+		}
+
+		@media screen and (max-width: 400px) {
+			margin-top: 12px;
+		}
+	}
+
+	.white_buttons {
+		grid-area: white_buttons;
+		display: flex;
+		gap: 30px;
+		
+		@media screen and (max-width: 1100px) {
+			gap: 16px;
+			margin-top: 20px;
+			max-width: 455px;
+
+			.button_chat,
+			.button_empty {
+				flex: 1 1 50%;
+				max-width: none;
+			}
+		}
+
+		@media screen and (max-width: 550px) {
+			gap: 16px;
+			margin-top: 20px;
+			max-width: 455px;
+
+			.button_chat {
+				flex: 0 0 47px;
+				max-width: 47px;
+			}
+		}
+
+		@media screen and (max-width: 400px) {
+			margin-top: 16px;
+		}
+	}
 }

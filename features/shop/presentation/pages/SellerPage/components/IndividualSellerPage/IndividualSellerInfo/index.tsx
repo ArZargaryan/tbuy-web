@@ -34,66 +34,45 @@ function IndividualSellerInfo(props: Props) {
 
   return (
     <div className={styles.individual}>
-      <div className={styles.individual__content}>
-        <div className={styles.content__image_container}>
-          <div
-            className={styles.content__image}
-            style={{ backgroundImage: `url(${originalImage})` }}
-          ></div>
+      <div className={styles.body}>
+        <div className={styles.avatar}>
+          <img src={originalImage} />
         </div>
-
-        <div className={styles.content__contacts}>
-          <h3 className={styles.contacts__title}>{fullName}</h3>
-
-          <Contacts contacts={contacts} className={styles.contacts__info} />
-
-          <div className={`${styles.actions__btns} ${styles.actions__btns_mobile}`}>
-            <PrimaryButton buttonStyle="outline" className={`${styles.chat_btn}`}>
-              <Chat />
-              <span>ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ</span>
-            </PrimaryButton>
-            <PrimaryButton className={`${styles.report_btn}`}>ԲՈՂՈՔԵԼ</PrimaryButton>
-          </div>
-
-          <div className={styles.socials}>
+        <h3 className={`${styles.userName} title title_account`}>Arman Sahakyan</h3>
+        <Contacts contacts={contacts} className={styles.contacts} />
+        <div className={styles.social_links}>
+          <a href="">
             <Logos.instagram />
+          </a>
+          <a href="">
             <Logos.facebook />
+          </a>
+          <a href="">
             <Logos.telegram />
-          </div>
+          </a>
         </div>
+        <StarsRating className={styles.stars} defaultValue={rating} readOnly />
 
-        <div className={styles.content__actions}>
-          <h3 className={`${styles.contacts__title} ${styles.contacts__title_mobile}`}>
-            {fullName}
-          </h3>
-          <StarsRating className={styles.contacts__rating} defaultValue={rating} readOnly />
+        <PrimaryButton className={styles.button_followers}>
+          Հետեվեl{" "}
+          <span>
+            <Followers /> 236
+          </span>
+        </PrimaryButton>
 
-          <div className={styles.socials}>
-            <Logos.instagram />
-            <Logos.facebook />
-            <Logos.telegram />
-          </div>
-
-          <div className={styles.actions__btns}>
-            <PrimaryButton
-              buttonStyle="outline"
-              className={`${styles.chat_btn}`}
-              onClick={changeMessageModal}
-            >
-              <Chat />
-              ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ
-            </PrimaryButton>
-            <PrimaryButton buttonStyle="outline">ԲՈՂՈՔԵԼ</PrimaryButton>
-          </div>
-
-          <PrimaryButton className={`${styles.subscribe_btn}`}>
-            Հետեվեl{" "}
-            <span className={styles.subscribe_btn__followers}>
-              <Followers /> 236
-            </span>
+        <div className={styles.white_buttons}>
+          <PrimaryButton
+            className={styles.button_chat}
+            buttonStyle="outline"
+            onClick={changeMessageModal}
+          >
+            <Chat />
+            <span>ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ</span>
           </PrimaryButton>
+          <PrimaryButton className={styles.button_empty}>ԲՈՂՈՔԵԼ</PrimaryButton>
         </div>
       </div>
+
       <MessageModal
         recipient={{ name: fullName }}
         open={openMessageModal}

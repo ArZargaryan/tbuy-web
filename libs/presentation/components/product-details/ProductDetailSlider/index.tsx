@@ -4,7 +4,6 @@ import styles from "./product-detail-slider.module.scss";
 
 // Import Swiper styles
 import "swiper/css";
-import { map } from "lodash";
 import { Image } from "@libs/domain/model/image";
 import BlurImage from "@libs/presentation/components/elements/BlurImage";
 
@@ -38,9 +37,8 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
           smallSliderControl.slideTo(swiper.activeIndex);
           setSmallSliderActive(swiper.activeIndex);
         }}
-        autoHeight={true}
       >
-        {map(images, (image, i) => (
+        {images.map((image, i) => (
           <>
             <SwiperSlide key={`${image.original}_${i}`} className={styles.big_slider__slide}>
               <div>
@@ -51,11 +49,7 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
                   width={400}
                   height={400}
                 /> */}
-                <img
-                  style={{ aspectRatio: 1, objectFit: "cover" }}
-                  src="https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Hi"
-                />
+                <img style={{ aspectRatio: 1, objectFit: "cover" }} src={image.original} alt="Hi" />
               </div>
             </SwiperSlide>
           </>
@@ -76,7 +70,7 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
           draggable={false}
           allowTouchMove={false}
         >
-          {map(images, (image, i) => (
+          {images.map((image, i) => (
             <>
               <SwiperSlide
                 className={`${styles.small_slider__slide} ${
@@ -96,7 +90,7 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
                     width={400}
                     height={400}
                   /> */}
-                  <img src="https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800" />
+                  <img src={image.original} />
                 </div>
               </SwiperSlide>
             </>

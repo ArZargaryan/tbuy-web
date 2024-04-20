@@ -5,6 +5,7 @@ import { Company } from "@features/shop/domain/model/DetailedProduct";
 import styles from "./contact-seller.module.scss";
 import { useModal } from "@core/hooks/useModal";
 import MessageModal from "@libs/presentation/components/modals/MessageModal";
+import Link from "next/link";
 import router from "next/router";
 
 interface Props {
@@ -21,17 +22,12 @@ function ContactSeller({ company, methods }: Props) {
   if (!company) return <div></div>;
 
   const handleClickMessageButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
+    e.stopPropagation();
     changeMessageModalOpen();
   };
 
   return (
-    <div
-      onClick={() =>
-        router.push(company.type === "individual" ? "/individual_partner" : "/legal_partner")
-      }
-      className={styles.seller}
-    >
+    <div onClick={() => router.push("/")} className={styles.seller}>
       <div className={styles.seller__details}>
         {/* AVATAR */}
         <Avatar src={company?.images?.smallLogo} className={styles.seller_avatar} />
@@ -92,6 +88,7 @@ function ContactSeller({ company, methods }: Props) {
         recipient={{
           name: company?.name
         }}
+        onClick={(e) => e.stopPropagation()}
       />
     </div>
   );

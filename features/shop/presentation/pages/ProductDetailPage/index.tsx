@@ -64,7 +64,31 @@ function ProductDetailPage() {
     images: [
       {
         original:
-          "https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=800"
+          "http://img.alicdn.com/imgextra/i1/2947592076/TB2Qvtba9JjpuFjy0FdXXXmoFXa_!!2947592076.jpg"
+      },
+      {
+        original:
+          "http://img.alicdn.com/imgextra/i1/2947592076/TB2Qvtba9JjpuFjy0FdXXXmoFXa_!!2947592076.jpg"
+      },
+      {
+        original:
+          "http://img.alicdn.com/imgextra/i1/2947592076/TB2Qvtba9JjpuFjy0FdXXXmoFXa_!!2947592076.jpg"
+      },
+      {
+        original:
+          "http://img.alicdn.com/imgextra/i1/2947592076/TB2Qvtba9JjpuFjy0FdXXXmoFXa_!!2947592076.jpg"
+      },
+      {
+        original:
+          "http://img.alicdn.com/imgextra/i1/2947592076/TB2Qvtba9JjpuFjy0FdXXXmoFXa_!!2947592076.jpg"
+      },
+      {
+        original:
+          "https://avatars.mds.yandex.net/get-mpic/4080064/img_id1251538379236141613.jpeg/orig"
+      },
+      {
+        original:
+          "https://gagaru.club/uploads/posts/2023-02/1676615383_gagaru-club-p-stilnie-letnie-krossovki-muzhskie-instagra-66.png"
       }
     ],
     rating: 4.2,

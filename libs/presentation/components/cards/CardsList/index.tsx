@@ -34,7 +34,7 @@ function CardList(props: Props) {
   const cardClassName = (card: Card) =>
     classNames(styles.product_card_list__item, {
       [styles.product_card_list__item_vacancy]: card instanceof VacancyShort,
-      [styles.product_card_list__item_company]: card instanceof CompanyCardInfo,
+      [styles.product_card_list__item_company]: card instanceof CompanyCardInfo
     });
 
   return (
@@ -52,7 +52,7 @@ function CardList(props: Props) {
         ))}
 
       {loading &&
-        shimmers.map((shimmer) => (
+        cards?.map((shimmer) => (
           <div key={shimmer} className={styles.product_card_list__item}>
             <Shimmer height={400} width={300} />
           </div>

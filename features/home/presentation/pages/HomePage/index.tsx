@@ -25,6 +25,7 @@ import { VacancyShort } from "@libs/domain/model/vacancy";
 import { Service } from "@libs/domain/model/service";
 import { Category } from "@libs/domain/model/category";
 import { ImgExporter } from "@core/helpers/ImgExporter";
+import { Shimmer } from "react-shimmer";
 
 function HomePage() {
   const { Icons, blob } = ImgExporter;
@@ -43,14 +44,18 @@ function HomePage() {
     dispatch(getHomeData(locale as Lang));
   }, [dispatch, locale]);
 
-  //! Что-то очень полезное -------------------------------------------------------------------
+  // -------------------------------------------------------------------
   const [fetchingProducts, setFetchingProducts] = useState(false);
   const [productsSections, setProductsSections] = useState<number[]>([]);
+  const [productsSectionsIsLoading, setProductsSectionsIsLoading] = useState(false);
 
   useEffect(() => {
     if (fetchingProducts) {
-      setProductsSections((old) => [...old, 1]);
-      setFetchingProducts(false);
+      setTimeout(() => {
+        setProductsSections((old) => [...old, 1]);
+        setFetchingProducts(false);
+        setProductsSectionsIsLoading(false);
+      }, 1400);
     }
   }, [fetchingProducts]);
 
@@ -70,11 +75,12 @@ function HomePage() {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    if (window.scrollY + window.innerHeight >= height - 100) {
+    if (window.scrollY + window.innerHeight >= height - 50) {
       setFetchingProducts(true);
+      setProductsSectionsIsLoading(true);
     }
   }
-  //! --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
 
   const fakeHomeBanner = [
     {
@@ -624,22 +630,33 @@ function HomePage() {
             </Fragment>
           ))} */}
 
-          {productsSections?.map((el, id) => (
-            <div key={id}>
-              <TitleWithLink
-                linkPath={`/products`}
-                linkText={`${t("see_all", { ns: "common" })}`}
-                className={styles.title_marg}
-              >
-                {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
-              </TitleWithLink>
+          <div className={styles.endless}>
+            {productsSections?.map((el, id) => (
+              <>
+                <div key={id}>
+                  <TitleWithLink
+                    linkPath={`/products`}
+                    linkText={`${t("see_all", { ns: "common" })}`}
+                    className={styles.title_marg}
+                  >
+                    {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
+                  </TitleWithLink>
+                  <CardsList
+                    className={styles.section_margin}
+                    cards={(!!fakeProducts?.length && fakeProducts) || []}
+                    loading={false}
+                  />
+                </div>
+              </>
+            ))}
+            {productsSectionsIsLoading && (
               <CardsList
                 className={styles.section_margin}
                 cards={(!!fakeProducts?.length && fakeProducts) || []}
-                loading={false}
+                loading={true}
               />
-            </div>
-          ))}
+            )}
+          </div>
         </div>
       </DefaultLayout>
     </>

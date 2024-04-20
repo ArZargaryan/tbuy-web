@@ -84,7 +84,8 @@ function ProductDetailPage() {
     ],
     company: {
       name: "Sample Company",
-      phones: ["123-456-7890", "987-654-3210"]
+      phones: ["123-456-7890", "987-654-3210"],
+      type: "individual"
     }
   };
 

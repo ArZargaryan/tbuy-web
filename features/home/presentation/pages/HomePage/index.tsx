@@ -43,13 +43,13 @@ function HomePage() {
     dispatch(getHomeData(locale as Lang));
   }, [dispatch, locale]);
 
-  // --------------------------------------------------------------------------------
+  //! Что-то очень полезное -------------------------------------------------------------------
   const [fetchingProducts, setFetchingProducts] = useState(false);
   const [productsSections, setProductsSections] = useState<number[]>([]);
 
   useEffect(() => {
     if (fetchingProducts) {
-      setProductsSections([1]);
+      setProductsSections((old) => [...old, 1]);
       setFetchingProducts(false);
     }
   }, [fetchingProducts]);
@@ -70,11 +70,11 @@ function HomePage() {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    if (window.scrollY + window.innerHeight >= height) {
+    if (window.scrollY + window.innerHeight >= height - 100) {
       setFetchingProducts(true);
     }
   }
-  // --------------------------------------------------------------------------------
+  //! --------------------------------------------------------------------------------
 
   const fakeHomeBanner = [
     {

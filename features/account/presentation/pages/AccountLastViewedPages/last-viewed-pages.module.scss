@@ -1,9 +1,14 @@
 .last_viewed_content {
   border-radius: 20px;
+	margin-bottom: 80px;
 
   @media screen and (max-width: 500px) {
     border-radius: 0;
   }
+
+	@media screen and (max-width: 500px) {
+		margin-bottom: 40px;
+	}
 }
 
 .last_viewed {

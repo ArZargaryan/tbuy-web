@@ -249,10 +249,14 @@
             }
           }
 
+					@media screen and (max-width: 900px) {
+						margin-right: 2px;
+					}
+
           @media screen and (max-width: 550px) {
             width: 38px;
             height: 38px;
-            margin-right: 6px;
+            //margin-right: 6px;
           }
 
           @media screen and (max-width: 480px) {

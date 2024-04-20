@@ -311,11 +311,6 @@
 				width: 22px;
 				height: 16px;
 				background: white;
-				>div {
-					>div {
-						>div{}
-					}
-				}
 			}
 		}
 	}
@@ -416,7 +411,7 @@
 
 	opacity: 0;
 	visibility: hidden;
-	transition: 0.3s;
+	transition: 0.2s;
 }
 
 .basket {
@@ -548,11 +543,11 @@
 		position: absolute;
 		transition: 0.2s;
 		top: 0%;
-		left: -120px;
+		left: -155px;
 		padding-top: 54px;
 
 		@media screen and (max-width: 1800px) {
-			margin-left: -90px;
+			left: -231px;
 		}
 	}
 

@@ -30,7 +30,7 @@
   grid-gap: 32px;
 
   &__content {
-    width: 100%;
+    min-width: 0;
 
     .product {
       display: flex;

@@ -14,9 +14,10 @@ interface Props {
     call: boolean;
   };
   company: Company;
+  link: string;
 }
 
-function ContactSeller({ company, methods }: Props) {
+function ContactSeller({ company, methods, link }: Props) {
   const [messageModalOpen, changeMessageModalOpen] = useModal(false);
 
   if (!company) return <div></div>;
@@ -27,7 +28,7 @@ function ContactSeller({ company, methods }: Props) {
   };
 
   return (
-    <div onClick={() => router.push("/")} className={styles.seller}>
+    <div onClick={() => router.push(link)} className={styles.seller}>
       <div className={styles.seller__details}>
         {/* AVATAR */}
         <Avatar src={company?.images?.smallLogo} className={styles.seller_avatar} />

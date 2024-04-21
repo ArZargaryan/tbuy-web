@@ -49,7 +49,7 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
                   width={400}
                   height={400}
                 /> */}
-                <img style={{ aspectRatio: 1, objectFit: "cover" }} src={image.original} alt="Hi" />
+                <img src={image.original} alt="Hi" />
               </div>
             </SwiperSlide>
           </>
@@ -67,8 +67,6 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
             changeBigSlider(swiper);
           }}
           watchOverflow={false}
-          draggable={false}
-          allowTouchMove={false}
         >
           {images.map((image, i) => (
             <>

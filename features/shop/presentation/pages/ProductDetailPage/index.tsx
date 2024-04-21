@@ -486,6 +486,7 @@ function ProductDetailPage() {
                 {/* SELLER */}
                 <div className={styles.contact_seller_wrapper}>
                   <ContactSeller
+									link="/legal_partner"
                     company={product?.company as any}
                     methods={{ call: !!product?.company?.phones?.length, chat: true }}
                   />

@@ -1,163 +1,182 @@
 @import "@styles/vars.scss";
+@import "@styles/z-vars.scss";
 
 .product_bar {
-  width: 100%;
-  position: fixed;
-  top: -100px;
-  transition: all 0.2s linear;
+	width: 100%;
+	position: fixed;
+	top: -100px;
+	transition: all 0.25s linear;
 
-  &__content {
-    //box-shadow: 0px 3px 6px #00000029;
-    position: relative;
-    z-index: 1030;
-    background: #fff;
-    padding: 7px 0px;
+	&__content {
+		//box-shadow: 0px 3px 6px #00000029;
+		position: relative;
+		z-index: 1030;
+		background: #fff;
+		padding: 7px 0px;
 
-    .content__info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+		.content__info {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
-      .info__left {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        height: 100%;
-        img {
-          max-height: 50px;
+			.info__left {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				height: 100%;
 
-          @media screen and (max-width: 800px) {
-            display: none;
-          }
-        }
-        p {
-          font-size: 20px;
-          font-weight: bold;
-          @media screen and (max-width: 800px) {
-            font-size: 18px;
-            margin-bottom: 4px;
-          }
+				img {
+					max-height: 50px;
 
-          max-width: 400px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+					@media screen and (max-width: 800px) {
+						display: none;
+					}
+				}
 
-          @media screen and (max-width: 550px) {
-            max-width: 70vw;
-          }
-        }
+				p {
+					font-size: 20px;
+					font-weight: bold;
 
-        .mobile_price {
-          display: none;
-          font-size: 18px;
-          @media screen and (max-width: 800px) {
-            display: block;
-          }
-        }
+					@media screen and (max-width: 800px) {
+						font-size: 18px;
+						margin-bottom: 4px;
+					}
 
-        @media screen and (max-width: 800px) {
-          display: block;
-        }
-      }
+					max-width: 400px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
 
-      .info__right {
-        display: flex;
-        align-items: center;
+					@media screen and (max-width: 550px) {
+						max-width: 70vw;
+					}
+				}
 
-        .right__price {
-          margin-right: 16px;
+				.mobile_price {
+					display: none;
+					font-size: 18px;
 
-          .price__single {
-            font-size: 20px;
-            font-weight: bold;
-          }
-          .price__month {
-            font-size: 14px;
-          }
+					@media screen and (max-width: 800px) {
+						display: block;
+					}
+				}
 
-          @media screen and (max-width: 1000px) {
-            display: none;
-          }
-        }
+				@media screen and (max-width: 800px) {
+					display: block;
+				}
+			}
 
-        .right__btn {
-          margin-left: 16px;
-          border-radius: 25px;
-          padding: 10px 30px;
-          width: auto !important;
+			.info__right {
+				display: flex;
+				align-items: center;
 
-          display: flex;
-          align-items: center;
+				.right__price {
+					margin-right: 16px;
 
-          svg {
-            width: 50px;
-            height: 26px;
+					.price__single {
+						font-size: 20px;
+						font-weight: bold;
+					}
 
-            @media screen and (max-width: 800px) {
-              width: 40px;
-              height: 24px;
-            }
-          }
+					.price__month {
+						font-size: 14px;
+					}
 
-          span {
-            font-size: 14px;
-            font-weight: bold;
-            color: #fff;
-            margin-left: 8px;
+					@media screen and (max-width: 1000px) {
+						display: none;
+					}
+				}
 
-            @media screen and (max-width: 800px) {
-              display: none;
-            }
-          }
+				.right__btn {
+					margin-left: 16px;
+					border-radius: 25px;
+					padding: 10px 30px;
+					width: auto !important;
 
-          &:hover {
-            background: white;
+					display: flex;
+					align-items: center;
 
-            span {
-              color: $blue;
-            }
+					svg {
+						width: 50px;
+						height: 26px;
 
-            svg {
-              // width: 21px;
-              path {
-                fill: $blue;
-              }
+						@media screen and (max-width: 800px) {
+							width: 40px;
+							height: 24px;
+						}
+					}
 
-              @media screen and (max-width: 800px) {
-                margin-right: 0;
-              }
-            }
-          }
+					span {
+						font-size: 14px;
+						font-weight: bold;
+						color: #fff;
+						margin-left: 8px;
 
-          @media screen and (max-width: 800px) {
-            padding: 10px 14px;
-          }
-        }
-      }
-    }
-  }
+						@media screen and (max-width: 800px) {
+							display: none;
+						}
+					}
 
-  @media screen and (max-width: 800px) {
-    z-index: 1000;
-    position: fixed;
-    top: initial;
-    bottom: 56px;
+					&:hover {
+						background: white;
 
-    &__content {
-      box-shadow: inset 0px -3px 3px rgba(#000, 0.1);
-      min-height: auto;
-      padding: 12px 0;
-      background: $grey-0;
-    }
-  }
+						span {
+							color: $blue;
+						}
+
+						svg {
+
+							// width: 21px;
+							path {
+								fill: $blue;
+							}
+
+							@media screen and (max-width: 800px) {
+								margin-right: 0;
+							}
+						}
+					}
+
+					@media screen and (max-width: 800px) {
+						padding: 10px 14px;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		z-index: 1000;
+		position: fixed;
+		top: initial;
+		bottom: 56px;
+
+		&__content {
+			box-shadow: inset 0px -3px 3px rgba(#000, 0.1);
+			min-height: auto;
+			padding: 12px 0;
+			background: $grey-0;
+		}
+	}
 }
 
 .z {
-  top: 81px;
-  z-index: 2000;
+	top: 81px;
+	z-index: $z-product-nav;
 
-  @media screen and (max-width: 800px) {
-    top: initial;
-  }
+	@media screen and (max-width: 800px) {
+		top: initial;
+	}
+}
+
+.navHidden {
+	@media screen and (max-width: 800px) {
+		transform: translateY(240%);
+	}
+}
+
+.navWithFooter {
+	@media screen and (max-width: 800px) {
+		bottom: 153px;
+	}
 }

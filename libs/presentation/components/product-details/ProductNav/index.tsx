@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
@@ -9,10 +9,13 @@ import PrimaryButton from "@core/button/primary";
 
 interface Props {
   product: IDetailedProduct | IDetailedGiftCard;
+  withoutFooter?: boolean;
 }
 
-export default function ProductNav({ product }: Props) {
+export default function ProductNav({ product, withoutFooter }: Props) {
   const [scroll, setScroll] = React.useState(0);
+  const [prevScrollY, setPrevScrollY] = React.useState(0);
+  const [scrolledDown, setScrolledDown] = React.useState(false);
 
   const handleScroll = () => {
     setScroll(window.scrollY);
@@ -25,8 +28,31 @@ export default function ProductNav({ product }: Props) {
 
   const { Icons } = ImgExporter;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isScrolledDown = currentScrollY > prevScrollY;
+
+      setPrevScrollY(currentScrollY);
+      setScrolledDown(isScrolledDown);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollY]);
+
+  const navClassName = [
+    styles.product_bar,
+    scroll !== 0 && styles.z,
+    !withoutFooter ? styles.navWithFooter : "",
+    !withoutFooter && !scrolledDown ? styles.navHidden : ""
+  ].join(" ");
+
   return (
-    <div className={`${styles.product_bar} ${scroll !== 0 && styles.z}`}>
+    <div className={navClassName}>
       <div className={styles.product_bar__content}>
         <div className={`${styles.content__info} container`}>
           <div className={styles.info__left}>

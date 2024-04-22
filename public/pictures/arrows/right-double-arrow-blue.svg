@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
     <defs>
         <clipPath id="clip-path">
-            <rect id="Rectangle_148559" data-name="Rectangle 148559" width="24" height="24" transform="translate(1699 224)" fill="#2463BF"/>
+            <rect id="Rectangle_148559" data-name="Rectangle 148559" width="24" height="24" transform="translate(1699 224)" fill="rgb(102, 34, 224)"/>
         </clipPath>
     </defs>
     <g id="right-arrow" transform="translate(-1699 -224)" clip-path="url(#clip-path)">
-        <path id="Path_8325" data-name="Path 8325" d="M-17127.691-19759.236a.7.7,0,0,1-.492-.2.7.7,0,0,1,0-.988l8.494-8.494-8.494-8.492a.705.705,0,0,1,0-.988.7.7,0,0,1,.988,0l9.479,9.48-.492.494-8.986,8.988A.7.7,0,0,1-17127.691-19759.236Z" transform="translate(18831.389 20004.605)" fill="#2463BF"/>
-        <path id="Path_8325-2" data-name="Path 8325" d="M-17127.691-19759.236a.7.7,0,0,1-.492-.2.7.7,0,0,1,0-.988l8.494-8.494-8.494-8.492a.705.705,0,0,1,0-.988.7.7,0,0,1,.988,0l9.479,9.48-.492.494-8.986,8.988A.7.7,0,0,1-17127.691-19759.236Z" transform="translate(18836.723 20004.605)" fill="#2463BF"/>
+        <path id="Path_8325" data-name="Path 8325" d="M-17127.691-19759.236a.7.7,0,0,1-.492-.2.7.7,0,0,1,0-.988l8.494-8.494-8.494-8.492a.705.705,0,0,1,0-.988.7.7,0,0,1,.988,0l9.479,9.48-.492.494-8.986,8.988A.7.7,0,0,1-17127.691-19759.236Z" transform="translate(18831.389 20004.605)" fill="rgb(102, 34, 224)"/>
+        <path id="Path_8325-2" data-name="Path 8325" d="M-17127.691-19759.236a.7.7,0,0,1-.492-.2.7.7,0,0,1,0-.988l8.494-8.494-8.494-8.492a.705.705,0,0,1,0-.988.7.7,0,0,1,.988,0l9.479,9.48-.492.494-8.986,8.988A.7.7,0,0,1-17127.691-19759.236Z" transform="translate(18836.723 20004.605)" fill="rgb(102, 34, 224)"/>
     </g>
 </svg>

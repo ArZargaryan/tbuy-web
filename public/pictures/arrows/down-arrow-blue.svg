@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
   <g id="down-arrow" transform="translate(10 -101.478) rotate(90)">
     <g id="Group_1" data-name="Group 1" transform="translate(101.478)">
-      <path id="Path_9" data-name="Path 9" d="M107.315,4.61,102.77.16a.568.568,0,0,0-.79,0l-.335.328a.54.54,0,0,0,0,.774L105.462,5l-3.821,3.741a.54.54,0,0,0,0,.774l.335.328a.568.568,0,0,0,.79,0l4.549-4.454a.544.544,0,0,0,0-.776Z" transform="translate(-101.478 0)" fill="#2463BF"/>
+      <path id="Path_9" data-name="Path 9" d="M107.315,4.61,102.77.16a.568.568,0,0,0-.79,0l-.335.328a.54.54,0,0,0,0,.774L105.462,5l-3.821,3.741a.54.54,0,0,0,0,.774l.335.328a.568.568,0,0,0,.79,0l4.549-4.454a.544.544,0,0,0,0-.776Z" transform="translate(-101.478 0)" fill="rgb(102, 34, 224)"/>
     </g>
   </g>
 </svg>

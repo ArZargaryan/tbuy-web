@@ -106,7 +106,7 @@ function Index({ pageWithMobileBar = false }: Props) {
               <ImgExporter.Logos.telegram className={styles.footer__social_links_link_icon} />
             </Link>
             <Link
-              href={""}
+              href="https://www.youtube.com/"
               className={`${styles.footer__social_links_link} ${styles.footer__social_links_yt}`}
             >
               <ImgExporter.Logos.youtube className={styles.footer__social_links_link_icon} />

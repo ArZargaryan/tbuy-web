@@ -28,7 +28,7 @@ function ProductsPage() {
 
   return (
     <DefaultLayout>
-      <div className={"container"}>
+      <div className="container">
         <section className={styles.products_section}>
           {/* <ProductMainCategoriesSlider /> */}
           <TitleWithSort

@@ -17,7 +17,7 @@ function CompareProductsPage() {
       <div className={styles.wrapper}>
         <main className={styles.main}>
           <section className={styles.compare}>
-            <div className={"container"}>
+            <div className="container">
               <h1 className={`title ${styles.compare__title}`}>ՀԱՄԵՄԱՏԵԼ</h1>
               <div className={`${styles.compare__tabs} ${styles.px}`}>
                 <div className={`${styles.tabs__tab} ${styles.active}`}>Հեռուստացույցներ (3)</div>

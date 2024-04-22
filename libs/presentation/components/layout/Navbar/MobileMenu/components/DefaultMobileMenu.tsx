@@ -7,6 +7,9 @@ export function DefaultMobileMenu() {
   const { Icons } = ImgExporter;
   return (
     <div className={styles.mobile_menu}>
+      <div>
+        <Icons.SearchWithList className={`${styles.mobile_menu__item} ${styles.prompt}`} />
+      </div>
       <Link href={"/vacancies"} className={`${styles.mobile_menu__item} ${styles.prompt}`}>
         <Icons.BagOutlined />
       </Link>

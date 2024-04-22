@@ -36,7 +36,7 @@ function CheckoutGiftCardPage() {
 
   return (
     <DefaultLayout>
-      <div className={"container"}>
+      <div className="container">
         <div className={`${styles.cart} ${styles.cart_page}`}>
           <div className={styles.cart__content}>
             <h1 className={`title page_title ${styles.cart__title}`}>ԻՄ ԶԱՄԲՅՈՒՂԸ</h1>

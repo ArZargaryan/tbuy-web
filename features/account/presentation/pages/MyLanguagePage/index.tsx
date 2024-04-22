@@ -41,7 +41,7 @@ function MyLanguagePage() {
 
   return (
     <DefaultLayout withoutFooter>
-      <div className={"container"}>
+      <div className="container">
         <div className={styles.my_lang}>
           <div className={styles.my_lang__header}>
             <Link href={"/my_profile"}>

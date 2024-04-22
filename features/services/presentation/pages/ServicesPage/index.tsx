@@ -31,7 +31,7 @@ function ServicesPage() {
 
   return (
     <DefaultLayout>
-      <div className={"container"}>
+      <div className="container">
         <section className={styles.services_section}>
           <TitleWithSort
             sortItems={[

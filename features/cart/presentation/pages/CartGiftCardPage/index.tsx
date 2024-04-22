@@ -31,7 +31,7 @@ function CartGiftCardPage() {
 
   return (
     <DefaultLayout>
-      <div className={"container"}>
+      <div className="container">
         <form
           className={`${styles.cart} ${styles.cart_page}`}
           onSubmit={handleSubmit(submitHandler)}

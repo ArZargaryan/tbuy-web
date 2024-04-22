@@ -10,7 +10,7 @@ function DeliveryPage() {
       <div className={styles.wrapper}>
         <main className={styles.main}>
           <section className={`${styles.delivery} ${styles["easy-info-page"]}`}>
-            <div className={"container"}>
+            <div className="container">
               <h1 className={`title ${styles["easy-info-page__title"]}`}>ԱՆՎՃԱՐ ԱՌԱՔՈՒՄ</h1>
               <p className={`${styles.px} ${styles["easy-info-page__text"]}`}>
                 Առաքումն իրականացվում է Հայաստանի Հանրապետության և Արցախի ամբողջ տարածքում: Երևանում

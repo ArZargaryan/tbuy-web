@@ -70,8 +70,6 @@
 						aspect-ratio: 1/1;
 						box-shadow: 0px 6px 10px #0000001a;
 					}
-
-					&__info {}
 				}
 			}
 
@@ -279,10 +277,6 @@
 					height: 24px;
 					width: 24px;
 					padding: 4px 0px;
-
-					svg {
-						//width: 7px;
-					}
 				}
 
 				.buttons__prevButton {
@@ -659,8 +653,6 @@
 				margin-right: 10px;
 			}
 
-			&__text {}
-
 			&__link {
 				margin-left: 12px;
 			}
@@ -756,9 +748,6 @@
 
 	//?------------------------------------------------------GALLERY ------------------------------------------------------//
 
-
-	// -------------
-
 	@media screen and (max-width: 500px) {
 		display: flex;
 		flex-direction: column;
@@ -848,10 +837,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 30px;
-
-	//overflow-x: hidden;
-	//overflow-y: auto;
-	//max-height: 350px;
 
 	&__item {
 		aspect-ratio: 754/424;

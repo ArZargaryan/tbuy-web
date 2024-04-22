@@ -11,7 +11,7 @@ function CreditPage() {
       <div className={styles.wrapper}>
         <main className={styles.main}>
           <section className={`${styles.credit} ${styles["easy-info-page"]}`}>
-            <div className={"container"}>
+            <div className="container">
               <h1 className={`title ${styles["easy-info-page__title"]}`}>ԱՊԱՌԻԿ ԱՌՑԱՆՑ</h1>
               <p className={`${styles.px} ${styles["easy-info-page__text"]}`}>
                 <Link href="/" className={styles["easy-info-page__link"]}>

@@ -55,7 +55,7 @@ function SearchResultPage() {
 
   return (
     <SearchLayout q={q as string}>
-      <div className={"container"}>
+      <div className="container">
         <ResultCategoriesSlider />
         <TitleWithSort
           sortItems={[
@@ -67,7 +67,7 @@ function SearchResultPage() {
           defaultValue={1}
           className={styles.title}
         >
-          {"Container"}
+          Container
         </TitleWithSort>
         <div className={styles.categories_flex}>
           <FiltersList

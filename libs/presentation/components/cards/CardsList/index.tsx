@@ -17,13 +17,11 @@ type Card = Product | Service | VacancyShort | CompanyCardInfo | GiftCard;
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   cards: Card[];
   loading: boolean;
-  extraType?: "account";
+  extraType?: "account" | "main";
 }
 
 function CardList(props: Props) {
   const { cards, loading, extraType } = props;
-
-  const [shimmers] = useState([1, 2, 3, 4, 5]);
 
   const cls = classNames(
     styles.product_card_list,
@@ -52,8 +50,8 @@ function CardList(props: Props) {
         ))}
 
       {loading &&
-        cards?.map((shimmer) => (
-          <div key={shimmer} className={styles.product_card_list__item}>
+        cards?.map((_, id) => (
+          <div key={id} className={styles.product_card_list__item}>
             <Shimmer height={400} width={300} />
           </div>
         ))}

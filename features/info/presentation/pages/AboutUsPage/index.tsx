@@ -11,7 +11,7 @@ function AboutUsPage() {
       <div className={styles.wrapper}>
         <main className={styles.main}>
           <section className={styles.about}>
-            <div className={"container"}>
+            <div className="container">
               <h1 className={`title ${styles.about__title}`}>ՄԵՐ ՄԱՍԻՆ</h1>
               <div className={styles.about__body}>
                 <div className={styles.body__item}>

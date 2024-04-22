@@ -39,7 +39,7 @@ function VacanciesPage() {
 
   return (
     <DefaultLayout>
-      <div className={"container"}>
+      <div className="container">
         <TitleWithLink
           linkText={"Ստեղծել օնլայն ռեզյումե"}
           linkPath={""}

@@ -46,15 +46,18 @@ function HomePage() {
 
   // -------------------------------------------------------------------
   const [fetchingProducts, setFetchingProducts] = useState(false);
-  const [productsSections, setProductsSections] = useState<number[]>([]);
-  const [productsSectionsIsLoading, setProductsSectionsIsLoading] = useState(false);
+  const [endlessProducts, setEndlessProducts] = useState<number[]>([]);
+  const [endlessProductsIsLoading, setEndlessProductsIsLoading] = useState(false);
+
+  const [bannersCount, setBannersCount] = useState(3);
 
   useEffect(() => {
     if (fetchingProducts) {
       setTimeout(() => {
-        setProductsSections((old) => [...old, 1]);
+        setEndlessProducts((old) => [...old, 1]);
         setFetchingProducts(false);
-        setProductsSectionsIsLoading(false);
+        setEndlessProductsIsLoading(false);
+        setBannersCount((old) => old + 1);
       }, 1400);
     }
   }, [fetchingProducts]);
@@ -75,9 +78,9 @@ function HomePage() {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    if (window.scrollY + window.innerHeight >= height - 50) {
+    if (window.scrollY + window.innerHeight >= height - 580) {
       setFetchingProducts(true);
-      setProductsSectionsIsLoading(true);
+      setEndlessProductsIsLoading(true);
     }
   }
   // --------------------------------------------------------------------------------
@@ -168,6 +171,78 @@ function HomePage() {
       // discount: 20,
     }),
     new Product({
+      id: 1,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: true,
+      company: { id: 101, name: "Company A", logo: "" },
+      price: 50
+      // discountPrice: 40,
+      // discount: 20,
+    }),
+    new Product({
+      id: 1,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: true,
+      company: { id: 101, name: "Company A", logo: "" },
+      price: 50
+      // discountPrice: 40,
+      // discount: 20,
+    }),
+    new Product({
+      id: 1,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: true,
+      company: { id: 101, name: "Company A", logo: "" },
+      price: 50
+      // discountPrice: 40,
+      // discount: 20,
+    }),
+    new Product({
+      id: 1,
+      title: "Product 1",
+      images: [
+        {
+          original:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800",
+          blurHash:
+            "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: true,
+      company: { id: 101, name: "Company A", logo: "" },
+      price: 50
+      // discountPrice: 40,
+      // discount: 20,
+    }),
+    new Product({
       id: 2,
       title:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -186,7 +261,6 @@ function HomePage() {
       // discountPrice: 60,
       // discount: 20,
     }),
-    // Add more products as needed
     new Product({
       id: 3,
       title: "Product 3",
@@ -351,6 +425,102 @@ function HomePage() {
       }
     }),
     new Service({
+      id: 1,
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      images: [
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
+      id: 1,
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      images: [
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
+      id: 1,
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      images: [
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
+      id: 1,
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      images: [
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        },
+        {
+          original:
+            "https://bookdirtbusters.com/wp-content/uploads/2020/10/house-cleaning-service.jpeg",
+          blurHash: ""
+        }
+      ],
+      addedToFavorite: false,
+      addedToCompare: false,
+      company: {
+        id: 101,
+        name: "Company A",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
+      }
+    }),
+    new Service({
       id: 2,
       title:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -374,7 +544,6 @@ function HomePage() {
         logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEX////85+b97ez/+vrxgHj1oJvqAADrFwDxfHXzjof+9/bvW1DtSjzsNCPrHgDyg3vsOCfrIwfuU0ftPS7sKxbsMB3yiILsLRr4wb72raj729n84+H2qaXuTkHwZlv5ycb60c7YnRLdAAAAm0lEQVR4Ad3JhQ2AUAxF0eLufNz2n5K+psFG4EYqh36YZV9Zzsdczw80P4zilyUpeUEm5QWF5aWwqiZWNXKrRhXWGkbRvCPGtleFZUAoDJj1pahTt5kgVAzIavNmZ/2Fw3ihySescdkrDkHACmSbiUSbXnDwsyxYBC+DtoxDkGVQYGUJqK5iqmGgproNfq75XjHTK2c/rnabftcJGa8LyUwUCQcAAAAASUVORK5CYII="
       }
     }),
-    // Add more products as needed
     new Service({
       id: 3,
       title: "Product 1",
@@ -564,17 +733,7 @@ function HomePage() {
       <OGPMeta />
       <DefaultLayout>
         <CategoryBar categories={fakeCategories} />
-        <div className={"container"}>
-          {/* <TitleWithLink
-            linkPath={"/"}
-            linkText={`${t("see_all", { ns: "common" })}`}
-            className={styles.title_marg}
-          >
-            {t("organizations")}
-          </TitleWithLink> */}
-
-          {/* <CompaniesSlider companies={companies} loading={loading} /> */}
-
+        <div className="container">
           <MainSlider banners={fakeHomeBanner} slides={fakeHomeSlides} loading={false} />
 
           <TitleWithLink
@@ -584,7 +743,12 @@ function HomePage() {
           >
             {t("services")}
           </TitleWithLink>
-          <CardsList className={styles.section_margin} cards={fakeService} loading={false} />
+          <CardsList
+            className={styles.section_margin}
+            cards={fakeService}
+            loading={false}
+            extraType="main"
+          />
 
           <TitleWithLink
             linkPath={`/products`}
@@ -597,6 +761,7 @@ function HomePage() {
             className={styles.section_margin}
             cards={(!!fakeProducts?.length && fakeProducts) || []}
             loading={false}
+            extraType="main"
           />
 
           {fakeVacansy?.length && (
@@ -613,47 +778,32 @@ function HomePage() {
             </>
           )}
 
-          {/* {(fakeProducts || [1, 2, 3]).slice(1).map((productCategory, i) => (
-            <Fragment key={`${productCategory.id}_${i}`}>
-              <TitleWithLink
-                linkPath={"/products"}
-                linkText={`${t("see_all", { ns: "common" })}`}
-                className={styles.title_marg}
-              >
-                {productCategory.title}
-              </TitleWithLink>
-              <CardsList
-                className={styles.section_margin}
-                cards={productCategory as any}
-                loading={loading}
-              />
-            </Fragment>
-          ))} */}
-
           <div className={styles.endless}>
-            {productsSections?.map((el, id) => (
+            {endlessProducts?.map((_, id) => (
               <>
                 <div key={id}>
-                  <TitleWithLink
-                    linkPath={`/products`}
-                    linkText={`${t("see_all", { ns: "common" })}`}
-                    className={styles.title_marg}
-                  >
+                  <TitleWithLink linkPath={`/products`} className={styles.title_marg}>
                     {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
                   </TitleWithLink>
                   <CardsList
-                    className={styles.section_margin}
                     cards={(!!fakeProducts?.length && fakeProducts) || []}
                     loading={false}
                   />
                 </div>
+
+                {id % 5 === 1 ? (
+                  <div className={styles.title_marg}>
+                    <MainSlider banners={fakeHomeBanner} loading={false} />
+                  </div>
+                ) : null}
               </>
             ))}
-            {productsSectionsIsLoading && (
+
+            {endlessProductsIsLoading && (
               <CardsList
-                className={styles.section_margin}
+                className={styles.title_marg}
                 cards={(!!fakeProducts?.length && fakeProducts) || []}
-                loading={true}
+                loading
               />
             )}
           </div>

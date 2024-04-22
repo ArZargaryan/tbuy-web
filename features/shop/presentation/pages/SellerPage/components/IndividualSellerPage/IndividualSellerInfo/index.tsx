@@ -54,7 +54,7 @@ function IndividualSellerInfo(props: Props) {
         <StarsRating className={styles.stars} defaultValue={rating} readOnly />
 
         <PrimaryButton className={styles.button_followers}>
-          Հետեվեl{" "}
+          Հետեվեl
           <span>
             <Followers /> 236
           </span>

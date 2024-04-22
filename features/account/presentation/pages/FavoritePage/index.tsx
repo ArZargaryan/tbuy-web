@@ -15,7 +15,7 @@ function FavoritePage() {
   const { items } = useAppSelector((state) => state.account_favorite);
   return (
     <DefaultLayout>
-      <div className={"container"}>
+      <div className="container">
         <section className={styles.products_section}>
           <TitleWithSort
             sortItems={[

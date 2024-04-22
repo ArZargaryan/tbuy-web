@@ -35,7 +35,7 @@ function SearchResultByCompanyPage() {
 
   return (
     <SearchLayout q={q as string}>
-      <div className={"container"}>
+      <div className="container">
         <TitleWithSort
           sortItems={[
             { id: 0, value: "Գինը ըստ նվազման" },

@@ -29,8 +29,8 @@
 
 		text-align: center;
 
-		padding: 10px 0;
-		
+		padding:  3px 0 5px;
+
 		button {
 			flex-direction: column;
 			gap: 2px;
@@ -144,9 +144,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 8px 0 10px;
+		padding:  3px 0 1px;
 		border-top: 1px solid #00000030;
-		
+
 		&_create {
 			font-size: 14px;
 			text-transform: uppercase;
@@ -161,15 +161,13 @@
 				transform: scale(0.9);
 			}
 
-			&_yt {
-			}
+			@media screen and (max-width: 500px) {
+				gap: 15px;
 
-		@media screen and (max-width: 500px) {
-			gap: 15px;
-			&_link {
-				transform: scale(0.8);
+				&_link {
+					transform: scale(0.8);
+				}
 			}
-		}
 		}
 	}
 
@@ -180,12 +178,6 @@
 
 .footerHidden {
 	transform: translateY(100%);
-}
-
-.mb {
-	@media screen and (max-width: 800px) {
-		//margin-bottom: 56px;
-	}
 }
 
 .popper {

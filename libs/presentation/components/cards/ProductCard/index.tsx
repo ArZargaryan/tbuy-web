@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import classNames from "classnames";
@@ -14,6 +14,29 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// TODO temp --------------------------------------------------------------------------------------------------------------------
+const images: string[] = [
+  "https://static.tildacdn.com/tild6463-3365-4130-b031-383766386537/1612447656_68-p-chas.jpg",
+  "https://www.cheapbellross.com/wp-content/uploads/2016/12/IW510301_opener-1200.jpg",
+  "https://bgpics.ru/pictures/2560x1600/250-brendyi-Ulysse-Nardin-chasyi-2560x1600.jpg",
+  "https://img.goodfon.ru/original/2000x1440/a/c3/titanium-watch-rolex-black.jpg",
+  "https://img.youscreen.ru/wall/14977401884047/14977401884047_1920x1200.jpg",
+  "https://www.breguet.com/sites/default/files/actualites/1_56_2057ST92SW0_2067ST92SW0_lifestyle_03.png"
+];
+
+let productCounter = 0;
+
+function getImages() {
+  if (productCounter > images.length - 1) {
+    productCounter = 0;
+  }
+  const productImages = [images[productCounter], ...images.filter((img, idx) => idx > 1)];
+  productCounter++;
+
+  return productImages;
+}
+// ------------------------------------------------------------------------------------------------------------------------------
+
 function ProductCard({
   product,
   extraType = ""
@@ -21,16 +44,7 @@ function ProductCard({
   product: Product;
   extraType?: "" | "short" | "short_550";
 }) {
-  const {
-    // images,
-    title,
-    discount,
-    price,
-    discountPrice,
-    id,
-    addedToFavorite,
-    addedToCompare
-  } = product;
+  const { title, discount, price, discountPrice, id, addedToFavorite, addedToCompare } = product;
 
   const cls = classNames(styles.product_card, {
     [styles.withButton]: extraType !== "short" && price,
@@ -39,12 +53,11 @@ function ProductCard({
 
   const { Icons } = ImgExporter;
 
-  const images: string[] = [
-    "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2F0Y2h8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0Y2h8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhdGNofGVufDB8fDB8fHww",
-    "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdhdGNofGVufDB8fDB8fHww"
-  ];
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    setImages(getImages());
+  }, []);
 
   return (
     <div className={cls}>
@@ -70,14 +83,6 @@ function ProductCard({
             <SwiperSlide key={`${imageSrc}_${idx}`}>
               <Link href={`/products/${id}`}>
                 <div className={styles.slide_container}>
-                  {/* <BlurImage
-                    src={imageSrc.original}
-                    alt={imageSrc.original}
-                    blurHash={imageSrc.blurHash}
-                    width={300}
-                    height={486}
-                    className={styles.slide_img_blur}
-                  /> */}
                   <img src={imageSrc} alt={imageSrc} className={styles.slide_img} />
                 </div>
               </Link>
@@ -107,7 +112,6 @@ function ProductCard({
             <Link href={`/legal_partner`}>
               <Icons.LogoExample />
             </Link>
-            {/* <Shimmer height={32} width={400} className={styles.shimmer} /> */}
           </div>
 
           <div className={styles.action_buttons}>

@@ -13,34 +13,12 @@ const { blob } = ImgExporter;
 const initialState: IState = {
   items: [
     new GiftCard({
-      id: "43033",
-      title: "Lorem Ipsum is simply dummy text of the printing typesetting",
-      price: "519 AMD",
-      images: [
-        {
-          original: blob.GiftCard.src,
-          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
-        },
-        {
-          original: blob.GiftCard.src,
-          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
-        }
-      ],
-      company: {
-        id: 489,
-        logo: "https://tbuy.run/imgs/partners_imgs/489.png",
-        name: "Draft furniture design"
-      },
-      addedToFavorite: false,
-      addedToCompare: false
-    }),
-    new GiftCard({
       id: "41033",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-2.png",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -58,7 +36,7 @@ const initialState: IState = {
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-3.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -76,7 +54,7 @@ const initialState: IState = {
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-4.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -94,7 +72,7 @@ const initialState: IState = {
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "https://laks.com/wp-content/uploads/2021/02/Golden-Gift-Card.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -112,7 +90,8 @@ const initialState: IState = {
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original:
+            "https://www.shopcepage.com/cdn/shop/products/GiftCardStockimage_1200x1200.jpg?v=1613967690",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -130,7 +109,7 @@ const initialState: IState = {
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "https://www.nanan.it/data/prod/big/gift-card_16211-3422.jpg?1668163382",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -143,12 +122,12 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "41045633",
+      id: "41033",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-2.png",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -161,12 +140,12 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "414567023",
+      id: "41023",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-3.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -179,12 +158,12 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "410687983",
+      id: "41083",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-4.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -197,12 +176,12 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "4139023845683",
+      id: "41383",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "https://laks.com/wp-content/uploads/2021/02/Golden-Gift-Card.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -215,12 +194,13 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "45491983",
+      id: "41983",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original:
+            "https://www.shopcepage.com/cdn/shop/products/GiftCardStockimage_1200x1200.jpg?v=1613967690",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -233,12 +213,12 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "430333333",
+      id: "4302333",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "https://www.nanan.it/data/prod/big/gift-card_16211-3422.jpg?1668163382",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -251,12 +231,12 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "410321112",
+      id: "41033",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-2.png",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],
@@ -269,12 +249,30 @@ const initialState: IState = {
       addedToCompare: false
     }),
     new GiftCard({
-      id: "141023",
+      id: "41023",
       title: "Lorem Ipsum is simply dummy text of the printing typesetting",
       price: "519 AMD",
       images: [
         {
-          original: blob.GiftCard.src,
+          original: "/pictures/temp/gift/gift-3.jpg",
+          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
+        }
+      ],
+      company: {
+        id: 489,
+        logo: "https://tbuy.run/imgs/partners_imgs/489.png",
+        name: "Draft furniture design"
+      },
+      addedToFavorite: false,
+      addedToCompare: false
+    }),
+    new GiftCard({
+      id: "41083",
+      title: "Lorem Ipsum is simply dummy text of the printing typesetting",
+      price: "519 AMD",
+      images: [
+        {
+          original: "/pictures/temp/gift/gift-4.jpg",
           blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
         }
       ],

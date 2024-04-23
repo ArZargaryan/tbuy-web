@@ -27,6 +27,8 @@ import { Category } from "@libs/domain/model/category";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import { Shimmer } from "react-shimmer";
 
+import main_1 from "@public/pictures/temp/main/main-1.jpg";
+
 function HomePage() {
   const { Icons, blob } = ImgExporter;
 
@@ -89,32 +91,32 @@ function HomePage() {
     {
       id: 1,
       image: {
-        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
-        mobile: "https://example.com",
+        desktop: "",
+        mobile: "",
         blurHash: "",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "/pictures/temp/main/main-4.jpg"
       },
-      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      url: ""
     },
     {
       id: 2,
       image: {
-        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
-        mobile: "https://example.com",
+        desktop: "",
+        mobile: "",
         blurHash: "",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        currentImage: "/pictures/temp/main/main-2.jpg"
       },
-      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      url: ""
     },
     {
       id: 3,
       image: {
-        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
-        mobile: "https://example.com",
+        desktop: "",
+        mobile: "",
         blurHash: "",
         currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
-      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      url: ""
     }
   ];
 
@@ -122,32 +124,32 @@ function HomePage() {
     {
       id: 1,
       image: {
-        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
-        mobile: "https://example.com",
-        blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        desktop: "",
+        mobile: "",
+        blurHash: "",
+        currentImage: "/pictures/temp/main/main-1.jpg"
       },
-      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      url: ""
     },
     {
       id: 2,
       image: {
-        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
-        mobile: "https://example.com",
-        blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
-        currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+        desktop: "",
+        mobile: "",
+        blurHash: "",
+        currentImage: "/pictures/temp/main/main-5.jpg"
       },
       url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
     },
     {
       id: 3,
       image: {
-        desktop: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png",
-        mobile: "https://example.com",
-        blurHash: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg",
+        desktop: "",
+        mobile: "",
+        blurHash: "",
         currentImage: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
       },
-      url: "https://web.tbuy.am/_next/static/media/NoPath%20-%20Copy%20(5).daf94e06.png"
+      url: ""
     }
   ];
 

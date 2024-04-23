@@ -788,10 +788,11 @@ function HomePage() {
                   <CardsList
                     cards={(!!fakeProducts?.length && fakeProducts) || []}
                     loading={false}
+                    extraType="main"
                   />
                 </div>
 
-                {id % 5 === 1 ? (
+                {id % 5 === 0 ? (
                   <div className={styles.title_marg}>
                     <MainSlider banners={fakeHomeBanner} loading={false} />
                   </div>
@@ -802,6 +803,7 @@ function HomePage() {
             {endlessProductsIsLoading && (
               <CardsList
                 className={styles.title_marg}
+                extraType="main"
                 cards={(!!fakeProducts?.length && fakeProducts) || []}
                 loading
               />

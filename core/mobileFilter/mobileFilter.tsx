@@ -107,8 +107,15 @@ function mobileFilter() {
               </li>
             ))}
             <div className={styles.btn_box}>
-              <PrimaryButton buttonStyle="outline">Update</PrimaryButton>
-              <PrimaryButton>Confirm</PrimaryButton>
+              <PrimaryButton
+                onClick={() => setMobileFiltersActive((old) => !old)}
+                buttonStyle="outline"
+              >
+                Update
+              </PrimaryButton>
+              <PrimaryButton onClick={() => setMobileFiltersActive((old) => !old)}>
+                Confirm
+              </PrimaryButton>
             </div>
           </ul>
         </div>

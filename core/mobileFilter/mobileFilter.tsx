@@ -76,7 +76,10 @@ function mobileFilter() {
         <div className={styles.mobile__menu}>
           <div className={styles.mobile__filterMenu}>
             <h1 className={styles.mobile__textStyle}>Filter</h1>
-            <button className={styles.close_btn} onClick={() => setMobileFiltersActive((prev) => !prev)}>
+            <button
+              className={styles.close_btn}
+              onClick={() => setMobileFiltersActive((prev) => !prev)}
+            >
               <Icons.Close />
             </button>
           </div>
@@ -88,11 +91,13 @@ function mobileFilter() {
                   onClick={() => toggleMobileFilters(filter.title)}
                 >
                   {filter.title}
-                  {selectedMobileFilters[filter.title] ? (
-                    <Icons.MobileFilter />
-                  ) : (
+                  <div
+                    className={
+                      selectedMobileFilters[filter.title] ? styles.arrow_rotate : styles.arrow
+                    }
+                  >
                     <Icons.DownArrow />
-                  )}
+                  </div>
                 </div>
                 {selectedMobileFilters[filter.title] && (
                   <div>

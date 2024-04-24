@@ -66,15 +66,13 @@ function SearchResultPage() {
           selectLabel={"Գինը ըստ նվազման"}
           defaultValue={1}
           className={styles.title}
-        >
-          Container
-        </TitleWithSort>
+        />
         <div className={styles.categories_flex}>
           <FiltersList
             filters={[{ value: "Արագածոտն" }, { value: "1000 - 5000 AMD" }, { value: "200մ" }]}
             className={styles.filters_list}
           />
-          {screenWidth && screenWidth > 500 ? <ResultFiltersSlider /> : <MobileFilter />}
+          {screenWidth && screenWidth > 500 && <ResultFiltersSlider />}
         </div>
 
         <div className={styles.search_section}>

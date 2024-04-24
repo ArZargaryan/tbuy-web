@@ -93,7 +93,7 @@ function CategoryBar(props: Props) {
         >
           {props.categories?.map((category, i) => (
             <SwiperSlide key={`${category.label}_${i}`}>
-              <Link href="/services/1">
+              <Link href="/search/1">
                 <button
                   type="button"
                   className={styles.menu__btn}

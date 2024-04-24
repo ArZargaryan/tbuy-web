@@ -19,7 +19,7 @@ const images: string[] = [
   "https://static.tildacdn.com/tild6463-3365-4130-b031-383766386537/1612447656_68-p-chas.jpg",
   "https://www.cheapbellross.com/wp-content/uploads/2016/12/IW510301_opener-1200.jpg",
   "https://bgpics.ru/pictures/2560x1600/250-brendyi-Ulysse-Nardin-chasyi-2560x1600.jpg",
-  "https://img.goodfon.ru/original/2000x1440/a/c3/titanium-watch-rolex-black.jpg",
+  "/pictures/temp/product/goodfon.jpg",
   "https://img.youscreen.ru/wall/14977401884047/14977401884047_1920x1200.jpg",
   "https://www.breguet.com/sites/default/files/actualites/1_56_2057ST92SW0_2067ST92SW0_lifestyle_03.png"
 ];

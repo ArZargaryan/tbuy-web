@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getFooterLinks } from "@libs/presentation/components/layout/Footer/model/links";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import dayjs from "dayjs";
+import DownloadAppModal from "@libs/presentation/components/modals/DownloadAppModal";
 
 const { Arrows, Logos } = ImgExporter;
 
@@ -14,6 +15,8 @@ function DesktopFooter() {
   const links = useMemo(() => getFooterLinks(t), [t]);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [scrolledDown, setScrolledDown] = useState(false);
+
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,9 +89,12 @@ function DesktopFooter() {
             </FooterSelect>
           </div>
 
-          <Link href={"/"} className={styles.routes__select}>
+          <button
+            className={`${styles.routes__select} ${styles.download}`}
+            onClick={() => setShowDownloadModal(true)}
+          >
             {t("download_app")}
-          </Link>
+          </button>
         </div>
         <div className={styles.content__socials}>
           <div className={styles.socials__links}>
@@ -111,6 +117,8 @@ function DesktopFooter() {
           <div className={styles.socials__copyright}>TBUY © {dayjs().year()}</div>
         </div>
       </div>
+
+      <DownloadAppModal open={showDownloadModal} onClose={() => setShowDownloadModal(false)} />
     </footer>
   );
 }

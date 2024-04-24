@@ -18,85 +18,85 @@ function MenuSidebar(props: Props) {
   const routes = useMemo(
     () => [
       {
-        route: "/account/orders",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Electronics,
         text: "Էլեկտրոնիկա"
       },
       {
-        route: "/account/user_info",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.WashingMachine,
         text: "Կենցաղային տեխնիկա"
       },
       {
-        route: "/account/messages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Constructor,
         text: "Շինարարություն և վերանորոգում"
       },
       {
-        route: "/account/gift_cards",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.House,
         text: "Տուն և ինտերիեր"
       },
       {
-        route: "/account/outgoing_gift_cards",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Beauty,
         text: "Գեղեցկություն և խնամք"
       },
       {
-        route: "/account/my_summary",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Duck,
         text: "Մանկական պարագաներ"
       },
       {
-        route: "/account/vacancies",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Pistols,
         text: "Զենքեր"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.TShirt,
         text: "Հագուստ և աքսեսուարներ"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Car,
         text: "Տրանսպորտ"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.SecuritySystem,
         text: "Անվտանգության համակարգեր"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.BedsideTable,
         text: "Մասնագիտացված ապրնաքներ"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Sport,
         text: "Սպորտ և ժամանց"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Pharmacy,
         text: "Դեղատուն"
       },
       {
-        route: "/account/last_viewed_pages",
+        route: "/search/1",
         notifications: 0,
         IconComponent: Icons.Breakfest,
         text: "Սնունդ"

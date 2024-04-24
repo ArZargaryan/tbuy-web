@@ -20,7 +20,11 @@ export default function Vacancies() {
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["catalog/productspage", ...globalTranslations]))
+      ...(await serverSideTranslations(locale, [
+        "catalog/productspage",
+        "catalog/vacancies-page",
+        ...globalTranslations
+      ]))
       // Will be passed to the page component as props
     }
   };

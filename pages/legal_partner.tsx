@@ -18,7 +18,11 @@ export default function BecomePartner() {
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["catalog/productspage", ...globalTranslations]))
+      ...(await serverSideTranslations(locale, [
+        "account/seller",
+        "catalog/productspage",
+        ...globalTranslations
+      ]))
       // Will be passed to the page component as props
     }
   };

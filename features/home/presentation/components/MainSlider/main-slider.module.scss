@@ -219,6 +219,10 @@
 			display: none;
 		}
 
+		&__pictures_without_slider {
+			flex-direction: column;
+		}
+
 		.banner_in_slider {
 			display: block;
 		}

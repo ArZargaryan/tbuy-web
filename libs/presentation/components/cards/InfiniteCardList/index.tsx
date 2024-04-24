@@ -48,7 +48,7 @@ function InfiniteCard(props: Props) {
       next={loadMoreHandler}
       hasMore={!loading}
       loader={
-        <div className={cls}>
+        <div className={`${cls} ${styles.shimmers}`}>
           {shimmers.map((shimmer) => (
             <Shimmer key={shimmer} className={styles.product_card_list__item} />
           ))}

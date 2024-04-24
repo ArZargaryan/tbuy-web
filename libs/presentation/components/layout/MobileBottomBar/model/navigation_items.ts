@@ -4,7 +4,8 @@ const { Icons } = ImgExporter;
 
 export const navigation_items = [
   {
-    icon: Icons.SearchWithList
+    route: "/menu",
+    icon: Icons.Burger
   },
   {
     route: "/account/support",

@@ -28,14 +28,8 @@
 }
 
 .title {
-  @media screen and (max-width: 650px) {
-    margin-bottom: 0;
-    order: 2;
-    margin-top: 0px;
-  }
   @media screen and (max-width: 500px) {
     margin-top: 17px;
-    margin-bottom: -38px;
   }
 }
 

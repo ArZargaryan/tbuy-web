@@ -7,6 +7,7 @@ import { ImgExporter } from "@core/helpers/ImgExporter";
 import { VacancyShort } from "@libs/domain/model/vacancy";
 
 import styles from "./vacancy-item.module.scss";
+import { useTranslation } from "next-i18next";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   vacancy: VacancyShort;
@@ -14,6 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function VacancyCard(props: Props) {
+  const { t } = useTranslation(["common"]);
   const { vacancy, adaptive = false } = props;
   const cls = classNames(styles.vacancyCard, props.className, {
     [styles.vacancyCard_adaptive]: adaptive
@@ -40,7 +42,7 @@ function VacancyCard(props: Props) {
           </div>
         </div>
         <Link href={`/vacancies/${vacancy.company.id}`} className={styles.vacancyCard__link}>
-          ՄԱՆՐԱՄԱՍՆ
+          {t("details", { ns: "common" })}
         </Link>
       </div>
     </div>

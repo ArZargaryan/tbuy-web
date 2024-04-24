@@ -6,10 +6,12 @@ import styles from "./vacancy-detail-page.module.scss";
 import Link from "next/link";
 import SendSummaryModal from "@features/vacancies/presentation/pages/VacancyDetailPage/components/SendSummaryModal";
 import PrimaryButton from "@core/button/primary";
+import { useTranslation } from "next-i18next";
 
 const { Logos } = ImgExporter;
 
 function VacancyDetailPage() {
+  const { t } = useTranslation(["common"]);
   const [openSummaryModal, setOpenSummaryModal] = useState(false);
 
   const changeModalVisibility = () => setOpenSummaryModal((prev) => !prev);
@@ -114,11 +116,11 @@ function VacancyDetailPage() {
 
               <Link href="">
                 <PrimaryButton className={styles.marketing__button} onClick={changeModalVisibility}>
-                  ԴԻՄԵԼ
+                  {t("actions.apply", { ns: "common" })}
                 </PrimaryButton>
               </Link>
               <div className={styles.marketing__link}>
-                <span className={styles.link__text}>Տարածել</span>
+                <span className={styles.link__text}>{t("actions.share", { ns: "common" })}</span>
                 <Link href="" className={styles.link__icon}>
                   <Logos.facebook />
                 </Link>

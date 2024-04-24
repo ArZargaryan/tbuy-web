@@ -10,10 +10,16 @@
     "close": "Close",
     "share": "Share",
     "see_all": "See all",
-    "add_to_cart": "Add to cart"
+    "buy_now": "Buy now",
+    "add_to_cart": "Add to cart",
+    "reset_filters": "Reset filters",
+    "apply": "Apply",
+    "follow": "Follow",
+    "complain": "Complain"
   },
   "labels": {
     "home": "Home",
+    "details": "Details",
     "you_will_also_be_interested": "You will also be interested"
   },
   "ok": "Ok"

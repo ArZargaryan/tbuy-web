@@ -1,14 +1,14 @@
 {
-  "personal_data": "Անձնական տվյալներ",
-  "my_orders": "Իմ պատվերները",
-  "messages": "Հաղորդագրություններ",
-  "promotions": "Պրոմո ակցիա",
-  "notifications": "Ծանուցում",
-  "sell_on_tbuy": "Վաճառել Tbuy-ում",
-  "contacts_tbuy": "Կապ Tbuy-ի հետ",
-  "my_gift_cards": "Իմ նվեր քարտերը",
-  "my_given_gift_cards": "Իմ նվիրած նվեր քարտերը",
-  "my_online_cv": "Իմ առցանց ռեզյումեն",
-  "my_applications": "Իմ աշխատանքի հայտարարությունները",
-  "logout": "Ելք"
+  "personal_data": "Personal information",
+  "my_orders": "My orders",
+  "messages": "Messages",
+  "promotions": "Promotions",
+  "notifications": "Notification",
+  "sell_on_tbuy": "Sell on TBUY",
+  "contacts_tbuy": "Contact TBUY",
+  "my_gift_cards": "My gift cards",
+  "my_given_gift_cards": "My given gift cards",
+  "my_online_cv": "My online CV",
+  "my_applications": "My job applications",
+  "logout": "Exit"
 }

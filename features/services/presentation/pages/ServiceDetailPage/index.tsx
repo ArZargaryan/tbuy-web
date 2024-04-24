@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import _, { map } from "lodash";
 
-import { useAppDispatch, useAppSelector } from "@core/store";
+import { useAppDispatch } from "@core/store";
 import { Lang } from "@core/store/global";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
@@ -12,26 +11,22 @@ import ProductDetailLayout from "@layouts/product-detail";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
 import Reviews from "@libs/presentation/components/elements/Reviews";
 import BreadCrumbs from "@libs/presentation/components/elements/BreadCrumbs";
-import ProductCardMini from "@libs/presentation/components/cards/ProductCardMini";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
 import ContactSeller from "@libs/presentation/components/product-details/ContactSeller";
 import ProductDetailSlider from "@libs/presentation/components/product-details/ProductDetailSlider";
-import ProductNav from "@libs/presentation/components/product-details/ProductNav";
-import CardsSlider from "@libs/presentation/components/cards/CardsSlider";
 
 import {
   getProductDetails,
   getProductReviews
 } from "@features/services/presentation/store/serviceDetailPageSlice";
 import styles from "./service-detail-page.module.scss";
-import VerticalCard from "@libs/presentation/components/cards/VerticalCard";
 import CardSlider from "@libs/presentation/components/cards/CardsSlider";
-import ServiceCard from "@libs/presentation/components/cards/ServiceCard";
 import { Service } from "@libs/domain/model/service";
 import ServiceMiniCard from "@libs/presentation/components/cards/ServiceMiniCard";
 import { useTranslation } from "next-i18next";
+import { Image } from "@libs/domain/model/image";
 
-function ProductDetailPage() {
+function ServiceDetailPage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { t } = useTranslation(["common"]);
@@ -108,9 +103,24 @@ function ProductDetailPage() {
       { price: 4000, fromAmount: 20, fromAmountText: "20 units" }
     ],
     company: {
-      name: "Sample Company",
+      name: "Arman Sahakyan",
       phones: ["123-456-7890", "987-654-3210"],
-      type: "individual"
+      images: {
+        background: new Image({
+          original:
+            "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg",
+          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
+        }),
+        largeLogo: new Image({
+          original:
+            "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg",
+          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
+        }),
+        smallLogo:
+          "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+      },
+      type: "individual",
+      rating: 4
     }
   };
 
@@ -248,7 +258,6 @@ function ProductDetailPage() {
         url={service?.linkUrl}
       />
 
-      <ProductNav product={service as any} />
       <div className={styles.wrapper}>
         <BreadCrumbs
           items={[
@@ -335,7 +344,7 @@ function ProductDetailPage() {
                 </p>
                 {/* SHARE ON SOCIAL MEDIAS */}
                 <div className={`${styles.share_on_social}`}>
-                  <p className={styles.label}>Կիսվել</p>
+                  <p className={styles.label}>{t("actions.share", { ns: "common" })}</p>
 
                   <div className={styles.social_medias}>
                     <a href={"/"} className={styles.social_media_item}>
@@ -352,7 +361,10 @@ function ProductDetailPage() {
             <div className={styles.content_padding_wrapper}>
               <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
               <div className={styles.product__parameters_wrapper}>
-                <CardSlider title={`ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ`} cards={suggestedServices as any} />
+                <CardSlider
+                  title={t<string>("labels.you_will_also_be_interested", { ns: "common" })}
+                  cards={suggestedServices as any}
+                />
               </div>
             </div>
           </div>
@@ -368,4 +380,4 @@ function ProductDetailPage() {
   );
 }
 
-export default ProductDetailPage;
+export default ServiceDetailPage;

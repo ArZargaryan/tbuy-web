@@ -8,6 +8,7 @@ import { useAppSelector } from "@core/store";
 import IndividualSellerInfo from "@features/shop/presentation/pages/SellerPage/components/IndividualSellerPage/IndividualSellerInfo";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
 import { Box } from "@mui/material";
+import { useTranslation } from "next-i18next";
 
 function IndividualSellerPage() {
   const { info, products } = useAppSelector((state) => state.shop_about_seller);
@@ -37,7 +38,7 @@ function IndividualSellerPage() {
           ]}
           selectLabel={"Գինը ըստ նվազման"}
         >
-          {/*{t("title")}*/}Տեսականի
+          Տեսականի
         </TitleWithSort>
         {screenWidth && screenWidth > 500 ? <AboutSellerCategoriesSlider /> : <MobileFilter />}
         <FiltersList

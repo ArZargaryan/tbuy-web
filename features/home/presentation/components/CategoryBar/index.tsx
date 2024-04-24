@@ -76,7 +76,7 @@ function CategoryBar(props: Props) {
   return (
     <div {...props} className={styles.category_bar}>
       <div className={`container ${styles.category_bar__content}`}>
-        <Link href={""} className={styles.content__services}>
+        <Link href="/services" className={styles.content__services}>
           {t("services")}
         </Link>
         <Swiper
@@ -93,24 +93,26 @@ function CategoryBar(props: Props) {
         >
           {props.categories?.map((category, i) => (
             <SwiperSlide key={`${category.label}_${i}`}>
-              <button
-                type="button"
-                className={styles.menu__btn}
-                onClick={() => changeCategory(category.id)}
-              >
-                {category?.icon &&
-                  // <img src={category?.icon as string} alt="" className={styles.menu__btn_icon} />
-                  category.icon}
-                <span
-                  className={`${styles.menu__btn_txt} ${
-                    currentCategory === category.id && poppupOpened
-                      ? styles.menu__btn_txt_opened
-                      : ""
-                  }`}
+              <Link href="/services/1">
+                <button
+                  type="button"
+                  className={styles.menu__btn}
+                  onClick={() => changeCategory(category.id)}
                 >
-                  {category.label}
-                </span>
-              </button>
+                  {category?.icon &&
+                    // <img src={category?.icon as string} alt="" className={styles.menu__btn_icon} />
+                    category.icon}
+                  <span
+                    className={`${styles.menu__btn_txt} ${
+                      currentCategory === category.id && poppupOpened
+                        ? styles.menu__btn_txt_opened
+                        : ""
+                    }`}
+                  >
+                    {category.label}
+                  </span>
+                </button>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

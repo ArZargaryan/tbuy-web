@@ -46,6 +46,22 @@ import SummaryIcon from "@public/pictures/icons/cv.svg";
 import SummaryTemplateIcon from "@public/pictures/icons/summary_template.svg";
 import LanguageIcon from "@public/pictures/icons/language.svg";
 import SuccessIcon from "@public/pictures/icons/success.svg";
+import BurgerIcon from "@public/pictures/icons/burger.svg";
+
+import ElectronicsMenu from "@public/pictures/icons/electronics.svg";
+import WashingMachineMenu from "@public/pictures/icons/washing-machine.svg";
+import ConstructorMenu from "@public/pictures/icons/constructor.svg";
+import BeautyMenu from "@public/pictures/icons/beauty.svg";
+import DuckMenu from "@public/pictures/icons/duck.svg";
+import PistolsMenu from "@public/pictures/icons/pistols.svg";
+import TShirtMenu from "@public/pictures/icons/t-shirt.svg";
+import CarMenu from "@public/pictures/icons/car.svg";
+import SecuritySystemMenu from "@public/pictures/icons/security-systems.svg";
+import BedsideTableMenu from "@public/pictures/icons/bedside-table.svg";
+import SportMenu from "@public/pictures/icons/sport.svg";
+import PharmacyMenu from "@public/pictures/icons/pharmacy.svg";
+import BreakfestMenu from "@public/pictures/icons/breakfest.svg";
+import HouseMenu from "@public/pictures/icons/house.svg";
 
 import PassportTemplate from "@public/pictures/passport-template.png";
 // used in account sidebar
@@ -189,7 +205,22 @@ export class ImgExporter {
     HouseIcon: HouseIcon,
     ConstructionIcon: ConstructionIcon,
     WeaponsIcon: WeaponsIcon,
-    BeautyIcon: BeautyIcon
+    BeautyIcon: BeautyIcon,
+    Electronics: ElectronicsMenu,
+    WashingMachine: WashingMachineMenu,
+    Constructor: ConstructorMenu,
+    Beauty: BeautyMenu,
+    Duck: DuckMenu,
+    Pistols: PistolsMenu,
+    TShirt: TShirtMenu,
+    Car: CarMenu,
+    SecuritySystem: SecuritySystemMenu,
+    BedsideTable: BedsideTableMenu,
+    Sport: SportMenu,
+    Pharmacy: PharmacyMenu,
+    Breakfest: BreakfestMenu,
+    House: HouseMenu,
+		Burger: BurgerIcon,
   };
   static blob = {
     avatar: BlobAvatar,

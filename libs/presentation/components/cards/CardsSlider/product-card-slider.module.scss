@@ -105,16 +105,12 @@
   }
   @media screen and (max-width: 1500px) {
     @include shortSlider;
-    margin-right: -30px;
     padding-bottom: 30px;
     :global {
       .slider_arrow {
         display: none !important;
       }
     }
-  }
-  @media screen and (max-width: 800px) {
-    margin-right: -15px;
   }
 }
 
@@ -125,7 +121,6 @@
   }
   @media screen and (max-width: 549px) {
     @include shortSlider;
-    margin-right: -15px;
 
     .slider_title + div {
       padding-bottom: 0px;

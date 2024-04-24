@@ -54,7 +54,7 @@ function SearchResultPage() {
   };
 
   return (
-    <SearchLayout q={q as string}>
+    <SearchLayout q="">
       <div className="container">
         <ResultCategoriesSlider />
         <TitleWithSort

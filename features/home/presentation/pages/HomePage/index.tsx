@@ -51,7 +51,7 @@ function HomePage() {
   const [endlessProducts, setEndlessProducts] = useState<number[]>([]);
   const [endlessProductsIsLoading, setEndlessProductsIsLoading] = useState(false);
 
-  const [bannersCount, setBannersCount] = useState(3);
+  const [, setBannersCount] = useState(3);
 
   useEffect(() => {
     if (fetchingProducts) {
@@ -60,7 +60,7 @@ function HomePage() {
         setFetchingProducts(false);
         setEndlessProductsIsLoading(false);
         setBannersCount((old) => old + 1);
-      }, 1400);
+      }, 500);
     }
   }, [fetchingProducts]);
 
@@ -80,7 +80,7 @@ function HomePage() {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    if (window.scrollY + window.innerHeight >= height - 580) {
+    if (window.scrollY + window.innerHeight >= height - 800) {
       setFetchingProducts(true);
       setEndlessProductsIsLoading(true);
     }

@@ -65,27 +65,27 @@ function ProductCardSlider(props: Props) {
             className={sliderCls}
             breakpoints={{
               320: {
-                slidesPerView: ((extraType === "short_550" || extraType === "short") && 2.1) || 2,
-                spaceBetween: 6
+                slidesPerView: 2,
+                spaceBetween: 10
               },
               450: {
-                slidesPerView: ((extraType === "short_550" || extraType === "short") && 2.1) || 2,
-                spaceBetween: 14
+                slidesPerView: 2,
+                spaceBetween: 10
               },
               550: {
-                slidesPerView: ((extraType === "short_550" || extraType === "short") && 2) || 2,
-                spaceBetween: 14
+                slidesPerView: 2,
+                spaceBetween: 10
               },
               850: {
-                slidesPerView: (extraType === "short" && 3.1) || 3,
-                spaceBetween: 14
+                slidesPerView: 3,
+                spaceBetween: 10
               },
               1150: {
-                slidesPerView: (extraType === "short" && 4.1) || 4,
+                slidesPerView: 4,
                 spaceBetween: 14
               },
               1535: {
-                slidesPerView: (extraType === "short" && 5.1) || 5,
+                slidesPerView: 5,
                 spaceBetween: 14
               }
             }}

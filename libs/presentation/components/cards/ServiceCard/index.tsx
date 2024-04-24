@@ -78,10 +78,10 @@ function ServiceCard({ service }: { service: Service | GiftCard }) {
         </Link>
 
         <div className={styles.footer}>
-          <div className={styles.company}>
+          <Link href="/individual_partner" className={styles.company}>
             <Icons.LogoExample />
             {/* <Shimmer height={32} width={400} className={styles.shimmer} /> */}
-          </div>
+          </Link>
 
           <div className={styles.action_buttons}>
             <button type="button" className={styles.button}>

@@ -76,7 +76,9 @@ function mobileFilter() {
         <div className={styles.mobile__menu}>
           <div className={styles.mobile__filterMenu}>
             <h1 className={styles.mobile__textStyle}>Filter</h1>
-            <button onClick={() => setMobileFiltersActive((prev) => !prev)}>X</button>
+            <button className={styles.close_btn} onClick={() => setMobileFiltersActive((prev) => !prev)}>
+              <Icons.Close />
+            </button>
           </div>
           <ul>
             {mobileFiltersData.map((filter, index) => (

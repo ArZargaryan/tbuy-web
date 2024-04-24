@@ -7,11 +7,13 @@
   grid-gap: 10px;
   margin-bottom: 30px;
 
-  // &__item {
-  //   @media screen and (max-width: 500px) {
-  //     display: none;
-  //   }
-  // }
+	@media screen and (max-width: 900px) {
+		margin-bottom: 20px;
+	}
+	
+	@media screen and (max-width: 500px) {
+		margin-bottom: 10px;
+	}
 }
 
 .filters_reset {
@@ -19,7 +21,6 @@
   text-transform: uppercase;
   color: $blue-2;
   text-decoration: underline;
-  margin-left: 10px;
   transition: all 0.2s linear;
 
   &:hover {
@@ -27,7 +28,6 @@
   }
 
   @media screen and (max-width: 500px) {
-    margin-left: 0px;
     text-transform: none;
   }
 }

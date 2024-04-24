@@ -26,6 +26,8 @@ import { map } from "lodash";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
 import _ from "lodash";
 import CardSlider from "@libs/presentation/components/cards/CardsSlider";
+import { useTranslation } from "next-i18next";
+import { Image } from "@libs/domain/model/image";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
@@ -33,6 +35,7 @@ function ProductDetailPage() {
   const { locale } = router;
   const { id } = router.query;
   const { Icons, Logos, Arrows } = ImgExporter;
+  const { t } = useTranslation(["common", "catalog/productspage"]);
 
   // const {
   //   pageData: { product, suggestedProducts },
@@ -116,9 +119,23 @@ function ProductDetailPage() {
       }
     ],
     company: {
-      name: "Lorem ipsum",
+      name: "Alpine",
+      images: {
+        background: new Image({
+          original:
+            "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg?ts=1672291305",
+          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
+        }),
+        largeLogo: new Image({
+          original:
+            "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg?ts=1672291305",
+          blurHash: "Nr8%YLkDR4j[aej]NSaznzjuk9ayR3jYofayj[f6"
+        }),
+        smallLogo:
+          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg?ts=1672291305"
+      },
       type: "legal",
-      rating: 3,
+      rating: 4,
       phones: ["123-456-7890"]
     },
     parameters: [
@@ -370,16 +387,17 @@ function ProductDetailPage() {
         {map(product.availability, (item) => (
           <div className={styles.availability_item}>
             <p className={styles.availability_text}>
-              <strong>Հասանելություն։ </strong> {item.availability}
+              <strong>{t("availability", { ns: "catalog/productspage" })}։ </strong>{" "}
+              {item.availability}
             </p>
             <p className={styles.availability_text}>
-              <strong>Վաճառվում է։ </strong> {item.location}
+              <strong>{t("for_sale", { ns: "catalog/productspage" })}։ </strong> {item.location}
             </p>
           </div>
         ))}
       </div>
     ),
-    []
+    [t]
   );
 
   // if (loading) {
@@ -399,7 +417,7 @@ function ProductDetailPage() {
       <div className={styles.wrapper}>
         <BreadCrumbs
           items={[
-            { value: "Գլխավոր ", link: "/products" },
+            { value: t("labels.home", { ns: "common" }), link: "/products" },
             { value: `${product?.category?.label}`, link: "/products" }
           ]}
         />
@@ -486,7 +504,7 @@ function ProductDetailPage() {
                 {/* SELLER */}
                 <div className={styles.contact_seller_wrapper}>
                   <ContactSeller
-									link="/legal_partner"
+                    link="/legal_partner"
                     company={product?.company as any}
                     methods={{ call: !!product?.company?.phones?.length, chat: true }}
                   />
@@ -500,7 +518,7 @@ function ProductDetailPage() {
                 />
                 {/* SHARE ON SOCIAL MEDIAS */}
                 <div className={`${styles.share_on_social}`}>
-                  <p className={styles.label}>Կիսվել</p>
+                  <p className={styles.label}>{t("actions.share", { ns: "common" })}</p>
 
                   <div className={styles.social_medias}>
                     <a href={"/"} className={styles.social_media_item}>
@@ -514,13 +532,13 @@ function ProductDetailPage() {
                 {/* PRODUCT PARAMETERS */}
                 <div className={styles.product_parameters_wrapper}>
                   <ProductCharacteristicBlock
-                    title={"Հիմնական պարամետրերը"}
+                    title={t("main_parameters", { ns: "catalog/productspage" })}
                     characteristics={product.details}
                   />
                 </div>
               </div>
               {/* <div className={styles.mobile_similar_cards}>
-                <VerticalCard
+                <VerticalCardвф
                   title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
                   cards={similar_products as any}
                   extraType={"short_550"}
@@ -530,7 +548,10 @@ function ProductDetailPage() {
             <div className={styles.content_padding_wrapper}>
               <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
               <div className={styles.product__parameters_wrapper}>
-                <CardSlider title={`ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ`} cards={similar_products} />
+                <CardSlider
+                  title={t<string>("labels.you_will_also_be_interested", { ns: "common" })}
+                  cards={similar_products}
+                />
               </div>
             </div>
           </div>

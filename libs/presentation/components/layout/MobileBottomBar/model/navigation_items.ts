@@ -20,7 +20,7 @@ export const navigation_items = [
     icon: Icons.Profile
   },
   {
-    route: "/cart",
+    route: "/shop",
     icon: Icons.Cart,
     badgeContent: 2
   }

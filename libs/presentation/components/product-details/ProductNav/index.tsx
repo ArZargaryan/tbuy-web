@@ -6,6 +6,7 @@ import styles from "./product-nav.module.scss";
 import { IDetailedProduct } from "@features/shop/domain/model/DetailedProduct";
 import { IDetailedGiftCard } from "@features/gifts/domain/model/DetailedGiftCard";
 import PrimaryButton from "@core/button/primary";
+import { useTranslation } from "next-i18next";
 
 interface Props {
   product: IDetailedProduct | IDetailedGiftCard;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export default function ProductNav({ product, withoutFooter }: Props) {
+  const { t } = useTranslation(["common"]);
   const [scroll, setScroll] = React.useState(0);
   const [prevScrollY, setPrevScrollY] = React.useState(0);
   const [scrolledDown, setScrolledDown] = React.useState(false);
@@ -72,8 +74,12 @@ export default function ProductNav({ product, withoutFooter }: Props) {
             </div>
 
             <PrimaryButton className={`${styles.right__btn}`}>
-              <Icons.CartWhite />
-              <span>Ավելացնել Զամբյուղ</span>
+              {product.company.type === "legal" && <Icons.CartWhite />}
+              <span>
+                {product.company.type === "individual"
+                  ? t("actions.buy_now", { ns: "common" })
+                  : t("actions.add_to_cart", { ns: "common" })}
+              </span>
             </PrimaryButton>
           </div>
         </div>

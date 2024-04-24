@@ -35,7 +35,6 @@ function Header() {
           <Link href={"/gift_cards"} className={styles.navbar__menu_giftCard}>
             <span className={styles.navbar__menu_giftCard_txt}>{t("give")}</span>
             <Icons.GiftCard className={styles.navbar__menu_giftCard_icon} />
-
             <span className={styles.navbar__menu_giftCard_txt}>{t("give_card")}</span>
           </Link>
           <Link href={"/vacancies"} className={styles.navbar__menu_vacancies}>
@@ -47,11 +46,15 @@ function Header() {
           <div className={styles.navbar__menu_sets}>
             <Link href={"/en/compare_products/"} className={styles.navbar__menu_sets_phone}>
               <Icons.Compare className={styles.navbar__menu_sets_phone_icon} />
-              <span className={styles.navbar__menu_sets_phone_txt}>Համեմատել (2)</span>
+              <span className={styles.navbar__menu_sets_phone_txt}>
+                {t("compare", { ns: "layout/header" })} (2)
+              </span>
             </Link>
             <Link href={"/account/favorite/"} className={styles.navbar__menu_sets_phone}>
               <Icons.Heart className={styles.navbar__menu_sets_phone_icon} />
-              <span className={styles.navbar__menu_sets_phone_txt}>Հավանածներ (12)</span>
+              <span className={styles.navbar__menu_sets_phone_txt}>
+                {t("favorites", { ns: "layout/header" })} (12)
+              </span>
             </Link>
             <LanguageSelect />
           </div>

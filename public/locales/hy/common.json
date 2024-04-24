@@ -2,10 +2,19 @@
   "search": "Փնտրել...",
   "download_app": "Ներբեռնել հավելվածը",
   "vacancies": "Թափուր աշխատատեղեր",
-  "see_all": "ՏԵՍՆԵԼ ԲՈԼՈՐԸ",
   "form": {
     "send": "Ուղարկել",
     "required_field": "Պարտադիր դաշտ"
+  },
+  "actions": {
+    "close": "Փակել",
+    "share": "Կիսվել",
+    "see_all": "Տեսնել բոլորը",
+    "add_to_cart": "Ավելացնել Զամբյուղ"
+  },
+  "labels": {
+    "home": "Գլխավոր",
+    "you_will_also_be_interested": "Ձեզ կհետաքրքրի նաեվ"
   },
   "ok": "ԼԱՎ"
 }

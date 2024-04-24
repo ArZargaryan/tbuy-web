@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { Review } from "@libs/domain/model/review";
 import ReviewsItem from "./ReviewsItem";
 import TbuyPagination from "@libs/presentation/components/elements/TbuyPagination";
+import { useTranslation } from "next-i18next";
 
 interface Props {
   id: string;
@@ -17,6 +18,7 @@ interface Props {
 function Reviews({ id, reviews, onPageChange }: Props) {
   const [showingReviews, setShowingReviews] = useState(true);
   const [reviewsPage, setReviewsPage] = useState(1);
+  const { t } = useTranslation(["catalog/productspage"]);
 
   const listCls = classNames(styles.reviews__list, {
     [styles.reviews__list_close]: !showingReviews
@@ -42,7 +44,7 @@ function Reviews({ id, reviews, onPageChange }: Props) {
   return (
     <div className={styles.reviews}>
       <h3 className={styles.reviews__title}>
-        Ակնարկներ <sup>{reviews.totalItems}</sup>
+        {t("reviews")} <sup>{reviews.totalItems}</sup>
       </h3>
 
       <div className={listCls}>
@@ -62,7 +64,9 @@ function Reviews({ id, reviews, onPageChange }: Props) {
       </div>
 
       <button className={`${styles.reviews__btn} blue_text`} onClick={changeShowing}>
-        {showingReviews ? "ՓԱԿԵԼ" : "ՏԵՍՆԵԼ"}
+        {showingReviews
+          ? t("actions.close", { ns: "common" })
+          : t("actions.see_all", { ns: "common" })}
       </button>
     </div>
   );

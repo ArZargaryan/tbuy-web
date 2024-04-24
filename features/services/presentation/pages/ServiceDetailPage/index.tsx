@@ -29,10 +29,12 @@ import CardSlider from "@libs/presentation/components/cards/CardsSlider";
 import ServiceCard from "@libs/presentation/components/cards/ServiceCard";
 import { Service } from "@libs/domain/model/service";
 import ServiceMiniCard from "@libs/presentation/components/cards/ServiceMiniCard";
+import { useTranslation } from "next-i18next";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const { t } = useTranslation(["common"]);
   const { locale } = router;
   const { id } = router.query;
   const { Icons, Logos, Arrows } = ImgExporter;
@@ -250,7 +252,7 @@ function ProductDetailPage() {
       <div className={styles.wrapper}>
         <BreadCrumbs
           items={[
-            { value: "Գլխավոր ", link: "/products" },
+            { value: t("labels.home", { ns: "common" }), link: "/products" },
             { value: `${service?.category?.label}`, link: "/products" }
           ]}
         />

@@ -89,11 +89,10 @@
 
 				.right__btn {
 					margin-left: 16px;
-					border-radius: 25px;
 					padding: 10px 30px;
-					width: auto !important;
 
 					display: flex;
+					justify-content: center;
 					align-items: center;
 
 					svg {
@@ -125,19 +124,14 @@
 						}
 
 						svg {
-
-							// width: 21px;
 							path {
 								fill: $blue;
-							}
-
-							@media screen and (max-width: 800px) {
-								margin-right: 0;
 							}
 						}
 					}
 
 					@media screen and (max-width: 800px) {
+						width: max-content;
 						padding: 10px 14px;
 					}
 				}
@@ -177,6 +171,6 @@
 
 .navWithFooter {
 	@media screen and (max-width: 800px) {
-		bottom: 153px;
+		bottom: 126px;
 	}
 }

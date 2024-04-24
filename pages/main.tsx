@@ -63,13 +63,13 @@ function PageList() {
         <Link href={"/agreement"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>agreement</button>
         </Link>
-        <Link href={"/cart"} target={"_blank"}>
+        <Link href={"/shop"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>Cart + modal</button>
         </Link>
-        <Link href={"/cart/checkout"} target={"_blank"}>
+        <Link href={"/shop/checkout"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>Cart - 1, 2, 9, 11 + modal</button>
         </Link>
-        <Link href={"/cart/cart_logined"} target={"_blank"}>
+        <Link href={"/shop/cart_logined"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>Cart logined</button>
         </Link>
         <Link href={"/gift_cards"} target={"_blank"}>
@@ -102,10 +102,10 @@ function PageList() {
         <Link href={"/account/last_viewed_pages"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>account last viewed pages</button>
         </Link>
-        <Link href={"/cart/gift_cards"} target={"_blank"}>
+        <Link href={"/shop/gift_cards"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>cart - gift cards</button>
         </Link>
-        <Link href={"/cart/checkout_gift_cards"} target={"_blank"}>
+        <Link href={"/shop/checkout_gift_cards"} target={"_blank"}>
           <button className={"blue_btn outlined_btn"}>cart - gift cards second step</button>
         </Link>
         <Link href={"/account/write_review/123"} target={"_blank"}>

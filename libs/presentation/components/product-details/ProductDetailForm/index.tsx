@@ -3,6 +3,7 @@ import _ from "lodash";
 import styles from "./product-detail-form.module.scss";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import { ParameterEntity, ParameterValueEntity } from "@features/shop/domain/model/DetailedProduct";
+import { useTranslation } from "next-i18next";
 
 interface Props {
   companyType: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 function ProductDetailForm({ companyType, data }: Props) {
+  const { t } = useTranslation(["catalog/productspage"]);
   const [count, setCount] = useState(1);
   const [colors, setColors] = useState<ParameterEntity | null>(null);
   const [sizes, setSizes] = useState<ParameterEntity | null>(null);
@@ -164,7 +166,7 @@ function ProductDetailForm({ companyType, data }: Props) {
             </g>
           </g>
         </svg>
-        <span>Ճշտել ապրանքի առկայությունը</span>
+        <span>{t("check_product_availability", { ns: "catalog/productspage" })}</span>
       </div>
 
       <div className={styles.product_amount_wrapper}>
@@ -180,10 +182,14 @@ function ProductDetailForm({ companyType, data }: Props) {
           </button>
         </div>
 
-        {companyType === "legal" ? (
-          <button className={`${styles.submit_button} blue_btn`}>ԳՆԵԼ ՀԻՄԱ</button>
+        {companyType === "individual" ? (
+          <button className={`${styles.submit_button} blue_btn`}>
+            {t("actions.buy_now", { ns: "common" })}
+          </button>
         ) : (
-          <button className={`${styles.submit_button} blue_btn`}>Ավելացնել զամբյուղ</button>
+          <button className={`${styles.submit_button} blue_btn`}>
+            {t("actions.add_to_cart", { ns: "common" })}
+          </button>
         )}
       </div>
     </div>

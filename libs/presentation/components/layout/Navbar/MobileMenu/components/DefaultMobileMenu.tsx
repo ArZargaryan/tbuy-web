@@ -8,7 +8,7 @@ export function DefaultMobileMenu() {
   return (
     <div className={styles.mobile_menu}>
       <div>
-        <Icons.SearchWithList className={`${styles.mobile_menu__item} ${styles.prompt}`} />
+        <Icons.Search className={`${styles.mobile_menu__item} ${styles.prompt}`} />
       </div>
       <Link href={"/vacancies"} className={`${styles.mobile_menu__item} ${styles.prompt}`}>
         <Icons.BagOutlined />

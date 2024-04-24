@@ -740,7 +740,7 @@ function HomePage() {
 
           <TitleWithLink
             linkPath={`/services`}
-            linkText={`${t("see_all", { ns: "common" })}`}
+            linkText={`${t("actions.see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
             {t("services")}
@@ -754,7 +754,7 @@ function HomePage() {
 
           <TitleWithLink
             linkPath={`/products`}
-            linkText={`${t("see_all", { ns: "common" })}`}
+            linkText={`${t("actions.see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
             {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
@@ -770,7 +770,7 @@ function HomePage() {
             <>
               <TitleWithLink
                 linkPath={"/vacancies"}
-                linkText={`${t("see_all", { ns: "common" })}`}
+                linkText={`${t("actions.see_all", { ns: "common" })}`}
                 className={styles.title_marg}
               >
                 {t("vacancies")}

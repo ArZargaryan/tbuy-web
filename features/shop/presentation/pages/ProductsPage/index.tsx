@@ -54,7 +54,7 @@ function ProductsPage() {
         {/* <section className={styles.products_section}>
           <CardSlider title={`${t("requirements_categories")}`} cards={items} isProducts />
           <Link href={"/"} className={`link ${styles.see_all}`}>
-            {t("see_all", { ns: "common" })}
+            {t("actions.see_all", { ns: "common" })}
           </Link>
         </section>
 

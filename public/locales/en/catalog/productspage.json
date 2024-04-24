@@ -22,6 +22,11 @@
       "physical_person": "Individual"
     }
   },
+  "main_parameters": "Main parameters",
+  "reviews": "Reviews",
+  "check_product_availability": "Check product availability",
+  "availability": "Availability",
+  "for_sale": "For sale",
   "requirements_categories": "Requirements in categories",
   "related_products": "Related products"
 }

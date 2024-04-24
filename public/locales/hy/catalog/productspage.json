@@ -22,6 +22,11 @@
       "physical_person": "Ֆիզիկական անձ"
     }
   },
+  "main_parameters": "Հիմնական պարամետրերը",
+  "reviews": "Ակնարկներ",
+  "check_product_availability": "Ճշտել ապրանքի առկայությունը",
+  "availability": "Հասանելություն",
+  "for_sale": "Վաճառվում է",
   "requirements_categories": "ԿԱՏԵԳՈՐԻԱՆԵՐՈՒՄ ՊԱՀԱՆՋՎԱԾՆԵՐ",
   "related_products": "ՀԱՄԱՆՄԱՆ ԱՊՐԱՆՔՆԵՐ"
 }

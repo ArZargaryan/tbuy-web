@@ -9,7 +9,6 @@ import { ImgExporter } from "@core/helpers/ImgExporter";
 import styles from "../navbar.module.scss";
 import { TextInput } from "@libs/presentation/components/form/inputs/TextInput";
 import { useForm } from "react-hook-form";
-import Tooltip from "@libs/presentation/components/elements/Tooltip";
 import { MenuImgExporter } from "@libs/presentation/components/layout/Navbar/DesktopMenu/helpers/MenuImgExporter";
 import { useModal } from "@core/hooks/useModal";
 import NotificationModal from "@libs/presentation/components/layout/Navbar/DesktopMenu/components/NotificationModal";
@@ -22,7 +21,7 @@ const { Icons, blob } = ImgExporter;
 const { ProfileIcons } = MenuImgExporter;
 
 function DesktopMenu({ toggleActive }: Props) {
-  const { t } = useTranslation(["layout/navbar", "common"]);
+  const { t } = useTranslation(["layout/navbar", "account/account", "shop/cart", "common"]);
 
   const { register, handleSubmit, control } = useForm();
 
@@ -88,7 +87,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Profile />
                       </div>
                       <div className={styles.link__text}>
-                        Անձնական տվյալներ
+                        {t("personal_data", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -100,7 +99,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Orders />
                       </div>
                       <div className={styles.link__text}>
-                        Իմ պատվերները
+                        {t("my_orders", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -112,7 +111,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Mail />
                       </div>
                       <div className={styles.link__text}>
-                        Հաղորդագրություններ
+                        {t("messages", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -124,7 +123,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.OpenedMail />
                       </div>
                       <div className={styles.link__text}>
-                        Պրոմո ակցիա
+                        {t("promotions", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                       <button className={styles.mailing__button}>
@@ -140,7 +139,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Notifications />
                       </div>
                       <div className={styles.link__text}>
-                        Ծանուցում
+                        {t("notifications", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -152,7 +151,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Shop />
                       </div>
                       <div className={styles.link__text}>
-                        Վաճառել Tbuy-ում
+                        {t("sell_on_tbuy", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -164,7 +163,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Support />
                       </div>
                       <div className={styles.link__text}>
-                        Կապ Tbuy-ի հետ
+                        {t("contacts_tbuy", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -176,7 +175,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.GiftCard />
                       </div>
                       <div className={styles.link__text}>
-                        Իմ նվեր քարտերը
+                        {t("my_gift_cards", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -188,7 +187,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Gift />
                       </div>
                       <div className={styles.link__text}>
-                        Իմ նվիրած նվեր քարտերը
+                        {t("my_given_gift_cards", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -200,7 +199,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Summary />
                       </div>
                       <div className={styles.link__text}>
-                        Իմ առցանց ռեզյումեն
+                        {t("my_online_cv", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -212,19 +211,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Job />
                       </div>
                       <div className={styles.link__text}>
-                        Իմ աշխատանքի հայտարարությունները
-                        <div className={styles.link__alert}></div>
-                      </div>
-                    </a>
-                  </li>
-
-                  <li className={styles.list__item}>
-                    <a href="" className={styles.item__link}>
-                      <div className={styles.link__icon}>
-                        <ProfileIcons.Blocks />
-                      </div>
-                      <div className={styles.link__text}>
-                        Վահանակ
+                        {t("my_applications", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -236,7 +223,7 @@ function DesktopMenu({ toggleActive }: Props) {
                         <ProfileIcons.Quit />
                       </div>
                       <div className={styles.link__text}>
-                        Ելք
+                        {t("logout", { ns: "account/account" })}
                         <div className={styles.link__alert}></div>
                       </div>
                     </a>
@@ -265,8 +252,10 @@ function DesktopMenu({ toggleActive }: Props) {
             <div className={styles.basket_container}>
               <div className={styles.basket}>
                 <div className={styles.basket__header}>
-                  <b>Զամբյուղ</b>
-                  <button className={styles.header__delete}>Ջնջել բոլորը</button>
+                  <b>{t("cart", { ns: "shop/cart" })}</b>
+                  <button className={styles.header__delete}>
+                    {t("clear_cart", { ns: "shop/cart" })}
+                  </button>
                 </div>
 
                 <div className={styles.basket__items}>
@@ -277,7 +266,7 @@ function DesktopMenu({ toggleActive }: Props) {
                     <div className={styles.item__info}>
                       <div className={styles.info__name}>Keter Florida</div>
                       <div className={styles.info__price}>
-                        <b>88.000 AMD</b> | 1 հատ
+                        <b>88.000 AMD</b> | 1 {t("pc", { ns: "shop/cart" })}
                       </div>
                     </div>
                     <button className={styles.item__cancel}>
@@ -285,7 +274,7 @@ function DesktopMenu({ toggleActive }: Props) {
                     </button>
                     <div className={styles.item__installation}>
                       <span className={styles.installation__text}>
-                        Տեղադրում{" "}
+                        {t("installation", { ns: "shop/cart" })}{" "}
                         <button>
                           <Icons.CancleCircle width={"24px"} />
                         </button>
@@ -301,7 +290,7 @@ function DesktopMenu({ toggleActive }: Props) {
                     <div className={styles.item__info}>
                       <div className={styles.info__name}>Keter Florida</div>
                       <div className={styles.info__price}>
-                        <b>88.000 AMD</b> | 1 հատ
+                        <b>88.000 AMD</b> | 1 {t("pc", { ns: "shop/cart" })}
                       </div>
                     </div>
                     <button className={styles.item__cancel}>
@@ -311,13 +300,13 @@ function DesktopMenu({ toggleActive }: Props) {
                 </div>
 
                 <div className={styles.basket__total}>
-                  <b>Ընդհանուր</b>
+                  <b>{t("total", { ns: "shop/cart" })}</b>
                   <b className={styles.total__price}>88.000 AMD</b>
                 </div>
 
-                <Link href={"/cart"}>
+                <Link href={"/shop"}>
                   <PrimaryButton className={`${styles.basket__button}`}>
-                    ՀԱՍՏԱՏԵԼ ՊԱՏՎԵՐԸ
+                    {t("confirm_order", { ns: "shop/cart" })}
                   </PrimaryButton>
                 </Link>
               </div>

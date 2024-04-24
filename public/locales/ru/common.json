@@ -2,10 +2,19 @@
   "search": "Поиск...",
   "download_app": "Скачать приложение",
   "vacancies": "Вакансии",
-  "see_all": "Увидеть все",
   "form": {
     "send": "Отправить",
     "required_field": "Обязательное поле"
+  },
+  "actions": {
+    "close": "Закрыть",
+    "share": "Поделиться",
+    "see_all": "Увидеть все",
+    "add_to_cart": "Добавить в корзину"
+  },
+  "labels": {
+    "home": "Главная",
+    "you_will_also_be_interested": "Вам также будет интересно"
   },
   "ok": "Ок"
 }

@@ -22,6 +22,11 @@
       "physical_person": "Физическое лицо"
     }
   },
+  "main_parameters": "Основные параметры",
+  "reviews": "Отзывы",
+  "check_product_availability": "Проверить наличие товара",
+  "availability": "Доступность",
+  "for_sale": "Продается",
   "requirements_categories": "Требования по категориям",
   "related_products": "Сопутствующие товары"
 }

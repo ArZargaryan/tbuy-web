@@ -2,10 +2,19 @@
   "search": "Search...",
   "download_app": "Download app",
   "vacancies": "Vacancies",
-  "see_all": "See all",
   "form": {
     "send": "Send",
     "required_field": "Required field"
+  },
+  "actions": {
+    "close": "Close",
+    "share": "Share",
+    "see_all": "See all",
+    "add_to_cart": "Add to cart"
+  },
+  "labels": {
+    "home": "Home",
+    "you_will_also_be_interested": "You will also be interested"
   },
   "ok": "Ok"
 }

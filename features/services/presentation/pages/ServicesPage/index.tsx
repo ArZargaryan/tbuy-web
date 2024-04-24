@@ -55,7 +55,7 @@ function ServicesPage() {
         {/* <section className={styles.services_section}>
           <CardSlider title={`${t("requirements_categories")}`} cards={items} />
           <Link href={"/"} className={`link ${styles.see_all}`}>
-            {t("see_all", { ns: "common" })}
+            {t("actions.see_all", { ns: "common" })}
           </Link>
         </section>
 

@@ -5,12 +5,14 @@ import FiltersItem, {
 
 import styles from "./filters-list.module.scss";
 import classNames from "classnames";
+import { useTranslation } from "next-i18next";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   filters: FiltersItemProps[];
 }
 
 function FiltersList(props: Props) {
+  const { t } = useTranslation(["common"]);
   const { filters = [] } = props;
   const divProps = {
     ...props,
@@ -25,7 +27,9 @@ function FiltersList(props: Props) {
         <FiltersItem key={`${value}_${i}`} value={value} className={styles.filters_list__item} />
       ))}
 
-      <button className={styles.filters_reset}>Reset filters</button>
+      <button className={styles.filters_reset}>
+        {t("actions.reset_filters", { ns: "common" })}
+      </button>
     </div>
   );
 }

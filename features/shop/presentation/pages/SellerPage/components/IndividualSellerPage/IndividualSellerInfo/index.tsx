@@ -8,6 +8,7 @@ import { ImgExporter } from "@core/helpers/ImgExporter";
 import MessageModal from "@libs/presentation/components/modals/MessageModal";
 import { useModal } from "@core/hooks/useModal";
 import PrimaryButton from "@core/button/primary";
+import { useTranslation } from "next-i18next";
 
 interface Props {
   info: {
@@ -29,6 +30,8 @@ function IndividualSellerInfo(props: Props) {
   const {
     info: { originalImage, fullName, contacts, rating }
   } = props;
+  //
+  const { t } = useTranslation(["common", "account/seller"]);
 
   const [openMessageModal, changeMessageModal] = useModal(false);
 
@@ -54,7 +57,7 @@ function IndividualSellerInfo(props: Props) {
         <StarsRating className={styles.stars} defaultValue={rating} readOnly />
 
         <PrimaryButton className={styles.button_followers}>
-          Հետեվեl
+          {t<string>("actions.follow", { ns: "common" })}
           <span>
             <Followers /> 236
           </span>
@@ -67,9 +70,11 @@ function IndividualSellerInfo(props: Props) {
             onClick={changeMessageModal}
           >
             <Chat />
-            <span>ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ</span>
+            <span>{t<string>("write_to_seller", { ns: "account/seller" })}</span>
           </PrimaryButton>
-          <PrimaryButton className={styles.button_empty}>ԲՈՂՈՔԵԼ</PrimaryButton>
+          <PrimaryButton className={styles.button_empty}>
+            {t<string>("actions.complain", { ns: "common" })}
+          </PrimaryButton>
         </div>
       </div>
 

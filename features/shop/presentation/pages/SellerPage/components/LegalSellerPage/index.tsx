@@ -23,6 +23,7 @@ import PrimaryButton from "@core/button/primary";
 import Contacts from "../Contacts";
 import { Contact } from "@features/shop/presentation/store/aboutSellerPageSlice";
 import ModalWithButtons from "@libs/presentation/components/modals/ModalWithButtons";
+import { useTranslation } from "next-i18next";
 const Video = dynamic(() => import("@libs/presentation/components/elements/Video"), { ssr: false });
 
 const { blob, Logos, Icons, Arrows } = ImgExporter;
@@ -30,6 +31,7 @@ const { blob, Logos, Icons, Arrows } = ImgExporter;
 //TODO: разбить ВСЁ на компоненты
 
 function LegalSellerPage() {
+  const { t } = useTranslation(["common", "account/seller"]);
   const contacts: Contact[] = [
     {
       type: "email",
@@ -112,19 +114,21 @@ function LegalSellerPage() {
                   </div>
                 </div>
                 <PrimaryButton className={`${styles.content__subscribe}`}>
-                  <span className={styles.subscribe__span}>ՀԵՏԵՎԵL</span>
+                  <span className={styles.subscribe__span}>
+                    {t("actions.follow", { ns: "common" })}
+                  </span>
                   <Icons.Followers className={styles.subscribe__icon} />
                   <span className={styles.subscribe__counter}>236</span>
                 </PrimaryButton>
                 <div className={styles.content__info}>
                   <b className={styles.info__readMore} onClick={changeTextModal}>
-                    ԿԱՐԴԱԼ ԱՎԵԼԻՆ
+                    {t("about_seller", { ns: "account/seller" })}
                   </b>
                   <b className={styles.info__readMore} onClick={changePhotoModal}>
-                    ՏԵՍԱԴԱՐԱՆ
+                    {t("photos", { ns: "account/seller" })}
                   </b>
                   <b className={styles.info__readMore} onClick={changeVideoModal}>
-                    ՎԻԴԵՈԴԱՐԱՆ
+                    {t("videos", { ns: "account/seller" })}
                   </b>
                 </div>
                 <div className={styles.content__buttons}>
@@ -134,10 +138,10 @@ function LegalSellerPage() {
                     onClick={changeMessageModal}
                   >
                     <Icons.Chat className={styles.button__icon} />
-                    <span>ԳՐԵԼ ՎԱՃԱՌՈՂԻՆ</span>
+                    <span>{t("write_to_seller", { ns: "account/seller" })}</span>
                   </PrimaryButton>
                   <PrimaryButton className={`${styles.buttons__button}`} buttonStyle="outline">
-                    ԲՈՂՈՔԵԼ
+                    {t("actions.complain", { ns: "common" })}
                   </PrimaryButton>
                 </div>
               </div>
@@ -197,7 +201,7 @@ function LegalSellerPage() {
                   onClick={() => scrollToSection("collection")}
                 >
                   <Link to="collection" spy={true} smooth={true} offset={-150} duration={500}>
-                    Ապրանքներ
+                    {t("products", { ns: "account/seller" })}
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
@@ -205,7 +209,7 @@ function LegalSellerPage() {
                   onClick={() => scrollToSection("services")}
                 >
                   <Link to="services" spy={true} smooth={true} offset={-150} duration={500}>
-                    Ծառայություններ
+                    {t("services", { ns: "account/seller" })}
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
@@ -214,7 +218,7 @@ function LegalSellerPage() {
                 >
                   {" "}
                   <Link to="openJobs" spy={true} smooth={true} offset={-150} duration={500}>
-                    Թափուր աշխատատեղեր
+                    {t("vacancies", { ns: "account/seller" })}
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide
@@ -222,7 +226,7 @@ function LegalSellerPage() {
                   onClick={() => scrollToSection("branches")}
                 >
                   <Link to="branches" spy={true} smooth={true} offset={-150} duration={500}>
-                    Մասնաճյուղեր
+                    {t("branches", { ns: "account/seller" })}
                   </Link>
                 </SwiperSlide>
               </Swiper>
@@ -234,7 +238,7 @@ function LegalSellerPage() {
       <div className={styles.legal_partner_products} id="collection">
         <CardsSlider
           cards={products || []}
-          title={"Ապրանքներ"}
+          title={t<string>("products", { ns: "account/seller" })}
           titleClassName={styles.slider_title_left}
         />
       </div>
@@ -242,18 +246,20 @@ function LegalSellerPage() {
       <div className={styles.legal_partner_services} id="services">
         <CardsSlider
           cards={services || []}
-          title={"ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ"}
+          title={t<string>("services", { ns: "account/seller" })}
           titleClassName={styles.slider_title_left}
         />
       </div>
 
       <div className={styles.legal_partner_vacancies} id="openJobs">
-        <h3 className={"title"}>ԹԱՓՈՒՐ ԱՇԽԱՏԱՏԵՂԵՐ</h3>
+        <h3 className={"title"}>{t<string>("vacancies", { ns: "account/seller" })}</h3>
         <VacancySlider vacancies={vacancies || []} />
       </div>
 
       <div className={styles.branches_wrapper} id="branches">
-        <h3 className={`title ${styles.branches_title}`}>Մասնաճյուղեր</h3>
+        <h3 className={`title ${styles.branches_title}`}>
+          {t<string>("branches", { ns: "account/seller" })}
+        </h3>
         <section className={styles.branches}>
           <div className={styles.branches__content}>
             <div className={styles.content__showBranches} id="showBranches">

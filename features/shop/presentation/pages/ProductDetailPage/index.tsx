@@ -548,7 +548,6 @@ function ProductDetailPage() {
                 </div>
                 {/* RATING */}
                 <div className={styles.raiting}>
-                  {ratingComponent}
                   <div className={styles.raiting__achievement}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -581,6 +580,7 @@ function ProductDetailPage() {
                     </svg>
                     4 հավաստագիր
                   </div>
+                  {ratingComponent}
                 </div>
 
                 {/* PRICES WITH CURRENCIES POPUP */}

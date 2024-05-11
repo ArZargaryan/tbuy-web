@@ -37,6 +37,7 @@
 			display: flex;
 			align-items: flex-start;
 
+
 			.product__slider {
 				position: sticky;
 				top: 100px;
@@ -97,6 +98,16 @@
 					width: 0;
 				}
 
+				.raiting {
+					.product__rating_container {
+						display: none;
+
+						@media screen and (max-width: 800px) {
+							display: flex;
+						}
+					}
+				}
+
 				@extend .content_padding_wrapper;
 
 				.product__info_title {
@@ -106,35 +117,17 @@
 					line-height: 1.5;
 				}
 
-				// TODO
+				.price_section_tablet_wrapper {
+					.product__rating_container {
+						display: block;
+
+						@media screen and (max-width: 800px) {
+							display: none;
+						}
+					}
+				}
+
 				.product__rating_container {
-					//@media screen and (max-width: 600px) {
-					//  display: flex;
-					//  align-items: flex-start;
-					//  justify-content: space-between;
-					//
-					//  .socials {
-					//    display: flex;
-					//    justify-content: space-between;
-					//    min-width: 100px;
-					//    svg {
-					//      width: 24px !important;
-					//      height: 24px !important;
-					//    }
-					//  }
-					//
-					//  .product_price__stars {
-					//    order: 2;
-					//    text-align: right;
-					//    svg {
-					//      width: 14px;
-					//      height: 14px;
-					//    }
-					//  }
-					//  .info__price {
-					//    margin: 0;
-					//  }
-					//}
 					display: flex;
 					align-items: center;
 				}
@@ -291,11 +284,6 @@
 						}
 					}
 				}
-
-				.price_section_tablet_wrapper .product__rating_container,
-				.wholesale_section_tablet_wrapper .availability_wrapper {
-					display: none;
-				}
 			}
 
 			@media screen and (max-width: 1080px) {
@@ -347,7 +335,6 @@
 					}
 
 					.product__rating_container {
-						display: none;
 
 						svg {
 							width: 16.6px;
@@ -365,10 +352,6 @@
 						align-items: center;
 						flex-wrap: nowrap;
 						flex-direction: row;
-
-						.product__rating_container {
-							display: block;
-						}
 					}
 
 					.wholesale_section_tablet_wrapper {
@@ -507,6 +490,7 @@
 				margin-top: 30px;
 			}
 		}
+
 	}
 
 	&__similar {
@@ -529,6 +513,8 @@
 
 .raiting {
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	gap: 32px;
 
 	&__achievement {
@@ -541,9 +527,16 @@
 
 	@media screen and (max-width: 1080px) {
 		margin-top: 5px;
+		
+		&__achievement {
+			font-size: 16px;
+		}
 	}
 
 	@media screen and (max-width: 500px) {
+		&__achievement {
+			font-size: 14px;
+		}
 		svg {
 			width: 25px;
 			height: 25px;
@@ -556,9 +549,13 @@
 	align-items: center;
 	margin-top: 10px;
 	gap: 30px;
+	
+	@media screen and (max-width: 800px) {
+		margin-top: 0;
+		gap: 15px;
+	}
 
 	@media screen and (max-width: 550px) {
-		flex-direction: column;
 		gap: 15px;
 	}
 }
@@ -576,21 +573,25 @@
 	}
 
 	.main_wholesale__popup {
+		width: 100%;
 		position: absolute;
-		left: 0;
+		left: 50%;
 		bottom: 0;
 		min-width: 180px;
-		transform: translateY(100%);
+		transform: translate(-50%, 100%);
 		z-index: 2;
 		background: #fff;
 		padding: 16px;
 		border-radius: 2px;
 		box-shadow: 0 6px 10px rgba(#000, 0.5);
 		visibility: hidden;
+		width: max-content;
 
 		display: flex;
 		flex-direction: column;
 		gap: 14px;
+
+		line-height: 1.4;
 
 		* {
 			font-size: 18px;
@@ -600,9 +601,24 @@
 			visibility: visible;
 		}
 
-		div {
-			display: flex;
-			gap: 5px;
+		@media screen and (max-width: 800px) {
+			gap: 6px;
+
+			* {
+				font-size: 16px;
+			}
+		}
+
+		@media screen and (max-width: 450px) {
+			width: 200px;
+			left: unset;
+			right: 0;
+			transform: translate(0, 100%);
+			gap: 6px;
+
+			* {
+				font-size: 14px;
+			}
 		}
 
 	}

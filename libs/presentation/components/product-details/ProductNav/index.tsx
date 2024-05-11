@@ -46,7 +46,7 @@ export default function ProductNav({ product, withoutFooter }: Props) {
             </div>
 
             <PrimaryButton className={`${styles.right__btn}`}>
-              {product.company.type === "legal" && <Icons.CartWhite />}
+              {<Icons.CartWhite />}
               <span>
                 {product.company.type === "individual"
                   ? t("actions.buy_now", { ns: "common" })

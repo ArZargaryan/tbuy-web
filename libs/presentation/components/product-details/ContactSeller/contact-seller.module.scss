@@ -19,6 +19,10 @@
 		align-items: center;
 		gap: 16px;
 
+		@media screen and (max-width: 500px) {
+			gap: 8px;
+		}
+
 		.seller_avatar {
 			width: 78px;
 			height: 78px;
@@ -44,9 +48,6 @@
 					font-size: 16px;
 				}
 
-				@media (max-width: 360px) {
-					width: 100px;
-				}
 			}
 
 			.seller_group {
@@ -54,6 +55,13 @@
 				align-items: center;
 				gap: 4px;
 				color: #6B718D;
+
+				span {
+					color: inherit;
+					@media screen and (max-width: 400px) {
+						display: none;
+					}
+				}
 			}
 
 			.seller_rating {

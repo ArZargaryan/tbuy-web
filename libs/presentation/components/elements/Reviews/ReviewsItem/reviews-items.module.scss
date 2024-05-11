@@ -62,6 +62,13 @@
       width: 18px;
       height: 18px;
     }
+
+		@media screen and (max-width: 1080px) {
+			svg {
+				width: 14px;
+				height: 14px;
+			}
+		}
   }
 
   &__content {
@@ -132,4 +139,12 @@
       }
     }
   }
+}
+
+.avatar {
+	@media screen and (max-width: 1080px) {
+		
+		width: 65px;
+		height: 65px;
+	}
 }

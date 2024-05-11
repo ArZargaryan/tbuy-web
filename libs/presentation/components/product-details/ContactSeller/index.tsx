@@ -35,10 +35,55 @@ function ContactSeller({ company, methods, link }: Props) {
         {/* SELLER INFO */}
         <div className={styles.seller_info}>
           <p className={styles.seller_name}>{company.name}</p>
+          <p className={styles.seller_group}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_337_55396)">
+                <path
+                  d="M6.87187 8.1525C6.79687 8.145 6.70687 8.145 6.62437 8.1525C4.83937 8.0925 3.42188 6.63 3.42188 4.83C3.42187 2.9925 4.90687 1.5 6.75187 1.5C8.58937 1.5 10.0819 2.9925 10.0819 4.83C10.0744 6.63 8.65687 8.0925 6.87187 8.1525Z"
+                  stroke="#6B718D"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.3084 3C13.7634 3 14.9334 4.1775 14.9334 5.625C14.9334 7.0425 13.8084 8.1975 12.4059 8.25C12.3459 8.2425 12.2784 8.2425 12.2109 8.25"
+                  stroke="#6B718D"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3.11906 10.92C1.30406 12.135 1.30406 14.115 3.11906 15.3225C5.18156 16.7025 8.56406 16.7025 10.6266 15.3225C12.4416 14.1075 12.4416 12.1275 10.6266 10.92C8.57156 9.5475 5.18906 9.5475 3.11906 10.92Z"
+                  stroke="#6B718D"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M13.7539 15C14.2939 14.8875 14.8039 14.67 15.2239 14.3475C16.3939 13.47 16.3939 12.0225 15.2239 11.145C14.8114 10.83 14.3089 10.62 13.7764 10.5"
+                  stroke="#6B718D"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_337_55396">
+                  <rect width="18" height="18" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            124 հետևորդ
+          </p>
 
           <div className={styles.seller_rating}>
-            <StarsRating value={company.rating} readOnly />
-            <p className={styles.rating_description}>By Users</p>
+            <StarsRating value={company.rating} readOnly color="var(--yellow)" />
           </div>
         </div>
       </div>
@@ -60,6 +105,7 @@ function ContactSeller({ company, methods, link }: Props) {
                 fill="$red-1"
               />
             </svg>
+            {/*<span>ԳՐԵԼ</span>*/}
           </button>
         )}
         {methods.call && (
@@ -79,6 +125,7 @@ function ContactSeller({ company, methods, link }: Props) {
                 fill="$red-1"
               />
             </svg>
+            {/*<span>ԶԱՆԳԵԼ</span>*/}
           </button>
         )}
       </div>

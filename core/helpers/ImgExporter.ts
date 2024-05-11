@@ -220,7 +220,7 @@ export class ImgExporter {
     Pharmacy: PharmacyMenu,
     Breakfest: BreakfestMenu,
     House: HouseMenu,
-		Burger: BurgerIcon,
+    Burger: BurgerIcon
   };
   static blob = {
     avatar: BlobAvatar,

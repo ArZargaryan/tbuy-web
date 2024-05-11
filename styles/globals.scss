@@ -9,7 +9,7 @@
   margin: 0;
   font-weight: 400;
   font-size: 16px;
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Roboto", sans-serif;
   color: $black;
 
   &::-webkit-scrollbar {
@@ -304,4 +304,9 @@ img {
 
 .red {
   color: $red-1;
+}
+
+:root {
+	--primary: #6E00E5;
+	--yellow: #F7C752;
 }

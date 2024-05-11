@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "@core/store";
 import { ImgExporter } from "@core/helpers/ImgExporter";
@@ -28,20 +28,263 @@ import _ from "lodash";
 import CardSlider from "@libs/presentation/components/cards/CardsSlider";
 import { useTranslation } from "next-i18next";
 import { Image } from "@libs/domain/model/image";
+import { ProductDetailButton } from "@libs/presentation/components/product-details/ProductDetailButton";
+import ProductDetailColor from "@libs/presentation/components/product-details/ProducDetailColor";
+import { useInView } from "react-hook-inview";
+import useScrollToBottom from "@core/hooks/useScrollToBottom";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
+
   const router = useRouter();
+
   const { locale } = router;
   const { id } = router.query;
-  const { Icons, Logos, Arrows } = ImgExporter;
+
+	//TODO: DELETE
+	const legalOrInd = id === "1" ? "individual" : "legal"
+
+  const { Icons, Logos } = ImgExporter;
+
   const { t } = useTranslation(["common", "catalog/productspage"]);
 
-  // const {
-  //   pageData: { product, suggestedProducts },
-  //   reviews,
-  //   loading
-  // } = useAppSelector((state) => state.shop_product_detail);
+  // ---------------------------------------------------------------
+
+  const [panelIsVisible, setPanelIsVisible] = useState(false);
+
+  const [reviews, setReviews] = useState({
+    totalItems: 20,
+    data: [
+      {
+        id: 1,
+        author: {
+          id: 1,
+          name: "John Doe",
+          image:
+            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
+        },
+        images: [
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?cs=srgb&dl=pexels-photomix-company-212372.jpg&fm=jpg"
+        ],
+        title: "Amazing product!",
+        text: "This product is amazing!",
+        rating: 5,
+        date: new Date().toISOString()
+      }
+    ]
+  });
+
+  const [suggestedProducts, setSuggestedProducts] = useState([
+    {
+      id: 1,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 2,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 3,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 4,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 5,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 6,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    },
+    {
+      id: 7,
+      title: "Suggested Product",
+      price: {
+        price: 120.99,
+        currency: "USD"
+      },
+      images: [{ original: "https://example.com/suggested-image.jpg" }],
+      rating: 4.0,
+      company: {
+        id: 1,
+        name: "ABC Company",
+        rating: 4.5,
+        type: "legal",
+        images: {
+          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
+          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+          smallLogo: "https://example.com/small-logo.jpg"
+        }
+      }
+    }
+  ]);
+
+  const [addCartCounter, setAddCartCounter] = useState(15);
+
+  // ---------------------------------------------------------------
+
+  const cardsRef = useRef<null | HTMLDivElement>(null);
+  const buyButtonRef = useRef<null | HTMLDivElement>(null);
+
+  // ---------------------------------------------------------------
+
+  const [isEndScroll] = useScrollToBottom();
+
+  const cardsEndScroll = useCallback(() => {
+    const element = cardsRef.current;
+
+    if (element === null) return false;
+
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      const newCards = [...suggestedProducts];
+
+      for (let i = 0; i < addCartCounter; i++) {
+        newCards.push({
+          id: Date.now(),
+          title: "Suggested Product",
+          price: {
+            price: 120.99,
+            currency: "USD"
+          },
+          images: [{ original: "https://example.com/suggested-image.jpg" }],
+          rating: 4.0,
+          company: {
+            id: 1,
+            name: "ABC Company",
+            rating: 4.5,
+            type: "legal",
+            images: {
+              background: {
+                url: "https://example.com/background-image.jpg",
+                alt: "Background Image"
+              },
+              largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+              smallLogo: "https://example.com/small-logo.jpg"
+            }
+          }
+        });
+      }
+
+      setSuggestedProducts(newCards);
+      setAddCartCounter((prev) => prev + 15);
+    }
+  }, [addCartCounter, suggestedProducts]);
+
+  const trackScrolling = useCallback(() => {
+    if (isBottom(buyButtonRef)) {
+      setPanelIsVisible(true);
+    } else {
+      setPanelIsVisible(false);
+    }
+  }, []);
+
+  // ---------------------------------------------------------------
 
   useEffect(() => {
     if (id && typeof +id === "number") {
@@ -50,16 +293,62 @@ function ProductDetailPage() {
     }
   }, [dispatch, id]);
 
+  useEffect(() => {
+    if (isEndScroll) {
+      const newData = { ...reviews };
+      newData.data?.push({
+        id: Date.now(),
+        author: {
+          id: Date.now(),
+          name: "John Doe",
+          image:
+            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
+        },
+        images: [
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?cs=srgb&dl=pexels-photomix-company-212372.jpg&fm=jpg"
+        ],
+        title: "Amazing product!",
+        text: "This product is amazing!",
+        rating: 5,
+        date: new Date().toISOString()
+      });
+      setReviews(newData);
+    }
+  }, [isEndScroll]);
+
+  useEffect(() => {
+    document.addEventListener("scroll", trackScrolling);
+
+    return function () {
+      document.removeEventListener("scroll", trackScrolling);
+    };
+  }, [trackScrolling]);
+
+  const isBottom = (el: any) => {
+    return el.current.getBoundingClientRect().bottom <= 83;
+  };
+
+  useEffect(() => {
+    cardsRef.current?.addEventListener("scroll", cardsEndScroll);
+
+    return function () {
+      cardsRef.current?.removeEventListener("scroll", cardsEndScroll);
+    };
+  }, [cardsEndScroll]);
+
+  // ---------------------------------------------------------------
+
   const changeReviewPage = (page: number) => {
     if (id && typeof +id === "number") {
       dispatch(getProductReviews({ id: +id, lang: locale as Lang, offset: (page - 1) * 5 }));
     }
   };
 
-  const { gifts, similar_products } = useAppSelector((state) => state.cart_gift_cards);
+  const { similar_products } = useAppSelector((state) => state.cart_gift_cards);
 
   const product = {
-    title: "Dummy Product",
+    title: "Սպորտային ջրակայուն, ամուր կարմիր ռեզիններով պատված բոթաս",
     linkUrl: "https://example.com/product-details",
     category: {
       label: "Electronics"
@@ -134,7 +423,7 @@ function ProductDetailPage() {
         smallLogo:
           "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg?ts=1672291305"
       },
-      type: "legal",
+      type: legalOrInd,
       rating: 4,
       phones: ["123-456-7890"]
     },
@@ -182,222 +471,32 @@ function ProductDetailPage() {
         value: "Անլար ականջակալ"
       },
       {
-        id: 2,
+        id: 3,
         label: "Bluetooth Version",
         value: "5.0"
       },
       {
-        id: 2,
+        id: 4,
         label: "Առկա է",
         value: "A2DP/AVRCP/Hands free/Headset"
       },
       {
-        id: 2,
+        id: 5,
         label: "Աշխատանքի ժամանակը",
         value: "18 ժամ"
       }
     ]
   };
 
-  const suggestedProducts = [
-    {
-      id: 1,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    },
-    {
-      id: 2,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    },
-    {
-      id: 3,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    },
-    {
-      id: 3,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    },
-    {
-      id: 3,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    },
-    {
-      id: 3,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    },
-    {
-      id: 3,
-      title: "Suggested Product",
-      price: {
-        price: 120.99,
-        currency: "USD"
-      },
-      images: [{ original: "https://example.com/suggested-image.jpg" }],
-      rating: 4.0,
-      company: {
-        id: 1,
-        name: "ABC Company",
-        rating: 4.5,
-        type: "legal",
-        images: {
-          background: { url: "https://example.com/background-image.jpg", alt: "Background Image" },
-          largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-          smallLogo: "https://example.com/small-logo.jpg"
-        }
-      }
-    }
-  ];
-
-  const reviews = {
-    totalItems: 20,
-    data: [
-      {
-        id: 1,
-        author: {
-          id: 1,
-          name: "John Doe",
-          image:
-            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
-        },
-        images: [
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?cs=srgb&dl=pexels-photomix-company-212372.jpg&fm=jpg"
-        ],
-        title: "Amazing product!",
-        text: "This product is amazing!",
-        rating: 5,
-        date: new Date().toISOString()
-      }
-    ]
-  };
+	console.log(product)
 
   const ratingComponent = useMemo(
     () => (
       <div className={styles.product__rating_container}>
-        <StarsRating value={product?.rating} readOnly />
+        <StarsRating value={product?.rating} readOnly color="var(--yellow)" />
       </div>
     ),
     []
-  );
-
-  const availabilityComponent = useMemo(
-    () => (
-      <div className={styles.availability_wrapper}>
-        {map(product.availability, (item) => (
-          <div className={styles.availability_item}>
-            <p className={styles.availability_text}>
-              <strong>{t("availability", { ns: "catalog/productspage" })}։ </strong>{" "}
-              {item.availability}
-            </p>
-            <p className={styles.availability_text}>
-              <strong>{t("for_sale", { ns: "catalog/productspage" })}։ </strong> {item.location}
-            </p>
-          </div>
-        ))}
-      </div>
-    ),
-    [t]
   );
 
   // if (loading) {
@@ -413,7 +512,9 @@ function ProductDetailPage() {
         url={product?.linkUrl}
       />
 
-      <ProductNav product={product as never} />
+      <div className={panelIsVisible ? styles.nav : styles.navHidden}>
+        <ProductNav product={product as never} />
+      </div>
       <div className={styles.wrapper}>
         <BreadCrumbs
           items={[
@@ -446,61 +547,124 @@ function ProductDetailPage() {
                   {ratingComponent}
                 </div>
                 {/* RATING */}
-                {ratingComponent}
+                <div className={styles.raiting}>
+                  {ratingComponent}
+                  <div className={styles.raiting__achievement}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                    >
+                      <path
+                        d="M25.3346 12.0013C25.3346 13.9346 24.7613 15.708 23.7746 17.188C22.3346 19.3213 20.0546 20.828 17.4013 21.2146C16.948 21.2946 16.4813 21.3346 16.0013 21.3346C15.5213 21.3346 15.0546 21.2946 14.6013 21.2146C11.948 20.828 9.66797 19.3213 8.22797 17.188C7.2413 15.708 6.66797 13.9346 6.66797 12.0013C6.66797 6.8413 10.8413 2.66797 16.0013 2.66797C21.1613 2.66797 25.3346 6.8413 25.3346 12.0013Z"
+                        stroke="#6B718D"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M28.3347 24.6259L26.1347 25.1459C25.6414 25.2659 25.2547 25.6392 25.1481 26.1326L24.6814 28.0926C24.4281 29.1592 23.0681 29.4792 22.3614 28.6392L16.0014 21.3326L9.64141 28.6525C8.93474 29.4925 7.57474 29.1725 7.32141 28.1059L6.85474 26.1459C6.73474 25.6525 6.34807 25.2659 5.86807 25.1592L3.66807 24.6392C2.65474 24.3992 2.29474 23.1325 3.02807 22.3992L8.22807 17.1992C9.66807 19.3326 11.9481 20.8392 14.6014 21.2259C15.0547 21.3059 15.5214 21.3459 16.0014 21.3459C16.4814 21.3459 16.9481 21.3059 17.4014 21.2259C20.0547 20.8392 22.3347 19.3326 23.7747 17.1992L28.9747 22.3992C29.7081 23.1192 29.3481 24.3859 28.3347 24.6259Z"
+                        stroke="#6B718D"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16.7746 7.97203L17.5613 9.54535C17.6679 9.75869 17.9479 9.97203 18.2013 10.012L19.6279 10.252C20.5346 10.3987 20.7479 11.0654 20.0946 11.7187L18.9879 12.8253C18.8013 13.012 18.6946 13.372 18.7613 13.6387L19.0813 15.012C19.3346 16.092 18.7613 16.5187 17.8013 15.9453L16.4679 15.1587C16.2279 15.012 15.8279 15.012 15.5879 15.1587L14.2546 15.9453C13.2946 16.5053 12.7213 16.092 12.9746 15.012L13.2946 13.6387C13.3479 13.3854 13.2546 13.012 13.0679 12.8253L11.9613 11.7187C11.3079 11.0654 11.5213 10.412 12.4279 10.252L13.8546 10.012C14.0946 9.97203 14.3746 9.75869 14.4813 9.54535L15.2679 7.97203C15.6546 7.1187 16.3479 7.1187 16.7746 7.97203Z"
+                        stroke="#6B718D"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    4 հավաստագիր
+                  </div>
+                </div>
+
                 {/* PRICES WITH CURRENCIES POPUP */}
                 <div className={styles.product__price_wrapper}>
                   <div className={styles.product__price_row}>
                     <div className={styles.product__price}>
-                      <div className={styles.main_price}>
-                        <span className={`${styles.price__text} ${styles.discounted__price}`}>
-                          {120.2} {product?.price?.currency}
-                        </span>
-                        <Arrows.Down />
+                      <div className={styles.main_prices}>
+                        <div className={styles.main_price}>
+                          <span className={`${styles.price__text} ${styles.discounted__price}`}>
+                            {120.2} {product?.price?.currency}
+                          </span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                          >
+                            <path
+                              d="M10.6654 13.3346L15.9987 18.668L21.332 13.3346"
+                              stroke="#1D1D1D"
+                              stroke-width="1.6"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+
+                          <div className={styles.prices__popup}>
+                            {map(product.exchanges, (exchange) => (
+                              <p>
+                                {(product?.price?.price / exchange.rate).toFixed(2)}{" "}
+                                {exchange.currency}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className={styles.main_wholesale}>
+                          Մեծածախ գին
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            fill="none"
+                          >
+                            <g clip-path="url(#clip0_459_27742)">
+                              <path
+                                d="M6 7.5L9 10.5L12 7.5"
+                                stroke="#1D1D1D"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_459_27742">
+                                <rect width="18" height="18" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                          <div className={styles.main_wholesale__popup}>
+                            <div className={styles.main_wholesale__bold}>
+                              Доступность: <span>Ներմուծվում է / 15 օր</span>
+                            </div>
+                            <div className={styles.main_wholesale__bold}>
+                              Продается: <span>Վանաձոր</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       {_.isNumber(1 /* Discount check */) && (
                         <span className={styles.discount_price}>
                           {product?.price?.price} {product?.price?.currency}
                         </span>
                       )}
-
-                      <div className={styles.prices__popup}>
-                        {map(product.exchanges, (exchange) => (
-                          <p>
-                            {(product?.price?.price / exchange.rate).toFixed(2)} {exchange.currency}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className={styles.product__price_row_social_medias}>
-                      <a href={"/"} className={styles.social_media_item}>
-                        <Logos.facebook />
-                      </a>
-                      <a href={"/"} className={styles.social_media_item}>
-                        <Logos.twitter />
-                      </a>
                     </div>
                   </div>
+                </div>
 
-                  <p className={`${styles.installment_price}`}>36 ամիս / 4.647AMD</p>
+                <div ref={buyButtonRef}>
+                  <ProductDetailButton companyType={product?.company?.type} />
                 </div>
                 {/* WHOLESALES DETAILS */}
-                <div className={styles.wholesale_section_tablet_wrapper}>
-                  <div className={styles.wholesale_info_wrapper}>
-                    {map(product.wholesales, (whosale) => (
-                      <div className={styles.wholesale_info}>
-                        <p className={styles.wholesale_label}>
-                          Գինը ըստ քանակի։ <strong> {whosale.price} AMD</strong>
-                        </p>
-                        <p className={styles.wholesale_label}>
-                          Գործում է սկսած ({whosale.fromAmountText})։
-                          <strong> {whosale.fromAmount}</strong>
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  {availabilityComponent}
-                </div>
                 {/* SELLER */}
                 <div className={styles.contact_seller_wrapper}>
                   <ContactSeller
@@ -510,8 +674,17 @@ function ProductDetailPage() {
                   />
                 </div>
                 {/* AVAILABILITY */}
-                {availabilityComponent}
-                {/* PRODUCT DETAIL FORMS */}
+                <ProductDetailColor
+                  data={product.parameters as any}
+                  companyType={product?.company?.type}
+                />
+                {/* PRODUCT PARAMETERS */}
+                <div className={styles.product_parameters_wrapper}>
+                  <ProductCharacteristicBlock
+                    title={t("main_parameters", { ns: "catalog/productspage" })}
+                    characteristics={product.details}
+                  />
+                </div>
                 <ProductDetailForm
                   companyType={product?.company?.type}
                   data={product.parameters as any}
@@ -529,35 +702,22 @@ function ProductDetailPage() {
                     </a>
                   </div>
                 </div>
-                {/* PRODUCT PARAMETERS */}
-                <div className={styles.product_parameters_wrapper}>
-                  <ProductCharacteristicBlock
-                    title={t("main_parameters", { ns: "catalog/productspage" })}
-                    characteristics={product.details}
-                  />
-                </div>
               </div>
-              {/* <div className={styles.mobile_similar_cards}>
-                <VerticalCardвф
-                  title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
-                  cards={similar_products as any}
-                  extraType={"short_550"}
-                />
-              </div> */}
             </div>
+            {/* Comments */}
             <div className={styles.content_padding_wrapper}>
-              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
               <div className={styles.product__parameters_wrapper}>
                 <CardSlider
                   title={t<string>("labels.you_will_also_be_interested", { ns: "common" })}
                   cards={similar_products}
                 />
               </div>
+              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
             </div>
           </div>
           {/* SIMILAR ITEMS SLIDER */}
-          <div className={styles.layout__similar}>
-            {suggestedProducts?.map((product, i) => (
+          <div className={styles.layout__similar} ref={cardsRef}>
+            {suggestedProducts.map((product, i) => (
               <ProductCardMini key={`${product.id}_${i}`} product={product as any} />
             ))}
           </div>

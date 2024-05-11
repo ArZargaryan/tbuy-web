@@ -1,34 +1,26 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import styles from "./product-detail-form.module.scss";
-import { ImgExporter } from "@core/helpers/ImgExporter";
 import { ParameterEntity, ParameterValueEntity } from "@features/shop/domain/model/DetailedProduct";
 import { useTranslation } from "next-i18next";
+import { ImgExporter } from "@core/helpers/ImgExporter";
 
 interface Props {
   companyType: string;
   data: ParameterEntity[];
 }
 
+const { Icons } = ImgExporter;
+
 function ProductDetailForm({ companyType, data }: Props) {
   const { t } = useTranslation(["catalog/productspage"]);
-  const [count, setCount] = useState(1);
-  const [colors, setColors] = useState<ParameterEntity | null>(null);
   const [sizes, setSizes] = useState<ParameterEntity | null>(null);
-  const [selectedColor, setSelectedColor] = useState<ParameterValueEntity | null>(null);
   const [selectedSize, setSelectedSize] = useState<ParameterValueEntity | null>(null);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
-    const colors = data?.filter((item) => item.type === "color");
     const sizes = data?.filter((item) => item.type === "size");
 
-    if (!_.isEmpty(colors)) {
-      setColors(colors[0]);
-
-      if (colors[0].values.length > 0) {
-        setSelectedColor(colors[0].values[0]);
-      }
-    }
     if (!_.isEmpty(sizes)) {
       setSizes(sizes[0]);
     }
@@ -39,50 +31,9 @@ function ProductDetailForm({ companyType, data }: Props) {
     return count > 0 && setCount((prev) => --prev);
   };
 
-  const { Icons } = ImgExporter;
-
   return (
-    <div>
-      {!!colors && !_.isEmpty(colors.values) && (
-        <div className={styles.form_block}>
-          <p className={styles.label}>Ապրանքի գույն</p>
-
-          <div className={styles.choose_color}>
-            {_.map(colors.values, (color, i) => (
-              <div className={styles.color__block}>
-                <label key={`${color.value}_${i}`}>
-                  <input
-                    type="radio"
-                    name={"color"}
-                    onChange={(event) => {
-                      if (event.target.checked) {
-                        setSelectedColor(color);
-                      }
-                    }}
-                  />
-                  <div
-                    className={` ${styles.color_item_wrapper} ${
-                      (selectedColor?.value == color.value && styles.active) || ""
-                    }`}
-                  >
-                    <div
-                      key={`${color}_${i}`}
-                      className={styles.color_item}
-                      style={{
-                        background: color.value.match(/^[0-9, ]+$/)
-                          ? `rgb(${color.value})`
-                          : color.value
-                      }}
-                    ></div>
-                  </div>
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {!!sizes && !_.isEmpty(sizes.values) && (
+    <div className={styles.wrapper}>
+      {companyType === "legal" && !!sizes && !_.isEmpty(sizes.values) && (
         <div className={styles.form_block}>
           <p className={styles.label}>Չափ</p>
 
@@ -183,16 +134,6 @@ function ProductDetailForm({ companyType, data }: Props) {
             <Icons.Plus />
           </button>
         </div>
-
-        {companyType === "individual" ? (
-          <button className={`${styles.submit_button} blue_btn`}>
-            {t("actions.buy_now", { ns: "common" })}
-          </button>
-        ) : (
-          <button className={`${styles.submit_button} blue_btn`}>
-            {t("actions.add_to_cart", { ns: "common" })}
-          </button>
-        )}
       </div>
     </div>
   );

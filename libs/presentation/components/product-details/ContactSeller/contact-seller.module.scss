@@ -1,129 +1,153 @@
 @import "@styles/vars.scss";
 
 .seller {
-  padding: 16px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: $grey;
-  max-width: 550px;
-  cursor: pointer;
+	padding: 0 24px;
+	height: 126px;
 
-  &__details {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-    .seller_avatar {
-      width: 55px;
-      height: 55px;
-      border-radius: 100%;
-      overflow: hidden;
-      background: $grey-1;
-    }
+	background: white;
+	border: 1px solid $grey-3;
+	max-width: 550px;
+	cursor: pointer;
 
-    .seller_info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      grid-gap: 8px;
+	&__details {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 16px;
 
-      .seller_name {
-        font-size: 18px;
-        font-weight: bold;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+		.seller_avatar {
+			width: 78px;
+			height: 78px;
+			border-radius: 100%;
+			overflow: hidden;
+			border: 1px solid $grey-3;
+		}
 
-        @media (max-width: 1080px) {
-          font-size: 16px;
-        }
+		.seller_info {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			grid-gap: 8px;
 
-        @media (max-width: 360px) {
-          width: 100px;
-        }
-      }
+			.seller_name {
+				font-size: 18px;
+				font-weight: bold;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
 
-      .seller_rating {
-        display: flex;
-        gap: 10px;
+				@media (max-width: 1080px) {
+					font-size: 16px;
+				}
 
-        svg {
-          width: 14px;
-          height: 14px;
-        }
+				@media (max-width: 360px) {
+					width: 100px;
+				}
+			}
 
-        .rating_description {
-          font-size: 14px;
-          color: $grey-2;
+			.seller_group {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+				color: #6B718D;
+			}
 
-          @media (max-width: 400px) {
-            display: none;
-          }
-        }
-      }
+			.seller_rating {
+				display: flex;
+				gap: 10px;
 
-      @media (max-width: 650px) {
-        grid-gap: 10px;
-      }
-    }
-  }
+				svg {
+					width: 14px;
+					height: 14px;
+				}
 
-  &__contact_actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+				.rating_description {
+					font-size: 14px;
+					color: $grey-2;
 
-    button {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid $blue;
-      transition: all 0.2s linear;
+					@media (max-width: 400px) {
+						display: none;
+					}
+				}
+			}
 
-      path {
-        transition: all 0.2s linear;
-        fill: $blue;
-      }
+			@media (max-width: 650px) {
+				grid-gap: 10px;
+			}
+		}
+	}
 
-      &:hover {
-        background: $blue;
+	&__contact_actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
 
-        path {
-          fill: #fff;
-        }
-      }
+		button {
+			height: 50px;
+			width: 50px;
+			padding: 0 16px;
+			display: flex;
 
-      @media (max-width: 400px) {
-        width: 36px;
-        height: 36px;
+			justify-content: center;
+			align-items: center;
+			border: 1px solid $blue;
+			transition: all 0.2s linear;
+			gap: 8px;
 
-        path,
-        svg {
-          width: 18px;
-          height: 18px;
-        }
-      }
-    }
+			svg {
+				flex: 0 0 auto;
+			}
 
-    @media (max-width: 650px) {
-      gap: 18px;
-    }
+			span {
+				font-weight: 700;
+				font-size: 14px;
+				color: $primary;
+			}
 
-    @media (max-width: 400px) {
-      gap: 14px;
-    }
-  }
+			path {
+				transition: all 0.2s linear;
+				fill: $blue;
+			}
 
-  @media (max-width: 1080px) {
-    padding: 12px 16px;
-  }
+			&:hover {
+				background: $blue;
 
-  @media (max-width: 600px) {
-    padding: 10px;
-  }
+				path {
+					fill: #fff;
+				}
+			}
+
+			@media (max-width: 400px) {
+				width: 36px;
+				height: 36px;
+
+				path,
+				svg {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+
+		@media (max-width: 650px) {
+			gap: 18px;
+		}
+
+		@media (max-width: 400px) {
+			gap: 14px;
+		}
+	}
+
+	@media (max-width: 1080px) {
+		padding: 12px 16px;
+	}
+
+	@media (max-width: 600px) {
+		padding: 10px;
+	}
 }

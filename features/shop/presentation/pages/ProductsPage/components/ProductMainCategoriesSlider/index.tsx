@@ -76,7 +76,7 @@ function ProductMainCategoriesSlider() {
                 activeSelect={assortmentActive}
                 onClick={() => setAssortmentActive((prev) => !prev)}
               >
-                <h1 style={{ fontSize: 24, color: "rgb(102, 34, 224)" }}> {t("filters.sections.title")}</h1>
+                <h1 style={{ fontSize: 24, color: "#6E00E5" }}> {t("filters.sections.title")}</h1>
               </SelectCustom>
             </SwiperSlide>
 

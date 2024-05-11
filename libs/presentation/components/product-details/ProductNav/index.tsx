@@ -7,6 +7,7 @@ import { IDetailedProduct } from "@features/shop/domain/model/DetailedProduct";
 import { IDetailedGiftCard } from "@features/gifts/domain/model/DetailedGiftCard";
 import PrimaryButton from "@core/button/primary";
 import { useTranslation } from "next-i18next";
+import { useInView } from "react-hook-inview";
 
 interface Props {
   product: IDetailedProduct | IDetailedGiftCard;
@@ -15,42 +16,13 @@ interface Props {
 
 export default function ProductNav({ product, withoutFooter }: Props) {
   const { t } = useTranslation(["common"]);
-  const [scroll, setScroll] = React.useState(0);
-  const [prevScrollY, setPrevScrollY] = React.useState(0);
-  const [scrolledDown, setScrolledDown] = React.useState(false);
-
-  const handleScroll = () => {
-    setScroll(window.scrollY);
-  };
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const { Icons } = ImgExporter;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isScrolledDown = currentScrollY > prevScrollY;
-
-      setPrevScrollY(currentScrollY);
-      setScrolledDown(isScrolledDown);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollY]);
-
   const navClassName = [
     styles.product_bar,
-    scroll !== 0 && styles.z,
-    !withoutFooter ? styles.navWithFooter : "",
-    !withoutFooter && !scrolledDown ? styles.navHidden : ""
+    styles.z,
+    !withoutFooter ? styles.navWithFooter : ""
   ].join(" ");
 
   return (

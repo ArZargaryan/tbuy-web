@@ -16,17 +16,18 @@ function ReviewsItem(props: Props) {
       <div className={styles.reviews_item__header}>
         <div className={styles.header__account}>
           <Avatar
-            alt={`${review.author.name} avatar`}
-            src={review.author.image}
-            sx={{ width: 50, height: 50 }}
+            alt={`${review?.author?.name} avatar`}
+            src={review?.author?.image}
+            sx={{ width: 78, height: 78 }}
           />
-          <p className={styles.account__name}>{review.author.name}</p>
+          <div className={styles.rating_wrapper}>
+            <p className={styles.account__name}>{review?.author?.name}</p>
+            <StarsRating value={review.rating} readOnly color="var(--yellow)" />
+          </div>
         </div>
         <span className={styles.header__date}>{review.createdAt}</span>
       </div>
-      <div className={styles.rating_wrapper}>
-        <StarsRating value={review.rating} readOnly />
-      </div>
+
       <div className={styles.reviews_item__content}>
         <h4 className={styles.content__title}>{review.title}</h4>
 

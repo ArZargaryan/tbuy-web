@@ -1,0 +1,42 @@
+.swiper {
+	margin: 0;
+
+	:global {
+		.swiper-button-disabled {
+			display: none;
+		}
+	}
+}
+
+.next_button,
+.prev_button {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	transform: translateY(-50%);
+
+	display: flex;
+	width: 24px;
+	height: 24px;
+	background: white;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: scale(1, 2);
+		z-index: -1;
+		background: white;
+	}
+}
+
+.next_button {
+	left: 0;
+}
+
+.prev_button {
+	right: 0;
+}

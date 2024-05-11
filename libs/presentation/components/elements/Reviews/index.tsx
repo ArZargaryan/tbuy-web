@@ -5,6 +5,7 @@ import { Review } from "@libs/domain/model/review";
 import ReviewsItem from "./ReviewsItem";
 import TbuyPagination from "@libs/presentation/components/elements/TbuyPagination";
 import { useTranslation } from "next-i18next";
+import { useInView } from "react-hook-inview";
 
 interface Props {
   id: string;
@@ -50,16 +51,8 @@ function Reviews({ id, reviews, onPageChange }: Props) {
       <div className={listCls}>
         {!!reviews.data.length &&
           reviews.data?.map((review, i) => (
-            <ReviewsItem key={`${review.author.id}_${i}`} review={review} />
+            <ReviewsItem key={`${review?.author?.id}_${i}`} review={review} />
           ))}
-        <br />
-        {reviews.totalItems > 5 && (
-          <TbuyPagination
-            page={reviewsPage}
-            count={Math.round(reviews.totalItems / 5)}
-            onChange={(e, value) => changePage(value)}
-          />
-        )}
         <br />
       </div>
 

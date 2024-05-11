@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import { Roboto } from "next/font/google";
 import "@styles/globals.scss";
+import "@styles/vars.scss";
 import { wrapper } from "@core/store";
 import { appWithTranslation } from "next-i18next";
 //

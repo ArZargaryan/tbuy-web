@@ -550,6 +550,10 @@
 			height: 25px;
 		}
 	}
+
+	@media screen and (max-width: 480px) {
+		justify-content: space-between;
+	}
 }
 
 .main_prices {

@@ -19,7 +19,7 @@ function ReviewsItem(props: Props) {
             alt={`${review?.author?.name} avatar`}
             src={review?.author?.image}
             sx={{ width: 78, height: 78 }}
-						className={styles.avatar}
+            className={styles.avatar}
           />
           <div className={styles.rating_wrapper}>
             <p className={styles.account__name}>{review?.author?.name}</p>

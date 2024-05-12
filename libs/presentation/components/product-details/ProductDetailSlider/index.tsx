@@ -37,7 +37,7 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
         <Swiper
           modules={[Navigation, Pagination]}
           navigation={{ prevEl: prevBtn.current, nextEl: nextBtn.current }}
-          pagination={{ el: paginationRef.current, clickable: true }}
+          pagination={{ el: paginationRef.current }}
           slidesPerView={1}
           className={styles.big_slider}
           onSwiper={setBigSliderControl}

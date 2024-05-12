@@ -104,7 +104,7 @@
 
 				.raiting {
 					.product__rating_container {
-						display: none;
+						
 
 						@media screen and (max-width: 800px) {
 							display: flex;
@@ -117,19 +117,19 @@
 				.product__info_title {
 					font-size: 24px;
 					font-weight: bold;
-					margin-bottom: 15px;
+					margin-bottom: 12px;
 					line-height: 1.5;
 				}
 
-				.price_section_tablet_wrapper {
-					.product__rating_container {
-						display: block;
+				//.price_section_tablet_wrapper {
+				//	.product__rating_container {
+				//		display: none;
 
-						@media screen and (max-width: 800px) {
-							display: none;
-						}
-					}
-				}
+				//		@media screen and (max-width: 800px) {
+				//			display: none;
+				//		}
+				//	}
+				//}
 
 				.product__rating_container {
 					display: flex;
@@ -149,6 +149,11 @@
 						flex-direction: column-reverse;
 						align-items: left;
 						margin-top: 23px;
+
+						@media screen and (max-width: 460px) {
+							width: 100%;
+							justify-content: space-between;
+						}
 
 						.main_price {
 							display: flex;
@@ -518,7 +523,6 @@
 .raiting {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	gap: 32px;
 
 	&__achievement {
@@ -561,6 +565,13 @@
 
 	@media screen and (max-width: 550px) {
 		gap: 15px;
+	}
+
+	@media screen and (max-width: 460px) {
+		width: 100%;
+		max-width: 100%;
+		flex: 1 1 100%;
+		justify-content: space-between;
 	}
 }
 
@@ -613,7 +624,7 @@
 			}
 		}
 
-		@media screen and (max-width: 450px) {
+		@media screen and (max-width: 460px) {
 			width: 200px;
 			left: unset;
 			right: 0;

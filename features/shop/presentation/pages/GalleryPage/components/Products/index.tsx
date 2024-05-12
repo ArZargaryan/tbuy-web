@@ -6,8 +6,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ProductSlider } from "./ProductSlider";
 import Tooltip from "@libs/presentation/components/elements/Tooltip";
-import ProductCard from "@libs/presentation/components/cards/ProductCard";
-import ProductCardMini from "@libs/presentation/components/cards/ProductCardMini";
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import { useAppSelector } from "@core/store";
 import Checkbox from "@core/checkbox";

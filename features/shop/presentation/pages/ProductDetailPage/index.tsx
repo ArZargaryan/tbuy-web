@@ -41,8 +41,8 @@ function ProductDetailPage() {
   const { locale } = router;
   const { id } = router.query;
 
-	//TODO: DELETE
-	const legalOrInd = id === "1" ? "individual" : "legal"
+  //TODO: DELETE
+  const legalOrInd = id === "1" ? "individual" : "legal";
 
   const { Icons, Logos } = ImgExporter;
 
@@ -390,7 +390,7 @@ function ProductDetailPage() {
           smallLogo: "https://example.com/small-logo.jpg"
         }
       }
-    },
+    }
   ]);
 
   const [addCartCounter] = useState(30);
@@ -482,7 +482,7 @@ function ProductDetailPage() {
       });
       setReviews(newData);
     }
-  }, [isEndScroll]);
+  }, [isEndScroll, reviews]);
 
   useEffect(() => {
     document.addEventListener("scroll", trackScrolling);
@@ -655,8 +655,6 @@ function ProductDetailPage() {
     ]
   };
 
-	console.log(product)
-
   const ratingComponent = useMemo(
     () => (
       <div className={styles.product__rating_container}>
@@ -711,10 +709,10 @@ function ProductDetailPage() {
                 {/* TITLE */}
                 <div className={styles.price_section_tablet_wrapper}>
                   <h2 className={styles.product__info_title}>{product.title}</h2>
-                  {ratingComponent}
                 </div>
                 {/* RATING */}
                 <div className={styles.raiting}>
+                  {ratingComponent}
                   <div className={styles.raiting__achievement}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -747,7 +745,6 @@ function ProductDetailPage() {
                     </svg>
                     4 հավաստագիր
                   </div>
-                  {ratingComponent}
                 </div>
 
                 {/* PRICES WITH CURRENCIES POPUP */}

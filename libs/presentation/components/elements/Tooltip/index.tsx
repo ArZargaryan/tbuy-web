@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useRef } from "react";
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import Fade from "@mui/material/Fade";
@@ -6,6 +6,7 @@ import { PopperProps } from "@mui/material/Popper/Popper";
 import classNames from "classnames";
 
 import styles from "./tooltip.module.scss";
+import useOutsideClick from "@core/hooks/useOutsideClick";
 
 type Props = Partial<PopperProps> & {
   label?: React.ReactNode;
@@ -14,6 +15,14 @@ type Props = Partial<PopperProps> & {
 function Tooltip(props: Props) {
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const tooltipRef = useRef<null | HTMLDivElement>(null);
+
+  const handleClick = () => {
+    setOpen(false);
+  };
+
+  useOutsideClick(tooltipRef, handleClick);
 
   const canBeOpen = open && Boolean(anchorEl);
   const id = canBeOpen ? "transition-popper" : undefined;
@@ -25,7 +34,7 @@ function Tooltip(props: Props) {
   };
 
   return (
-    <div>
+    <div ref={tooltipRef}>
       <button aria-describedby={id} type="button" onClick={showSelect} className={styles.label}>
         {props.label}
       </button>
@@ -36,7 +45,8 @@ function Tooltip(props: Props) {
         anchorEl={anchorEl}
         transition
         className={cls}
-        placement={"bottom-start"}
+        placement="bottom-start"
+        onClick={(e) => e.stopPropagation()}
         {...props}
       >
         {({ TransitionProps }) => (

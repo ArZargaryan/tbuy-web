@@ -1,49 +1,52 @@
 @import "@/styles/vars.scss";
 
 .reviews {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding-top: 100px;
+	padding-top: 100px;
+	padding-left: 42px;
 
-  &__title {
-    font-size: 24px;
-    font-weight: 600;
+	&__title {
+		font-size: 24px;
+		font-weight: 600;
 
-    sup {
-      background: #e8e8e8;
-      padding: 4px 6px;
-      border-radius: 50%;
-      font-weight: bold;
-      font-size: 14px;
-      margin-left: 4px;
-    }
-  }
+		sup {
+			background: #e8e8e8;
+			padding: 4px 6px;
+			border-radius: 50%;
+			font-weight: bold;
+			font-size: 14px;
+			margin-left: 4px;
+		}
+	}
 
-  &__list {
-    &_close {
-      display: none;
-    }
-  }
+	&__list {
+		&_close {
+			display: none;
+		}
+	}
 
-  &__btn {
-    margin-top: 10px;
-  }
+	&__btn {
+		margin-top: 10px;
+	}
 
-  @media screen and (max-width: 1080px) {
-    padding-top: 30px;
+	@media screen and (max-width: 1500px) {
+		padding-left: 0;
+	}
 
-    &__title {
-      font-size: 20px;
-    }
-  }
+	@media screen and (max-width: 1080px) {
+		padding-top: 30px;
 
-  @media screen and (max-width: 650px) {
-    &__title {
-      font-size: 18px;
+		&__title {
+			font-size: 20px;
+		}
+	}
 
-      sup {
-        font-size: 12px;
-      }
-    }
-  }
+	@media screen and (max-width: 650px) {
+		&__title {
+			font-size: 18px;
+
+			sup {
+				font-size: 12px;
+			}
+		}
+	}
 }

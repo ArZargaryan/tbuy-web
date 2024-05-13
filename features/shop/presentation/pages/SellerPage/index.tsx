@@ -14,11 +14,17 @@ function AboutSellerPage(props: Props) {
   // const { info } = useAppSelector((state) => state.shop_about_seller);
 
   return (
-    <DefaultLayout>
-      <div className={`${styles.about_seller} container`}>
-        {sellerType === "individual" ? <IndividualSellerPage /> : <LegalSellerPage />}
-      </div>
-    </DefaultLayout>
+    <>
+      {sellerType === "individual" && (
+        <DefaultLayout>
+          <div className={`${styles.about_seller} container`}>
+            <IndividualSellerPage />
+          </div>
+        </DefaultLayout>
+      )}
+
+      {sellerType === "legal" && <LegalSellerPage />}
+    </>
   );
 }
 

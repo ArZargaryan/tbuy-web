@@ -2,7 +2,7 @@ import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { globalTranslations } from "@core/helpers/translations";
 import Head from "next/head";
-import GalleryPage from "@features/shop/presentation/pages/GalleryPage";
+import SellerPage from "@features/shop/presentation/pages/SellerPage";
 
 export default function BecomePartner() {
   return (
@@ -10,7 +10,7 @@ export default function BecomePartner() {
       <Head>
         <title>Tbuy | Legal Seller</title>
       </Head>
-      <GalleryPage />
+      <SellerPage sellerType="legal" />
     </>
   );
 }

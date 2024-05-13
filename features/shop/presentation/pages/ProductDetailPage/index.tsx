@@ -30,7 +30,6 @@ import { useTranslation } from "next-i18next";
 import { Image } from "@libs/domain/model/image";
 import { ProductDetailButton } from "@libs/presentation/components/product-details/ProductDetailButton";
 import ProductDetailColor from "@libs/presentation/components/product-details/ProducDetailColor";
-import { useInView } from "react-hook-inview";
 import useScrollToBottom from "@core/hooks/useScrollToBottom";
 
 function ProductDetailPage() {
@@ -688,7 +687,7 @@ function ProductDetailPage() {
           ]}
         />
 
-        <div className={`${styles.layout}`}>
+        <div className={styles.layout}>
           <div className={styles.layout__content}>
             <div className={styles.product}>
               <div className={styles.product__slider}>

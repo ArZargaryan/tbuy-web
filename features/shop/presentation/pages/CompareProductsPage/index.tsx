@@ -47,7 +47,7 @@ function CompareProductsPage() {
               </div>
               <div className={styles.compare__items}>
                 <Swiper
-                  slidesPerView={"auto"}
+                  slidesPerView="auto"
                   onSlideChange={() => console.log("slide change")}
                   onSwiper={(swiper) => console.log(swiper)}
                 >

@@ -1,21 +1,18 @@
 import { Swiper } from "swiper/react";
-import { FreeMode, Navigation, Scrollbar } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import cl from "./procut-slider.module.scss";
+import cl from "./product-slider.module.scss";
 import { useRef } from "react";
 
-export const ProductSlider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ProductSlider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const prevButton = useRef(null);
   const nextButton = useRef(null);
 
   return (
     <Swiper
       className={cl.swiper}
-      modules={[Navigation, FreeMode, Scrollbar]}
-      scrollbar={{
-        draggable: true
-      }}
+      modules={[Navigation, FreeMode]}
       spaceBetween={16}
       slidesPerView="auto"
       navigation={{ prevEl: prevButton.current, nextEl: nextButton.current }}
@@ -61,3 +58,5 @@ export const ProductSlider: React.FC<{ children: React.ReactNode }> = ({ childre
     </Swiper>
   );
 };
+
+export default ProductSlider;

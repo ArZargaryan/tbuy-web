@@ -61,7 +61,7 @@ function DesktopMenu({ toggleActive }: Props) {
       <div className={styles.navbar__sets}>
         <div className={styles.navbar__sets_user}>
           <div className={styles.user}>
-            <Link href={"/login"} className={`${styles.navbar__sets_user_btn} ${styles.prompt}`}>
+            <Link href="/login" className={`${styles.navbar__sets_user_btn} ${styles.prompt}`}>
               <Icons.Profile className={styles.navbar__sets_compare_icon} />
             </Link>
             <div className={styles.user__hidden}>

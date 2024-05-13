@@ -2,8 +2,8 @@
 
 .wrapper {
   width: 100%;
-  max-width: 1660px;
-  padding: 0 30px;
+  max-width: 1920px;
+  padding: 0 24px;
   margin: 20px auto 0;
 
   @media screen and (max-width: 700px) {
@@ -41,6 +41,10 @@
         width: 60%;
         padding-top: 20px;
         overflow: hidden;
+				
+				@media screen and (min-width: 1660px) {
+					width: 55%;
+				}
 
         .slider__wrapper {
           position: relative;
@@ -84,6 +88,10 @@
 
       .product__info {
         width: 40%;
+
+				@media screen and (min-width: 1660px) {
+					width: 45%;
+				}
 
         @extend .content_padding_wrapper;
 

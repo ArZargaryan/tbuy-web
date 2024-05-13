@@ -1,389 +1,646 @@
-import React, { useState } from "react";
-import TitleWithSort from "@libs/presentation/components/titles/TitleWithSort";
-import AboutSellerCategoriesSlider from "@features/shop/presentation/pages/SellerPage/components/ProductCategoriesSlider";
-import FiltersList from "@features/shop/presentation/components/Filters/FiltersList";
-import CardsList from "@libs/presentation/components/cards/CardsList";
-import TbuyPagination from "@libs/presentation/components/elements/TbuyPagination";
-import { useAppSelector } from "@core/store";
-import CardsSlider from "@libs/presentation/components/cards/CardsSlider";
-import { Link } from "react-scroll";
+import { useState } from "react";
 
-import styles from "../../about-seller.module.scss";
-import { ImgExporter } from "@core/helpers/ImgExporter";
+import cl from "./legal.module.scss";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
-import { map } from "lodash";
-import VacancySlider from "@libs/presentation/components/cards/VacancySlider";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper";
-
-import dynamic from "next/dynamic";
-import MessageModal from "@libs/presentation/components/modals/MessageModal";
+import { Button } from "@core/button/default";
+import { Modal } from "@libs/presentation/components/modals/Modal";
+import DefaultLayout from "@core/layouts/default";
+import Products from "./Products";
 import { useModal } from "@core/hooks/useModal";
-import PrimaryButton from "@core/button/primary";
-import Contacts from "../Contacts";
-import { Contact } from "@features/shop/presentation/store/aboutSellerPageSlice";
-import ModalWithButtons from "@libs/presentation/components/modals/ModalWithButtons";
-import { useTranslation } from "next-i18next";
-const Video = dynamic(() => import("@libs/presentation/components/elements/Video"), { ssr: false });
+import MessageModal from "@libs/presentation/components/modals/MessageModal";
+import GalleryTab from "./GalleryTab";
 
-const { blob, Logos, Icons, Arrows } = ImgExporter;
+type TabType = "tab1" | "tab2" | "tab3" | "tab4" | "tab5";
 
-//TODO: разбить ВСЁ на компоненты
+const LegalSellerPage = () => {
+  const [currentTab, setCurrentTab] = useState<TabType>("tab1");
+  const [phoneModalIsActive, setPhoneModalIsActive] = useState(false);
 
-function LegalSellerPage() {
-  const { t } = useTranslation(["common", "account/seller"]);
-  const contacts: Contact[] = [
-    {
-      type: "email",
-      value: "barev@gmail.com"
-    },
-    {
-      type: "phone",
-      value: "+3741234567"
-    },
-    {
-      type: "viber",
-      value: "+3741234567"
-    },
-    {
-      type: "whatsapp",
-      value: "+3741234567"
-    }
-  ];
-  const [showBranchesIsActive, setShowBranchesIsActive] = useState(false);
+  const [messageModalOpen, changeMessageModalOpen] = useModal(false);
 
-  const { products, services, vacancies } = useAppSelector((state) => state.shop_about_seller);
-  const [openMessageModal, changeMessageModal] = useModal(false);
-  const [openPhotoModal, changePhotoModal] = useModal(false);
-  const [openVideoModal, changeVideoModal] = useModal(false);
-  const [openTextModal, changeTextModal] = useModal(false);
+  const handleClickMessageButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    changeMessageModalOpen();
+  };
 
-  const showBranchesButtonClassName = `
-		${styles.showBranches__button}
-		${showBranchesIsActive ? styles.showBranches__button_active : null}
-	`;
-
-  const branchesClassName = `
-		${styles.content__addresses}
-		${showBranchesIsActive ? styles.show : null}
-	`;
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+  const getTabClassName = (tab: TabType) => {
+    if (currentTab === tab) {
+      return cl.tabs__button_active;
+    } else {
+      return cl.tabs__button;
     }
   };
 
   return (
-    <div className={styles.legal_partner}>
-      <section className={styles.company}>
-        <div className={styles.container}>
-          <div className={styles.company__container}>
-            <div className={styles.company__header}>
-              <div className={styles.header__content}>
-                <div className={styles.content__flexbox}>
-                  <div className={styles.flexbox__avatar}>
-                    <img
-                      src={
-                        "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg?ts=1672291305"
-                      }
-                      alt=""
-                    />
-                  </div>
-                  <div className={styles.flexbox__info}>
-                    <h1 className={`${styles.info__name} title title_account`}>Alpine</h1>
-                    <div className={styles.info__stars}>
-                      <StarsRating defaultValue={4} readOnly />
-                    </div>
-                    <div className={styles.info__mail}>
-                      <Contacts contacts={contacts} className={styles.contacts__info} />
-                    </div>
-                    <div className={styles.info__links}>
-                      <a href="" className={styles.links__link}>
-                        <Logos.instagram />
-                      </a>
-                      <a href="" className={styles.links__link}>
-                        <Logos.facebook />
-                      </a>
-                      <a href="" className={styles.links__link}>
-                        <Logos.telegram />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <PrimaryButton className={`${styles.content__subscribe}`}>
-                  <span className={styles.subscribe__span}>
-                    {t("actions.follow", { ns: "common" })}
-                  </span>
-                  <Icons.Followers className={styles.subscribe__icon} />
-                  <span className={styles.subscribe__counter}>236</span>
-                </PrimaryButton>
-                <div className={styles.content__info}>
-                  <b className={styles.info__readMore} onClick={changeTextModal}>
-                    {t("about_seller", { ns: "account/seller" })}
-                  </b>
-                  <b className={styles.info__readMore} onClick={changePhotoModal}>
-                    {t("photos", { ns: "account/seller" })}
-                  </b>
-                  <b className={styles.info__readMore} onClick={changeVideoModal}>
-                    {t("videos", { ns: "account/seller" })}
-                  </b>
-                </div>
-                <div className={styles.content__buttons}>
-                  <PrimaryButton
-                    className={`${styles.buttons__button}`}
-                    buttonStyle="outline"
-                    onClick={changeMessageModal}
-                  >
-                    <Icons.Chat className={styles.button__icon} />
-                    <span>{t("write_to_seller", { ns: "account/seller" })}</span>
-                  </PrimaryButton>
-                  <PrimaryButton className={`${styles.buttons__button}`} buttonStyle="outline">
-                    {t("actions.complain", { ns: "common" })}
-                  </PrimaryButton>
-                </div>
+    <DefaultLayout>
+      <div className={cl.body}>
+        <div className={cl.wrapper}>
+          <div className={cl.wrapper__left}>
+            <section className={cl.company}>
+              <div className={cl.company__logo}>
+                <img src="/pictures/gallery/logo.png" />
               </div>
-              {/*//Тут слайдер*/}
-              <Swiper
-                modules={[Pagination, Autoplay, Navigation]}
-                spaceBetween={50}
-                speed={1500}
-                slidesPerView={1}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false
-                }}
-                pagination={{
-                  el: `.${styles.pagination}`,
-                  clickable: true
-                }}
-                className={styles.header__swiper}
-                navigation={{
-                  nextEl: ".seller_header_swiper_next",
-                  prevEl: ".seller_header_swiper_prev"
-                }}
-              >
-                <SwiperSlide>
-                  <img src={blob.Promotion.src} />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={blob.Promotion.src} />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={blob.Promotion.src} />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={blob.Promotion.src} />
-                </SwiperSlide>
-
-                {/* <div className={styles.swiper__buttons}>
-                  <button className={`${styles.buttons__prevButton} seller_header_swiper_prev`}>
-                    <Arrows.Down />
-                  </button>
-                  <button className={`${styles.buttons__nextButton} seller_header_swiper_next`}>
-                    <Arrows.Down />
-                  </button>
-                </div> */}
-              </Swiper>
-            </div>
-
-            <div className={styles.company__tabs}>
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={"auto"}
-                freeMode
-                onSwiper={(swiper) => console.log(swiper)}
-              >
-                <SwiperSlide
-                  className={`${styles.tabs__tab} ${styles.active}`}
-                  onClick={() => scrollToSection("collection")}
+              <div className={cl.company__name}>Alphine</div>
+              <div className={cl.company__info}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="19"
+                  viewBox="0 0 18 19"
+                  fill="none"
                 >
-                  <Link to="collection" spy={true} smooth={true} offset={-150} duration={500}>
-                    {t("products", { ns: "account/seller" })}
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={styles.tabs__tab}
-                  onClick={() => scrollToSection("services")}
-                >
-                  <Link to="services" spy={true} smooth={true} offset={-150} duration={500}>
-                    {t("services", { ns: "account/seller" })}
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={styles.tabs__tab}
-                  onClick={() => scrollToSection("openJobs")}
-                >
-                  {" "}
-                  <Link to="openJobs" spy={true} smooth={true} offset={-150} duration={500}>
-                    {t("vacancies", { ns: "account/seller" })}
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={styles.tabs__tab}
-                  onClick={() => scrollToSection("branches")}
-                >
-                  <Link to="branches" spy={true} smooth={true} offset={-150} duration={500}>
-                    {t("branches", { ns: "account/seller" })}
-                  </Link>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className={styles.legal_partner_products} id="collection">
-        <CardsSlider
-          cards={products || []}
-          title={t<string>("products", { ns: "account/seller" })}
-          titleClassName={styles.slider_title_left}
-        />
-      </div>
-
-      <div className={styles.legal_partner_services} id="services">
-        <CardsSlider
-          cards={services || []}
-          title={t<string>("services", { ns: "account/seller" })}
-          titleClassName={styles.slider_title_left}
-        />
-      </div>
-
-      <div className={styles.legal_partner_vacancies} id="openJobs">
-        <h3 className={"title"}>{t<string>("vacancies", { ns: "account/seller" })}</h3>
-        <VacancySlider vacancies={vacancies || []} />
-      </div>
-
-      <div className={styles.branches_wrapper} id="branches">
-        <h3 className={`title ${styles.branches_title}`}>
-          {t<string>("branches", { ns: "account/seller" })}
-        </h3>
-        <section className={styles.branches}>
-          <div className={styles.branches__content}>
-            <div className={styles.content__showBranches} id="showBranches">
-              <div className={styles.showBranches__box}>
-                <div className={`${styles.showBranches__title} title title_account`}>
-                  Ցույց տալ բոլոր մասնաճյուղերը
-                </div>
-                <p className={styles.showBranches__text}>
-                  Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի
-                  ձևավորման վրա:
-                </p>
+                  <path
+                    d="M6.87187 8.6525C6.79687 8.645 6.70687 8.645 6.62437 8.6525C4.83937 8.5925 3.42188 7.13 3.42188 5.33C3.42187 3.4925 4.90687 2 6.75187 2C8.58937 2 10.0819 3.4925 10.0819 5.33C10.0744 7.13 8.65687 8.5925 6.87187 8.6525Z"
+                    stroke="#6B718D"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12.3084 3.5C13.7634 3.5 14.9334 4.6775 14.9334 6.125C14.9334 7.5425 13.8084 8.6975 12.4059 8.75C12.3459 8.7425 12.2784 8.7425 12.2109 8.75"
+                    stroke="#6B718D"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M3.11906 11.42C1.30406 12.635 1.30406 14.615 3.11906 15.8225C5.18156 17.2025 8.56406 17.2025 10.6266 15.8225C12.4416 14.6075 12.4416 12.6275 10.6266 11.42C8.57156 10.0475 5.18906 10.0475 3.11906 11.42Z"
+                    stroke="#6B718D"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M13.7539 15.5C14.2939 15.3875 14.8039 15.17 15.2239 14.8475C16.3939 13.97 16.3939 12.5225 15.2239 11.645C14.8114 11.33 14.3089 11.12 13.7764 11"
+                    stroke="#6B718D"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                124 հետևորդ
               </div>
-              <button
-                className={showBranchesButtonClassName}
-                onClick={(_) => setShowBranchesIsActive((prevState) => !prevState)}
-              >
-                <Arrows.Down />
-              </button>
-            </div>
-
-            <button className={`${styles.branches__showMap} outlined_btn`}>
-              <div className={styles.showMap__icon}>
-                <Icons.Pin />
+              <div className={cl.company__info}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <rect width="18" height="18" fill="white" />
+                  <path
+                    d="M15.3554 7.47178V4.40799C15.3554 1.5096 14.6793 0.783203 11.9607 0.783203H6.52354C3.80496 0.783203 3.12891 1.5096 3.12891 4.40799V12.5062C3.12891 14.4193 4.17895 14.8724 5.45194 13.5059L5.45912 13.4987C6.04886 12.873 6.94787 12.9233 7.4585 13.6066L8.1849 14.5775"
+                    stroke="#6B718D"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.36328 4.37891H12.1169"
+                    stroke="#6B718D"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.32422 7.25586H10.6394"
+                    stroke="#6B718D"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15.6501 11.7735C15.6501 12.157 15.5448 12.511 15.3594 12.8144C14.9085 13.5561 13.9814 14.028 12.911 14.028C11.8406 14.028 10.9135 13.5561 10.4626 12.8144C10.2772 12.511 10.1719 12.157 10.1719 11.7735C10.1719 11.1161 10.4795 10.5219 10.9725 10.0921C11.4698 9.65806 12.1525 9.39258 12.911 9.39258C13.6695 9.39258 14.3522 9.65806 14.8495 10.0879C15.3425 10.5219 15.6501 11.1161 15.6501 11.7735Z"
+                    stroke="#6B718D"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15.6501 11.7735V13.8805C15.6501 15.1953 14.4238 16.1351 12.911 16.1351C11.3982 16.1351 10.1719 15.1953 10.1719 13.8805V11.7735C10.1719 10.4587 11.3982 9.39258 12.911 9.39258C13.6695 9.39258 14.3522 9.65806 14.8495 10.0879C15.3425 10.5219 15.6501 11.1161 15.6501 11.7735Z"
+                    stroke="#6B718D"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Հարկատեսակի անուն
               </div>
-              <span>ՑՈՒՅՑ ՏԱԼ ՔԱՐՏԵԶԻ ՎՐԱ</span>
-            </button>
-
-            <div className={branchesClassName}>
-              {map([1, 2], (item) => (
-                <div key={item} className={styles.addresses__item}>
-                  <h2 className={styles.item__title}>«Երևան Մոլ» վաճառասրահ</h2>
-                  <div className={styles.item__address}>
-                    <Icons.Pin className={styles.address__icon} />
-                    Արշակունյաց պող., 34/3 շենք
-                  </div>
-                  <div className={styles.item__branchNumber}>
-                    Մասնաճյուղի հեռախոսահամար
-                    <div className={styles.branchNumber__number}>
-                      <Icons.Phone className={styles.number__icon} />
-                      <span className={styles.number__text}>+374 (01) 02 03 04</span>
-                      <a href="" className={styles.number__link}>
-                        {" "}
-                        <Logos.WhatsApp />
-                      </a>
-                    </div>
-                  </div>
-                  <div className={styles.item__marketingNumber}>
-                    Մարկետինգի բաժնի հեռախոսահամար
-                    <div className={styles.marketingNumber__number}>
-                      <Icons.Phone className={styles.number__icon} />
-                      <span className={styles.number__text}>+374 (01) 02 03 04</span>
-                    </div>
-                  </div>
-                  <div className={styles.item__time}>
-                    <Icons.Time className={styles.time__icon} />
-                    <span className={styles.time__weekDays}>Երկ. - Ուրբ.</span>
-                    <span className={styles.time__clock}>09:00 - 22:00</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className={styles.branches__map}>
-            <img src="https://www.tuttotech.net/wp-content/uploads/2022/12/mappa.jpg" alt="" />
-          </div>
-        </section>
-      </div>
-
-      <MessageModal
-        recipient={{ name: "Alpine" }}
-        open={openMessageModal}
-        onClose={changeMessageModal}
-      />
-
-      <ModalWithButtons
-        contentClassName={styles.modal}
-        title="ՎԻԴԵՈԴԱՐԱՆ"
-        text={null}
-        footer={null}
-        open={openVideoModal}
-        onClose={changeVideoModal}
-      >
-        <div className={styles.gallery}>
-          {map([1, 2, 3, 4, 5, 6, 7, 8, 9], (item) => (
-            <div className={styles.gallery__item} key={item}>
-              <Video
-                url={"https://www.youtube.com/watch?v=LXb3EKWsInQ"}
-                width={"100%"}
-                height={"100%"}
-                controls
-                light
+              <StarsRating
+                color="#F7C752"
+                className={cl.company__stars}
+                defaultValue={3}
+                readOnly
               />
-            </div>
-          ))}
-        </div>
-      </ModalWithButtons>
+              <Button variant="primary" className={cl.company__primary_button}>
+                ՀԵՏԵՎԵԼ
+              </Button>
+              <Button
+                variant="secondary"
+                className={cl.company__secondary_button}
+                onClick={(e) => handleClickMessageButton(e)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="24"
+                  viewBox="0 0 25 24"
+                  fill="none"
+                >
+                  <path
+                    d="M9 19H8.5C4.5 19 2.5 18 2.5 13V8C2.5 4 4.5 2 8.5 2H16.5C20.5 2 22.5 4 22.5 8V13C22.5 17 20.5 19 16.5 19H16C15.69 19 15.39 19.15 15.2 19.4L13.7 21.4C13.04 22.28 11.96 22.28 11.3 21.4L9.8 19.4C9.64 19.18 9.27 19 9 19Z"
+                    stroke="#1D1D1D"
+                    stroke-width="1.6"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16.4961 11H16.5051"
+                    stroke="#1D1D1D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12.4945 11H12.5035"
+                    stroke="#1D1D1D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M8.49451 11H8.50349"
+                    stroke="#1D1D1D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                ԳՐԵԼ
+              </Button>
+              <Button
+                variant="secondary"
+                className={cl.company__secondary_button}
+                onClick={() => setPhoneModalIsActive(true)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_269_45013)">
+                    <path
+                      d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_269_45013">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                ԶԱՆԳԵԼ
+              </Button>
+              <button className={cl.company__report}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="19"
+                  viewBox="0 0 18 19"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_2038_13285)">
+                    <mask id="path-1-inside-1_2038_13285" fill="white">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3 1.25C2.58579 1.25 2.25 1.58579 2.25 2V17C2.25 17.4142 2.58579 17.75 3 17.75C3.41421 17.75 3.75 17.4142 3.75 17V10.6987C4.09951 10.5247 4.65205 10.2822 5.24438 10.1341C6.30683 9.86855 7.15949 9.96658 7.626 10.6663C8.49675 11.9723 10.1596 12.0873 11.4394 11.9599C12.79 11.8253 14.1261 11.383 14.8015 11.1332C15.395 10.9137 15.75 10.3502 15.75 9.7556V4.79253C15.75 3.62898 14.5184 2.94968 13.5367 3.39486C12.7406 3.75589 11.6831 4.15906 10.7273 4.29223C9.72742 4.43155 9.1467 4.24302 8.874 3.83408C7.89007 2.35822 6.20669 2.1835 5.00021 2.28403C4.53705 2.32264 4.10669 2.40362 3.75 2.48937V2C3.75 1.58579 3.41421 1.25 3 1.25ZM3.75 4.0408V9.05352C4.08062 8.91853 4.46712 8.78225 4.8806 8.6789C6.06815 8.38205 7.8405 8.28403 8.874 9.83413C9.23295 10.3726 10.0601 10.5898 11.2907 10.4673C12.4319 10.3536 13.6067 9.97407 14.25 9.7379V4.79253C14.25 4.75846 14.1811 4.74967 14.1562 4.76095C13.3181 5.14103 12.1047 5.61479 10.9343 5.77787C9.8082 5.93479 8.4078 5.83888 7.626 4.66616C7.10992 3.89213 6.1683 3.6919 5.12478 3.77885C4.59304 3.82317 4.0982 3.93969 3.75 4.0408Z"
+                      />
+                    </mask>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3 1.25C2.58579 1.25 2.25 1.58579 2.25 2V17C2.25 17.4142 2.58579 17.75 3 17.75C3.41421 17.75 3.75 17.4142 3.75 17V10.6987C4.09951 10.5247 4.65205 10.2822 5.24438 10.1341C6.30683 9.86855 7.15949 9.96658 7.626 10.6663C8.49675 11.9723 10.1596 12.0873 11.4394 11.9599C12.79 11.8253 14.1261 11.383 14.8015 11.1332C15.395 10.9137 15.75 10.3502 15.75 9.7556V4.79253C15.75 3.62898 14.5184 2.94968 13.5367 3.39486C12.7406 3.75589 11.6831 4.15906 10.7273 4.29223C9.72742 4.43155 9.1467 4.24302 8.874 3.83408C7.89007 2.35822 6.20669 2.1835 5.00021 2.28403C4.53705 2.32264 4.10669 2.40362 3.75 2.48937V2C3.75 1.58579 3.41421 1.25 3 1.25ZM3.75 4.0408V9.05352C4.08062 8.91853 4.46712 8.78225 4.8806 8.6789C6.06815 8.38205 7.8405 8.28403 8.874 9.83413C9.23295 10.3726 10.0601 10.5898 11.2907 10.4673C12.4319 10.3536 13.6067 9.97407 14.25 9.7379V4.79253C14.25 4.75846 14.1811 4.74967 14.1562 4.76095C13.3181 5.14103 12.1047 5.61479 10.9343 5.77787C9.8082 5.93479 8.4078 5.83888 7.626 4.66616C7.10992 3.89213 6.1683 3.6919 5.12478 3.77885C4.59304 3.82317 4.0982 3.93969 3.75 4.0408Z"
+                      fill="#1D1D1D"
+                    />
+                    <path
+                      d="M3.75 10.6987L-11.1054 -19.1413L-29.5833 -9.9424V10.6987H3.75ZM5.24438 10.1341L13.3272 42.4726L13.3278 42.4725L5.24438 10.1341ZM7.626 10.6663L35.3605 -7.82449L35.3598 -7.82554L7.626 10.6663ZM11.4394 11.9599L14.7439 45.129L14.744 45.129L11.4394 11.9599ZM14.8015 11.1332L3.24088 -20.1312L3.23831 -20.1302L14.8015 11.1332ZM13.5367 3.39486L-0.230137 -26.9628L-0.231042 -26.9624L13.5367 3.39486ZM10.7273 4.29223L6.12738 -28.7222L6.12705 -28.7221L10.7273 4.29223ZM8.874 3.83408L-18.8608 22.3243L-18.8588 22.3274L8.874 3.83408ZM5.00021 2.28403L2.23209 -30.9342L2.23158 -30.9341L5.00021 2.28403ZM3.75 2.48937H-29.5833V44.7855L11.5412 34.8994L3.75 2.48937ZM3.75 4.0408L-5.54507 -27.9703L-29.5833 -20.9903V4.0408H3.75ZM3.75 9.05352H-29.5833V58.6692L16.3507 39.9134L3.75 9.05352ZM4.8806 8.6789L12.9636 41.0174L12.9642 41.0172L4.8806 8.6789ZM8.874 9.83413L36.609 -8.65588L36.6082 -8.65712L8.874 9.83413ZM11.2907 10.4673L14.5939 43.6365L14.5956 43.6364L11.2907 10.4673ZM14.25 9.7379L25.7372 41.0294L47.5833 33.0096V9.7379H14.25ZM14.1562 4.76095L27.9232 35.1185L27.9306 35.1152L27.9379 35.1118L14.1562 4.76095ZM10.9343 5.77787L6.3341 -27.2365L6.33386 -27.2365L10.9343 5.77787ZM7.626 4.66616L35.3611 -13.8237L35.36 -13.8254L7.626 4.66616ZM5.12478 3.77885L2.35676 -29.4394L2.35625 -29.4393L5.12478 3.77885ZM3 -32.0833C-15.8237 -32.0833 -31.0833 -16.8237 -31.0833 2H35.5833C35.5833 19.9953 20.9953 34.5833 3 34.5833V-32.0833ZM-31.0833 2V17H35.5833V2H-31.0833ZM-31.0833 17C-31.0833 35.8242 -15.8233 51.0833 3 51.0833V-15.5833C20.9948 -15.5833 35.5833 -0.995699 35.5833 17H-31.0833ZM3 51.0833C21.8233 51.0833 37.0833 35.8242 37.0833 17H-29.5833C-29.5833 -0.995699 -14.9948 -15.5833 3 -15.5833V51.0833ZM37.0833 17V10.6987H-29.5833V17H37.0833ZM18.6054 40.5388C18.069 40.8058 17.4115 41.1096 16.634 41.4162C15.8809 41.7132 14.757 42.1153 13.3272 42.4726L-2.8384 -22.2044C-6.63625 -21.2551 -9.57371 -19.9038 -11.1054 -19.1413L18.6054 40.5388ZM13.3278 42.4725C11.3882 42.9573 6.5252 43.9723 0.28402 42.7563C-7.08946 41.3197 -14.8904 36.9831 -20.1078 29.158L35.3598 -7.82554C22.4488 -27.1893 1.46644 -23.2804 -2.83906 -22.2042L13.3278 42.4725ZM-20.1085 29.157C-7.83085 47.5724 12.487 45.3538 14.7439 45.129L8.13498 -21.2093C9.48096 -21.3434 13.0871 -21.614 17.6832 -20.4318C22.7916 -19.1178 30.1369 -15.6595 35.3605 -7.82449L-20.1085 29.157ZM14.744 45.129C20.3289 44.5726 24.8084 42.9723 26.3648 42.3966L3.23831 -20.1302C3.56827 -20.2523 4.05173 -20.4202 4.6822 -20.5905C5.24095 -20.7414 6.44737 -21.0412 8.13488 -21.2093L14.744 45.129ZM26.3622 42.3976C40.893 37.0245 49.0833 23.3698 49.0833 9.7556H-17.5833C-17.5833 -2.66944 -10.1029 -15.197 3.24088 -20.1312L26.3622 42.3976ZM49.0833 9.7556V4.79253H-17.5833V9.7556H49.0833ZM49.0833 4.79253C49.0833 -23.0363 20.5579 -36.3899 -0.230137 -26.9628L27.3035 33.7525C8.4788 42.2893 -17.5833 30.2943 -17.5833 4.79253H49.0833ZM-0.231042 -26.9624C0.125305 -27.124 0.732479 -27.385 1.56592 -27.6653C2.30313 -27.9133 3.90672 -28.4128 6.12738 -28.7222L15.3273 37.3066C21.0574 36.5083 25.5797 34.5343 27.3044 33.7521L-0.231042 -26.9624ZM6.12705 -28.7221C8.14638 -29.0035 12.5872 -29.4082 18.087 -27.947C24.2727 -26.3036 31.5134 -22.2974 36.6068 -14.6592L-18.8588 22.3274C-7.39045 39.5255 11.1514 37.8885 15.3276 37.3066L6.12705 -28.7221ZM36.6088 -14.6562C25.1861 -31.7899 6.93684 -31.3262 2.23209 -30.9342L7.76832 35.5022C5.83908 35.663 1.91883 35.7864 -2.8601 34.3032C-8.19752 32.6466 -14.4237 28.9799 -18.8608 22.3243L36.6088 -14.6562ZM2.23158 -30.9341C-0.308569 -30.7224 -2.45674 -30.3015 -4.04124 -29.9206L11.5412 34.8994C10.6701 35.1088 9.38267 35.3677 7.76883 35.5022L2.23158 -30.9341ZM37.0833 2.48937V2H-29.5833V2.48937H37.0833ZM37.0833 2C37.0833 -16.8237 21.8237 -32.0833 3 -32.0833V34.5833C-14.9953 34.5833 -29.5833 19.9953 -29.5833 2H37.0833ZM-29.5833 4.0408V9.05352H37.0833V4.0408H-29.5833ZM16.3507 39.9134C15.5857 40.2258 14.4363 40.6493 12.9636 41.0174L-3.2024 -23.6596C-5.50206 -23.0848 -7.4245 -22.3887 -8.85073 -21.8064L16.3507 39.9134ZM12.9642 41.0172C11.111 41.4805 6.66536 42.4035 0.923331 41.3506C-5.85575 40.1076 -13.6429 36.1505 -18.8602 28.3254L36.6082 -8.65712C22.8873 -29.2364 0.502404 -24.5856 -3.20296 -23.6594L12.9642 41.0172ZM-18.861 28.3241C-12.9089 37.2522 -4.51503 41.1172 1.30245 42.6423C6.86794 44.1013 11.6824 43.9265 14.5939 43.6365L7.98755 -22.702C9.66842 -22.8694 13.454 -23.0916 18.2085 -21.8451C23.215 -20.5326 31.0159 -17.0456 36.609 -8.65588L-18.861 28.3241ZM14.5956 43.6364C19.925 43.1054 24.2113 41.5895 25.7372 41.0294L2.76284 -21.5536C3.13277 -21.6894 3.6518 -21.8672 4.32135 -22.0468C4.91194 -22.2052 6.1987 -22.5238 7.98581 -22.7018L14.5956 43.6364ZM47.5833 9.7379V4.79253H-19.0833V9.7379H47.5833ZM47.5833 4.79253C47.5833 -8.04478 40.5912 -16.8674 34.9665 -21.3334C29.9131 -25.3459 24.9253 -26.9262 22.2401 -27.5925C19.2145 -28.3433 16.2378 -28.6333 13.4131 -28.5681C11.1941 -28.517 6.13886 -28.2074 0.374565 -25.5899L27.9379 35.1118C22.1861 37.7236 17.1488 38.0301 14.9497 38.0808C12.1448 38.1455 9.19002 37.8577 6.18479 37.112C3.51994 36.4507 -1.44908 34.8783 -6.48886 30.8767C-12.0998 26.4215 -19.0833 17.6128 -19.0833 4.79253H47.5833ZM0.389267 -25.5966C0.691613 -25.7337 1.25822 -25.9795 2.05055 -26.2457C2.76758 -26.4867 4.2629 -26.9479 6.3341 -27.2365L15.5345 38.7922C21.4725 37.9648 26.1461 35.9244 27.9232 35.1185L0.389267 -25.5966ZM6.33386 -27.2365C8.15317 -27.49 12.2763 -27.89 17.4319 -26.5677C23.2783 -25.0683 30.385 -21.2879 35.3611 -13.8237L-20.1091 23.156C-7.95019 41.3946 11.7954 39.3133 15.5348 38.7922L6.33386 -27.2365ZM35.36 -13.8254C24.512 -30.0954 7.21895 -29.8445 2.35676 -29.4394L7.8928 36.9971C5.80669 37.1709 1.61135 37.2891 -3.46733 35.6848C-9.10669 33.9034 -15.5206 30.038 -20.108 23.1577L35.36 -13.8254ZM2.35625 -29.4393C-1.07306 -29.1535 -3.85117 -28.4622 -5.54507 -27.9703L13.0451 36.0519C12.0476 36.3416 10.2591 36.7998 7.89331 36.997L2.35625 -29.4393Z"
+                      fill="#1D1D1D"
+                      mask="url(#path-1-inside-1_2038_13285)"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2038_13285">
+                      <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Բողողքել
+              </button>
+            </section>
 
-      <ModalWithButtons
-        contentClassName={styles.modal}
-        title="ՏԵՍԱԴԱՐԱՆ"
-        text={null}
-        footer={null}
-        open={openPhotoModal}
-        onClose={changePhotoModal}
-      >
-        <div className={styles.gallery}>
-          {map([1, 2, 3, 4, 5, 6, 7, 8, 9], (item) => (
-            <div className={styles.gallery__item} key={item}>
-              <img src={blob.Promotion.src} />
-            </div>
-          ))}
-        </div>
-      </ModalWithButtons>
+            <Modal
+              isActive={phoneModalIsActive}
+              setIsActive={setPhoneModalIsActive}
+              className={cl.phone_modal}
+              width="424px"
+              padding="64px 56px 48px"
+            >
+              <div className={cl.phone_modal__title}>Զանգել</div>
+              <div className={cl.phone_modal__links}>
+                <a href="tel:+37499872214" className={cl.phone_modal__link}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z"
+                      stroke="#6E00E5"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                    />
+                  </svg>
+                  +374 99 87 22 14
+                </a>
+                <a href="" className={cl.phone_modal__link}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_269_45387)">
+                      <path
+                        d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z"
+                        fill="#6F3FAA"
+                      />
+                      <path
+                        d="M18.345 8.43541L18.341 8.41957C18.0204 7.12334 16.5749 5.73246 15.2474 5.4431L15.2324 5.44001C13.0853 5.03041 10.9082 5.03041 8.76148 5.44001L8.74606 5.4431C7.41903 5.73246 5.97345 7.12343 5.65241 8.41957L5.64884 8.43541C5.25247 10.2456 5.25247 12.0814 5.64884 13.8916L5.65241 13.9074C5.95981 15.1483 7.29767 16.4753 8.57563 16.8402V18.2872C8.57563 18.8109 9.21383 19.0681 9.57673 18.6902L11.0428 17.1663C11.3608 17.1841 11.6789 17.194 11.9969 17.194C13.0777 17.194 14.159 17.0918 15.2324 16.887L15.2473 16.8839C16.5748 16.5946 18.0204 15.2036 18.341 13.9075L18.3449 13.8916C18.7413 12.0814 18.7413 10.2457 18.345 8.43541ZM17.1848 13.6291C16.9707 14.4748 15.8732 15.5261 15.0011 15.7204C13.8595 15.9375 12.7087 16.0302 11.5592 15.9984C11.5363 15.9978 11.5143 16.0067 11.4984 16.0231C11.3353 16.1905 10.428 17.1219 10.428 17.1219L9.28953 18.2904C9.20628 18.3772 9.06003 18.3181 9.06003 18.1984V15.8014C9.06003 15.7617 9.03177 15.7281 8.99286 15.7204C8.99262 15.7204 8.99244 15.7204 8.9922 15.7203C8.12014 15.5261 7.02298 14.4747 6.80853 13.6291C6.45177 11.9929 6.45177 10.3341 6.80853 8.69791C7.02298 7.85224 8.12014 6.80093 8.9922 6.60668C10.9861 6.22746 13.0077 6.22746 15.0012 6.60668C15.8736 6.80093 16.9708 7.85224 17.1848 8.69791C17.542 10.3342 17.542 11.9929 17.1848 13.6291Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M13.8959 14.7356C13.7619 14.6949 13.6341 14.6676 13.5154 14.6184C12.2858 14.1083 11.1543 13.4501 10.258 12.4413C9.74825 11.8677 9.3493 11.22 9.01208 10.5346C8.85214 10.2096 8.71737 9.87185 8.57998 9.53622C8.45473 9.23022 8.63923 8.9141 8.83348 8.68347C9.01578 8.46705 9.25039 8.30149 9.50445 8.17938C9.70273 8.08413 9.8983 8.13906 10.0431 8.30711C10.3562 8.67049 10.6438 9.05242 10.8766 9.47364C11.0198 9.73272 10.9805 10.0494 10.721 10.2257C10.6579 10.2685 10.6004 10.3189 10.5417 10.3673C10.4901 10.4097 10.4416 10.4525 10.4063 10.51C10.3417 10.615 10.3386 10.739 10.3802 10.8532C10.7002 11.7326 11.2396 12.4165 12.1248 12.7849C12.2665 12.8439 12.4087 12.9124 12.5719 12.8935C12.8452 12.8615 12.9337 12.5617 13.1252 12.4051C13.3124 12.2521 13.5516 12.25 13.7532 12.3776C13.955 12.5053 14.1504 12.6423 14.3448 12.7808C14.5355 12.9168 14.7254 13.0496 14.9014 13.2047C15.0706 13.3537 15.1288 13.5491 15.0335 13.7513C14.8592 14.1217 14.6053 14.4297 14.2393 14.6264C14.1359 14.6818 14.0125 14.6997 13.8959 14.7356C14.0125 14.6997 13.7619 14.6949 13.8959 14.7356Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M12.0008 7.75845C13.609 7.80354 14.93 8.87084 15.2131 10.4608C15.2613 10.7318 15.2785 11.0087 15.2999 11.2837C15.309 11.3994 15.2434 11.5092 15.1187 11.5108C14.9898 11.5123 14.9318 11.4044 14.9233 11.2889C14.9068 11.06 14.8953 10.8301 14.8638 10.6032C14.6973 9.40517 13.742 8.41399 12.5495 8.20132C12.37 8.16931 12.1864 8.16092 12.0046 8.14184C11.8897 8.12979 11.7393 8.12285 11.7138 7.97998C11.6925 7.86021 11.7935 7.76487 11.9076 7.75873C11.9385 7.7569 11.9696 7.75835 12.0008 7.75845C13.6091 7.80354 11.9696 7.75835 12.0008 7.75845Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M14.4464 10.9265C14.4438 10.9467 14.4424 10.9939 14.4306 11.0383C14.3879 11.1997 14.1431 11.2199 14.0868 11.057C14.07 11.0087 14.0675 10.9537 14.0675 10.9017C14.0669 10.5611 13.9929 10.2207 13.8211 9.92436C13.6445 9.61972 13.3747 9.36373 13.0583 9.20871C12.867 9.11506 12.6601 9.05679 12.4504 9.02215C12.3588 9.00696 12.2661 8.99782 12.174 8.98498C12.0624 8.96946 12.0028 8.89836 12.0081 8.78839C12.0131 8.68536 12.0884 8.61115 12.2007 8.61757C12.5698 8.63848 12.9263 8.71836 13.2545 8.89207C13.9217 9.24547 14.3029 9.80318 14.4141 10.548C14.4192 10.5818 14.4272 10.6152 14.4298 10.649C14.4361 10.7325 14.4401 10.8162 14.4464 10.9265C14.4438 10.9466 14.4401 10.8162 14.4464 10.9265Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M13.444 10.8855C13.3094 10.8879 13.2374 10.8134 13.2235 10.6901C13.2139 10.6042 13.2062 10.517 13.1857 10.4333C13.1453 10.2684 13.0577 10.1157 12.919 10.0147C12.8536 9.96699 12.7794 9.93226 12.7017 9.90976C12.603 9.88121 12.5005 9.88909 12.4021 9.865C12.2952 9.83879 12.236 9.75217 12.2528 9.6519C12.2681 9.56059 12.3569 9.48934 12.4567 9.4966C13.0802 9.5416 13.5259 9.86396 13.5895 10.598C13.594 10.6498 13.5993 10.7045 13.5878 10.7542C13.568 10.8389 13.5052 10.8814 13.444 10.8855C13.5052 10.8814 13.3094 10.8879 13.444 10.8855Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M18.3476 8.43355L18.3437 8.4177C18.1639 7.69109 17.6306 6.93481 16.9628 6.35938L16.06 7.15944C16.5969 7.58717 17.0568 8.17972 17.1875 8.696C17.5447 10.3323 17.5447 11.9909 17.1875 13.6272C16.9734 14.4729 15.8758 15.5242 15.0038 15.7185C13.8622 15.9356 12.7114 16.0284 11.5619 15.9965C11.539 15.9959 11.517 16.0048 11.5011 16.0212C11.338 16.1886 10.4307 17.12 10.4307 17.12L9.29223 18.2885C9.20898 18.3754 9.06273 18.3163 9.06273 18.1965V15.7995C9.06273 15.7599 9.03447 15.7263 8.99556 15.7186C8.99533 15.7186 8.99514 15.7185 8.99491 15.7185C8.4993 15.6081 7.93122 15.2208 7.49359 14.7519L6.60156 15.5423C7.15867 16.1484 7.87722 16.6383 8.57819 16.8385V18.2854C8.57819 18.8091 9.21639 19.0663 9.5793 18.6884L11.0453 17.1645C11.3633 17.1823 11.6814 17.1922 11.9995 17.1922C13.0803 17.1922 14.1616 17.09 15.235 16.8852L15.2499 16.8822C16.5774 16.5928 18.0229 15.202 18.3436 13.9057L18.3475 13.8899C18.7439 12.0795 18.7439 10.2438 18.3476 8.43355Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M13.9 14.7319C13.766 14.6912 14.0165 14.696 13.9 14.7319V14.7319Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M14.9058 13.2037C14.7299 13.0488 14.5399 12.9158 14.3492 12.7799C14.1549 12.6414 13.9594 12.5044 13.7577 12.3767C13.5561 12.2491 13.3169 12.2511 13.1297 12.4042C12.9382 12.5608 12.8497 12.8606 12.5764 12.8925C12.4132 12.9115 12.2709 12.8429 12.1293 12.784C11.5846 12.5574 11.1714 12.2109 10.8591 11.7734L10.1953 12.3617C10.2179 12.3878 10.2394 12.4146 10.2623 12.4404C11.1586 13.4492 12.2903 14.1073 13.5197 14.6175C13.6384 14.6667 13.7662 14.6941 13.9003 14.7347C13.7662 14.694 14.0169 14.6989 13.9003 14.7347C14.0169 14.6989 14.1403 14.6808 14.2437 14.6254C14.6099 14.4287 14.8636 14.1207 15.038 13.7503C15.1333 13.5482 15.075 13.3528 14.9058 13.2037Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M12 7.75391C12.0014 7.75391 12.0027 7.75405 12.004 7.75405C12.0933 7.75723 13.5449 7.79722 12 7.75391Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M14.3142 8.71094L14.0312 8.96177C14.476 9.39442 14.7826 9.96784 14.8703 10.5989C14.9018 10.8258 14.9133 11.0557 14.9299 11.2845C14.9383 11.4002 14.9962 11.508 15.1252 11.5065C15.25 11.505 15.3155 11.3951 15.3065 11.2795C15.285 11.0045 15.2679 10.7275 15.2196 10.4566C15.0957 9.76056 14.7729 9.16473 14.3142 8.71094Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M14.4155 10.5457C14.3344 10.0029 14.1093 9.56006 13.7353 9.22266L13.4531 9.47273C13.599 9.60225 13.7253 9.75436 13.8225 9.92212C13.9943 10.2185 14.0683 10.5588 14.0689 10.8994C14.069 10.9515 14.0715 11.0065 14.0882 11.0549C14.1446 11.2179 14.3894 11.1977 14.432 11.0362C14.4438 10.9916 14.4452 10.9444 14.4479 10.9244C14.4414 10.8141 14.4452 10.9445 14.4479 10.9244C14.4414 10.8141 14.4375 10.7304 14.4311 10.6468C14.4286 10.6128 14.4205 10.5794 14.4155 10.5457Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M14.4488 10.9199C14.4425 10.8095 14.4462 10.9399 14.4488 10.9199V10.9199Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M13.1622 9.72656L12.875 9.98119C12.8908 9.9908 12.9064 10.0008 12.9214 10.0117C13.0601 10.1128 13.1477 10.2655 13.1881 10.4303C13.2086 10.5141 13.2162 10.6012 13.2259 10.6872C13.2392 10.805 13.3061 10.8774 13.4292 10.8817C13.4381 10.8814 13.4469 10.8812 13.4525 10.8812C13.5118 10.8746 13.5711 10.8331 13.5901 10.7512C13.6016 10.7016 13.5964 10.6468 13.5918 10.595C13.5561 10.1846 13.4009 9.90305 13.1622 9.72656Z"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_269_45387">
+                        <rect width="24" height="24" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  Viber
+                </a>
+                <a href="" className={cl.phone_modal__link}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_269_45412)">
+                      <path
+                        d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z"
+                        fill="url(#paint0_linear_269_45412)"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M17.7705 6.37564C16.334 4.93742 14.4212 4.14453 12.3856 4.14453C8.19005 4.14453 4.77494 7.55787 4.77316 11.7534C4.77316 13.0939 5.12338 14.4041 5.79005 15.5579L4.71094 19.501L8.74649 18.4432C9.8576 19.0494 11.1109 19.3694 12.3838 19.3694H12.3874C16.5829 19.3694 19.998 15.9561 19.9998 11.7588C19.9998 9.72498 19.2087 7.81386 17.7723 6.37564H17.7705ZM12.3856 18.0841H12.3838C11.2478 18.0841 10.1349 17.7783 9.16427 17.2023L8.93316 17.0654L6.53849 17.693L7.17849 15.3588L7.02738 15.1188C6.39449 14.1125 6.06027 12.9481 6.06027 11.7534C6.06027 8.26542 8.89938 5.42809 12.3909 5.42809C14.0816 5.42809 15.6692 6.08764 16.8638 7.28231C18.0585 8.47875 18.7163 10.0663 18.7145 11.757C18.7145 15.245 15.8754 18.0823 12.3874 18.0823L12.3856 18.0841ZM15.8558 13.3463C15.6656 13.2503 14.7305 12.7916 14.5563 12.7276C14.382 12.6636 14.2558 12.6316 14.1278 12.8236C14.0016 13.0139 13.6372 13.4423 13.5252 13.5685C13.4149 13.6948 13.3029 13.7108 13.1127 13.6165C12.9225 13.5205 12.3092 13.3214 11.5838 12.6725C11.0185 12.1676 10.6363 11.5454 10.526 11.3552C10.4158 11.165 10.5136 11.0619 10.6096 10.9676C10.6949 10.8823 10.7998 10.7454 10.894 10.6352C10.9883 10.525 11.0203 10.445 11.0843 10.3188C11.1483 10.1925 11.1163 10.0805 11.0683 9.98631C11.0203 9.89031 10.6398 8.9552 10.4816 8.57475C10.3269 8.2032 10.1705 8.25475 10.0532 8.24764C9.94294 8.24231 9.81494 8.24053 9.68871 8.24053C9.56249 8.24053 9.35627 8.28853 9.18205 8.47875C9.00783 8.66898 8.51716 9.12942 8.51716 10.0645C8.51716 10.9996 9.19805 11.9045 9.29405 12.0308C9.38827 12.157 10.6345 14.0788 12.5438 14.9019C12.9972 15.0974 13.3527 15.2148 13.6283 15.3019C14.0834 15.4459 14.4994 15.4263 14.8265 15.3765C15.1927 15.3214 15.9518 14.9161 16.11 14.4716C16.2683 14.0272 16.2683 13.6468 16.2203 13.5668C16.1723 13.4868 16.046 13.4405 15.8558 13.3445V13.3463Z"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_269_45412"
+                        x1="12"
+                        y1="22.256"
+                        x2="12"
+                        y2="-1.744"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#78CD51" />
+                        <stop offset="1" stop-color="#A0FC84" />
+                      </linearGradient>
+                      <clipPath id="clip0_269_45412">
+                        <rect width="24" height="24" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  Whatsapp
+                </a>
+              </div>
+            </Modal>
 
-      <ModalWithButtons
-        contentClassName={styles.modal}
-        title="ԿԱՐԴԱԼ ԱՎԵԼԻՆ"
-        text="Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: Lorem Ipsum օգտագործելը բացատրվում է նրանով, որ այն բաշխում է բառերը..."
-        footer={null}
-        open={openTextModal}
-        onClose={changeTextModal}
-      />
-    </div>
+            <section className={cl.social}>
+              <a className={cl.social__link}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_269_45018)">
+                    <path
+                      d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z"
+                      fill="#6B718D"
+                    />
+                    <g clip-path="url(#clip1_269_45018)">
+                      <path
+                        d="M18 25.5C22.1421 25.5 25.5 22.1421 25.5 18C25.5 13.8579 22.1421 10.5 18 10.5C13.8579 10.5 10.5 13.8579 10.5 18C10.5 22.1421 13.8579 25.5 18 25.5Z"
+                        stroke="white"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14.9992 11.25H15.7492C14.2867 15.63 14.2867 20.37 15.7492 24.75H14.9992"
+                        stroke="white"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M20.25 11.25C21.7125 15.63 21.7125 20.37 20.25 24.75"
+                        stroke="white"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M11.25 21V20.25C15.63 21.7125 20.37 21.7125 24.75 20.25V21"
+                        stroke="white"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M11.25 15.7492C15.63 14.2867 20.37 14.2867 24.75 15.7492"
+                        stroke="white"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_269_45018">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                    <clipPath id="clip1_269_45018">
+                      <rect width="18" height="18" fill="white" transform="translate(9 9)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                www.alphina.am
+              </a>
+              <a className={cl.social__link}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_269_45023)">
+                    <path
+                      d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z"
+                      fill="url(#paint0_linear_269_45023)"
+                    />
+                    <path
+                      d="M12.1745 19.316L14.3105 25.228C14.3105 25.228 14.5772 25.78 14.8625 25.78C15.1479 25.78 19.4012 21.356 19.4012 21.356L24.1292 12.2227L12.2492 17.7907L12.1719 19.316H12.1745Z"
+                      fill="#C8DAEA"
+                    />
+                    <path
+                      d="M15.0193 20.832L14.6087 25.1894C14.6087 25.1894 14.438 26.5254 15.7713 25.1894C17.1073 23.8534 18.3847 22.824 18.3847 22.824L15.0193 20.832Z"
+                      fill="#A9C6D8"
+                    />
+                    <path
+                      d="M12.2183 19.5231L7.82627 18.0911C7.82627 18.0911 7.30094 17.8778 7.47161 17.3951C7.50627 17.2964 7.57561 17.2111 7.78627 17.0644C8.75961 16.3871 25.8023 10.2591 25.8023 10.2591C25.8023 10.2591 26.2823 10.0964 26.5676 10.2058C26.6983 10.2538 26.7809 10.3098 26.8503 10.5151C26.8769 10.5898 26.8903 10.7471 26.8876 10.9018C26.8876 11.0138 26.8716 11.1204 26.8609 11.2831C26.7569 12.9578 23.6503 25.4564 23.6503 25.4564C23.6503 25.4564 23.4636 26.1871 22.7996 26.2138C22.5569 26.2218 22.2609 26.1738 21.9089 25.8698C20.6023 24.7444 16.0849 21.7098 15.0876 21.0431C15.0316 21.0058 15.0156 20.9578 15.0049 20.9098C14.9916 20.8404 15.0663 20.7524 15.0663 20.7524C15.0663 20.7524 22.9303 13.7631 23.1383 13.0298C23.1543 12.9738 23.0929 12.9444 23.0103 12.9684C22.4876 13.1604 13.4343 18.8778 12.4343 19.5098C12.3756 19.5471 12.2129 19.5231 12.2129 19.5231H12.2183Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_269_45023"
+                      x1="18"
+                      y1="36"
+                      x2="18"
+                      y2="0"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#1D93D2" />
+                      <stop offset="1" stop-color="#38B0E3" />
+                    </linearGradient>
+                    <clipPath id="clip0_269_45023">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Telegram
+              </a>
+              <a className={cl.social__link}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_269_45030)">
+                    <path
+                      d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z"
+                      fill="#010201"
+                    />
+                    <path
+                      d="M13.1847 25.2239C13.206 25.2426 13.2273 25.2639 13.2487 25.2826C13.4487 25.4239 13.5927 25.6266 13.782 25.7786C14.374 26.2532 15.0407 26.5119 15.8033 26.5599C17.6113 26.6719 19.1873 25.3119 19.3927 23.5226C19.4033 23.4346 19.398 23.3466 19.398 23.2612C19.398 17.8772 19.398 12.4932 19.398 7.10655C19.398 6.86478 19.5189 6.74389 19.7607 6.74389C20.5793 6.74389 21.398 6.74389 22.2167 6.74389C22.294 6.74389 22.374 6.73055 22.4433 6.77855C22.4487 6.78389 22.4513 6.78655 22.4567 6.78922C22.4967 6.82922 22.5073 6.88255 22.518 6.93322C22.8327 8.38389 23.5953 9.54122 24.7927 10.4159C24.8673 10.4692 24.9313 10.5386 25.0007 10.5972C25.054 10.6426 25.1047 10.6852 25.158 10.7306C25.35 10.8399 25.4887 11.0159 25.6567 11.1572C26.318 11.7092 27.0673 12.0906 27.902 12.3039C27.9767 12.3226 28.0593 12.3226 28.1127 12.3919C28.1153 12.3972 28.1207 12.3999 28.126 12.4026C28.174 12.4532 28.166 12.5199 28.166 12.5812C28.166 13.5306 28.166 14.4799 28.166 15.4292C28.166 15.6452 28.1367 15.6586 27.918 15.6586C27.222 15.6586 26.5393 15.5652 25.8647 15.4106C24.702 15.1439 23.63 14.6719 22.6353 14.0186C22.5847 13.9839 22.5287 13.9119 22.4727 13.9359C22.4033 13.9679 22.438 14.0586 22.438 14.1226C22.438 16.7946 22.4487 19.4666 22.4327 22.1412C22.422 24.0106 21.8273 25.6799 20.6033 27.1039C19.3047 28.6159 17.654 29.4932 15.6727 29.7359C14.1447 29.9226 12.6967 29.6452 11.3207 28.9679C11.0993 28.8586 10.886 28.7306 10.686 28.5812C10.6247 28.5252 10.5607 28.4692 10.4967 28.4132C10.022 28.0212 9.69401 27.5146 9.38468 26.9972C8.91001 26.1972 8.60334 25.3332 8.45401 24.4159C8.36868 23.8906 8.32334 23.3626 8.35268 22.8319C8.44601 21.1199 9.02201 19.5946 10.126 18.2746C11.0513 17.1679 12.2087 16.3946 13.5713 15.9279C14.1393 15.7332 14.726 15.6132 15.3287 15.5706C15.4407 15.5626 15.55 15.5359 15.662 15.5439C15.7153 15.5466 15.7687 15.5439 15.8167 15.5786C15.822 15.5839 15.8273 15.5866 15.8327 15.5892C15.8647 15.6426 15.8567 15.7039 15.8567 15.7599C15.8567 16.7226 15.8567 17.6879 15.8567 18.6506C15.8567 18.6852 15.8567 18.7199 15.8567 18.7519C15.8513 18.8479 15.8033 18.8799 15.7127 18.8559C15.4487 18.7812 15.1793 18.7466 14.9073 18.7332C14.486 18.7119 14.07 18.7706 13.6727 18.9172C12.3473 19.4052 11.5447 20.3546 11.3767 21.7519C11.2113 23.1279 11.7553 24.2292 12.8993 25.0239C12.9953 25.0906 13.094 25.1519 13.1847 25.2266V25.2239Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.7031 28.5849C10.7538 28.5716 10.7831 28.6116 10.8178 28.6329C11.6791 29.1583 12.6071 29.5023 13.6045 29.6623C14.1058 29.7423 14.6098 29.7769 15.1165 29.7503C16.8098 29.6623 18.3271 29.0996 19.6391 28.0143C20.9005 26.9716 21.7405 25.6543 22.1591 24.0729C22.2925 23.5743 22.3645 23.0649 22.3911 22.5476C22.4071 22.2516 22.4045 21.9529 22.4045 21.6569C22.4045 19.1102 22.4045 16.5636 22.4045 14.0169V13.8436C22.4711 13.8249 22.5005 13.8756 22.5378 13.8996C23.4445 14.5209 24.4258 14.9796 25.4871 15.2729C26.0685 15.4329 26.6605 15.5396 27.2631 15.5929C27.5165 15.6143 27.7698 15.6116 28.0205 15.6303C28.1298 15.6383 28.1325 15.6329 28.1351 15.5183C28.1351 15.3956 28.1351 15.2756 28.1351 15.1529C28.1351 14.2916 28.1351 13.4303 28.1351 12.5663C28.1351 12.5129 28.1378 12.4596 28.1405 12.4062C28.3671 12.4329 28.5911 12.4809 28.8205 12.4969C28.9618 12.5076 29.1031 12.5209 29.2445 12.5156C29.3138 12.5156 29.3431 12.5369 29.3351 12.6089C29.3325 12.6383 29.3351 12.6676 29.3351 12.6969V16.4356C29.3351 16.4596 29.3351 16.4836 29.3351 16.5076C29.3325 16.6169 29.3325 16.6196 29.2178 16.6169C28.8285 16.6169 28.4391 16.5903 28.0525 16.5396C27.2631 16.4356 26.4951 16.2436 25.7538 15.9529C25.0445 15.6756 24.3751 15.3236 23.7458 14.8916C23.7058 14.8649 23.6658 14.8409 23.6071 14.8009V14.9769C23.6071 17.6996 23.6071 20.4196 23.6071 23.1423C23.6071 24.5929 23.2311 25.9423 22.4551 27.1716C21.5191 28.6569 20.2231 29.6996 18.5751 30.2996C17.5751 30.6623 16.5378 30.8036 15.4738 30.7236C13.6791 30.5903 12.1271 29.9049 10.8045 28.6889C10.7698 28.6569 10.7378 28.6169 10.7058 28.5823L10.7031 28.5849Z"
+                      fill="#CB1C54"
+                    />
+                    <path
+                      d="M22.4447 6.77705C22.3913 6.77705 22.338 6.78505 22.2847 6.78505C21.4073 6.78505 20.53 6.78505 19.6553 6.78505C19.5202 6.78505 19.4527 6.85083 19.4527 6.98239C19.4527 12.3397 19.4527 17.6944 19.4527 23.0517C19.4527 23.4251 19.426 23.7904 19.3087 24.1451C18.898 25.3984 18.0553 26.2251 16.77 26.5184C15.3913 26.8331 14.2207 26.4117 13.2873 25.3424C13.2713 25.3237 13.2607 25.3024 13.25 25.2811C13.5167 25.3877 13.7833 25.4944 14.066 25.5504C14.9647 25.7291 15.8127 25.5904 16.5913 25.1104C17.4927 24.5557 18.0233 23.7424 18.21 22.7051C18.2447 22.5077 18.25 22.3077 18.25 22.1077C18.25 16.7424 18.25 11.3744 18.25 6.00905C18.25 5.75839 18.2153 5.79039 18.4633 5.79039C19.7007 5.79039 20.938 5.79039 22.1753 5.79039C22.2047 5.79039 22.234 5.79039 22.2633 5.79039C22.3887 5.79039 22.3913 5.79039 22.3913 5.92105C22.3913 6.20905 22.386 6.49439 22.442 6.77705H22.4447Z"
+                      fill="#6ABAC5"
+                    />
+                    <path
+                      d="M15.8268 15.5809C15.0722 15.6049 14.3308 15.7249 13.6135 15.9649C12.5762 16.3089 11.6535 16.8502 10.8482 17.5916C9.79218 18.5649 9.07218 19.7436 8.67752 21.1222C8.53618 21.6129 8.45618 22.1169 8.41885 22.6262C8.39752 22.9329 8.38952 23.2396 8.40818 23.5436C8.45352 24.3942 8.62952 25.2156 8.95218 26.0049C9.31218 26.8876 9.81885 27.6769 10.4775 28.3676C10.4908 28.3809 10.4988 28.3996 10.5095 28.4156C10.3602 28.3516 10.2402 28.2422 10.1148 28.1436C8.88818 27.1702 8.02152 25.9436 7.54685 24.4476C7.38152 23.9276 7.27752 23.3942 7.22685 22.8502C7.18952 22.4556 7.18685 22.0609 7.21085 21.6689C7.26952 20.7622 7.48552 19.8929 7.85885 19.0636C8.25085 18.1969 8.78418 17.4289 9.46152 16.7649C10.2508 15.9916 11.1655 15.4129 12.2082 15.0369C12.8615 14.8022 13.5335 14.6582 14.2268 14.6076C14.7282 14.5702 15.2268 14.5809 15.7282 14.6422C15.7948 14.6502 15.8348 14.6636 15.8348 14.7436C15.8295 15.0209 15.8295 15.2982 15.8268 15.5756V15.5809Z"
+                      fill="#6ABAC5"
+                    />
+                    <path
+                      d="M13.1936 25.2234C12.8896 25.0847 12.6256 24.8874 12.3856 24.658C11.7856 24.0794 11.4282 23.3754 11.3349 22.546C11.1402 20.8074 12.2362 19.3087 13.7589 18.8447C14.4096 18.6474 15.0602 18.6394 15.7136 18.8154C15.7509 18.826 15.7856 18.842 15.8256 18.8314C15.8469 18.778 15.8362 18.7247 15.8362 18.6714C15.8362 17.698 15.8362 16.7247 15.8362 15.7514C15.8362 15.698 15.8416 15.6447 15.8442 15.5914C16.2202 15.5647 16.5936 15.5994 16.9642 15.642C17.0229 15.6474 17.0389 15.6767 17.0362 15.7274C17.0362 15.7567 17.0362 15.786 17.0362 15.8154C17.0362 17.106 17.0362 18.3967 17.0362 19.6847C17.0362 19.7327 17.0496 19.7807 17.0176 19.834C16.8469 19.802 16.6816 19.7514 16.5082 19.7274C15.5109 19.5887 14.6122 19.8207 13.8229 20.442C13.1296 20.9887 12.7029 21.706 12.5589 22.5754C12.4069 23.498 12.5989 24.354 13.1296 25.13C13.1509 25.162 13.1696 25.194 13.1909 25.2287L13.1936 25.2234Z"
+                      fill="#CB1C54"
+                    />
+                    <path
+                      d="M25.0154 10.6005C24.6394 10.3792 24.3114 10.0992 24.0101 9.78721C23.1994 8.95255 22.6874 7.96321 22.4688 6.81921C22.4688 6.80855 22.4688 6.80055 22.4688 6.78988C22.8181 6.77121 23.1701 6.78988 23.5194 6.78188C23.5807 6.78188 23.6101 6.80588 23.6021 6.86721C23.6021 6.89121 23.6021 6.91521 23.6021 6.93921C23.5834 7.92055 23.8741 8.81655 24.3541 9.65921C24.5247 9.96055 24.7301 10.2379 24.9514 10.5045C24.9754 10.5339 25.0101 10.5579 25.0154 10.6005Z"
+                      fill="#CB1C54"
+                    />
+                    <path
+                      d="M28.1109 12.392C27.1136 12.1787 26.2363 11.728 25.4736 11.0507C25.3616 10.952 25.2469 10.8534 25.1562 10.7307C25.1936 10.728 25.2202 10.7494 25.2496 10.7654C25.8549 11.112 26.5003 11.3387 27.1883 11.4507C27.4549 11.496 27.7269 11.5227 27.9989 11.52C28.1136 11.52 28.1162 11.5227 28.1162 11.632C28.1162 11.8854 28.1136 12.136 28.1109 12.3894V12.392Z"
+                      fill="#6ABAC5"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_269_45030">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Tik Tok
+              </a>
+              <a className={cl.social__link}>
+                <div className={cl.social__instagram}></div>
+                Instagram
+              </a>
+              <a className={cl.social__link}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_269_45058)">
+                    <path
+                      d="M36 18C36 8.05867 27.9413 0 18 0C8.05867 0 0 8.05867 0 18C0 26.984 6.58133 34.432 15.1867 35.7813V23.2027H10.616V18H15.1867V14.0347C15.1867 9.52267 17.8747 7.032 21.9867 7.032C23.9573 7.032 26.016 7.384 26.016 7.384V11.8133H23.7467C21.512 11.8133 20.8133 13.2 20.8133 14.624V18H25.8053L25.008 23.2027H20.8133V35.7813C29.4187 34.432 36 26.984 36 18Z"
+                      fill="#4676ED"
+                    />
+                    <path
+                      d="M25.0092 23.2019L25.8065 17.9992H20.8145V14.6232C20.8145 13.1992 21.5105 11.8126 23.7479 11.8126H26.0172V7.38325C26.0172 7.38325 23.9585 7.03125 21.9879 7.03125C17.8759 7.03125 15.1879 9.52192 15.1879 14.0339V17.9992H10.6172V23.2019H15.1879V35.7806C16.1052 35.9246 17.0439 35.9992 18.0012 35.9992C18.9585 35.9992 19.8972 35.9246 20.8145 35.7806V23.2019H25.0092Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_269_45058">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                facebook
+              </a>
+              <a className={cl.social__link}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_269_45063)">
+                    <path
+                      d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z"
+                      fill="#DA0000"
+                    />
+                    <path
+                      d="M29.4987 12.2256C29.224 11.1936 28.4107 10.3802 27.376 10.1029C25.504 9.60156 18 9.60156 18 9.60156C18 9.60156 10.496 9.60156 8.624 10.1029C7.592 10.3802 6.77867 11.1909 6.50133 12.2256C6 14.0976 6 18.0016 6 18.0016C6 18.0016 6 21.9056 6.50133 23.7776C6.776 24.8096 7.58933 25.6229 8.624 25.9002C10.496 26.4016 18 26.4016 18 26.4016C18 26.4016 25.504 26.4016 27.376 25.9002C28.408 25.6229 29.2213 24.8122 29.4987 23.7776C30 21.9056 30 18.0016 30 18.0016C30 18.0016 30 14.0976 29.4987 12.2256ZM15.6 21.6016V14.4016L21.8347 18.0016L15.6 21.6016Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_269_45063">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Youtube
+              </a>
+            </section>
+          </div>
+
+          <section className={cl.content}>
+            <nav className={cl.tabs}>
+              <div className={getTabClassName("tab1")} onClick={() => setCurrentTab("tab1")}>
+                Մանրամասն
+              </div>
+              <div className={getTabClassName("tab2")} onClick={() => setCurrentTab("tab2")}>
+                Մասնաճյուղեր
+              </div>
+              <div className={getTabClassName("tab3")} onClick={() => setCurrentTab("tab3")}>
+                Ապրանքներ
+              </div>
+              <div className={getTabClassName("tab4")} onClick={() => setCurrentTab("tab4")}>
+                Ծառայություններ
+              </div>
+              <div className={getTabClassName("tab5")} onClick={() => setCurrentTab("tab5")}>
+                Թափուր աշխատատեղեր
+              </div>
+            </nav>
+
+            {currentTab === "tab1" && <GalleryTab />}
+
+            {currentTab === "tab3" && <Products />}
+
+            <MessageModal
+              open={messageModalOpen}
+              onClose={changeMessageModalOpen}
+              recipient={{
+                name: "Name"
+              }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </section>
+        </div>
+      </div>
+    </DefaultLayout>
   );
-}
+};
 
 export default LegalSellerPage;

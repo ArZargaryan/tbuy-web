@@ -4,7 +4,7 @@ import { MenuDepth1 } from "./MenuDepth1";
 import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { ProductSlider } from "./ProductSlider";
+import ProductSlider from "./ProductSlider";
 import Tooltip from "@libs/presentation/components/elements/Tooltip";
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import { useAppSelector } from "@core/store";
@@ -380,14 +380,14 @@ const Products = () => {
                     <span>Զրոյացնել</span>
                   </button>
                   <div className={cl.tooltip__checkboxes}>
-                      <Checkbox text="Դյուրակիր" />
-                      <Checkbox text="Հեռակառավարվող" />
-                      <Checkbox text="Դյուրակիր" />
-                      <Checkbox text="Հեռակառավարվող" />
-                      <Checkbox text="Դյուրակիր" />
-                      <Checkbox text="Հեռակառավարվող" />
-                      <Checkbox text="Դյուրակիր" />
-                      <Checkbox text="Հեռակառավարվող" />
+                    <Checkbox text="Դյուրակիր" />
+                    <Checkbox text="Հեռակառավարվող" />
+                    <Checkbox text="Դյուրակիր" />
+                    <Checkbox text="Հեռակառավարվող" />
+                    <Checkbox text="Դյուրակիր" />
+                    <Checkbox text="Հեռակառավարվող" />
+                    <Checkbox text="Դյուրակիր" />
+                    <Checkbox text="Հեռակառավարվող" />
                   </div>
                 </div>
               </Tooltip>

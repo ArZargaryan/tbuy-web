@@ -4,11 +4,7 @@ import { globalTranslations } from "@core/helpers/translations";
 import MyProfilePage from "@features/account/presentation/pages/MyProfilePage";
 
 export default function MyProfile() {
-  return (
-    <>
-      <MyProfilePage />
-    </>
-  );
+  return <MyProfilePage />;
 }
 
 export async function getStaticProps({ locale }: { locale: string }) {

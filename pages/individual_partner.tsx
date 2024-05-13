@@ -10,7 +10,7 @@ export default function BecomePartner() {
       <Head>
         <title>Tbuy | Individual Seller</title>
       </Head>
-      <SellerPage sellerType={"individual"} />
+      <SellerPage sellerType="individual" />
     </>
   );
 }

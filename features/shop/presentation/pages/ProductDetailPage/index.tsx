@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "@core/store";
 import { ImgExporter } from "@core/helpers/ImgExporter";
@@ -454,7 +454,6 @@ function ProductDetailPage() {
 
   useEffect(() => {
     if (id && typeof +id === "number") {
-      console.log(id);
       dispatch(getProductDetails({ id: +id, lang: locale as Lang }));
     }
   }, [dispatch, id]);
@@ -491,7 +490,8 @@ function ProductDetailPage() {
     };
   }, [trackScrolling]);
 
-  const isBottom = (el: any) => {
+  const isBottom = (el: RefObject<HTMLElement>) => {
+    if (!el.current) return;
     return el.current.getBoundingClientRect().bottom <= 83;
   };
 
@@ -660,7 +660,7 @@ function ProductDetailPage() {
         <StarsRating value={product?.rating} readOnly color="var(--yellow)" />
       </div>
     ),
-    []
+    [product?.rating]
   );
 
   // if (loading) {

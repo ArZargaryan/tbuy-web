@@ -11,16 +11,18 @@ export type CheckboxProps = {
   onWrapperClick?: MouseEventHandler<HTMLLabelElement>;
 };
 
-const Checkbox: FC<
-  CheckboxProps & LabelHTMLAttributes<HTMLLabelElement>
-> = ({ text, error, border, checked, onClick, ...other }) => {
+const Checkbox: FC<CheckboxProps & LabelHTMLAttributes<HTMLLabelElement>> = ({
+  text,
+  error,
+  border,
+  checked,
+  onClick,
+  ...other
+}) => {
   const [internalChecked, setInternalChecked] = useState(false);
 
   return (
-    <Label
-      onClick={onClick ? onClick : () => setInternalChecked((old) => !old)}
-      {...other}
-    >
+    <Label onClick={onClick ? onClick : () => setInternalChecked((old) => !old)} {...other}>
       {error ? (
         <>
           <svg
@@ -30,12 +32,7 @@ const Checkbox: FC<
             viewBox="0 0 16 17"
             fill="none"
           >
-            <rect
-              width="16"
-              height="16"
-              transform="translate(0 0.5)"
-              fill="white"
-            />
+            <rect width="16" height="16" transform="translate(0 0.5)" fill="white" />
             <path
               d="M8 6.5V9.83333"
               stroke="#D85353"
@@ -62,11 +59,7 @@ const Checkbox: FC<
         </>
       ) : (
         <>
-          <CustomCheckbox
-            checked={checked ?? internalChecked}
-            border={border}
-            text={text}
-          >
+          <CustomCheckbox checked={checked ?? internalChecked} border={border} text={text}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"

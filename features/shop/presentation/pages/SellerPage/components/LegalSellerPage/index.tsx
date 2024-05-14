@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import cl from "./legal.module.scss";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
@@ -9,14 +9,18 @@ import Products from "./Products";
 import { useModal } from "@core/hooks/useModal";
 import MessageModal from "@libs/presentation/components/modals/MessageModal";
 import GalleryTab from "./GalleryTab";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-type TabType = "tab1" | "tab2" | "tab3" | "tab4" | "tab5";
+type TabType = "gallery" | "tab2" | "products" | "tab4" | "tab5";
 
 const LegalSellerPage = () => {
-  const [currentTab, setCurrentTab] = useState<TabType>("tab1");
   const [phoneModalIsActive, setPhoneModalIsActive] = useState(false);
 
   const [messageModalOpen, changeMessageModalOpen] = useModal(false);
+
+  const router = useRouter();
+  const { query } = router;
 
   const handleClickMessageButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
@@ -24,12 +28,21 @@ const LegalSellerPage = () => {
   };
 
   const getTabClassName = (tab: TabType) => {
-    if (currentTab === tab) {
+    if (query.tab === tab) {
       return cl.tabs__button_active;
     } else {
       return cl.tabs__button;
     }
   };
+
+  useEffect(() => {
+    if (!query.tab) {
+      router.replace({
+        pathname: router.pathname,
+        query: { tab: "gallery" }
+      });
+    }
+  }, [query.tab, router]);
 
   return (
     <DefaultLayout>
@@ -607,26 +620,27 @@ const LegalSellerPage = () => {
 
           <section className={cl.content}>
             <nav className={cl.tabs}>
-              <div className={getTabClassName("tab1")} onClick={() => setCurrentTab("tab1")}>
+              <Link href={{ query: { tab: "gallery" } }} className={getTabClassName("gallery")}>
                 Մանրամասն
-              </div>
-              <div className={getTabClassName("tab2")} onClick={() => setCurrentTab("tab2")}>
+              </Link>
+
+              <Link href={{ query: { tab: "tab2" } }} className={getTabClassName("tab2")}>
                 Մասնաճյուղեր
-              </div>
-              <div className={getTabClassName("tab3")} onClick={() => setCurrentTab("tab3")}>
+              </Link>
+              <Link href={{ query: { tab: "products" } }} className={getTabClassName("products")}>
                 Ապրանքներ
-              </div>
-              <div className={getTabClassName("tab4")} onClick={() => setCurrentTab("tab4")}>
+              </Link>
+              <Link href={{ query: { tab: "tab4" } }} className={getTabClassName("tab4")}>
                 Ծառայություններ
-              </div>
-              <div className={getTabClassName("tab5")} onClick={() => setCurrentTab("tab5")}>
+              </Link>
+              <Link href={{ query: { tab: "tab5" } }} className={getTabClassName("tab5")}>
                 Թափուր աշխատատեղեր
-              </div>
+              </Link>
             </nav>
 
-            {currentTab === "tab1" && <GalleryTab />}
+            {query.tab === "gallery" && <GalleryTab />}
 
-            {currentTab === "tab3" && <Products />}
+            {query.tab === "products" && <Products />}
 
             <MessageModal
               open={messageModalOpen}

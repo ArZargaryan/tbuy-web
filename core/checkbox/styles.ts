@@ -9,6 +9,7 @@ export const Input = styled.input`
   heidth: 0;
 `;
 export const Label = styled.label<{ margin?: string }>`
+  cursor: pointer;
   width: max-content;
   position: relative;
   display: flex;

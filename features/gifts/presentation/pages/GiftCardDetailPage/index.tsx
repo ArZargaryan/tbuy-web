@@ -126,7 +126,7 @@ function GiftCardDetailPage() {
               <CardsSlider
                 title={"ՁԵԶ ԿՀԵՏԱՔՐՔՐԻ ՆԱԵՎ"}
                 cards={suggestedGiftCards}
-                extraType={"short_550"}
+                extra_type="short_550"
               />
             </div>
           </div>

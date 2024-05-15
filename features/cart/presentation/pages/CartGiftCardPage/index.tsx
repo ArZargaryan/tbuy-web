@@ -47,7 +47,7 @@ function CartGiftCardPage() {
               cards={similar_products}
               title={"ԳՆՈՒՄ ԵՆ ՆԱԵՎ"}
               titleClassName={styles.slider_title}
-              extraType={"short_550"}
+              extra_type="short_550"
             />
           </div>
           <div className={styles.cart__conclusion}>
@@ -91,7 +91,7 @@ function CartGiftCardPage() {
             cards={similar_products}
             title={"ԳՆՈՒՄ ԵՆ ՆԱԵՎ"}
             titleClassName={styles.slider_title}
-            extraType={"short_550"}
+            extra_type={"short_550"}
           />
         </div>
       </div>

@@ -17,15 +17,15 @@ type Card = Product | Service | VacancyShort | CompanyCardInfo | GiftCard;
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   cards: Card[];
   loading: boolean;
-  extraType?: "account" | "main";
+  extra_type?: "account" | "main";
 }
 
 function CardList(props: Props) {
-  const { cards, loading, extraType } = props;
+  const { cards, loading, extra_type } = props;
 
   const cls = classNames(
     styles.product_card_list,
-    extraType && styles[`product_card_list_${extraType}`],
+    extra_type && styles[`product_card_list_${extra_type}`],
     props.className
   );
 

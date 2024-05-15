@@ -76,30 +76,28 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
             watchOverflow={false}
           >
             {images.map((image, i) => (
-              <>
-                <SwiperSlide
-                  key={i}
-                  className={`${styles.small_slider__slide} ${
-                    smallSliderActive == i ? styles.small_slider__slide_active : ""
-                  }`}
-                  onClick={() => {
-                    bigSliderControl.slideTo(i);
-                    smallSliderControl.slideTo(i);
-                    setSmallSliderActive(i);
-                  }}
-                >
-                  <div className={styles.slide_div}>
-                    {/* <BlurImage
+              <SwiperSlide
+                key={i}
+                className={`${styles.small_slider__slide} ${
+                  smallSliderActive == i ? styles.small_slider__slide_active : ""
+                }`}
+                onClick={() => {
+                  bigSliderControl.slideTo(i);
+                  smallSliderControl.slideTo(i);
+                  setSmallSliderActive(i);
+                }}
+              >
+                <div className={styles.slide_div}>
+                  {/* <BlurImage
                     src={image.original}
                     alt={"blur_image"}
                     blurHash={image.blurHash}
                     width={400}
                     height={400}
                   /> */}
-                    <img src={image.original} />
-                  </div>
-                </SwiperSlide>
-              </>
+                  <img src={image.original} />
+                </div>
+              </SwiperSlide>
             ))}
             <button className={styles.prev_btn} ref={prevBtn}>
               <svg

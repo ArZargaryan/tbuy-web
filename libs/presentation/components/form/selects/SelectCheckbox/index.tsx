@@ -22,13 +22,13 @@ type Props = {
   label?: string;
   handleChange?: () => void;
   items: SelectItem[];
-  checkBoxCircle?: boolean;
+  check_box_circle?: boolean;
   poppupItemClassName?: string;
-  labelStyle?: React.CSSProperties;
+  label_style?: React.CSSProperties;
 } & SelectProps<number[]>;
 
 function SelectCheckbox(props: Props) {
-  const { label = "", items, handleChange, labelStyle } = props;
+  const { label = "", items, handleChange, label_style } = props;
   const [open, setOpen] = useState(false);
   const [choosedItems, setChoosedItems] = React.useState<number[]>([]);
 
@@ -50,7 +50,7 @@ function SelectCheckbox(props: Props) {
   const checboxCls = classNames(
     styles.menu_item,
     {
-      [styles.checkboxCircle]: props.checkBoxCircle
+      [styles.checkboxCircle]: props.check_box_circle
     },
     props.poppupItemClassName
   );
@@ -64,7 +64,7 @@ function SelectCheckbox(props: Props) {
 
   return (
     <FormControl className={`${styles.form} ${props?.className}`}>
-      <label onClick={showSelection} style={labelStyle}>
+      <label onClick={showSelection} style={label_style}>
         {label}
         {!!choosedItems.length && <sup className={styles.label_sup}>{choosedItems.length}</sup>}
       </label>
@@ -86,7 +86,7 @@ function SelectCheckbox(props: Props) {
         {items.map((item, i) => (
           <MenuItem key={`${item.id}_${i}`} value={item.id} className={checboxCls}>
             <Checkbox
-              variant={props.checkBoxCircle ? "circle" : "primary_filled"}
+              variant={props.check_box_circle ? "circle" : "primary_filled"}
               inputProps={{
                 checked: !!choosedItems.find((choosed) => choosed === item.id)
               }}

@@ -34,7 +34,7 @@ function ProductDetailColor({ data, companyType }: Props) {
 
               <div className={styles.choose_color}>
                 {_.map(colors.values, (color, i) => (
-                  <div className={styles.color__block}>
+                  <div className={styles.color__block} key={i}>
                     <label key={`${color.value}_${i}`}>
                       <input
                         type="radio"

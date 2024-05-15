@@ -25,7 +25,7 @@ function ResultFiltersSlider(props: Props) {
         {props.mode === "by_company" && (
           <SwiperSlide>
             <SelectCustom
-              activeSelect={assortmentActive}
+              active_select={assortmentActive}
               onClick={() => setAssortmentActive((prev) => !prev)}
             >
               {t("filters.sections.title")}
@@ -36,7 +36,7 @@ function ResultFiltersSlider(props: Props) {
         <SwiperSlide>
           <SelectCheckbox
             label={`Վիճակ`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "Նոր" },
               { id: 2, value: "Օգտագործված" }
@@ -46,7 +46,7 @@ function ResultFiltersSlider(props: Props) {
         <SwiperSlide>
           <SelectCheckbox
             label={`Արտադրման երկիր`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "Հայաստան" },
               { id: 2, value: "Այլ" }
@@ -56,7 +56,7 @@ function ResultFiltersSlider(props: Props) {
         <SwiperSlide>
           <SelectCheckbox
             label={`Վաճառող`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "Իրավաբանական անձ" },
               { id: 2, value: "Ֆիզիկական անձ" }

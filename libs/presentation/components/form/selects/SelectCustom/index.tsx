@@ -5,17 +5,17 @@ import { ImgExporter } from "@core/helpers/ImgExporter";
 
 type Props = React.HTMLAttributes<HTMLButtonElement> &
   PropsWithChildren & {
-    activeSelect: boolean;
+    active_select: boolean;
   };
 
 function SelectAssortment(props: Props) {
-  const { activeSelect, children } = props;
+  const { active_select, children } = props;
 
   const cls = classNames(styles.select, {
-    [styles.active]: activeSelect
+    [styles.active]: active_select
   });
   const imgCls = classNames({
-    [styles.rotate]: activeSelect
+    [styles.rotate]: active_select
   });
 
   const { Arrows } = ImgExporter;

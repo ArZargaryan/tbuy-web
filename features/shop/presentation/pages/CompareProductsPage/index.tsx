@@ -35,7 +35,7 @@ function CompareProductsPage() {
                 <SelectCheckbox
                   label={`Գտնվելու վայր`}
                   multiple={false}
-                  checkBoxCircle={true}
+                  check_box_circle
                   className={styles.mobile_slide__checkbox}
                   poppupItemClassName={styles.mobile_slide__checkbox__item}
                   items={[

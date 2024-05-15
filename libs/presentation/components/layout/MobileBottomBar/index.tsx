@@ -21,13 +21,14 @@ function MobileBottomBar() {
         //     setValue(newValue);
         // }}
       >
-        {map(navigation_items, (navItem) => {
+        {map(navigation_items, (navItem, idx) => {
           const cls = classNames(styles.bottom_bar__item, {
             [styles.bottom_bar__item_active]: router.pathname.includes(navItem.route || "404route")
           });
 
           return (
             <BottomNavigationAction
+              key={idx}
               icon={
                 <Link href={navItem.route || "#"} className={cls}>
                   {navItem.badgeContent && (

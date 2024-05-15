@@ -43,8 +43,7 @@ function VacanciesPage() {
     <DefaultLayout>
       <div className="container">
         <TitleWithLink
-          linkText={t<string>("create_online_cv", { ns: "catalog/vacancies-page" })}
-          linkPath={""}
+          link_text={t<string>("create_online_cv", { ns: "catalog/vacancies-page" })}
           className={`page_title ${styles.page_title}`}
         >
           {t("vacancies", { ns: "catalog/vacancies-page" })}

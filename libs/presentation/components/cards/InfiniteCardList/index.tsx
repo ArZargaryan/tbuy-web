@@ -18,18 +18,18 @@ type Card = Product | Service | VacancyShort | CompanyCardInfo | GiftCard;
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   cards: Card[];
   loading: boolean;
-  extraType?: "account";
+  extra_type?: "account";
   loadMore?: () => void;
 }
 
 function InfiniteCard(props: Props) {
-  const { cards, loading, extraType, loadMore } = props;
+  const { cards, loading, extra_type, loadMore } = props;
 
   const [shimmers] = useState([1, 2, 3, 4, 5]);
 
   const cls = classNames(
     styles.product_card_list,
-    extraType && styles[`product_card_list_${extraType}`],
+    extra_type && styles[`product_card_list_${extra_type}`],
     props.className
   );
 
@@ -50,7 +50,12 @@ function InfiniteCard(props: Props) {
       loader={
         <div className={`${cls} ${styles.shimmers}`}>
           {shimmers.map((shimmer) => (
-            <Shimmer key={shimmer} className={styles.product_card_list__item} />
+            <Shimmer
+              width={400}
+              height={450}
+              key={shimmer}
+              className={styles.product_card_list__item}
+            />
           ))}
         </div>
       }

@@ -21,7 +21,7 @@ function AboutSellerCategoriesSlider() {
       <SelectsSlider>
         <SwiperSlide>
           <SelectCustom
-            activeSelect={assortmentActive}
+            active_select={assortmentActive}
             onClick={() => setAssortmentActive((prev) => !prev)}
           >
             {t("filters.sections.title")}
@@ -35,7 +35,7 @@ function AboutSellerCategoriesSlider() {
         <SwiperSlide>
           <SelectCheckbox
             label={`${t("filters.brand")}`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "ADS" },
               { id: 2, value: "AILIANG" },
@@ -54,7 +54,7 @@ function AboutSellerCategoriesSlider() {
         <SwiperSlide>
           <SelectCheckbox
             label={`${t("filters.color")}`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "Մոխրագույն" },
               { id: 2, value: "Ոսկեգույն" },
@@ -66,7 +66,7 @@ function AboutSellerCategoriesSlider() {
         <SwiperSlide>
           <SelectCheckbox
             label={`${t("filters.condition")}`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "Նոր" },
               { id: 2, value: "Օգտագործված" }
@@ -77,7 +77,7 @@ function AboutSellerCategoriesSlider() {
         <SwiperSlide>
           <SelectCheckbox
             label={`${t("filters.country")}`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: "Հայաստան" },
               { id: 2, value: "Այլ" }

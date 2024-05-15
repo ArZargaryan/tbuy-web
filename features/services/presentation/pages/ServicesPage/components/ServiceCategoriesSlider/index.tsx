@@ -23,7 +23,7 @@ function ServiceCategoriesSlider() {
       <SelectsSlider>
         <SwiperSlide>
           <SelectCustom
-            activeSelect={assortmentActive}
+            active_select={assortmentActive}
             onClick={() => setAssortmentActive((prev) => !prev)}
           >
             {t("filters.sections.title")}
@@ -117,7 +117,7 @@ function ServiceCategoriesSlider() {
         <SwiperSlide>
           <SelectCheckbox
             label={`${t("filters.seller.title")}`}
-            checkBoxCircle={true}
+            check_box_circle
             items={[
               { id: 1, value: t("filters.seller.citizen") },
               { id: 2, value: t("filters.seller.physical_person") }

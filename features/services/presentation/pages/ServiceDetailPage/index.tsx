@@ -308,8 +308,8 @@ function ServiceDetailPage() {
                       )}
 
                       <div className={styles.prices__popup}>
-                        {map(service.exchanges, (exchange) => (
-                          <p>
+                        {map(service.exchanges, (exchange, idx) => (
+                          <p key={idx}>
                             {(service?.price?.price / exchange.rate).toFixed(2)} {exchange.currency}
                           </p>
                         ))}

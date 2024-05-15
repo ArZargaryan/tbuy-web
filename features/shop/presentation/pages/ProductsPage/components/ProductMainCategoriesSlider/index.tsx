@@ -73,7 +73,7 @@ function ProductMainCategoriesSlider() {
           <Swiper navigation>
             <SwiperSlide>
               <SelectCustom
-                activeSelect={assortmentActive}
+                active_select={assortmentActive}
                 onClick={() => setAssortmentActive((prev) => !prev)}
               >
                 <h1 style={{ fontSize: 24, color: "#6E00E5" }}> {t("filters.sections.title")}</h1>
@@ -87,7 +87,7 @@ function ProductMainCategoriesSlider() {
             <SwiperSlide>
               <SelectCheckbox
                 label={`${t("filters.brand")}`}
-                checkBoxCircle={true}
+                check_box_circle
                 items={[
                   { id: 1, value: "ADS" },
                   { id: 2, value: "AILIANG" },

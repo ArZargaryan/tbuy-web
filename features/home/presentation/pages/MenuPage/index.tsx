@@ -4,7 +4,7 @@ import MenuSidebar from "@layouts/menu-layout/components/MenuSidebar";
 function MyMenuPage() {
   return (
     <DefaultLayout withoutFooter padding="0">
-      <MenuSidebar extraType={"mobile_sidebar"} />
+      <MenuSidebar extra_type="mobile_sidebar" />
     </DefaultLayout>
   );
 }

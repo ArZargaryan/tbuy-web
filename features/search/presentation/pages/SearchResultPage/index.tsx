@@ -58,12 +58,12 @@ function SearchResultPage() {
       <div className="container">
         <ResultCategoriesSlider />
         <TitleWithSort
-          sortItems={[
+          sort_items={[
             { id: 0, value: "Գինը ըստ նվազման" },
             { id: 1, value: "asd" },
             { id: 2, value: "asd" }
           ]}
-          selectLabel={"Գինը ըստ նվազման"}
+          select_label="Գինը ըստ նվազման"
           defaultValue={1}
           className={styles.title}
         />
@@ -76,7 +76,7 @@ function SearchResultPage() {
         </div>
 
         <div className={styles.search_section}>
-          <CardSlider title={``} cards={items} extraType={"short"} />
+          <CardSlider title={``} cards={items} extra_type="short" />
         </div>
 
         {/*mock loading*/}

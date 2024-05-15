@@ -723,23 +723,23 @@ function ProductDetailPage() {
                       <path
                         d="M25.3346 12.0013C25.3346 13.9346 24.7613 15.708 23.7746 17.188C22.3346 19.3213 20.0546 20.828 17.4013 21.2146C16.948 21.2946 16.4813 21.3346 16.0013 21.3346C15.5213 21.3346 15.0546 21.2946 14.6013 21.2146C11.948 20.828 9.66797 19.3213 8.22797 17.188C7.2413 15.708 6.66797 13.9346 6.66797 12.0013C6.66797 6.8413 10.8413 2.66797 16.0013 2.66797C21.1613 2.66797 25.3346 6.8413 25.3346 12.0013Z"
                         stroke="#6B718D"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M28.3347 24.6259L26.1347 25.1459C25.6414 25.2659 25.2547 25.6392 25.1481 26.1326L24.6814 28.0926C24.4281 29.1592 23.0681 29.4792 22.3614 28.6392L16.0014 21.3326L9.64141 28.6525C8.93474 29.4925 7.57474 29.1725 7.32141 28.1059L6.85474 26.1459C6.73474 25.6525 6.34807 25.2659 5.86807 25.1592L3.66807 24.6392C2.65474 24.3992 2.29474 23.1325 3.02807 22.3992L8.22807 17.1992C9.66807 19.3326 11.9481 20.8392 14.6014 21.2259C15.0547 21.3059 15.5214 21.3459 16.0014 21.3459C16.4814 21.3459 16.9481 21.3059 17.4014 21.2259C20.0547 20.8392 22.3347 19.3326 23.7747 17.1992L28.9747 22.3992C29.7081 23.1192 29.3481 24.3859 28.3347 24.6259Z"
                         stroke="#6B718D"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M16.7746 7.97203L17.5613 9.54535C17.6679 9.75869 17.9479 9.97203 18.2013 10.012L19.6279 10.252C20.5346 10.3987 20.7479 11.0654 20.0946 11.7187L18.9879 12.8253C18.8013 13.012 18.6946 13.372 18.7613 13.6387L19.0813 15.012C19.3346 16.092 18.7613 16.5187 17.8013 15.9453L16.4679 15.1587C16.2279 15.012 15.8279 15.012 15.5879 15.1587L14.2546 15.9453C13.2946 16.5053 12.7213 16.092 12.9746 15.012L13.2946 13.6387C13.3479 13.3854 13.2546 13.012 13.0679 12.8253L11.9613 11.7187C11.3079 11.0654 11.5213 10.412 12.4279 10.252L13.8546 10.012C14.0946 9.97203 14.3746 9.75869 14.4813 9.54535L15.2679 7.97203C15.6546 7.1187 16.3479 7.1187 16.7746 7.97203Z"
                         stroke="#6B718D"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                     4 հավաստագիր
@@ -765,15 +765,15 @@ function ProductDetailPage() {
                             <path
                               d="M10.6654 13.3346L15.9987 18.668L21.332 13.3346"
                               stroke="#1D1D1D"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="1.6"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                             />
                           </svg>
 
                           <div className={styles.prices__popup}>
-                            {map(product.exchanges, (exchange) => (
-                              <p>
+                            {map(product.exchanges, (exchange, idx) => (
+                              <p key={idx}>
                                 {(product?.price?.price / exchange.rate).toFixed(2)}{" "}
                                 {exchange.currency}
                               </p>
@@ -790,13 +790,13 @@ function ProductDetailPage() {
                             viewBox="0 0 18 18"
                             fill="none"
                           >
-                            <g clip-path="url(#clip0_459_27742)">
+                            <g clipPath="url(#clip0_459_27742)">
                               <path
                                 d="M6 7.5L9 10.5L12 7.5"
                                 stroke="#1D1D1D"
-                                stroke-width="1.6"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.6"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                             </g>
                             <defs>
@@ -826,10 +826,11 @@ function ProductDetailPage() {
 
                 <div className={styles.sale_info}>
                   <div>
-                    <b>Доступность:</b> Ներմուծվում է / 15 օր
+                    <b>{t("availability", { ns: "catalog/productspage" })}:</b> Ներմուծվում է / 15
+                    օր
                   </div>
                   <div>
-                    <b>Продается:</b> Վանաձոր
+                    <b>{t("for_sale", { ns: "catalog/productspage" })}:</b> Վանաձոր
                   </div>
                 </div>
 

@@ -7,8 +7,6 @@ import TbuyPagination from "@libs/presentation/components/elements/TbuyPaginatio
 import { useAppSelector } from "@core/store";
 import IndividualSellerInfo from "@features/shop/presentation/pages/SellerPage/components/IndividualSellerPage/IndividualSellerInfo";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
-import { Box } from "@mui/material";
-import { useTranslation } from "next-i18next";
 
 function IndividualSellerPage() {
   const { info, products } = useAppSelector((state) => state.shop_about_seller);
@@ -32,11 +30,11 @@ function IndividualSellerPage() {
       <IndividualSellerInfo info={info} />
       <div>
         <TitleWithSort
-          sortItems={[
+          sort_items={[
             { id: 0, value: "Գինը ըստ նվազման" },
             { id: 1, value: "Գինը ըստ նվազման" }
           ]}
-          selectLabel={"Գինը ըստ նվազման"}
+          select_label="Գինը ըստ նվազման"
         >
           Տեսականի
         </TitleWithSort>

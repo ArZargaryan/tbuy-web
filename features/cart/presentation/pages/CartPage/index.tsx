@@ -53,9 +53,9 @@ function CartPage() {
           <div className={styles.blue_550}>
             <CardsSlider
               cards={similar_products}
-              title={"ԳՆՈՒՄ ԵՆ ՆԱԵՎ"}
+              title="ԳՆՈՒՄ ԵՆ ՆԱԵՎ"
               titleClassName={styles.slider_title}
-              extraType={"short_550"}
+              extra_type="short_550"
             />
           </div>
           <div className={styles.cart__conclusion}>
@@ -104,7 +104,7 @@ function CartPage() {
             cards={similar_products}
             title={"ԳՆՈՒՄ ԵՆ ՆԱԵՎ"}
             titleClassName={styles.slider_title}
-            extraType={"short_550"}
+            extra_type={"short_550"}
           />
         </div>
       </div>

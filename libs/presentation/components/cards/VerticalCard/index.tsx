@@ -20,17 +20,17 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   isProducts?: boolean;
   titleClassName?: string;
-  extraType?: "" | "short" | "short_550";
+  extra_type?: "" | "short" | "short_550";
 }
 
 function VerticalCard(props: Props) {
-  const { cards, title, isProducts = false, extraType = "" } = props;
+  const { cards, title, isProducts = false, extra_type = "" } = props;
 
   const [prevArrowId, setPrevArrowId] = useState("");
   const [nextArrowId, setNextArrowId] = useState("");
 
   const cls = classNames(styles.slider_container, props.className, {
-    [styles[extraType]]: !!extraType.length
+    [styles[extra_type]]: !!extra_type.length
   });
 
   const titleCls = classNames(styles.slider_title, props?.titleClassName);

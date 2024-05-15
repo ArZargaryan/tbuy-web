@@ -33,23 +33,23 @@ const Checkbox: FC<CheckboxProps & LabelHTMLAttributes<HTMLLabelElement>> = ({
             <path
               d="M8 6.5V9.83333"
               stroke="#D85353"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M7.99833 14.7735H3.95833C1.64499 14.7735 0.678328 13.1202 1.79833 11.1002L3.87833 7.35352L5.83833 3.83352C7.02499 1.69352 8.97166 1.69352 10.1583 3.83352L12.1183 7.36018L14.1983 11.1068C15.3183 13.1268 14.345 14.7802 12.0383 14.7802H7.99833V14.7735Z"
               stroke="#D85353"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M7.99609 11.834H8.00208"
               stroke="#D85353"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <ErrorText>Ցույց տալ էջում</ErrorText>

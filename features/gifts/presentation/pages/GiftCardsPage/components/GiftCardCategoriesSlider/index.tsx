@@ -19,7 +19,7 @@ function GiftCardCategoriesSlider() {
       <SelectsSlider>
         <SwiperSlide>
           <SelectCustom
-            activeSelect={assortmentActive}
+            active_select={assortmentActive}
             onClick={() => setAssortmentActive((prev) => !prev)}
           >
             {t("filters.sections.title")}

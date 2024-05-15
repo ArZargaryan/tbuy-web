@@ -9,7 +9,7 @@ import classNames from "classnames";
 const { Icons } = ImgExporter;
 
 type Props = HTMLAttributes<HTMLDivElement> & {
-  extraType?: "mobile_sidebar";
+  extra_type?: "mobile_sidebar";
   additionalRoutes?: {
     route: string;
     notifications: number;
@@ -19,7 +19,7 @@ type Props = HTMLAttributes<HTMLDivElement> & {
 };
 
 function AccountSidebar(props: Props) {
-  const { extraType, additionalRoutes = [] } = props;
+  const { extra_type, additionalRoutes = [] } = props;
   const { pathname } = useRouter();
   const routes = useMemo(
     () => [
@@ -95,7 +95,7 @@ function AccountSidebar(props: Props) {
   );
 
   const cls = classNames(styles.account_sidebar, props.className, {
-    [styles[`variant-${extraType}`]]: extraType
+    [styles[`variant-${extra_type}`]]: extra_type
   });
 
   return (

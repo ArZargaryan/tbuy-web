@@ -1,11 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import DefaultLayout from "@layouts/default";
 
 import TitleWithLink from "@libs/presentation/components/titles/TitleWithLink";
 import MainSlider from "@features/home/presentation/components/MainSlider";
-import CompaniesSlider from "@features/home/presentation/components/OrganizationsSlider";
 import CategoryBar from "@features/home/presentation/components/CategoryBar";
 import VacancySlider from "@libs/presentation/components/cards/VacancySlider";
 
@@ -16,7 +14,6 @@ import CardsList from "@libs/presentation/components/cards/CardsList";
 import { Lang } from "@core/store/global";
 import { getHomeData } from "@features/home/presentation/store/homePageSlice";
 
-import BlurImage from "@libs/presentation/components/elements/BlurImage";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
 
 import styles from "./HomePage.module.scss";
@@ -25,17 +22,10 @@ import { VacancyShort } from "@libs/domain/model/vacancy";
 import { Service } from "@libs/domain/model/service";
 import { Category } from "@libs/domain/model/category";
 import { ImgExporter } from "@core/helpers/ImgExporter";
-import { Shimmer } from "react-shimmer";
-
-import main_1 from "@public/pictures/temp/main/main-1.jpg";
 
 function HomePage() {
-  const { Icons, blob } = ImgExporter;
+  const { Icons } = ImgExporter;
 
-  const {
-    homeData: { companies, products, services, vacancies, banners, slides, categories },
-    loading
-  } = useAppSelector((state) => state.home);
   const { t } = useTranslation(["catalog/homepage", "catalog/categories", "common"]);
 
   const { locale } = useRouter();
@@ -739,8 +729,8 @@ function HomePage() {
           <MainSlider banners={fakeHomeBanner} slides={fakeHomeSlides} loading={false} />
 
           <TitleWithLink
-            linkPath={`/services`}
-            linkText={`${t("actions.see_all", { ns: "common" })}`}
+            link_path="/services"
+            link_text={`${t("actions.see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
             {t("services")}
@@ -749,12 +739,12 @@ function HomePage() {
             className={styles.section_margin}
             cards={fakeService}
             loading={false}
-            extraType="main"
+            extra_type="main"
           />
 
           <TitleWithLink
-            linkPath={`/products`}
-            linkText={`${t("actions.see_all", { ns: "common" })}`}
+            link_path="/products"
+            link_text={`${t("actions.see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
             {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
@@ -763,14 +753,14 @@ function HomePage() {
             className={styles.section_margin}
             cards={(!!fakeProducts?.length && fakeProducts) || []}
             loading={false}
-            extraType="main"
+            extra_type="main"
           />
 
           {fakeVacansy?.length && (
             <>
               <TitleWithLink
-                linkPath={"/vacancies"}
-                linkText={`${t("actions.see_all", { ns: "common" })}`}
+                link_path="/vacancies"
+                link_text={`${t("actions.see_all", { ns: "common" })}`}
                 className={styles.title_marg}
               >
                 {t("vacancies")}
@@ -784,13 +774,13 @@ function HomePage() {
             {endlessProducts?.map((_, id) => (
               <>
                 <div key={id}>
-                  <TitleWithLink linkPath={`/products`} className={styles.title_marg}>
+                  <TitleWithLink link_path={`/products`} className={styles.title_marg}>
                     {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
                   </TitleWithLink>
                   <CardsList
                     cards={(!!fakeProducts?.length && fakeProducts) || []}
                     loading={false}
-                    extraType="main"
+                    extra_type="main"
                   />
                 </div>
 
@@ -805,7 +795,7 @@ function HomePage() {
             {endlessProductsIsLoading && (
               <CardsList
                 className={styles.title_marg}
-                extraType="main"
+                extra_type="main"
                 cards={(!!fakeProducts?.length && fakeProducts) || []}
                 loading
               />

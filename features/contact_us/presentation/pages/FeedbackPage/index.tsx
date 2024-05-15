@@ -34,9 +34,7 @@ function FeedbackPage() {
     <DefaultLayout>
       <div className={styles.wrapper}>
         <div className={styles.content}>
-          <TitleWithLink linkText={""} linkPath={""}>
-            ՀԵՏԱԴԱՐՁ ԿԱՊ
-          </TitleWithLink>
+          <TitleWithLink>ՀԵՏԱԴԱՐՁ ԿԱՊ</TitleWithLink>
           <div className={styles.content__body}>
             <form className={styles.body__form} onSubmit={handleSubmit(submitHandler)}>
               <div className={styles.form__content}>

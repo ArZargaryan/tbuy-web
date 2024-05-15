@@ -5,11 +5,7 @@ import { ListItemText, MenuItem, Select, SelectChangeEvent } from "@mui/material
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
 import styles from "./title-with-sort.module.scss";
-import Swiper from "swiper";
-import { SwiperSlide } from "swiper/react";
 import SelectCheckbox from "../../form/selects/SelectCheckbox";
-import SelectCustom from "../../form/selects/SelectCustom";
-import SelectsSlider from "../../form/selects/SelectsSlider";
 import MobileFilter from "@core/mobileFilter/mobileFilter";
 
 interface SelectItem {
@@ -18,12 +14,12 @@ interface SelectItem {
 }
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  selectLabel?: string;
-  sortItems: SelectItem[];
+  select_label?: string;
+  sort_items: SelectItem[];
 }
 
 const TitleWithSort: FC<PropsWithChildren<Props>> = (props: Props) => {
-  const { children, sortItems } = props;
+  const { children, sort_items } = props;
   const [open, setOpen] = useState(false);
   const [chosenItem, setChosenItem] = React.useState<number>(0);
   const cls = classNames(styles.block, props.className);
@@ -44,9 +40,9 @@ const TitleWithSort: FC<PropsWithChildren<Props>> = (props: Props) => {
     <div {...props} className={cls}>
       <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
         <SelectCheckbox
-          label={`Տեսակ`}
-          checkBoxCircle={true}
-          labelStyle={{ fontSize: "24px", fontWeight: "bold", color: "black" }}
+          label="Տեսակ"
+          check_box_circle
+          label_style={{ fontSize: "24px", fontWeight: "bold", color: "black" }}
           items={[
             { id: 1, value: "ADS" },
             { id: 2, value: "AILIANG" },
@@ -73,7 +69,7 @@ const TitleWithSort: FC<PropsWithChildren<Props>> = (props: Props) => {
           IconComponent={() => <Arrows.Down onClick={showSelection} className={imgCls} />}
           defaultValue={0}
         >
-          {sortItems.map((item, i) => (
+          {sort_items.map((item, i) => (
             <MenuItem key={`${item.id}_${i}`} value={item.id} className={styles.menu_item}>
               <ListItemText primary={item.value} />
             </MenuItem>

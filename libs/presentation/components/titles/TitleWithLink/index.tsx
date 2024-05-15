@@ -5,12 +5,12 @@ import styles from "./title-with-link.module.scss";
 import { Shimmer } from "react-shimmer";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  linkText?: string;
-  linkPath?: string;
+  link_text?: string;
+  link_path?: string;
 }
 
 const TitleWithLink: FC<PropsWithChildren<Props>> = (props: Props) => {
-  const { children, linkText = "", linkPath = "" } = props;
+  const { children, link_text = "", link_path = "" } = props;
 
   const cls = classNames(styles.block, props.className);
 
@@ -20,10 +20,10 @@ const TitleWithLink: FC<PropsWithChildren<Props>> = (props: Props) => {
         {children}
         {!children && <Shimmer height={32} width={400} />}
       </h2>
-      <Link href={linkPath} className={styles.link}>
-        {linkText}
+      <Link href={link_path} className={styles.link}>
+        {link_text}
       </Link>
-      <Link href={linkPath} className={styles.mobile_link}>
+      <Link href={link_path} className={styles.mobile_link}>
         {children}
         {!children && <Shimmer height={32} width={400} />}
       </Link>

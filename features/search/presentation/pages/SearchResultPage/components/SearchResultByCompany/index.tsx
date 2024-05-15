@@ -37,12 +37,12 @@ function SearchResultByCompanyPage() {
     <SearchLayout q={q as string}>
       <div className="container">
         <TitleWithSort
-          sortItems={[
+          sort_items={[
             { id: 0, value: "Գինը ըստ նվազման" },
             { id: 1, value: "asd" },
             { id: 2, value: "asd" }
           ]}
-          selectLabel={"Գինը ըստ նվազման"}
+          select_label="Գինը ըստ նվազման"
           defaultValue={1}
         >
           <div className={styles.title_company}>

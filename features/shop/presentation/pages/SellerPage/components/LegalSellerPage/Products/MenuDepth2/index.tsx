@@ -47,13 +47,13 @@ export const MenuDepth2: FC<Props> = ({ el, idx }) => {
 const ArrowIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-      <g clip-path="url(#clip0_269_47625)">
+      <g clipPath="url(#clip0_269_47625)">
         <path
           d="M6 7.5L9 10.5L12 7.5"
           stroke="#1D1D1D"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

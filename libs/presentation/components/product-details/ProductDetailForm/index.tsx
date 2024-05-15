@@ -39,9 +39,8 @@ function ProductDetailForm({ companyType, data }: Props) {
 
           <div className={styles.choose_size}>
             {_.map(sizes.values, (size, index) => (
-              <label>
+              <label key={`${size}_${index}`}>
                 <div
-                  key={`${size}_${index}`}
                   className={`${styles.size_item} ${
                     selectedSize?.value === size.value ? styles.active : ""
                   }`}

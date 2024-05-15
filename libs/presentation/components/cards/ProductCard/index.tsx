@@ -39,16 +39,16 @@ function getImages() {
 
 function ProductCard({
   product,
-  extraType = ""
+  extra_type = ""
 }: {
   product: Product;
-  extraType?: "" | "short" | "short_550";
+  extra_type?: "" | "short" | "short_550";
 }) {
   const { title, discount, price, discountPrice, id, addedToFavorite, addedToCompare } = product;
 
   const cls = classNames(styles.product_card, {
-    [styles.withButton]: extraType !== "short" && price,
-    [styles[extraType]]: !!extraType.length
+    [styles.withButton]: extra_type !== "short" && price,
+    [styles[extra_type]]: !!extra_type.length
   });
 
   const { Icons } = ImgExporter;
@@ -62,7 +62,7 @@ function ProductCard({
   return (
     <div className={cls}>
       {!!discount && <div className={styles.discount}>{discount}%</div>}
-      {(extraType === "short" || extraType === "short_550") && (
+      {(extra_type === "short" || extra_type === "short_550") && (
         <div className={styles.short_btns}>
           <button className={`${styles.short_btns__item} ${styles.short_btns__item_repost}`}>
             <Icons.Repost />

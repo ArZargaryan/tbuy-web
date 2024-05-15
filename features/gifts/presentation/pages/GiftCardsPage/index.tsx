@@ -38,7 +38,7 @@ function GiftCardsPage() {
       <div className="container">
         <section className={styles.services_section}>
           <TitleWithSort
-            sortItems={[
+            sort_items={[
               { id: 0, value: "Գինը ըստ նվազման" },
               { id: 1, value: "Գինը ըստ նվազման" },
               { id: 2, value: "Գինը ըստ նվազման" }

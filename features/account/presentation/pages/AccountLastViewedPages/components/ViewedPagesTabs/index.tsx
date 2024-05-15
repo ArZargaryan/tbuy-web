@@ -58,10 +58,10 @@ function ViewedPagesTabs(props: TabsProps) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <CardsList cards={products} loading={false} extraType="account" />
+        <CardsList cards={products} loading={false} extra_type="account" />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <CardsList cards={services} loading={false} extraType="account" />
+        <CardsList cards={services} loading={false} extra_type="account" />
       </TabPanel>
     </div>
   );

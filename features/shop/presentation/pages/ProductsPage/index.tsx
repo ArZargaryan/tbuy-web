@@ -32,11 +32,11 @@ function ProductsPage() {
         <section className={styles.products_section}>
           {/* <ProductMainCategoriesSlider /> */}
           <TitleWithSort
-            sortItems={[
+            sort_items={[
               { id: 0, value: "Գինը ըստ նվազման" },
               { id: 1, value: "Գինը ըստ նվազման" }
             ]}
-            selectLabel={"Գինը ըստ նվազման"}
+            select_label="Գինը ըստ նվազման"
           >
             {" "}
             {t("title")}

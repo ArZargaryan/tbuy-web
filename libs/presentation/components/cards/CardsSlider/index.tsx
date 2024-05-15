@@ -21,17 +21,17 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   cards: Product[] | Service[] | GiftCard[];
   title?: string;
   titleClassName?: string;
-  extraType?: "" | "short" | "short_550";
+  extra_type?: "" | "short" | "short_550";
 }
 
 function ProductCardSlider(props: Props) {
-  const { cards, title, extraType = "" } = props;
+  const { cards, title, extra_type = "" } = props;
 
   const [prevArrowId, setPrevArrowId] = useState("");
   const [nextArrowId, setNextArrowId] = useState("");
 
   const cls = classNames(styles.slider_container, props.className, {
-    [styles[extraType]]: !!extraType.length
+    [styles[extra_type]]: !!extra_type.length
   });
 
   const titleCls = classNames(styles.slider_title, props?.titleClassName);

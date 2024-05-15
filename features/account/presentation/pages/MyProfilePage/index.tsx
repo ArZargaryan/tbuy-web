@@ -17,7 +17,7 @@ function MyProfilePage() {
 
   return (
     <DefaultLayout withoutFooter padding="0">
-      <AccountSidebar extraType={"mobile_sidebar"} additionalRoutes={additionalRoutes} />
+      <AccountSidebar extra_type="mobile_sidebar" additionalRoutes={additionalRoutes} />
     </DefaultLayout>
   );
 }

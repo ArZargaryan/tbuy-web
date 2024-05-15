@@ -127,35 +127,10 @@
 	}
 }
 
-.check_product_availability {
-	display: flex;
-	align-items: center;
-
-	svg {
-		width: 20px;
-		height: 20px;
-		margin-right: 10px;
-	}
-
-	@media (max-width: 1080px) {
-		span {
-			font-size: 14px;
-		}
-	}
-
-	@media (max-width: 480px) {
-		svg {
-			width: 17px;
-			height: 17px;
-		}
-	}
-}
-
 .product_amount_wrapper {
 	height: 48px;
 	display: flex;
 	gap: 16px;
-	margin-top: 20px;
 
 	.product_amount {
 		width: 100%;

@@ -4,9 +4,7 @@ import { CustomCheckbox, ErrorText, Label, Text } from "./styles";
 
 export type CheckboxProps = {
   text: string;
-  margin?: string;
   error?: boolean;
-  border?: string;
   checked?: boolean;
   onWrapperClick?: MouseEventHandler<HTMLLabelElement>;
 };
@@ -14,7 +12,6 @@ export type CheckboxProps = {
 const Checkbox: FC<CheckboxProps & LabelHTMLAttributes<HTMLLabelElement>> = ({
   text,
   error,
-  border,
   checked,
   onClick,
   ...other
@@ -59,7 +56,7 @@ const Checkbox: FC<CheckboxProps & LabelHTMLAttributes<HTMLLabelElement>> = ({
         </>
       ) : (
         <>
-          <CustomCheckbox checked={checked ?? internalChecked} border={border} text={text}>
+          <CustomCheckbox checked={checked ?? internalChecked}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"

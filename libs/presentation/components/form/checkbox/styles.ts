@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-import { CheckboxProps } from ".";
-
 export const Input = styled.input`
   position: absolute;
   z-index: -9999;
@@ -18,10 +16,10 @@ export const Label = styled.label<{ margin?: string }>`
   margin: ${({ margin }) => margin || "0"};
 `;
 
-export const CustomCheckbox = styled.span<{ checked: boolean } & CheckboxProps>`
+export const CustomCheckbox = styled.span<{ checked: boolean }>`
   width: 18px;
   height: 18px;
-  border: ${({ border }) => border || "1.4px solid #6B718D"};
+  border: 1.4px solid #6b718d;
   border-radius: 4px;
 
   display: flex;

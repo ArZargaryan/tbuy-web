@@ -8,7 +8,7 @@ import ProductSlider from "./ProductSlider";
 import Tooltip from "@libs/presentation/components/elements/Tooltip";
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import { useAppSelector } from "@core/store";
-import Checkbox from "@core/checkbox";
+import Checkbox from "@libs/presentation/components/form/checkbox";
 
 // -----------------------------------------------------------------------------------------------------------------------------
 
@@ -206,7 +206,7 @@ const Products = () => {
     <section className={cl.products}>
       <div className={cl.header}>
         <div className={cl.title}>
-          Դյուրակիր ակուստիկաներ (72)
+          Դյուրակիր ակուստիկաներ
           <ArrowDownIcon />
         </div>
 
@@ -439,9 +439,7 @@ const Products = () => {
 
         <div className={cl.content}>
           <div className={cl.content__header}>
-            <h2 className={cl.content__title}>
-              Դյուրակիր կապույր հեռակառավարվող ակուստիկաներ (72)
-            </h2>
+            <h2 className={cl.content__title}>Դյուրակիր կապույր հեռակառավարվող ակուստիկաներ</h2>
             <button className={cl.content__action}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

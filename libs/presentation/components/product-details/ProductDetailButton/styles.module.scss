@@ -4,7 +4,7 @@
   height: 48px;
   display: flex;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 18px;
 
   .product_amount {
     width: 100%;
@@ -52,10 +52,6 @@
         min-width: 30px;
       }
     }
-  }
-
-  @media (max-width: 1080px) {
-    margin-top: 30px;
   }
 
   @media (max-width: 1080px) {

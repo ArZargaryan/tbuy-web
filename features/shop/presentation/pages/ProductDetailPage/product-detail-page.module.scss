@@ -603,19 +603,21 @@
 	}
 
 	.main_wholesale__popup {
-		width: 100%;
+		min-width: 180px;
+		width: max-content;
+
 		position: absolute;
 		left: 50%;
 		bottom: 0;
-		min-width: 180px;
 		transform: translate(-50%, 100%);
 		z-index: 2;
-		background: #fff;
+
 		padding: 16px;
+
+		background: #fff;
 		border-radius: 2px;
 		box-shadow: 0 6px 10px rgba(#000, 0.5);
 		visibility: hidden;
-		width: max-content;
 
 		display: flex;
 		flex-direction: column;
@@ -654,7 +656,9 @@
 	}
 
 	&__bold {
-		font-weight: 700;
+		span {
+			font-weight: 700;
+		}
 	}
 }
 
@@ -678,5 +682,63 @@
 
 	@media (max-width: 650px) {
 		margin-top: 12px;
+	}
+}
+
+.check_product_availability {
+	display: flex;
+	align-items: center;
+	margin-top: 25px;
+	
+	svg {
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+	}
+	
+	@media (max-width: 1080px) {
+		margin-top: 20px;
+		span {
+			font-size: 14px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		svg {
+			width: 17px;
+			height: 17px;
+		}
+	}
+}
+
+.sale_info {
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+
+	*{font-size: 18px;}
+
+	b {
+		font-weight: bold;
+	}
+
+	@media screen and (max-width: 800px) {
+		gap: 6px;
+		margin-top: 12px;
+
+		* {
+			font-size: 16px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		left: unset;
+		right: 0;
+		gap: 6px;
+
+		* {
+			font-size: 14px;
+		}
 	}
 }

@@ -28,5 +28,7 @@
   "availability": "Availability",
   "for_sale": "For sale",
   "requirements_categories": "Requirements in categories",
-  "related_products": "Related products"
+  "related_products": "Related products",
+	"wholesale_price": "Wholesale price",
+	"valid_from": "Valid from (pc)"
 }

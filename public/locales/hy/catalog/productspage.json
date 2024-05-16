@@ -28,5 +28,7 @@
   "availability": "Հասանելություն",
   "for_sale": "Վաճառվում է",
   "requirements_categories": "ԿԱՏԵԳՈՐԻԱՆԵՐՈՒՄ ՊԱՀԱՆՋՎԱԾՆԵՐ",
-  "related_products": "ՀԱՄԱՆՄԱՆ ԱՊՐԱՆՔՆԵՐ"
+  "related_products": "ՀԱՄԱՆՄԱՆ ԱՊՐԱՆՔՆԵՐ",
+	"wholesale_price": "Մեծածախ գին",
+	"valid_from": "Գործում է սկսած (հատ)"
 }

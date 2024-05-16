@@ -807,10 +807,11 @@ function ProductDetailPage() {
                           </svg>
                           <div className={styles.main_wholesale__popup}>
                             <div className={styles.main_wholesale__bold}>
-                              Մեծածախ գին։ <span>90 000 AMD</span>
+                              {t("wholesale_price", { ns: "catalog/productspage" })}:
+                              <span>90 000 AMD</span>
                             </div>
                             <div className={styles.main_wholesale__bold}>
-                              Գործում է սկսած (հատ ապրանք): <span>30</span>
+                              {t("valid_from", { ns: "catalog/productspage" })}: <span>30</span>
                             </div>
                           </div>
                         </div>
@@ -922,7 +923,7 @@ function ProductDetailPage() {
                   data={product.parameters as any}
                 />
                 {/* SHARE ON SOCIAL MEDIAS */}
-                <div className={`${styles.share_on_social}`}>
+                <div className={styles.share_on_social}>
                   <p className={styles.label}>{t("actions.share", { ns: "common" })}</p>
 
                   <div className={styles.social_medias}>

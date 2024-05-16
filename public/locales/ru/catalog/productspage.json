@@ -28,5 +28,7 @@
   "availability": "Доступность",
   "for_sale": "Продается",
   "requirements_categories": "Требования по категориям",
-  "related_products": "Сопутствующие товары"
+  "related_products": "Сопутствующие товары",
+	"wholesale_price": "Оптовая цена",
+	"valid_from": "Действует от (шт)"
 }

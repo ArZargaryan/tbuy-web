@@ -286,7 +286,6 @@
 					display: flex;
 					align-items: center;
 					margin-top: 30px;
-					margin-bottom: 38px;
 
 					.social_medias {
 						display: flex;
@@ -495,10 +494,14 @@
 		.product__parameters_wrapper {
 			max-width: 100%;
 			overflow: hidden;
-			margin-top: 50px;
+			margin-top: 80px;
 
 			@media (min-width: 1550px) {
 				display: none;
+			}
+
+			@media (max-width: 1080px) {
+				margin-top: 50px;
 			}
 
 			@media (max-width: 800px) {

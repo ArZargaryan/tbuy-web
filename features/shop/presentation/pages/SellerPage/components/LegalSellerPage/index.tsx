@@ -36,13 +36,13 @@ const LegalSellerPage = () => {
   };
 
   useEffect(() => {
-    if (!query) {
+    if (router.isReady && !query.tab) {
       router.replace({
         pathname: router.pathname,
         query: { tab: "gallery" }
       });
     }
-  }, [router, query]);
+  }, [router.isReady]);
 
   return (
     <DefaultLayout>

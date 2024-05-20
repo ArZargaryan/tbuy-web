@@ -9,6 +9,7 @@ import Tooltip from "@libs/presentation/components/elements/Tooltip";
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import { useAppSelector } from "@core/store";
 import Checkbox from "@libs/presentation/components/form/checkbox";
+import { Modal } from "@libs/presentation/components/modals/Modal";
 
 // -----------------------------------------------------------------------------------------------------------------------------
 
@@ -180,12 +181,21 @@ export type filterType = {
   subcategories: Depth_1[];
 };
 
+type FilterType = "filter1" | "filter2" | "filter3" | "filter4" | null;
+
 // -----------------------------------------------------------------------------------------------------------------------------
 
 const Products = () => {
   const [subcategoriesIsShow, setSubcategoriesIsShow] = useState([false]);
 
-  const getClassName = (className: string, idx: number) => {
+  const [filterValue, setFilterValue] = useState<FilterType>(null);
+
+  const getFilterValueClassName = (filter: FilterType) => {
+    if (filter === filterValue) return `${cl.content__dropdown_option} ${cl.active}`;
+    return cl.content__dropdown_option;
+  };
+
+  const getSideFilterClassName = (className: string, idx: number) => {
     if (subcategoriesIsShow[idx]) {
       return `${className} ${cl.open}`;
     }
@@ -423,7 +433,7 @@ const Products = () => {
           {sidebarFilters.map((el, idx) => (
             <div key={idx} className={cl.sidebar__category}>
               <div
-                className={getClassName(cl.sidebar__panel, idx)}
+                className={getSideFilterClassName(cl.sidebar__panel, idx)}
                 onClick={() => changeSubcategoriesIsShow(idx)}
               >
                 {el.title}
@@ -440,73 +450,83 @@ const Products = () => {
         <div className={cl.content}>
           <div className={cl.content__header}>
             <h2 className={cl.content__title}>Դյուրակիր կապույր հեռակառավարվող ակուստիկաներ</h2>
-            <button className={cl.content__action}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path d="M23 26.1V5" stroke="#6E00E5" strokeWidth="1.6" strokeMiterlimit="10" />
-                <path d="M20 8L4 8" stroke="#6E00E5" strokeWidth="1.6" strokeMiterlimit="10" />
-                <path
-                  d="M20 13.332L8 13.332"
-                  stroke="#6E00E5"
-                  strokeWidth="1.6"
-                  strokeMiterlimit="10"
-                />
-                <path
-                  d="M20 18.668L12 18.668"
-                  stroke="#6E00E5"
-                  strokeWidth="1.6"
-                  strokeMiterlimit="10"
-                />
-                <path
-                  d="M18.6992 21.8008L22.9992 26.1008L27.2992 21.8008"
-                  stroke="#6E00E5"
-                  strokeWidth="1.6"
-                  strokeMiterlimit="10"
-                />
-              </svg>
-            </button>
-            <button className={cl.content__action}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <g clipPath="url(#clip0_334_54902)">
-                  <path d="M23 26.1V5" stroke="#6E00E5" strokeWidth="1.6" strokeMiterlimit="10" />
-                  <path
-                    d="M18.6992 21.8008L22.9992 26.1008L27.2992 21.8008"
-                    stroke="#6E00E5"
-                    strokeWidth="1.6"
-                    strokeMiterlimit="10"
-                  />
-                  <path
-                    d="M12 15V14L9.1 6H8.9L6 14V15"
-                    stroke="#6E00E5"
-                    strokeWidth="1.6"
-                    strokeMiterlimit="10"
-                  />
-                  <path d="M6 12H12" stroke="#6E00E5" strokeWidth="1.6" strokeMiterlimit="10" />
-                  <path
-                    d="M5 18H12V19L6 25V26H13"
-                    stroke="#6E00E5"
-                    strokeWidth="1.6"
-                    strokeMiterlimit="10"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_334_54902">
-                    <rect width="32" height="32" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </button>
+            <Tooltip
+              close_on_click
+              placement="bottom-end"
+              label={
+                <button className={cl.content__action}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                  >
+                    <path d="M23 26.1V5" stroke="#6E00E5" strokeWidth="1.6" strokeMiterlimit="10" />
+                    <path d="M20 8L4 8" stroke="#6E00E5" strokeWidth="1.6" strokeMiterlimit="10" />
+                    <path
+                      d="M20 13.332L8 13.332"
+                      stroke="#6E00E5"
+                      strokeWidth="1.6"
+                      strokeMiterlimit="10"
+                    />
+                    <path
+                      d="M20 18.668L12 18.668"
+                      stroke="#6E00E5"
+                      strokeWidth="1.6"
+                      strokeMiterlimit="10"
+                    />
+                    <path
+                      d="M18.6992 21.8008L22.9992 26.1008L27.2992 21.8008"
+                      stroke="#6E00E5"
+                      strokeWidth="1.6"
+                      strokeMiterlimit="10"
+                    />
+                  </svg>
+
+                  <div className={cl.content__tooltip}>Սորտավորել ըստ արժեքի</div>
+                </button>
+              }
+            >
+              <div className={cl.content__dropdown}>
+                <div
+                  className={getFilterValueClassName("filter1")}
+                  onClick={() => setFilterValue("filter1")}
+                >
+                  <div className={cl.content__dropdown_icon}>
+                    <CheckboxIcon />
+                  </div>
+                  Անունով
+                </div>
+                <div
+                  className={getFilterValueClassName("filter2")}
+                  onClick={() => setFilterValue("filter2")}
+                >
+                  <div className={cl.content__dropdown_icon}>
+                    <CheckboxIcon />
+                  </div>
+                  Ըստ գնի
+                </div>
+                <div
+                  className={getFilterValueClassName("filter3")}
+                  onClick={() => setFilterValue("filter3")}
+                >
+                  <div className={cl.content__dropdown_icon}>
+                    <CheckboxIcon />
+                  </div>
+                  Հաշվի մեջ
+                </div>
+                <div
+                  className={getFilterValueClassName("filter4")}
+                  onClick={() => setFilterValue("filter4")}
+                >
+                  <div className={cl.content__dropdown_icon}>
+                    <CheckboxIcon />
+                  </div>
+                  Ըստ ամսաթվի
+                </div>
+              </div>
+            </Tooltip>
           </div>
           <p className={cl.content__info}>Գտնվել է 72 ապրանք</p>
 
@@ -606,6 +626,17 @@ const Close = () => {
           <rect width="16" height="16" fill="white" />
         </clipPath>
       </defs>
+    </svg>
+  );
+};
+
+const CheckboxIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
+      <path
+        d="M4.70711 8.69289C4.31658 9.08342 3.68342 9.08342 3.29289 8.69289L0.699999 6.1C0.3134 5.7134 0.313401 5.0866 0.7 4.7C1.0866 4.3134 1.7134 4.3134 2.1 4.7L4 6.6L9.9 0.700001C10.2866 0.313402 10.9134 0.313401 11.3 0.7C11.6866 1.0866 11.6866 1.7134 11.3 2.1L4.70711 8.69289Z"
+        fill="white"
+      />
     </svg>
   );
 };

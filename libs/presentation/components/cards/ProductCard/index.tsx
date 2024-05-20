@@ -99,12 +99,12 @@ function ProductCard({
         </Link>
 
         <div className={styles.price_section}>
-          {!!price && (
+          {/*{!!discountPrice && (
             <h4 className={`${discountPrice ? styles.current_price : styles.last_price}`}>
               {price} ֏
             </h4>
-          )}
-          {!discountPrice && <span className={styles.current_price}>{500} ֏</span>}
+          )}*/}
+          <span className={styles.current_price}>{price} ֏</span>
         </div>
 
         <div className={styles.footer}>

@@ -392,8 +392,6 @@ function ProductDetailPage() {
     }
   ]);
 
-  const [addCartCounter] = useState(30);
-
   // ---------------------------------------------------------------
 
   const cardsRef = useRef<null | HTMLDivElement>(null);
@@ -402,45 +400,6 @@ function ProductDetailPage() {
   // ---------------------------------------------------------------
 
   const [isEndScroll] = useScrollToBottom(600);
-
-  const cardsEndScroll = useCallback(() => {
-    const element = cardsRef.current;
-
-    if (element === null) return false;
-
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      const newCards = [...suggestedProducts];
-
-      for (let i = 0; i < addCartCounter; i++) {
-        newCards.push({
-          id: Date.now(),
-          title: "Suggested Product",
-          price: {
-            price: 120.99,
-            currency: "USD"
-          },
-          images: [{ original: "https://example.com/suggested-image.jpg" }],
-          rating: 4.0,
-          company: {
-            id: 1,
-            name: "ABC Company",
-            rating: 4.5,
-            type: "legal",
-            images: {
-              background: {
-                url: "https://example.com/background-image.jpg",
-                alt: "Background Image"
-              },
-              largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
-              smallLogo: "https://example.com/small-logo.jpg"
-            }
-          }
-        });
-      }
-
-      setSuggestedProducts(newCards);
-    }
-  }, [addCartCounter, suggestedProducts]);
 
   const trackScrolling = useCallback(() => {
     if (isBottom(buyButtonRef)) {
@@ -495,16 +454,7 @@ function ProductDetailPage() {
     return el.current.getBoundingClientRect().bottom <= 83;
   };
 
-  useEffect(() => {
-    cardsRef.current?.addEventListener("scroll", cardsEndScroll);
-
-    return function () {
-      cardsRef.current?.removeEventListener("scroll", cardsEndScroll);
-    };
-  }, [cardsEndScroll]);
-
   // ---------------------------------------------------------------
-
   const changeReviewPage = (page: number) => {
     if (id && typeof +id === "number") {
       dispatch(getProductReviews({ id: +id, lang: locale as Lang, offset: (page - 1) * 5 }));
@@ -663,9 +613,77 @@ function ProductDetailPage() {
     [product?.rating]
   );
 
-  // if (loading) {
-  //   return <div></div>;
-  // }
+  // CardList ---------------------------------------------------------------
+  const [addCartCounter] = useState(30);
+  const [cardsScrollIsEnd, setCardsScrollIsEnd] = useState(false);
+
+  const cardsEndScroll = useCallback(() => {
+    const element = cardsRef.current;
+
+    if (element === null) return;
+
+    const isEnd = element.scrollHeight - element.scrollTop === element.clientHeight;
+
+    if (isEnd) {
+      setCardsScrollIsEnd(true);
+    } else {
+      setCardsScrollIsEnd(false);
+    }
+
+    if (suggestedProducts.length > 100) {
+      return;
+    }
+
+    if (isEnd) {
+      const newCards = [...suggestedProducts];
+
+      for (let i = 0; i < addCartCounter; i++) {
+        newCards.push({
+          id: Date.now(),
+          title: "Suggested Product",
+          price: {
+            price: 120.99,
+            currency: "USD"
+          },
+          images: [{ original: "https://example.com/suggested-image.jpg" }],
+          rating: 4.0,
+          company: {
+            id: 1,
+            name: "ABC Company",
+            rating: 4.5,
+            type: "legal",
+            images: {
+              background: {
+                url: "https://example.com/background-image.jpg",
+                alt: "Background Image"
+              },
+              largeLogo: { url: "https://example.com/large-logo.jpg", alt: "Large Logo" },
+              smallLogo: "https://example.com/small-logo.jpg"
+            }
+          }
+        });
+      }
+
+      setSuggestedProducts(newCards);
+    }
+  }, [addCartCounter, suggestedProducts]);
+
+  useEffect(() => {
+    cardsRef.current?.addEventListener("scroll", cardsEndScroll);
+
+    return function () {
+      cardsRef.current?.removeEventListener("scroll", cardsEndScroll);
+    };
+  }, [cardsEndScroll]);
+
+  const getCardListClassName = useMemo(() => {
+    if (cardsScrollIsEnd) {
+      return styles.similar_container;
+    }
+
+    return `${styles.similar_container} ${styles.gradient}`;
+  }, [cardsScrollIsEnd]);
+  // ---------------------------------------------------------------
 
   return (
     <ProductDetailLayout>
@@ -949,10 +967,12 @@ function ProductDetailPage() {
             </div>
           </div>
           {/* SIMILAR ITEMS SLIDER */}
-          <div className={styles.layout__similar} ref={cardsRef}>
-            {suggestedProducts.map((product, i) => (
-              <ProductCardMini key={`${product.id}_${i}`} product={product as any} />
-            ))}
+          <div className={getCardListClassName}>
+            <div className={styles.layout__similar} ref={cardsRef}>
+              {suggestedProducts.map((product, i) => (
+                <ProductCardMini key={`${product.id}_${i}`} product={product as any} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

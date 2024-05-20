@@ -37,12 +37,34 @@ export const Primary = styled(Button)`
   background: #6e00e5;
   color: white;
   gap: ${({ gap }) => gap || "0"};
+  transition: 0.2s;
+
+  &:hover {
+    background: #5800b7;
+  }
 `;
 
 export const Secondary = styled(Button)`
   color: #1d1d1d;
   border: 1px solid #1d1d1d;
   gap: ${({ gap }) => gap || "8px"};
+  transition: 0.2s;
+
+  &:hover {
+    background: var(--primary);
+    border: none;
+    color: white;
+
+    svg {
+      transition: 0.2s;
+      stroke: white;
+
+      * {
+        transition: 0.2s;
+        stroke: white;
+      }
+    }
+  }
 `;
 
 export const Circle = styled.span`
@@ -52,4 +74,15 @@ export const Circle = styled.span`
   height: 18px;
   border-radius: 50%;
   border: 1.6px solid black;
+`;
+
+export const Transparent = styled(Button)`
+  color: #1d1d1d;
+  gap: ${({ gap }) => gap || "8px"};
+  transition: 0.2s;
+
+  &:hover {
+    background: var(--primary);
+    color: white;
+  }
 `;

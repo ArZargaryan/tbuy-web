@@ -10,6 +10,7 @@ import useOutsideClick from "@core/hooks/useOutsideClick";
 
 type Props = Partial<PopperProps> & {
   label?: React.ReactNode;
+  close_on_click: boolean;
 } & PropsWithChildren;
 
 function Tooltip(props: Props) {
@@ -33,6 +34,11 @@ function Tooltip(props: Props) {
     setOpen((previousOpen) => !previousOpen);
   };
 
+  const onClickHandler = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    if (props.close_on_click) setOpen(false);
+  };
+
   return (
     <div ref={tooltipRef}>
       <button aria-describedby={id} type="button" onClick={showSelect} className={styles.label}>
@@ -46,7 +52,7 @@ function Tooltip(props: Props) {
         transition
         className={cls}
         placement="bottom-start"
-        onClick={(e) => e.stopPropagation()}
+        onClick={onClickHandler}
         {...props}
       >
         {({ TransitionProps }) => (

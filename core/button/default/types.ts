@@ -1,5 +1,5 @@
 export type ButtonProps = {
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "transparent";
   height?: string;
   width?: string;
   max_width?: string;

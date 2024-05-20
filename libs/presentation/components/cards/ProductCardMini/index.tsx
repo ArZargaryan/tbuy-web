@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { Product } from "@libs/domain/model/product";
 
 import Link from "next/link";
-import { ImgExporter } from "@core/helpers/ImgExporter";
 
 import styles from "./product-card-mini.module.scss";
 import { Service } from "@libs/domain/model/service";
@@ -10,8 +9,6 @@ import { GiftCard } from "@libs/domain/model/giftCard";
 
 function ProductCardMini({ product }: { product: Product | Service | GiftCard }) {
   const { images, title } = product;
-
-  const { Icons } = ImgExporter;
 
   const getLink = useMemo(() => {
     if (product instanceof Product) {

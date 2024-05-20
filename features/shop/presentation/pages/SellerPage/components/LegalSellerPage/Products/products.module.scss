@@ -84,7 +84,7 @@
 		align-items: center;
 		font-weight: 700;
 		gap: 8px;
-		font-size: 24px;
+		font-size: 20px;
 		cursor: pointer;
 	}
 
@@ -93,7 +93,7 @@
 		width: max-content;
 		display: flex;
 		align-items: center;
-		font-size: 24px;
+		font-size: 20px;
 		cursor: pointer;
 
 		font-weight: 500;
@@ -188,13 +188,21 @@
 	}
 
 	&__title {
-		font-size: 24px;
+		font-size: 20px;
 		font-weight: 700;
 		margin-right: auto;
 	}
 
 	&__action {
 		display: flex;
+		position: relative;
+		z-index: 1;
+
+		&:hover {
+			.content__tooltip {
+				visibility: visible;
+			}
+		}
 	}
 
 	&__info {
@@ -206,7 +214,90 @@
 	&__cards {
 		margin-top: 20px;
 
-		*{ font-family: Roboto, sans-serif;}
+		* {
+			font-family: Roboto, sans-serif;
+		}
+	}
+
+	.content__tooltip {
+		position: absolute;
+		top: -18px;
+		transform: translate(-50%, -100%);
+		left: 50%;
+		z-index: -1;
+
+		padding: 8px 16px;
+		width: 180px;
+
+		color: white;
+		background: #252525;
+		border-radius: 4px;
+		text-align: left;
+		font-size: 14px;
+		pointer-events: none;
+
+		visibility: hidden;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 95%);
+
+			border: 10px solid transparent;
+			border-top: 10px solid #252525;
+		}
+	}
+}
+
+.content__dropdown {
+	max-width: 500px;
+	background: white;
+	border-radius: 4px;
+	overflow: hidden;
+	box-shadow: 0 10px 26px 0 rgba(0, 0, 0, 0.2509803922);
+
+	&_option {
+		cursor: pointer;
+
+		height: 40px;
+		padding: 0 14px;
+
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&:hover {
+			background: #c9c9c9;
+		}
+	}
+
+	&_option.active {
+		.content__dropdown_icon {
+			background: var(--primary);
+
+			svg {
+				display: block;
+			}
+		}
+	}
+
+	&_icon {
+		width: 18px;
+		height: 18px;
+		flex: 0 0 18px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+
+		border: 1px solid var(--primary);
+
+		svg {
+			display: none;
+		}
 	}
 }
 
@@ -242,7 +333,7 @@
 			cursor: pointer;
 			flex: 0 0 auto;
 		}
-		
+
 	}
 
 	&__color_label {

@@ -1,3 +1,4 @@
+import { Button } from "@core/button/default";
 import styles from "./styles.module.scss";
 import { useTranslation } from "next-i18next";
 
@@ -11,13 +12,13 @@ export const ProductDetailButton = ({ companyType }: Props) => {
   return (
     <div className={styles.product_amount_wrapper}>
       {companyType === "individual" ? (
-        <button className={`${styles.submit_button} blue_btn`}>
+        <Button variant="primary" className={`${styles.submit_button} blue_btn`}>
           {t("actions.buy_now", { ns: "common" })}
-        </button>
+        </Button>
       ) : (
-        <button className={`${styles.submit_button} blue_btn`}>
+        <Button variant="primary" className={`${styles.submit_button} blue_btn`}>
           {t("actions.add_to_cart", { ns: "common" })}
-        </button>
+        </Button>
       )}
     </div>
   );

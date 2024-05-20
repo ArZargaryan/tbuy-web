@@ -526,11 +526,6 @@
 		grid-gap: 30px;
 		overflow: auto;
 		padding-right: 16px;
-
-
-		@media screen and (max-width: 1550px) {
-			display: none;
-		}
 	}
 
 }
@@ -763,6 +758,10 @@
 		height: 110px;
 		background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 
+		display: none;
+	}
+
+	@media screen and (max-width: 1550px) {
 		display: none;
 	}
 }

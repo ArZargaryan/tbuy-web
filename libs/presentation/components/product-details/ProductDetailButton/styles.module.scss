@@ -8,7 +8,6 @@
 
   .product_amount {
     width: 100%;
-    max-width: 170px;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -61,11 +60,11 @@
 
 .submit_button {
   width: initial;
-  padding-inline: 40px;
   font-size: 16px;
   font-weight: bold;
   word-break: keep-all;
   white-space: nowrap;
+	padding: 0 24px;
 
   @media screen and (min-width: 1080px) and (max-width: 1150px) {
     padding-inline: 30px;

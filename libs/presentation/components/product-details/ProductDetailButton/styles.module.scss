@@ -56,21 +56,21 @@
   @media (max-width: 1080px) {
     flex-basis: 50%;
   }
-}
-
-.submit_button {
-  width: initial;
-  font-size: 16px;
-  font-weight: bold;
-  word-break: keep-all;
-  white-space: nowrap;
-	padding: 0 24px;
-
-  @media screen and (min-width: 1080px) and (max-width: 1150px) {
-    padding-inline: 30px;
-  }
-
-  @media (max-width: 1080px) {
-    font-size: 14px;
-  }
+	
+	.submit_button {
+		width: initial;
+		font-size: 14px;
+		font-weight: bold;
+		word-break: keep-all;
+		white-space: nowrap;
+		padding: 0 24px;
+	
+		@media screen and (min-width: 1080px) and (max-width: 1150px) {
+			padding-inline: 30px;
+		}
+	
+		@media (max-width: 1080px) {
+			font-size: 14px;
+		}
+	}
 }

@@ -58,9 +58,18 @@
 
 				.slider__actions {
 					position: absolute;
-					top: 10px;
-					right: 60px;
+					top: 15px;
+					right: 50px;
 					z-index: 2;
+
+					@media screen and (max-width: 1080px) {
+						right: 20px;
+					}
+
+					@media screen and (max-width: 400px) {
+						top: 10px;
+						right: 10px;
+					}
 
 					.slider__action_btn {
 						width: 50px;
@@ -312,11 +321,6 @@
 					position: relative;
 					top: 0;
 					margin-bottom: 60px;
-
-					.slider__actions {
-						top: 10px;
-						right: 10px;
-					}
 				}
 
 				.product__info {

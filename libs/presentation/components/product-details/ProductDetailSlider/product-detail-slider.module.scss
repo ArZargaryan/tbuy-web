@@ -226,8 +226,16 @@
 .big_prev_btn {
 	transform: translateY(-50%) rotate(-180deg);
 	left: 20px;
+
+	@media screen and (max-width: 400px) {
+		left: 10px;
+	}
 }
 
 .big_next_btn {
 	right: 20px;
+
+	@media screen and (max-width: 400px) {
+		right: 10px;
+	}
 }

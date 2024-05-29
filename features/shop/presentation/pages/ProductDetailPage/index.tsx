@@ -694,11 +694,9 @@ function ProductDetailPage() {
         url={product?.linkUrl}
       />
 
-      {product.company.type === "individual" && (
-        <div className={panelIsVisible ? styles.nav : styles.navHidden}>
-          <ProductNav product={product as never} />
-        </div>
-      )}
+      <div className={panelIsVisible ? styles.nav : styles.navHidden}>
+        <ProductNav product={product as never} />
+      </div>
 
       <div className={styles.wrapper}>
         <BreadCrumbs
@@ -878,11 +876,9 @@ function ProductDetailPage() {
                   </div>
                 )}
 
-                {product?.company?.type === "individual" && (
-                  <div ref={buyButtonRef}>
-                    <ProductDetailButton companyType={product?.company?.type} />
-                  </div>
-                )}
+                <div ref={buyButtonRef}>
+                  <ProductDetailButton companyType={product?.company?.type} />
+                </div>
 
                 {/* WHOLESALES DETAILS */}
                 {/* SELLER */}

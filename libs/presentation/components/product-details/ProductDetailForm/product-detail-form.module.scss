@@ -1,7 +1,7 @@
 @import "@styles/vars.scss";
 
 .wrapper {
-	margin-top: 26px;
+	margin-top: 24px;
 }
 
 .label {
@@ -14,14 +14,14 @@
 }
 
 .form_block {
-	margin-bottom: 30px;
+	margin-top: 28px;
 
 	.label {
 		margin-bottom: 12px;
 	}
 
 	@media (max-width: 650px) {
-		margin-bottom: 20px;
+		margin-top: 20px;
 
 		.label {
 			margin-bottom: 12px;

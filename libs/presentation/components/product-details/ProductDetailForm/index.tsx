@@ -33,6 +33,20 @@ function ProductDetailForm({ companyType, data }: Props) {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.product_amount_wrapper}>
+        <div className={styles.product_amount}>
+          <button onClick={decrementCount}>
+            <Icons.Minus />
+          </button>
+
+          <p className={styles.amount}>{count}</p>
+
+          <button onClick={incrementCount}>
+            <Icons.Plus />
+          </button>
+        </div>
+      </div>
+
       {companyType === "legal" && !!sizes && !_.isEmpty(sizes.values) && (
         <div className={styles.form_block}>
           <p className={styles.label}>Չափ</p>
@@ -62,20 +76,6 @@ function ProductDetailForm({ companyType, data }: Props) {
           </div>
         </div>
       )}
-
-      <div className={styles.product_amount_wrapper}>
-        <div className={styles.product_amount}>
-          <button onClick={decrementCount}>
-            <Icons.Minus />
-          </button>
-
-          <p className={styles.amount}>{count}</p>
-
-          <button onClick={incrementCount}>
-            <Icons.Plus />
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

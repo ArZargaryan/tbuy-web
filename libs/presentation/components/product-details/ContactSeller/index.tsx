@@ -8,6 +8,7 @@ import MessageModal from "@libs/presentation/components/modals/MessageModal";
 import Link from "next/link";
 import router from "next/router";
 import PhoneModal from "../../modals/PhoneModal";
+import { useAppSelector } from "@core/store";
 
 interface Props {
   methods: {
@@ -22,6 +23,8 @@ function ContactSeller({ company, methods, link }: Props) {
   const [messageModalOpen, changeMessageModalOpen] = useModal(false);
   const [phoneModalIsActive, setPhoneModalIsActive] = useState(false);
 
+  const { info } = useAppSelector((state) => state.shop_about_seller);
+
   if (!company) return <div></div>;
 
   const handleClickMessageButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -33,10 +36,17 @@ function ContactSeller({ company, methods, link }: Props) {
     <div onClick={() => router.push(link)} className={styles.seller}>
       <div className={styles.seller__details}>
         {/* AVATAR */}
-        <Avatar src={company?.images?.smallLogo} className={styles.seller_avatar} />
+        {company?.type === "legal" ? (
+          <Avatar src={company?.images?.smallLogo} className={styles.seller_avatar} />
+        ) : (
+          <Avatar src={info.originalImage} className={styles.seller_avatar} />
+        )}
+
         {/* SELLER INFO */}
         <div className={styles.seller_info}>
-          <p className={styles.seller_name}>{company.name}</p>
+          <p className={styles.seller_name}>
+            {company?.type === "legal" ? company.name : info.fullName}
+          </p>
           <p className={styles.seller_group}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

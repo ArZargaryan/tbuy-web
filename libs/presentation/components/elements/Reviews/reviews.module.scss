@@ -4,9 +4,19 @@
 	padding-top: 100px;
 	padding-left: 42px;
 
+	svg {
+		transition: 0.2s;
+		transform: rotate(180deg);
+	}
+
 	&__title {
 		font-size: 24px;
 		font-weight: 600;
+
+		display: flex;
+		align-items: center;
+
+		cursor: pointer;
 
 		sup {
 			background: #e8e8e8;
@@ -48,5 +58,11 @@
 				font-size: 12px;
 			}
 		}
+	}
+}
+
+.reviews.hidden {
+	svg {
+		transform: rotate(0deg);
 	}
 }

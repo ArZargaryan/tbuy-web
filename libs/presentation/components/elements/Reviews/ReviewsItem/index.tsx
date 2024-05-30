@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Review } from "@libs/domain/model/review";
 import { Avatar } from "@mui/material";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
 import styles from "./reviews-items.module.scss";
 import { map } from "lodash";
+import useScrollToBottom from "@core/hooks/useScrollToBottom";
 
 interface Props {
   review: Review;
+  getIsEndScroll: (state: boolean) => void;
 }
 
-function ReviewsItem(props: Props) {
+function ReviewsItem({ getIsEndScroll, ...props }: Props) {
   const { review } = props;
+
+  const [isEndScroll] = useScrollToBottom(600);
+
+  useEffect(() => {
+    getIsEndScroll(isEndScroll);
+  }, [isEndScroll, getIsEndScroll]);
+
   return (
     <div className={styles.reviews_item}>
       <div className={styles.reviews_item__header}>

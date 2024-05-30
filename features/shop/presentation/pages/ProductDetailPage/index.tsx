@@ -408,12 +408,17 @@ function ProductDetailPage() {
   }, []);
 
   // ---------------------------------------------------------------
-  const [isEndScroll] = useScrollToBottom(600);
 
   const [reviewsIsOpen, setReviewsIsOpen] = useState(false);
 
+  const [isEndScroll, setIsEndScroll] = useState(false);
+
   const getReviewsIsOpen = (state: boolean) => {
     setReviewsIsOpen(state);
+  };
+
+  const getIsEndScroll = (state: boolean) => {
+    setIsEndScroll(state);
   };
 
   useEffect(() => {
@@ -950,6 +955,7 @@ function ProductDetailPage() {
                 reviews={reviews as any}
                 onPageChange={changeReviewPage}
                 getReviewsIsOpen={getReviewsIsOpen}
+                getIsEndScroll={getIsEndScroll}
               />
             </div>
           </div>

@@ -15,9 +15,10 @@ interface Props {
   };
   onPageChange: (page: number) => void;
   getReviewsIsOpen: (state: boolean) => void;
+  getIsEndScroll: (state: boolean) => void;
 }
 
-function Reviews({ id, reviews, onPageChange, getReviewsIsOpen }: Props) {
+function Reviews({ id, reviews, onPageChange, getReviewsIsOpen, getIsEndScroll }: Props) {
   const [showingReviews, setShowingReviews] = useState(true);
   const [reviewsPage, setReviewsPage] = useState(1);
   const { t } = useTranslation(["catalog/productspage"]);
@@ -81,7 +82,11 @@ function Reviews({ id, reviews, onPageChange, getReviewsIsOpen }: Props) {
         <div className={listCls}>
           {!!reviews.data.length &&
             reviews.data?.map((review, i) => (
-              <ReviewsItem key={`${review?.author?.id}_${i}`} review={review} />
+              <ReviewsItem
+                key={`${review?.author?.id}_${i}`}
+                review={review}
+                getIsEndScroll={getIsEndScroll}
+              />
             ))}
           <br />
         </div>

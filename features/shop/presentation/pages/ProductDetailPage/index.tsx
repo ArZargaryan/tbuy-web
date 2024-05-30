@@ -399,8 +399,6 @@ function ProductDetailPage() {
 
   // ---------------------------------------------------------------
 
-  const [isEndScroll] = useScrollToBottom(600);
-
   const trackScrolling = useCallback(() => {
     if (isBottom(buyButtonRef)) {
       setPanelIsVisible(true);
@@ -410,6 +408,13 @@ function ProductDetailPage() {
   }, []);
 
   // ---------------------------------------------------------------
+  const [isEndScroll] = useScrollToBottom(600);
+
+  const [reviewsIsOpen, setReviewsIsOpen] = useState(false);
+
+  const getReviewsIsOpen = (state: boolean) => {
+    setReviewsIsOpen(state);
+  };
 
   useEffect(() => {
     if (id && typeof +id === "number") {
@@ -418,7 +423,7 @@ function ProductDetailPage() {
   }, [dispatch, id]);
 
   useEffect(() => {
-    if (isEndScroll) {
+    if (isEndScroll && reviewsIsOpen) {
       const newData = { ...reviews };
       newData.data?.push({
         id: Date.now(),
@@ -439,7 +444,7 @@ function ProductDetailPage() {
       });
       setReviews(newData);
     }
-  }, [isEndScroll, reviews]);
+  }, [isEndScroll, reviews, reviewsIsOpen]);
 
   useEffect(() => {
     document.addEventListener("scroll", trackScrolling);
@@ -940,7 +945,12 @@ function ProductDetailPage() {
                   cards={similar_products}
                 />
               </div>
-              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
+              <Reviews
+                id={id as string}
+                reviews={reviews as any}
+                onPageChange={changeReviewPage}
+                getReviewsIsOpen={getReviewsIsOpen}
+              />
             </div>
           </div>
           {/* SIMILAR ITEMS SLIDER */}

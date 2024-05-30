@@ -14,9 +14,10 @@ interface Props {
     data: Review[];
   };
   onPageChange: (page: number) => void;
+  getReviewsIsOpen: (state: boolean) => void;
 }
 
-function Reviews({ id, reviews, onPageChange }: Props) {
+function Reviews({ id, reviews, onPageChange, getReviewsIsOpen }: Props) {
   const [showingReviews, setShowingReviews] = useState(true);
   const [reviewsPage, setReviewsPage] = useState(1);
   const { t } = useTranslation(["catalog/productspage"]);
@@ -49,9 +50,15 @@ function Reviews({ id, reviews, onPageChange }: Props) {
 
   if (!reviews?.data?.length) return <div></div>;
 
+  function clickHandler() {
+    const state = !commentIsShow;
+    getReviewsIsOpen(state);
+    setCommentIsShow(state);
+  }
+
   return (
     <div className={getClassName()}>
-      <h3 className={styles.reviews__title} onClick={() => setCommentIsShow((old) => !old)}>
+      <h3 className={styles.reviews__title} onClick={() => clickHandler()}>
         {t("reviews")} <sup>{reviews.totalItems}</sup>
         <svg
           xmlns="http://www.w3.org/2000/svg"

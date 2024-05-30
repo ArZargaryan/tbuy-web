@@ -26,6 +26,10 @@ function ProductDetailForm({ companyType, data }: Props) {
     }
   }, [data]);
 
+  useEffect(() => {
+    return () => console.log("Closing page");
+  }, []);
+
   const incrementCount = () => setCount((prev) => ++prev);
   const decrementCount = () => {
     return count > 0 && setCount((prev) => --prev);

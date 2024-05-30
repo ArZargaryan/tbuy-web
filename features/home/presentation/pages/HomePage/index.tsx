@@ -75,6 +75,7 @@ function HomePage() {
       setEndlessProductsIsLoading(true);
     }
   }
+
   // --------------------------------------------------------------------------------
 
   const fakeHomeBanner = [

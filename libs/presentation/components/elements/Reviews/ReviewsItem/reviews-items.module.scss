@@ -1,67 +1,57 @@
 @import "@/styles/vars.scss";
 
 .reviews_item {
-  padding: 20px 0;
-  border-bottom: 1px solid $grey-1;
+	padding: 32px 0;
+	max-width: 675px;
 
-  &:last-child {
-    border-bottom: none;
-  }
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		grid-gap: 20px;
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    grid-gap: 20px;
-    margin-bottom: 16px;
+		.header__account {
+			display: flex;
+			justify-content: space-between;
+			grid-gap: 16px;
 
-    .header__account {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      grid-gap: 16px;
-
-      .account__name {
-        font-size: 18px;
+			.account__name {
+				font-size: 18px;
 				font-weight: 700;
-      }
-    }
+				font-family: "Noto Sans Armenian", sans-serif;
+			}
+		}
 
-    .header__date {
-      font-size: 16px;
-      color: $grey-2;
-    }
+		.header__date {
+			font-size: 16px;
+			color: $grey-2;
+		}
 
-    @media (max-width: 1080px) {
-      margin-bottom: 14px;
+		@media (max-width: 1080px) {
+			.header__account {
+				grid-gap: 16px;
 
-      .header__account {
-        grid-gap: 16px;
+				.account__name {
+					font-size: 16px;
+				}
+			}
+		}
 
-        .account__name {
-          font-size: 16px;
-        }
-      }
-    }
+		@media (max-width: 650px) {
+			.header__account {
+				grid-gap: 10px;
+			}
+		}
+	}
 
-    @media (max-width: 650px) {
-      margin-bottom: 12px;
-
-      .header__account {
-        grid-gap: 10px;
-      }
-    }
-  }
-
-  .rating_wrapper {
+	.rating_wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
-		
-    svg {
-      width: 18px;
-      height: 18px;
-    }
+
+		svg {
+			width: 18px;
+			height: 18px;
+		}
 
 		@media screen and (max-width: 1080px) {
 			svg {
@@ -69,88 +59,186 @@
 				height: 14px;
 			}
 		}
-  }
 
-  &__content {
-    margin-top: 14px;
+		@media screen and (max-width: 450px) {
+			gap: 4px;
+		}
+	}
 
-    .content__title {
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
+	&__content {
 
-    .content__text {
-      line-height: 24px;
-    }
+		.content__title {
+			font-weight: 600;
+			margin-bottom: 12px;
+		}
 
-    .content__images {
-      display: flex;
-      flex-wrap: wrap;
-      grid-gap: 32px;
+		.content__text {
+			margin-top: 8px;
+			line-height: 24px;
+			font-family: "Noto Sans Armenian", sans-serif;
+		}
 
-      .images__item {
-        max-height: 150px;
-        flex: 0 1 20%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        margin-top: 20px;
+		.content__images {
+			display: grid;
+			grid-template-columns: repeat(3, 172px);
+			column-gap: 16px;
+			margin-top: 32px;
 
-        img {
-          max-width: 100%;
-        }
-      }
 
-      @media screen and (max-width: 800px) {
-        .images__item {
-          flex: 0 1 20%;
-          height: auto;
+			.images__item {
+				//height: 105px;
+				aspect-ratio: 172/105;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
 
-          img {
-            max-width: 100%;
-          }
-        }
-      }
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
 
-      @media screen and (max-width: 700px) {
-        grid-gap: 12px;
+			@media screen and (max-width: 800px) {
+				grid-template-columns: repeat(3, 150px);
+				margin-top: 26px;
+			}
 
-        .images__item {
-          flex: 0 1 30%;
-        }
-      }
-    }
+			@media screen and (max-width: 700px) {
+				grid-template-columns: repeat(3, 134px);
+				column-gap: 12px;
+				margin-top: 20px;
+			}
 
-    @media screen and (max-width: 1080px) {
-      .content__title {
-        margin-bottom: 8px;
-      }
-    }
+			@media screen and (max-width: 550px) {
+				grid-template-columns: repeat(2, 134px);
+				margin-top: 14px;
+			}
 
-    @media screen and (max-width: 650px) {
-      .content__title {
-        font-size: 14px;
-        margin-bottom: 8px;
-      }
+			@media screen and (max-width: 380px) {
+				grid-template-columns: repeat(2, 110px);
+			}
+		}
 
-      .content__text {
-        font-size: 14px;
-      }
-    }
-  }
+		@media screen and (max-width: 1080px) {
+			.content__title {
+				margin-bottom: 8px;
+			}
+		}
+
+		@media screen and (max-width: 650px) {
+			.content__title {
+				font-size: 14px;
+				margin-bottom: 8px;
+			}
+
+			.content__text {
+				font-size: 14px;
+			}
+		}
+
+		@media screen and (max-width: 450px) {
+			.content__text {
+				margin-top: 4px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		padding: 26px 0;
+	}
+
+	@media screen and (max-width: 700px) {
+		padding: 20px 0;
+	}
+
+	@media screen and (max-width: 450px) {
+		padding: 10px 0;
+	}
 }
 
 .avatar {
-	@media screen and (max-width: 1080px) {
-		
-		width: 65px;
-		height: 65px;
+	@media screen and (max-width: 1080px) {}
+
+	@media screen and (max-width: 480px) {}
+}
+
+.default_avatar {
+	svg {
+		width: 52px;
+		height: 52px;
+
+		@media screen and (max-width: 650px) {
+			width: 46px;
+			height: 46px;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.time {
+	font-size: 12px;
+	color: #6B718D;
+	font-family: "Noto Sans Armenian", sans-serif;
+}
+
+.img_counter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 24px;
+	font-weight: 700;
+
+	background: #0000007e;
+	color: white;
+	cursor: pointer;
+}
+
+.gallery_modal {
+	padding: 60px 34px;
+	flex: 1 1 auto;
+
+	.gallery_modal__items {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
+		max-height: 60vh;
+		overflow: auto;
 	}
 
-	@media screen and (max-width: 480px) {
-		
-		width: 60px;
-		height: 60px;
+	.gallery_modal__item {
+		display: flex;
+		aspect-ratio: 472/327;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@media screen and (max-width: 700px) {
+		.gallery_modal__items {
+			gap: 16px;
+		}
+	}
+
+	@media screen and (max-width: 550px) {
+		.gallery_modal__items {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 }

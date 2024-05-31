@@ -91,12 +91,6 @@ function Reviews({ id, reviews, onPageChange, getReviewsIsOpen, getIsEndScroll }
           <br />
         </div>
       )}
-
-      {/*<button className={`${styles.reviews__btn} blue_text`} onClick={changeShowing}>
-        {showingReviews
-          ? t("actions.close", { ns: "common" })
-          : t("actions.see_all", { ns: "common" })}
-      </button>*/}
     </div>
   );
 }

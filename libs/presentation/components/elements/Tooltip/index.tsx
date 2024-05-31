@@ -10,7 +10,7 @@ import useOutsideClick from "@core/hooks/useOutsideClick";
 
 type Props = Partial<PopperProps> & {
   label?: React.ReactNode;
-  close_on_click: boolean;
+  close_on_click?: boolean;
 } & PropsWithChildren;
 
 function Tooltip(props: Props) {

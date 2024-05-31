@@ -8,6 +8,7 @@ import classNames from "classnames";
 import { Slider, TextField } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import { ImgExporter } from "@core/helpers/ImgExporter";
+import useOutsideClick from "@core/hooks/useOutsideClick";
 
 type Props = Partial<PopperProps> & {
   range?: [number, number];
@@ -51,8 +52,16 @@ function SelectRange(props: Props) {
 
   const { Arrows } = ImgExporter;
 
+  const tooltipRef = React.useRef<null | HTMLDivElement>(null);
+
+  const handleClick = () => {
+    setOpen(false);
+  };
+
+  useOutsideClick(tooltipRef, handleClick);
+
   return (
-    <div>
+    <div ref={tooltipRef}>
       <button
         aria-describedby={id}
         type="button"
@@ -62,7 +71,15 @@ function SelectRange(props: Props) {
         {label}
         <Arrows.Down_blue className={imgCls} />
       </button>
-      <Popper id={id} open={open} anchorEl={anchorEl} transition className={cls} {...props}>
+      <Popper
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        transition
+        className={cls}
+        {...props}
+        onClick={(e) => e.stopPropagation()}
+      >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
             <Box className={styles.select_range__box}>

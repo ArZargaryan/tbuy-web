@@ -6,13 +6,19 @@ import styles from "./product-detail-slider.module.scss";
 import "swiper/css";
 import { Image } from "@libs/domain/model/image";
 import { Navigation, Pagination } from "swiper";
+import Video from "../../elements/Video";
+
+type Video = {
+  url: string;
+};
 
 interface Props {
   images: Image[];
+  videos: Video[];
   withoutSmall?: boolean;
 }
 
-function ProductDetailSlider({ images, withoutSmall }: Props) {
+function ProductDetailSlider({ images, videos, withoutSmall }: Props) {
   const [bigSliderControl, setBigSliderControl] = useState<any>();
   const [smallSliderControl, setSmallSliderControl] = useState<any>();
 
@@ -58,6 +64,40 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
               </div>
             </SwiperSlide>
           ))}
+
+          {videos?.map((video, i) => (
+            <SwiperSlide key={i} className={styles.big_slider__slide}>
+              <div>
+                <Video
+                  url={video.url}
+                  controls
+                  light
+                  playIcon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="66"
+                      height="66"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                    >
+                      <g opacity="0.7" clip-path="url(#clip0_1389_75528)">
+                        <path
+                          d="M17.9773 0.195312C8.15653 0.195312 0.195312 8.15653 0.195312 17.9773C0.195312 27.7982 8.15653 35.7594 17.9773 35.7594C27.7982 35.7594 35.7594 27.7982 35.7594 17.9773C35.7594 8.15653 27.7982 0.195312 17.9773 0.195312ZM24.7942 18.6226L15.1279 24.2034C14.6308 24.4903 14.01 24.1319 14.01 23.5581V12.3966C14.01 11.8228 14.6312 11.464 15.1279 11.7509L24.7938 17.3317C25.2909 17.6185 25.2909 18.3358 24.7942 18.6226Z"
+                          fill="white"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1389_75528">
+                          <rect width="36" height="36" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  }
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+
           <button className={styles.big_prev_btn} ref={bigPrevBtn}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +163,52 @@ function ProductDetailSlider({ images, withoutSmall }: Props) {
                 </div>
               </SwiperSlide>
             ))}
+
+            {videos?.map((video, i) => (
+              <SwiperSlide
+                key={i}
+                className={`${styles.small_slider__slide} ${
+                  smallSliderActive == i ? styles.small_slider__slide_active : ""
+                }`}
+                onClick={() => {
+                  bigSliderControl.slideTo(i + images.length);
+                  smallSliderControl.slideTo(i + images.length);
+                  setSmallSliderActive(i + images.length);
+                }}
+              >
+                <div className={styles.none_clickable}>
+                  <Video
+                    url={video.url}
+                    width="100%"
+                    height="100%"
+                    controls
+                    light
+                    playIcon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                      >
+                        <g opacity="0.7" clip-path="url(#clip0_1389_75528)">
+                          <path
+                            d="M17.9773 0.195312C8.15653 0.195312 0.195312 8.15653 0.195312 17.9773C0.195312 27.7982 8.15653 35.7594 17.9773 35.7594C27.7982 35.7594 35.7594 27.7982 35.7594 17.9773C35.7594 8.15653 27.7982 0.195312 17.9773 0.195312ZM24.7942 18.6226L15.1279 24.2034C14.6308 24.4903 14.01 24.1319 14.01 23.5581V12.3966C14.01 11.8228 14.6312 11.464 15.1279 11.7509L24.7938 17.3317C25.2909 17.6185 25.2909 18.3358 24.7942 18.6226Z"
+                            fill="white"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1389_75528">
+                            <rect width="36" height="36" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    }
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+
             <button className={styles.prev_btn} ref={miniPrevBtn}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

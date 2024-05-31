@@ -96,19 +96,22 @@
 
 	.size_item {
 		min-width: 45px;
-		height: 45px;
-		padding-inline: 5px;
+		height: 38px;
+		padding: 0 24px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		cursor: pointer;
 		user-select: none;
-		font-size: 18px;
-		border: 1px solid $grey;
+		color: $primary;
+		font-weight: 700;
+		border: 1px solid $primary;
+		border-radius: 100px;
 		transition: all 0.2s linear;
 
 		&.active {
-			border-color: $black;
+			background: $primary;
+			color: white;
 		}
 
 		@media (max-width: 1080px) {

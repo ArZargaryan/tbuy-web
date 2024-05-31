@@ -1,11 +1,12 @@
 @import "@styles/vars.scss";
+@import "@styles/z-vars.scss";
 @import "@styles/mixins.scss";
 
 .navbar {
 	width: 100%;
 	position: sticky;
 	top: 0;
-	z-index: 2090;
+	z-index: $z-footer;
 
 	&__content {
 		box-shadow: 0px 3px 6px #00000029;

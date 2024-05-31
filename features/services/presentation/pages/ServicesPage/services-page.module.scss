@@ -1,9 +1,151 @@
 .services_section {
-  margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 
 .see_all {
-  display: flex;
-  justify-content: center;
-  text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+}
+
+// ----------------------------------------
+
+.filter_title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	span {
+		font-size: 20px;
+		font-weight: 700;
+		font-family: "Noto Sans Armenian", sans-serif;
+		white-space: nowrap;
+
+		@media screen and (max-width: 800px) {
+			font-size: 18px;
+		}
+
+		@media screen and (max-width: 500px) {
+			font-size: 16px;
+		}
+	}
+}
+
+.header {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	margin-top: 36px;
+	margin-bottom: 18px;
+
+	:global {
+		.swiper-slide {
+			width: max-content;
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		margin-top: 26px;
+		margin-bottom: 12px;
+		gap: 10px;
+	}
+
+	@media screen and (max-width: 700px) {
+		margin-top: 20px;
+	}
+
+	@media screen and (max-width: 600px) {
+		margin-top: 16px;
+	}
+}
+
+.stripe {
+	width: 1px;
+	background: #6B718D;
+	height: 46px;
+
+	@media screen and (max-width: 600px) {
+		height: 36px;
+	}
+}
+
+.filter_item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0 16px;
+
+	width: fit-content;
+
+	span {
+		font-size: 20px;
+		font-weight: 500;
+		font-family: "Noto Sans Armenian", sans-serif;
+	}
+
+	@media screen and (max-width: 800px) {
+		padding: 0 6px;
+
+		span {
+			font-size: 18px;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		padding: 0;
+
+		span {
+			font-size: 16px;
+		}
+	}
+
+}
+
+.filter_slider {
+	min-width: 0;
+	overflow: hidden;
+
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 16px;
+	font-family: "Noto Sans Armenian", sans-serif;
+
+	@media screen and (max-width: 800px) {
+		font-size: 18px;
+		margin-bottom: 12px;
+	}
+
+	@media screen and (max-width: 500px) {
+		font-size: 16px;
+		margin-bottom: 6px;
+	}
+}
+
+.filter_title_dropdown {
+	max-width: 500px;
+	background: white;
+	border-radius: 4px;
+	overflow: hidden;
+	box-shadow: 0 10px 26px 0 rgba(0, 0, 0, 0.2509803922);
+
+	&__text {
+		cursor: pointer;
+
+		height: 40px;
+		padding: 0 14px;
+
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&:hover {
+			background: #e4e4e4;
+		}
+	}
 }

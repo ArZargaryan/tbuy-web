@@ -64,10 +64,26 @@ function ProductDetailPage() {
         },
         images: [
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?cs=srgb&dl=pexels-photomix-company-212372.jpg&fm=jpg"
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg"
         ],
         title: "Amazing product!",
-        text: "This product is amazing!",
+        text: "Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: Lorem Ipsum օգտագործելը ",
         rating: 5,
         date: new Date().toISOString()
       }
@@ -397,8 +413,7 @@ function ProductDetailPage() {
   const cardsRef = useRef<null | HTMLDivElement>(null);
   const buyButtonRef = useRef<null | HTMLDivElement>(null);
 
-  // ---------------------------------------------------------------
-
+  // Buy panel ---------------------------------------------------------------
   const trackScrolling = useCallback(() => {
     if (isBottom(buyButtonRef)) {
       setPanelIsVisible(true);
@@ -408,7 +423,13 @@ function ProductDetailPage() {
   }, []);
 
   // ---------------------------------------------------------------
+  useEffect(() => {
+    if (id && typeof +id === "number") {
+      dispatch(getProductDetails({ id: +id, lang: locale as Lang }));
+    }
+  }, [dispatch, id]);
 
+  // Reviews endScroll ---------------------------------------------------------------
   const [reviewsIsOpen, setReviewsIsOpen] = useState(false);
 
   const [isEndScroll, setIsEndScroll] = useState(false);
@@ -420,12 +441,6 @@ function ProductDetailPage() {
   const getIsEndScroll = (state: boolean) => {
     setIsEndScroll(state);
   };
-
-  useEffect(() => {
-    if (id && typeof +id === "number") {
-      dispatch(getProductDetails({ id: +id, lang: locale as Lang }));
-    }
-  }, [dispatch, id]);
 
   useEffect(() => {
     if (isEndScroll && reviewsIsOpen) {
@@ -440,7 +455,10 @@ function ProductDetailPage() {
         },
         images: [
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?cs=srgb&dl=pexels-photomix-company-212372.jpg&fm=jpg"
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg"
         ],
         title: "Amazing product!",
         text: "This product is amazing!",
@@ -451,6 +469,7 @@ function ProductDetailPage() {
     }
   }, [isEndScroll, reviews, reviewsIsOpen]);
 
+  //  ---------------------------------------------------------------
   useEffect(() => {
     document.addEventListener("scroll", trackScrolling);
 
@@ -509,6 +528,14 @@ function ProductDetailPage() {
           "https://gagaru.club/uploads/posts/2023-02/1676615383_gagaru-club-p-stilnie-letnie-krossovki-muzhskie-instagra-66.png"
       }
     ],
+    videos: [
+      {
+        url: "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+      },
+      {
+        url: "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+      }
+    ],
     rating: 4.2,
     price: {
       price: 150.99,
@@ -558,12 +585,16 @@ function ProductDetailPage() {
         type: "color",
         values: [
           {
-            value: "white",
-            label: "White"
+            value: "#BB2D2D",
+            label: "Red"
           },
           {
-            value: "blue",
-            label: "Blue"
+            value: "#4F9C28",
+            label: "Green"
+          },
+          {
+            value: "#FF9811",
+            label: "Orange"
           }
         ]
       },
@@ -729,7 +760,10 @@ function ProductDetailPage() {
                       <Icons.Compare />
                     </button>
                   </div>
-                  <ProductDetailSlider images={product?.images as any} />
+                  <ProductDetailSlider
+                    images={product?.images as any}
+                    videos={product?.videos as any}
+                  />
                 </div>
               </div>
 

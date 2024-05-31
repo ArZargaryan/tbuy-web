@@ -1,19 +1,18 @@
 @import "@/styles/vars.scss";
 
 .reviews {
-	padding-top: 100px;
-	padding-left: 42px;
+	margin-top: 100px;
+	padding: 34px 0 50px 42px;
 
-	svg {
-		transition: 0.2s;
-		transform: rotate(180deg);
-	}
+	border-top: 1px solid #00000033;
+	border-bottom: 1px solid #00000033;
 
 	&__title {
 		font-size: 24px;
-		font-weight: 600;
+		font-weight: 700;
+		font-family: "Noto Sans Armenian", sans-serif;
 
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 
 		cursor: pointer;
@@ -26,9 +25,20 @@
 			font-size: 14px;
 			margin-left: 4px;
 		}
+
+		svg {
+			transition: 0.2s;
+			transform: rotate(180deg);
+		}
 	}
 
 	&__list {
+		margin-top: 16px;
+
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
 		&_close {
 			display: none;
 		}

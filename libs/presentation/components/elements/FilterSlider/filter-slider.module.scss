@@ -1,0 +1,77 @@
+.swiper {
+	margin: 0;
+
+	:global {
+		.swiper-button-disabled {
+			display: none;
+		}
+	}
+}
+
+.next_button,
+.prev_button {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	transform: translateY(-50%);
+
+	display: flex;
+	width: 24px;
+	height: 24px;
+	background: white;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: scale(1, 2);
+		z-index: -2;
+		background: white;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 800%;
+		pointer-events: none;
+		transform: scale(1, 2);
+		z-index: -1;
+	}
+
+	@media screen and (max-width: 800px) {
+		&::before {
+			width: 500%;
+		}
+	}
+
+	@media screen and (max-width: 450px) {
+		display: none;
+		
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.next_button {
+	left: 0;
+
+	&::before {
+		left: 0;
+		background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	}
+}
+
+.prev_button {
+	right: 0;
+
+	&::before {
+		right: 0;
+		background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	}
+}

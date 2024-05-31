@@ -19,6 +19,7 @@ import styles from "./category-bar.module.scss";
 // import "swiper/css/scrollbar";
 import { getCategories, setCurrSubcategory } from "@libs/presentation/store/categoriesSlice";
 import { ImgExporter } from "@core/helpers/ImgExporter";
+import Tooltip from "@libs/presentation/components/elements/Tooltip";
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   categories: Category[];
@@ -76,9 +77,27 @@ function CategoryBar(props: Props) {
   return (
     <div {...props} className={styles.category_bar}>
       <div className={`container ${styles.category_bar__content}`}>
-        <Link href="/services" className={styles.content__services}>
-          {t("services")}
-        </Link>
+        <Tooltip
+          placement="bottom"
+          close_on_click
+          label={<div className={styles.content__services}>{t("services")}</div>}
+        >
+          <div className={styles.category_dropdown}>
+            <Link href="/services/222" className={styles.category_dropdown__link}>
+              Service 1
+            </Link>
+            <Link href="/services/222" className={styles.category_dropdown__link}>
+              Service 2
+            </Link>
+            <Link href="/services/222" className={styles.category_dropdown__link}>
+              Service 3
+            </Link>
+            <Link href="/services/222" className={styles.category_dropdown__link}>
+              Service 4
+            </Link>
+          </div>
+        </Tooltip>
+
         <Swiper
           modules={[Navigation, FreeMode]}
           spaceBetween={4}

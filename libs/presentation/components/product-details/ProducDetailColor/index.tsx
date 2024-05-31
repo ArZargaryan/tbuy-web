@@ -38,7 +38,7 @@ function ProductDetailColor({ data, companyType }: Props) {
                     <label key={`${color.value}_${i}`}>
                       <input
                         type="radio"
-                        name={"color"}
+                        name="color"
                         onChange={(event) => {
                           if (event.target.checked) {
                             setSelectedColor(color);

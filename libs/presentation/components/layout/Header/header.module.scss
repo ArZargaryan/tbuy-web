@@ -1,8 +1,9 @@
 @import "@styles/vars.scss";
+@import "@styles/z-vars.scss";
 
 .navbar__menu {
   position: relative;
-  z-index: 2100;
+  z-index: $z-footer;
   background: #f0f3f3;
 
   &_content {

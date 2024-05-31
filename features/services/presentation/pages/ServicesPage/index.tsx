@@ -14,6 +14,9 @@ import DefaultLayout from "@layouts/default";
 import styles from "./services-page.module.scss";
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import InfiniteCard from "@libs/presentation/components/cards/InfiniteCardList";
+import { SwiperSlide } from "swiper/react";
+import Tooltip from "@libs/presentation/components/elements/Tooltip";
+import FilterSlider from "@libs/presentation/components/elements/FilterSlider";
 
 function ServicesPage() {
   const { t } = useTranslation(["catalog/servicespage", "common"]);
@@ -33,20 +36,159 @@ function ServicesPage() {
     <DefaultLayout>
       <div className="container">
         <section className={styles.services_section}>
-          <TitleWithSort
-            sort_items={[
-              { id: 0, value: "Գինը ըստ նվազման" },
-              { id: 1, value: "Գինը ըստ նվազման" }
-            ]}
-            select_label="Գինը ըստ նվազման"
-          >
-            {t("title")}
-          </TitleWithSort>
+          <div className={styles.header}>
+            <Tooltip
+              close_on_click
+              label={
+                <div className={styles.filter_title}>
+                  <span>Տեսակ ({72})</span>
+                  <ArrowDownIcon />
+                </div>
+              }
+            >
+              <div className={styles.filter_title_dropdown}>
+                <div className={styles.filter_title_dropdown__text}>Անունով</div>
+                <div className={styles.filter_title_dropdown__text}>Ըստ գնի</div>
+                <div className={styles.filter_title_dropdown__text}>Հաշվի մեջ</div>
+                <div className={styles.filter_title_dropdown__text}>Ըստ ամսաթվի</div>
+              </div>
+            </Tooltip>
+
+            <div className={styles.stripe}></div>
+
+            <div className={styles.filter_slider}>
+              <FilterSlider>
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Գին</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Վիճակ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <Tooltip
+                    label={
+                      <div className={styles.filter_item}>
+                        <span>Ապրանքանիշ</span>
+                        <ArrowDownIcon />
+                      </div>
+                    }
+                  ></Tooltip>
+                </SwiperSlide>
+              </FilterSlider>
+            </div>
+          </div>
 
           <ServiceCategoriesSlider />
+
           <FiltersList
             filters={[{ value: "Ականջակալներ" }, { value: "1000 - 5000 AMD" }, { value: "ZIGZAG" }]}
           />
+
+          <div className={styles.title}>Դյուրակիր կապույր հեռակառավարվող ակուստիկ նվագ... </div>
           {/*mock loading*/}
           <InfiniteCard cards={itemss} loading={loading} loadMore={fetchMoreData} />
           {/* <TbuyPagination count={5} /> */}
@@ -66,3 +208,24 @@ function ServicesPage() {
 }
 
 export default ServicesPage;
+
+const ArrowDownIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <g clip-path="url(#clip0_269_46901)">
+        <path
+          d="M10.6654 13.3327L15.9987 18.666L21.332 13.3327"
+          stroke="#1D1D1D"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_269_46901">
+          <rect width="32" height="32" fill="white"></rect>
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};

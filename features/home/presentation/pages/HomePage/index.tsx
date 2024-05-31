@@ -750,6 +750,7 @@ function HomePage() {
           >
             {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
           </TitleWithLink>
+
           <CardsList
             className={styles.section_margin}
             cards={(!!fakeProducts?.length && fakeProducts) || []}

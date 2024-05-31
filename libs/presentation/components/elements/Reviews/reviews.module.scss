@@ -48,8 +48,18 @@
 		margin-top: 10px;
 	}
 
+	@media screen and (max-width: 1550px) {
+		margin-top: 60px;
+	}
+
 	@media screen and (max-width: 1500px) {
 		padding-left: 0;
+	}
+
+	@media screen and (max-width: 800px) {
+		margin-top: 40px;
+		padding: 24px 0 40px 42px;
+		margin-bottom: -35px;
 	}
 
 	@media screen and (max-width: 1080px) {
@@ -61,6 +71,9 @@
 	}
 
 	@media screen and (max-width: 650px) {
+		margin-top: 20px;
+		padding: 14px 0 30px 32px;
+
 		&__title {
 			font-size: 18px;
 

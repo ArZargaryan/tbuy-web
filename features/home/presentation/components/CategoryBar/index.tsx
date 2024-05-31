@@ -83,16 +83,16 @@ function CategoryBar(props: Props) {
           label={<div className={styles.content__services}>{t("services")}</div>}
         >
           <div className={styles.category_dropdown}>
-            <Link href="/services/222" className={styles.category_dropdown__link}>
+            <Link href="/services" className={styles.category_dropdown__link}>
               Service 1
             </Link>
-            <Link href="/services/222" className={styles.category_dropdown__link}>
+            <Link href="/services" className={styles.category_dropdown__link}>
               Service 2
             </Link>
-            <Link href="/services/222" className={styles.category_dropdown__link}>
+            <Link href="/services" className={styles.category_dropdown__link}>
               Service 3
             </Link>
-            <Link href="/services/222" className={styles.category_dropdown__link}>
+            <Link href="/services" className={styles.category_dropdown__link}>
               Service 4
             </Link>
           </div>

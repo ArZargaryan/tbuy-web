@@ -149,3 +149,11 @@
 		}
 	}
 }
+
+.filter_second {
+	margin-bottom: 20px;
+
+	@media screen and (max-width: 900px) {
+		margin-bottom: 5px;
+	}
+}

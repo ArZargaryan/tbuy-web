@@ -12,6 +12,7 @@ import AssortmentPoppup from "@libs/presentation/components/layout/AssortmentPop
 import { ImgExporter } from "@core/helpers/ImgExporter";
 import { Checkbox } from "@libs/presentation/components/form/checkboxes/Checkbox";
 import styles from "../../products-page.module.scss";
+import FilterSlider from "@libs/presentation/components/elements/FilterSlider";
 
 function ProductCategoriesSlider() {
   const { t } = useTranslation(["catalog/productspage"]);
@@ -115,247 +116,245 @@ function ProductCategoriesSlider() {
         </div>
       )}
       <div className={styles.slider}>
-        <SelectsSlider>
-          <Swiper navigation>
-            <SwiperSlide>
-              <SelectCustom
-                active_select={assortmentActive}
-                onClick={() => setAssortmentActive((prev) => !prev)}
-              >
-                {t("filters.sections.title")}
-              </SelectCustom>
-            </SwiperSlide>
+        <FilterSlider spaceBetween={20} className={styles.filter_second}>
+          <SwiperSlide>
+            <SelectCustom
+              active_select={assortmentActive}
+              onClick={() => setAssortmentActive((prev) => !prev)}
+            >
+              {t("filters.sections.title")}
+            </SelectCustom>
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectRange label={`${t("filters.priceAmd")}`} />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectRange label={`${t("filters.priceAmd")}`} />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.brand")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "ADS" },
-                  { id: 2, value: "AILIANG" },
-                  { id: 3, value: "GEEPAS" },
-                  { id: 4, value: "GOLDY" },
-                  { id: 5, value: "JBL" },
-                  { id: 6, value: "KEDIBO" },
-                  { id: 7, value: "LIGE" },
-                  { id: 8, value: "LUNAR" },
-                  { id: 9, value: "SONASHI" },
-                  { id: 10, value: "SONY" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.brand")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "ADS" },
+                { id: 2, value: "AILIANG" },
+                { id: 3, value: "GEEPAS" },
+                { id: 4, value: "GOLDY" },
+                { id: 5, value: "JBL" },
+                { id: 6, value: "KEDIBO" },
+                { id: 7, value: "LIGE" },
+                { id: 8, value: "LUNAR" },
+                { id: 9, value: "SONASHI" },
+                { id: 10, value: "SONY" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCompany
-                label={`${t("filters.partners.title")}`}
-                items={[
-                  {
-                    id: 1,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "V & V Computers Electronics"
-                  },
-                  {
-                    id: 2,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 3,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 4,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 5,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 6,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 7,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 8,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 9,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCompany
+              label={`${t("filters.partners.title")}`}
+              items={[
+                {
+                  id: 1,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "V & V Computers Electronics"
+                },
+                {
+                  id: 2,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 3,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                },
+                {
+                  id: 4,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 5,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                },
+                {
+                  id: 6,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 7,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                },
+                {
+                  id: 8,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 9,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.color")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "Մոխրագույն" },
-                  { id: 2, value: "Ոսկեգույն" },
-                  { id: 3, value: "Սև" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.color")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "Մոխրագույն" },
+                { id: 2, value: "Ոսկեգույն" },
+                { id: 3, value: "Սև" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.condition")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "Նոր" },
-                  { id: 2, value: "Օգտագործված" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.condition")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "Նոր" },
+                { id: 2, value: "Օգտագործված" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.country")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "Հայաստան" },
-                  { id: 2, value: "Այլ" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.country")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "Հայաստան" },
+                { id: 2, value: "Այլ" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCustom
-                active_select={assortmentActive}
-                onClick={() => setAssortmentActive((prev) => !prev)}
-              >
-                {t("filters.sections.title")}
-              </SelectCustom>
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCustom
+              active_select={assortmentActive}
+              onClick={() => setAssortmentActive((prev) => !prev)}
+            >
+              {t("filters.sections.title")}
+            </SelectCustom>
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectRange label={`${t("filters.priceAmd")}`} />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectRange label={`${t("filters.priceAmd")}`} />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.brand")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "ADS" },
-                  { id: 2, value: "AILIANG" },
-                  { id: 3, value: "GEEPAS" },
-                  { id: 4, value: "GOLDY" },
-                  { id: 5, value: "JBL" },
-                  { id: 6, value: "KEDIBO" },
-                  { id: 7, value: "LIGE" },
-                  { id: 8, value: "LUNAR" },
-                  { id: 9, value: "SONASHI" },
-                  { id: 10, value: "SONY" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.brand")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "ADS" },
+                { id: 2, value: "AILIANG" },
+                { id: 3, value: "GEEPAS" },
+                { id: 4, value: "GOLDY" },
+                { id: 5, value: "JBL" },
+                { id: 6, value: "KEDIBO" },
+                { id: 7, value: "LIGE" },
+                { id: 8, value: "LUNAR" },
+                { id: 9, value: "SONASHI" },
+                { id: 10, value: "SONY" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCompany
-                label={`${t("filters.partners.title")}`}
-                items={[
-                  {
-                    id: 1,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "V & V Computers Electronics"
-                  },
-                  {
-                    id: 2,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 3,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 4,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 5,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 6,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 7,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 8,
-                    image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-                    value: "Pixel"
-                  },
-                  {
-                    id: 9,
-                    image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
-                    value: "Pixel"
-                  }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCompany
+              label={`${t("filters.partners.title")}`}
+              items={[
+                {
+                  id: 1,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "V & V Computers Electronics"
+                },
+                {
+                  id: 2,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 3,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                },
+                {
+                  id: 4,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 5,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                },
+                {
+                  id: 6,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 7,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                },
+                {
+                  id: 8,
+                  image: "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
+                  value: "Pixel"
+                },
+                {
+                  id: 9,
+                  image: "https://1000logos.net/wp-content/uploads/2020/07/AliExpress-Logo.jpg",
+                  value: "Pixel"
+                }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.color")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "Մոխրագույն" },
-                  { id: 2, value: "Ոսկեգույն" },
-                  { id: 3, value: "Սև" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.color")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "Մոխրագույն" },
+                { id: 2, value: "Ոսկեգույն" },
+                { id: 3, value: "Սև" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.condition")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "Նոր" },
-                  { id: 2, value: "Օգտագործված" }
-                ]}
-              />
-            </SwiperSlide>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.condition")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "Նոր" },
+                { id: 2, value: "Օգտագործված" }
+              ]}
+            />
+          </SwiperSlide>
 
-            <SwiperSlide>
-              <SelectCheckbox
-                label={`${t("filters.country")}`}
-                check_box_circle
-                items={[
-                  { id: 1, value: "Հայաստան" },
-                  { id: 2, value: "Այլ" }
-                ]}
-              />
-            </SwiperSlide>
-          </Swiper>
-        </SelectsSlider>
+          <SwiperSlide>
+            <SelectCheckbox
+              label={`${t("filters.country")}`}
+              check_box_circle
+              items={[
+                { id: 1, value: "Հայաստան" },
+                { id: 2, value: "Այլ" }
+              ]}
+            />
+          </SwiperSlide>
+        </FilterSlider>
       </div>
 
       <AssortmentPoppup

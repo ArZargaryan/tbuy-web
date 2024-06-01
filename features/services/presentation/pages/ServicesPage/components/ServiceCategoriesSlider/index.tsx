@@ -11,6 +11,8 @@ import SelectsSlider from "@libs/presentation/components/form/selects/SelectsSli
 import SelectCustom from "@libs/presentation/components/form/selects/SelectCustom";
 import AssortmentPoppup from "@libs/presentation/components/layout/AssortmentPoppup";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
+import FilterSlider from "@libs/presentation/components/elements/FilterSlider";
+import styles from "../../services-page.module.scss";
 
 function ServiceCategoriesSlider() {
   const { t } = useTranslation(["catalog/servicespage"]);
@@ -20,7 +22,7 @@ function ServiceCategoriesSlider() {
 
   return (
     <div style={{ position: "relative" }}>
-      <SelectsSlider>
+      <FilterSlider spaceBetween={20} className={styles.filter_second}>
         <SwiperSlide>
           <SelectCustom
             active_select={assortmentActive}
@@ -124,7 +126,7 @@ function ServiceCategoriesSlider() {
             ]}
           />
         </SwiperSlide>
-      </SelectsSlider>
+      </FilterSlider>
 
       <AssortmentPoppup
         active={assortmentActive}

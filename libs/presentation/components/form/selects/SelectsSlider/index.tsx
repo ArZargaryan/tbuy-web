@@ -48,13 +48,13 @@ function SelectsSlider(props: PropsWithChildren & SwiperProps) {
         className={cls}
       >
         {children}
-        <div ref={navigationPrevRef} className={"swiper-button-prev"}>
-          <div className={"swiper-button-prev_img"}>
+        <div ref={navigationPrevRef} className="swiper-button-prev">
+          <div className="swiper-button-prev_img">
             <Arrows.DoubleLeftIcon />
           </div>
         </div>
-        <div ref={navigationNextRef} className={"swiper-button-next"}>
-          <div className={"swiper-button-next_img"}>
+        <div ref={navigationNextRef} className="swiper-button-next">
+          <div className="swiper-button-next_img">
             <Arrows.DoubleRight />
           </div>
         </div>

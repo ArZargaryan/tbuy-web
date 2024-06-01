@@ -1,18 +1,25 @@
-import { Swiper } from "swiper/react";
-import { FreeMode, Navigation } from "swiper";
+import { Swiper, SwiperProps } from "swiper/react";
+import { FreeMode, Navigation, Scrollbar } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import cl from "./filter-slider.module.scss";
 import { useRef } from "react";
 
-const FilterSlider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const FilterSlider: React.FC<{ children: React.ReactNode } & SwiperProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   const prevButton = useRef(null);
   const nextButton = useRef(null);
 
   return (
     <Swiper
-      className={cl.swiper}
-      modules={[Navigation, FreeMode]}
+      className={!className ? cl.swiper : `${cl.swiper} ${className}`}
+      modules={[Navigation, FreeMode, Scrollbar]}
+      scrollbar={{
+        draggable: true
+      }}
       spaceBetween={16}
       slidesPerView="auto"
       navigation={{ prevEl: prevButton.current, nextEl: nextButton.current }}
@@ -24,6 +31,7 @@ const FilterSlider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
           navigation.prevEl = prevButton.current;
         }
       }}
+      {...props}
     >
       {children}
 

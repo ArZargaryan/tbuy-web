@@ -1,9 +1,35 @@
-.swiper {
-	margin: 0;
+@import "@/styles/vars.scss";
 
+.swiper {
 	:global {
 		.swiper-button-disabled {
 			display: none;
+		}
+
+		.swiper-slide {
+			width: max-content;
+
+			@media screen and (max-width: 900px) {
+				padding-bottom: 5px !important;
+			}
+		}
+
+		.swiper-scrollbar {
+			border-radius: 0px !important;
+			width: 100% !important;
+			padding: 0 !important;
+			height: 2px !important;
+			background: #e8e8e8 !important;
+
+			&-drag {
+				border-radius: 0px !important;
+				height: 2px !important;
+				background: $blue-2;
+			}
+
+			@media screen and (min-width: 901px) {
+				display: none;
+			}
 		}
 	}
 }
@@ -49,12 +75,8 @@
 		}
 	}
 
-	@media screen and (max-width: 450px) {
+	@media screen and (max-width: 900px) {
 		display: none;
-		
-		&::before {
-			display: none;
-		}
 	}
 }
 
@@ -63,7 +85,7 @@
 
 	&::before {
 		left: 0;
-		background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+		background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 	}
 }
 
@@ -72,6 +94,6 @@
 
 	&::before {
 		right: 0;
-		background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 	}
 }

@@ -47,7 +47,7 @@ function GiftCardsPage() {
             ՆՎԵՐ ՔԱՐՏ
           </TitleWithSort>
 
-          {screenWidth && screenWidth > 500 ? <GiftCardCategoriesSlider /> : <MobileFilter />}
+          {screenWidth && screenWidth > 500 && <GiftCardCategoriesSlider />}
 
           <FiltersList
             filters={[{ value: "Ականջակալներ" }, { value: "1000 - 5000 AMD" }, { value: "ZIGZAG" }]}

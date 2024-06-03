@@ -147,7 +147,7 @@ function HomePage() {
   const fakeProducts: Product[] = [
     new Product({
       id: 1,
-      title: "Product 1",
+      title: "Շինարարական քերիչ մածկաթիակ TOTAL THT8310026 Ածխածնային պողպատ",
       images: [
         {
           original:

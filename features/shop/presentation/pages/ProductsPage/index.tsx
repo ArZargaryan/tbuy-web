@@ -211,7 +211,7 @@ export default ProductsPage;
 const ArrowDownIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <g clip-path="url(#clip0_269_46901)">
+      <g clipPath="url(#clip0_269_46901)">
         <path
           d="M10.6654 13.3327L15.9987 18.666L21.332 13.3327"
           stroke="#1D1D1D"

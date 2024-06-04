@@ -2,7 +2,7 @@
 
 .reviews {
 	margin-top: 100px;
-	padding: 34px 0 50px 42px;
+	padding: 34px 0 34px 42px;
 
 	border-top: 1px solid #00000033;
 	border-bottom: 1px solid #00000033;
@@ -42,6 +42,12 @@
 		&_close {
 			display: none;
 		}
+
+		>div {
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
 	}
 
 	&__btn {
@@ -59,12 +65,12 @@
 	@media screen and (max-width: 800px) {
 		margin-top: 40px;
 		padding-top: 24px;
-		padding-bottom: 40px;
-		margin-bottom: -35px;
+		padding-bottom: 24px;
 	}
 
 	@media screen and (max-width: 1080px) {
 		padding-top: 30px;
+		padding-bottom: 30px;
 
 		&__title {
 			font-size: 20px;
@@ -74,7 +80,7 @@
 	@media screen and (max-width: 650px) {
 		margin-top: 20px;
 		padding-top: 14px;
-		padding-bottom: 30px;
+		padding-bottom: 14px;
 
 		&__title {
 			font-size: 18px;
@@ -89,5 +95,27 @@
 .reviews.hidden {
 	svg {
 		transform: rotate(0deg);
+	}
+}
+
+.wrapper {
+	@media screen and (max-width: 800px) {
+		margin-bottom: -35px;
+	}
+
+	.pagination {
+		margin-top: 42px;
+
+		@media screen and (max-width: 1050px) {
+			margin-top: 32px;
+		}
+
+		@media screen and (max-width: 800px) {
+			margin-top: 22px;
+		}
+
+		@media screen and (max-width: 450px) {
+			margin-top: 12px;
+		}
 	}
 }

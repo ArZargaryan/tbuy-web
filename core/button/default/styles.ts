@@ -26,6 +26,12 @@ export const Button = styled.button<Omit<ButtonProps, "variant">>`
     flex: 0 0 auto;
   }
 
+  * {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+  }
+
   &:disabled {
     background: #eaecf5;
     color: #9ba2bf;
@@ -45,14 +51,14 @@ export const Primary = styled(Button)`
 `;
 
 export const Secondary = styled(Button)`
-  color: #1d1d1d;
-  border: 1px solid #1d1d1d;
+  color: var(--primary);
+  //border: 1px solid #1d1d1d;
+  border: 1px solid var(--primary);
   gap: ${({ gap }) => gap || "8px"};
   transition: 0.2s;
 
   &:hover {
     background: var(--primary);
-    border: none;
     color: white;
 
     svg {

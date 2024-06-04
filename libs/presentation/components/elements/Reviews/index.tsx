@@ -14,30 +14,19 @@ interface Props {
     data: Review[];
   };
   onPageChange: (page: number) => void;
-  getReviewsIsOpen: (state: boolean) => void;
-  getIsEndScroll: (state: boolean) => void;
 }
 
-function Reviews({ id, reviews, onPageChange, getReviewsIsOpen, getIsEndScroll }: Props) {
-  const [showingReviews, setShowingReviews] = useState(true);
+function Reviews({ id, reviews, onPageChange }: Props) {
   const [reviewsPage, setReviewsPage] = useState(1);
   const { t } = useTranslation(["catalog/productspage"]);
 
   const [commentIsShow, setCommentIsShow] = useState(false);
-
-  const listCls = classNames(styles.reviews__list, {
-    [styles.reviews__list_close]: !showingReviews
-  });
 
   useEffect(() => {
     if (id) {
       onPageChange(reviewsPage);
     }
   }, [id, reviewsPage]);
-
-  const changeShowing = () => {
-    setShowingReviews((prev) => !prev);
-  };
 
   const changePage = (page: number) => {
     setReviewsPage(page);
@@ -51,45 +40,45 @@ function Reviews({ id, reviews, onPageChange, getReviewsIsOpen, getIsEndScroll }
 
   if (!reviews?.data?.length) return <div></div>;
 
-  function clickHandler() {
-    const state = !commentIsShow;
-    getReviewsIsOpen(state);
-    setCommentIsShow(state);
-  }
-
   return (
-    <div className={getClassName()}>
-      <h3 className={styles.reviews__title} onClick={() => clickHandler()}>
-        {t("reviews")} <sup>{reviews.totalItems}</sup>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-        >
-          <path
-            d="M10.6654 13.3346L15.9987 18.668L21.332 13.3346"
-            stroke="#1D1D1D"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </h3>
+    <div className={styles.wrapper}>
+      <div className={getClassName()}>
+        <h3 className={styles.reviews__title} onClick={() => setCommentIsShow((old) => !old)}>
+          {t("reviews")} <sup>{reviews.totalItems}</sup>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+          >
+            <path
+              d="M10.6654 13.3346L15.9987 18.668L21.332 13.3346"
+              stroke="#1D1D1D"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </h3>
 
-      {commentIsShow && (
-        <div className={listCls}>
-          {!!reviews.data.length &&
-            reviews.data?.map((review, i) => (
-              <ReviewsItem
-                key={`${review?.author?.id}_${i}`}
-                review={review}
-                getIsEndScroll={getIsEndScroll}
-              />
-            ))}
-          <br />
-        </div>
+        {commentIsShow && (
+          <div className={styles.reviews__list}>
+            {!!reviews.data.length &&
+              reviews.data?.map((review, i) => (
+                <ReviewsItem key={`${review?.author?.id}_${i}`} review={review} />
+              ))}
+          </div>
+        )}
+      </div>
+
+      {reviews.totalItems > 5 && commentIsShow && (
+        <TbuyPagination
+          className={styles.pagination}
+          page={reviewsPage}
+          count={Math.round(reviews.totalItems / 5)}
+          onChange={(_, value) => changePage(value)}
+        />
       )}
     </div>
   );

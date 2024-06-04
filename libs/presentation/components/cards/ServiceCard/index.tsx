@@ -56,22 +56,24 @@ function ServiceCard({ service }: { service: Service | GiftCard }) {
 
   return (
     <div className={styles.service_card}>
-      <Swiper
-        slidesPerView={1}
-        pagination={true}
-        modules={[Pagination]}
-        className={styles.service_card__slider}
-      >
-        {images.map((imageSrc, i) => (
-          <SwiperSlide key={`${imageSrc}_${i}`}>
-            <Link href={url}>
-              <div className={styles.slide_container}>
-                <img src={imageSrc} className={styles.slide_img} />
-              </div>
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div>
+        <Swiper
+          slidesPerView={1}
+          pagination={true}
+          modules={[Pagination]}
+          className={styles.service_card__slider}
+        >
+          {images.map((imageSrc, i) => (
+            <SwiperSlide key={`${imageSrc}_${i}`}>
+              <Link href={url}>
+                <div className={styles.slide_container}>
+                  <img src={imageSrc} className={styles.slide_img} />
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
       <div className={styles.info_section}>
         <Link href={url}>
           <h3 className={styles.title}>{title}</h3>

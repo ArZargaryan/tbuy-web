@@ -10,19 +10,12 @@ import ImageViewer from "../../ImageViewer";
 
 interface Props {
   review: Review;
-  getIsEndScroll: (state: boolean) => void;
 }
 
-function ReviewsItem({ getIsEndScroll, ...props }: Props) {
+function ReviewsItem({ ...props }: Props) {
   const { review } = props;
 
-  const [isEndScroll] = useScrollToBottom(600);
-
   const [imagesModalIsActive, setImagesModalIsActive] = useState(false);
-
-  useEffect(() => {
-    getIsEndScroll(isEndScroll);
-  }, [isEndScroll, getIsEndScroll]);
 
   // Media ---------------------------------------------------------------------------
   const mediaQuery = window.matchMedia("(max-width: 550px)");

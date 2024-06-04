@@ -57,6 +57,7 @@ export type ParameterEntity = {
 export type ParameterValueEntity = {
   label?: string;
   value: string;
+  numberLabel?: string;
 };
 
 type AvailabilityEntity = {

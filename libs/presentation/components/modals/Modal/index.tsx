@@ -28,7 +28,11 @@ export const Modal: FC<HTMLAttributes<HTMLDivElement> & ModalProps> = ({
           <Container isActive={isActive} onClick={() => setIsActive(false)} {...other}>
             <Body {...other} onClick={(e) => e.stopPropagation()} className={className}>
               {children}
-              <Close onClick={() => setIsActive(false)} closePosition={closePosition}>
+              <Close
+                onClick={() => setIsActive(false)}
+                closePosition={closePosition}
+                className="modal-close-button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"

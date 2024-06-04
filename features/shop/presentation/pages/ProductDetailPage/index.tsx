@@ -31,6 +31,12 @@ import { Image } from "@libs/domain/model/image";
 import { ProductDetailButton } from "@libs/presentation/components/product-details/ProductDetailButton";
 import ProductDetailColor from "@libs/presentation/components/product-details/ProducDetailColor";
 import useScrollToBottom from "@core/hooks/useScrollToBottom";
+import NewSelect from "@libs/presentation/components/form/selects/NewSelect";
+import { Modal } from "@libs/presentation/components/modals/Modal";
+import { Button } from "@core/button/default";
+import MessageModal from "@libs/presentation/components/modals/MessageModal";
+import { useModal } from "@core/hooks/useModal";
+import PhoneModal from "@libs/presentation/components/modals/PhoneModal";
 
 function ProductDetailPage() {
   const dispatch = useAppDispatch();
@@ -51,8 +57,8 @@ function ProductDetailPage() {
 
   const [panelIsVisible, setPanelIsVisible] = useState(false);
 
-  const [reviews, setReviews] = useState({
-    totalItems: 20,
+  const [reviews] = useState({
+    totalItems: 300,
     data: [
       {
         id: 1,
@@ -69,6 +75,27 @@ function ProductDetailPage() {
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
+          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg"
+        ],
+        title: "Amazing product!",
+        text: "Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: Lorem Ipsum օգտագործելը ",
+        rating: 5,
+        date: new Date().toISOString()
+      },
+      {
+        id: 2,
+        author: {
+          id: 2,
+          name: "John Doe",
+          image:
+            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
+        },
+        images: [
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
           "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
@@ -430,44 +457,6 @@ function ProductDetailPage() {
   }, [dispatch, id]);
 
   // Reviews endScroll ---------------------------------------------------------------
-  const [reviewsIsOpen, setReviewsIsOpen] = useState(false);
-
-  const [isEndScroll, setIsEndScroll] = useState(false);
-
-  const getReviewsIsOpen = (state: boolean) => {
-    setReviewsIsOpen(state);
-  };
-
-  const getIsEndScroll = (state: boolean) => {
-    setIsEndScroll(state);
-  };
-
-  useEffect(() => {
-    if (isEndScroll && reviewsIsOpen) {
-      const newData = { ...reviews };
-      newData.data?.push({
-        id: Date.now(),
-        author: {
-          id: Date.now(),
-          name: "John Doe",
-          image:
-            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
-        },
-        images: [
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg"
-        ],
-        title: "Amazing product!",
-        text: "This product is amazing!",
-        rating: 5,
-        date: new Date().toISOString()
-      });
-      setReviews(newData);
-    }
-  }, [isEndScroll, reviews, reviewsIsOpen]);
 
   //  ---------------------------------------------------------------
   useEffect(() => {
@@ -603,15 +592,18 @@ function ProductDetailPage() {
         values: [
           {
             value: "l",
-            label: "L"
+            label: "L",
+            numberLabel: "15-17"
           },
           {
             value: "xl",
-            label: "XL"
+            label: "XL",
+            numberLabel: "15-17"
           },
           {
             value: "xxl",
-            label: "XXL"
+            label: "XXL",
+            numberLabel: "15-17"
           }
         ]
       }
@@ -724,7 +716,15 @@ function ProductDetailPage() {
 
     return `${styles.similar_container} ${styles.gradient}`;
   }, [cardsScrollIsEnd]);
-  // ---------------------------------------------------------------
+
+  // Select size label ---------------------------------------------------------------
+  const [displayLabel, setDisplayLabel] = useState<"numbers" | "letters" | "all">("all");
+
+  // Modals ---------------------------------------------------------------
+  const [availabilityModalIsActive, setAvailabilityModalIsActive] = useState(false);
+  const [actionsModalIsActive, setActionsModalIsActive] = useState(false);
+  const [messageModalOpen, changeMessageModalOpen] = useModal(false);
+  const [phoneModalIsActive, setPhoneModalIsActive] = useState(false);
 
   return (
     <ProductDetailLayout>
@@ -811,7 +811,7 @@ function ProductDetailPage() {
                           <div className={styles.prices__popup}>
                             {map(product.exchanges, (exchange, idx) => (
                               <p key={idx}>
-                                {(product?.price?.price / exchange.rate).toFixed(2)}{" "}
+                                {(product?.price?.price / exchange.rate).toFixed(2)}
                                 {exchange.currency}
                               </p>
                             ))}
@@ -862,70 +862,36 @@ function ProductDetailPage() {
                   </div>
                 </div>
 
-                {product?.company?.type === "individual" && (
-                  <div className={styles.check_product_availability}>
-                    <svg
-                      id="Сгруппировать_3583"
-                      data-name="Сгруппировать 3583"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      style={{ marginRight: 8 }}
-                    >
-                      <path
-                        id="Контур_4107"
-                        data-name="Контур 4107"
-                        d="M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm0,18.688A8.688,8.688,0,1,1,18.688,10,8.7,8.7,0,0,1,10,18.688Z"
-                        fill="$grey-2"
-                      />
-                      <g
-                        id="Сгруппировать_10875"
-                        data-name="Сгруппировать 10875"
-                        transform="translate(0.125 1.407)"
-                      >
-                        <g
-                          id="Сгруппировать_10873"
-                          data-name="Сгруппировать 10873"
-                          transform="translate(9.125 4.164)"
-                        >
-                          <g id="Сгруппировать_10869" data-name="Сгруппировать 10869">
-                            <path
-                              id="Контур_6658"
-                              data-name="Контур 6658"
-                              d="M235.511,125.018a.722.722,0,0,0-.75.766v5.851a.75.75,0,0,0,1.5,0v-5.851A.722.722,0,0,0,235.511,125.018Z"
-                              transform="translate(-234.761 -125.909)"
-                              fill="$grey-2"
-                            />
-                          </g>
-                        </g>
-                        <g
-                          id="Сгруппировать_10874"
-                          data-name="Сгруппировать 10874"
-                          transform="translate(9.125 12.414)"
-                        >
-                          <g id="Сгруппировать_10871" data-name="Сгруппировать 10871">
-                            <path
-                              id="Контур_6659"
-                              data-name="Контур 6659"
-                              d="M236.2,341.749a.7.7,0,0,0-.158-.247.712.712,0,0,0-.12-.09.812.812,0,0,0-.27-.112.749.749,0,0,0-.674.2.7.7,0,0,0-.157.247.706.706,0,0,0,0,.57.676.676,0,0,0,.4.4.7.7,0,0,0,.569,0,.876.876,0,0,0,.247-.157.866.866,0,0,0,.158-.247.706.706,0,0,0,0-.57Z"
-                              transform="translate(-234.762 -341.284)"
-                              fill="$grey-2"
-                            />
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                    <span>{t("check_product_availability", { ns: "catalog/productspage" })}</span>
-                  </div>
-                )}
-
                 <div ref={buyButtonRef}>
                   <ProductDetailButton companyType={product?.company?.type} />
                 </div>
 
-                {/* WHOLESALES DETAILS */}
-                {/* SELLER */}
+                {product?.company?.type === "individual" && (
+                  <div
+                    className={styles.check_product_availability}
+                    onClick={() => setAvailabilityModalIsActive(true)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M13 14H11V9H13V14ZM13 18H11V16H13V18ZM1 21H23L12 2L1 21Z"
+                        fill="#F7C752"
+                      />
+                    </svg>
+                    <span>
+                      {t("check_product_availability_first", { ns: "catalog/productspage" })}{" "}
+                      <button className={styles.check_product_availability__button}>
+                        {t("check_product_availability_second", { ns: "catalog/productspage" })}
+                      </button>
+                    </span>
+                  </div>
+                )}
+
                 <div className={styles.contact_seller_wrapper}>
                   <ContactSeller
                     link="/legal_partner"
@@ -944,9 +910,23 @@ function ProductDetailPage() {
                   </div>
                 </div>
 
+                {product?.company?.type === "legal" && (
+                  <div className={styles.select_size}>
+                    <NewSelect
+                      defaultValue={{ label: "all", value: "all" }}
+                      options={[
+                        { value: "numbers", label: "Միջազգային ստանդարտներ" },
+                        { value: "letters", label: "Եվրոպական ստանդարտներ" }
+                      ]}
+                      onChange={(selected: any) => setDisplayLabel(selected.value)}
+                    />
+                  </div>
+                )}
+
                 <ProductDetailForm
                   companyType={product?.company?.type}
                   data={product.parameters as any}
+                  displayLabel={displayLabel}
                 />
 
                 {/* AVAILABILITY */}
@@ -984,13 +964,7 @@ function ProductDetailPage() {
                   cards={similar_products}
                 />
               </div>
-              <Reviews
-                id={id as string}
-                reviews={reviews as any}
-                onPageChange={changeReviewPage}
-                getReviewsIsOpen={getReviewsIsOpen}
-                getIsEndScroll={getIsEndScroll}
-              />
+              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
             </div>
           </div>
           {/* SIMILAR ITEMS SLIDER */}
@@ -1002,6 +976,131 @@ function ProductDetailPage() {
             </div>
           </div>
         </div>
+
+        <Modal
+          isActive={availabilityModalIsActive}
+          setIsActive={setAvailabilityModalIsActive}
+          className={styles.availability_modal}
+        >
+          <div className={styles.availability_modal__title}>Առկայություն</div>
+          <div className={styles.availability_modal__text}>
+            Եթե ապրանքի առկայությունն արդեն իսկ ճշտված է հաստատեք այն, իսկ եթե ոչ կապ հաստատեք
+            վաճառողի հետ և ճշտեք այն
+          </div>
+
+          <div className={styles.availability_modal__actions}>
+            <Button
+              variant="transparent"
+              className={styles.availability_modal__accept}
+              onClick={() => setAvailabilityModalIsActive(false)}
+            >
+              ՀԱՍՏԱՏԵԼ
+            </Button>
+
+            <Button
+              variant="primary"
+              className={styles.availability_modal__clarify}
+              onClick={() => {
+                setAvailabilityModalIsActive(false);
+                setActionsModalIsActive(true);
+              }}
+            >
+              ՃՇՏԵԼ
+            </Button>
+          </div>
+        </Modal>
+
+        <Modal
+          isActive={actionsModalIsActive}
+          setIsActive={setActionsModalIsActive}
+          className={styles.actions_modal}
+        >
+          <div className={styles.actions_modal__actions}>
+            <Button
+              onClick={() => {
+                setActionsModalIsActive(false);
+                changeMessageModalOpen();
+              }}
+              variant="secondary"
+              className={styles.actions_modal__button}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z"
+                  stroke="#6E00E5"
+                  strokeWidth="1.6"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M15.9961 11H16.0051"
+                  stroke="#6E00E5"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M11.9945 11H12.0035"
+                  stroke="#6E00E5"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M7.99451 11H8.00349"
+                  stroke="#6E00E5"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>ԳՐԵԼ</span>
+            </Button>
+
+            <Button
+              onClick={() => {
+                setActionsModalIsActive(false);
+                setPhoneModalIsActive(true);
+              }}
+              variant="secondary"
+              className={styles.actions_modal__button}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z"
+                  stroke="#6E00E5"
+                  strokeWidth="1.5"
+                  strokeMiterlimit="10"
+                />
+              </svg>
+              <span>ԶԱՆԳԵԼ</span>
+            </Button>
+          </div>
+        </Modal>
+
+        <MessageModal
+          open={messageModalOpen}
+          onClose={changeMessageModalOpen}
+          recipient={{
+            name: product?.company?.name
+          }}
+          onClick={(e) => e.stopPropagation()}
+        />
+
+        <PhoneModal isActive={phoneModalIsActive} setIsActive={setPhoneModalIsActive} />
       </div>
     </ProductDetailLayout>
   );

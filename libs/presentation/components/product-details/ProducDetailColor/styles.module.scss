@@ -10,7 +10,19 @@
 }
 
 .wrapper {
-	margin-top: 20px;
+	margin-top: 42px;
+
+	@media screen and (max-width: 1550px) {
+		margin-top: 32px;
+	}
+
+	@media screen and (max-width: 1200px) {
+		margin-top: 26px;
+	}
+
+	@media screen and (max-width: 800px) {
+		margin-top: 22px;
+	}
 }
 
 .form_block {

@@ -84,7 +84,8 @@ const NewSelect: FC<StateManagerProps & SelectProps> = ({
             transition: "0.2s",
             padding: padding,
             background: "white",
-            gap: "8px"
+            gap: "8px",
+            cursor: "pointer"
           }),
           menu: (baseStyles) => ({
             ...baseStyles,
@@ -102,6 +103,7 @@ const NewSelect: FC<StateManagerProps & SelectProps> = ({
             alignItems: "center",
             fontSize: "14px",
             background: "white",
+            cursor: "pointer",
 
             ":hover": {
               background: "#e8e9f0"

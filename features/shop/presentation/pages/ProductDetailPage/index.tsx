@@ -913,10 +913,11 @@ function ProductDetailPage() {
                 {product?.company?.type === "legal" && (
                   <div className={styles.select_size}>
                     <NewSelect
-                      defaultValue={{ label: "all", value: "all" }}
+                      isSearchable={false}
+                      defaultValue={{ label: "Ընտրեք չափման միավորը", value: "all" }}
                       options={[
-                        { value: "numbers", label: "Միջազգային ստանդարտներ" },
-                        { value: "letters", label: "Եվրոպական ստանդարտներ" }
+                        { value: "letters", label: "Միջազգային ստանդարտներ" },
+                        { value: "numbers", label: "Եվրոպական ստանդարտներ" }
                       ]}
                       onChange={(selected: any) => setDisplayLabel(selected.value)}
                     />

@@ -168,7 +168,7 @@ function ProductDetailSlider({ images, videos, withoutSmall }: Props) {
               <SwiperSlide
                 key={i}
                 className={`${styles.small_slider__slide} ${
-                  smallSliderActive == i ? styles.small_slider__slide_active : ""
+                  smallSliderActive == i + images.length ? styles.small_slider__slide_active : ""
                 }`}
                 onClick={() => {
                   bigSliderControl.slideTo(i + images.length);

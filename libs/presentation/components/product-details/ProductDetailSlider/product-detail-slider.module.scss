@@ -82,9 +82,10 @@
 			}
 
 			&_active {
-				img {
+				>* {
 					padding: 5px;
 				}
+				
 			}
 		}
 

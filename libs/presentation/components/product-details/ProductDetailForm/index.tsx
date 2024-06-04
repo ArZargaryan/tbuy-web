@@ -42,24 +42,6 @@ function ProductDetailForm({ companyType, data, displayLabel }: Props) {
           <p className={styles.amount}>{count}</p>
 
           <div className={styles.actions}>
-            <button onClick={decrementCount}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-              >
-                <path
-                  d="M6 9.375H12.75"
-                  stroke="#6E00E5"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-
             <button onClick={incrementCount}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,11 +66,30 @@ function ProductDetailForm({ companyType, data, displayLabel }: Props) {
                 </defs>
               </svg>
             </button>
+
+            <button onClick={decrementCount}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+              >
+                <path
+                  d="M6 9.375H12.75"
+                  stroke="#6E00E5"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
 
         <div className={styles.product_select}>
           <NewSelect
+            isSearchable={false}
             defaultValue={{ value: "pc", label: "Հատ " }}
             options={[
               { value: "pc", label: "Հատ " },

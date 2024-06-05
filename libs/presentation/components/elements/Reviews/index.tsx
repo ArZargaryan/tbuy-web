@@ -22,7 +22,7 @@ function Reviews({ id, reviews, onPageChange }: Props) {
 
   const [reviewsPage, setReviewsPage] = useState(1);
 
-  const [reviewsIsLoading, setReviewsIsLoading] = useState(false);
+  const [reviewsIsLoading, setReviewsIsLoading] = useState(true);
 
   const [commentIsShow, setCommentIsShow] = useState(false);
 
@@ -78,9 +78,14 @@ function Reviews({ id, reviews, onPageChange }: Props) {
                   <Shimmer width={52} height={52} className={styles.loading__avatar} />
 
                   <div className={styles.loading__info}>
-                    <Shimmer width={200} height={24} className={styles.loading__name} />
-                    <Shimmer width={150} height={24} className={styles.loading__stars} />
-                    <Shimmer width={600} height={100} className={styles.loading__text} />
+                    <Shimmer width={200} height={20} className={styles.loading__name} />
+                    <Shimmer width={150} height={20} className={styles.loading__stars} />
+
+                    <div className={styles.loading__texts}>
+                      <Shimmer width={480} height={20} className={styles.loading__text} />
+                      <Shimmer width={480} height={20} className={styles.loading__text} />
+                      <Shimmer width={480} height={20} className={styles.loading__text} />
+                    </div>
 
                     <div className={styles.loading__photos}>
                       <Shimmer width={172} height={105} className={styles.loading__photo} />

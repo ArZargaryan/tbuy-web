@@ -14,7 +14,7 @@ type Video = {
 
 interface Props {
   images: Image[];
-  videos: Video[];
+  videos?: Video[];
   withoutSmall?: boolean;
 }
 

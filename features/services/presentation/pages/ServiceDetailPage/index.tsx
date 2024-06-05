@@ -249,44 +249,6 @@ function ServiceDetailPage() {
       }
     ]
   });
-  const [reviewsIsOpen, setReviewsIsOpen] = useState(false);
-
-  const [isEndScroll, setIsEndScroll] = useState(false);
-
-  const getReviewsIsOpen = (state: boolean) => {
-    setReviewsIsOpen(state);
-  };
-
-  const getIsEndScroll = (state: boolean) => {
-    setIsEndScroll(state);
-  };
-
-  useEffect(() => {
-    if (isEndScroll && reviewsIsOpen) {
-      const newData = { ...reviews };
-      newData.data?.push({
-        id: Date.now(),
-        author: {
-          id: Date.now(),
-          name: "John Doe",
-          image:
-            "https://media.licdn.com/dms/image/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=CJY6IY9Bsqc2kiES7HZmnMo1_uf11zHc9DQ1tyk7R7Y"
-        },
-        images: [
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg",
-          "https://cdn.britannica.com/67/92867-050-BC3DC984/cameras-camera-reviews-crystal-displays-photographs-film.jpg"
-        ],
-        title: "Amazing product!",
-        text: "This product is amazing!",
-        rating: 5,
-        date: new Date().toISOString()
-      });
-      setReviews(newData);
-    }
-  }, [isEndScroll, reviews, reviewsIsOpen]);
 
   // ---------------------------------------------------------------
 
@@ -400,19 +362,13 @@ function ServiceDetailPage() {
             </div>
 
             <div className={styles.content_padding_wrapper}>
-              <Reviews
-                id={id as string}
-                reviews={reviews as any}
-                onPageChange={changeReviewPage}
-                getReviewsIsOpen={getReviewsIsOpen}
-                getIsEndScroll={getIsEndScroll}
-              />
               <div className={styles.product__parameters_wrapper}>
                 <CardSlider
                   title={t<string>("labels.you_will_also_be_interested", { ns: "common" })}
                   cards={suggestedServices as any}
                 />
               </div>
+              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
             </div>
           </div>
           {/* SIMILAR ITEMS SLIDER */}

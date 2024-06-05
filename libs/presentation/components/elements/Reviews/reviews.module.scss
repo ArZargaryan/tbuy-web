@@ -61,6 +61,12 @@
 		margin-top: 16px;
 		padding: 32px 0;
 
+		:global {
+			.shimmer {
+				filter: brightness(85%);
+			}
+		}
+
 		.loading__avatar {
 			border-radius: 50%;
 			flex: 0 0 52px;

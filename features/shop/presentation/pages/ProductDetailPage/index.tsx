@@ -818,40 +818,42 @@ function ProductDetailPage() {
                           </div>
                         </div>
 
-                        <div className={styles.main_wholesale}>
-                          Մեծածախ գին
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                          >
-                            <g clipPath="url(#clip0_459_27742)">
-                              <path
-                                d="M6 7.5L9 10.5L12 7.5"
-                                stroke="#1D1D1D"
-                                strokeWidth="1.6"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </g>
-                            <defs>
-                              <clipPath id="clip0_459_27742">
-                                <rect width="18" height="18" fill="white" />
-                              </clipPath>
-                            </defs>
-                          </svg>
-                          <div className={styles.main_wholesale__popup}>
-                            <div className={styles.main_wholesale__bold}>
-                              {t("wholesale_price", { ns: "catalog/productspage" })}:
-                              <span> 90 000 AMD</span>
-                            </div>
-                            <div className={styles.main_wholesale__bold}>
-                              {t("valid_from", { ns: "catalog/productspage" })}: <span>30</span>
+                        {product?.company?.type === "legal" && (
+                          <div className={styles.main_wholesale}>
+                            Մեծածախ գին
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="18"
+                              height="18"
+                              viewBox="0 0 18 18"
+                              fill="none"
+                            >
+                              <g clipPath="url(#clip0_459_27742)">
+                                <path
+                                  d="M6 7.5L9 10.5L12 7.5"
+                                  stroke="#1D1D1D"
+                                  strokeWidth="1.6"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_459_27742">
+                                  <rect width="18" height="18" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <div className={styles.main_wholesale__popup}>
+                              <div className={styles.main_wholesale__bold}>
+                                {t("wholesale_price", { ns: "catalog/productspage" })}:
+                                <span> 90 000 AMD</span>
+                              </div>
+                              <div className={styles.main_wholesale__bold}>
+                                {t("valid_from", { ns: "catalog/productspage" })}: <span>30</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        )}
                       </div>
                       {_.isNumber(1 /* Discount check */) && (
                         <span className={styles.discount_price}>

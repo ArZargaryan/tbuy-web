@@ -22,7 +22,7 @@ function Reviews({ id, reviews, onPageChange }: Props) {
 
   const [reviewsPage, setReviewsPage] = useState(1);
 
-  const [reviewsIsLoading, setReviewsIsLoading] = useState(true);
+  const [reviewsIsLoading, setReviewsIsLoading] = useState(false);
 
   const [commentIsShow, setCommentIsShow] = useState(false);
 

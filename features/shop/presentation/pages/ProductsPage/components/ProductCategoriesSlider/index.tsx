@@ -115,6 +115,7 @@ function ProductCategoriesSlider() {
           </ul>
         </div>
       )}
+
       <div className={styles.slider}>
         <FilterSlider spaceBetween={20} className={styles.filter_second}>
           <SwiperSlide>

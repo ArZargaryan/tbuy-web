@@ -95,18 +95,18 @@ const NewSelect: FC<StateManagerProps & SelectProps> = ({
             minWidth: "max-content",
             zIndex: 2
           }),
-          option: (baseStyles) => ({
+          option: (baseStyles, state) => ({
             ...baseStyles,
             padding: padding,
             height: optionHeight,
             display: "flex",
             alignItems: "center",
             fontSize: "14px",
-            background: "white",
+            background: state.isSelected ? "#cccedb" : "white",
             cursor: "pointer",
 
             ":hover": {
-              background: "#e8e9f0"
+              background: state.isSelected ? "#cccedb" : "#e8e9f0"
             }
           })
         }}

@@ -30,6 +30,14 @@ function ReviewsItem({ ...props }: Props) {
 
   // ---------------------------------------------------------------------------
 
+  function getDate() {
+    const date1 = new Date(review.createdAt);
+    if (Date.now() - date1.getTime() > 1000 * 60 * 60 * 24 * 5) {
+      return review.createdAt;
+    }
+    return "3 days ago";
+  }
+
   return (
     <div className={styles.reviews_item}>
       <div className={styles.reviews_item__header}>
@@ -66,7 +74,7 @@ function ReviewsItem({ ...props }: Props) {
             <div className={styles.rating_wrapper}>
               <div className={styles.flex}>
                 <p className={styles.account__name}>{review?.author?.name}</p>
-                <time className={styles.time}>3 days ago</time>
+                <time className={styles.time}>{getDate()}</time>
               </div>
               <StarsRating value={review.rating} readOnly color="var(--yellow)" />
             </div>
@@ -123,7 +131,7 @@ function ReviewsItem({ ...props }: Props) {
             </div>
           </div>
         </div>
-        <span className={styles.header__date}>{review.createdAt}</span>
+        <span className={styles.header__date}></span>
       </div>
     </div>
   );

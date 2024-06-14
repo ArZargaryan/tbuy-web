@@ -85,7 +85,7 @@ function ProductDetailPage() {
         title: "Amazing product!",
         text: "Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: Lorem Ipsum օգտագործելը ",
         rating: 5,
-        date: new Date().toISOString()
+        createdAt: "14.06.2024"
       },
       {
         id: 2,
@@ -112,7 +112,7 @@ function ProductDetailPage() {
         title: "Amazing product!",
         text: "Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: Lorem Ipsum օգտագործելը ",
         rating: 5,
-        date: new Date().toISOString()
+        createdAt: "1.06.2024"
       }
     ]
   });

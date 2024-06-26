@@ -343,17 +343,23 @@
 			align-items: center;
 			justify-content: space-between;
 			background: var(--gray);
-			padding: 0 30px;
 
 			button {
+				flex: 1 1 auto;
 				height: 42px;
 
 				display: flex;
 				align-items: center;
+
+				justify-content: center;
 			}
 
 			p {
+				flex: 0 0 24px;
 				font-size: 18px;
+
+				display: flex;
+				justify-content: center;
 			}
 
 			path {
@@ -364,7 +370,6 @@
 		@media (max-width: 850px) {
 			&_item {
 				width: 140px;
-				padding: 0 20px;
 
 				button {
 					height: 36px;
@@ -375,7 +380,6 @@
 		@media screen and (max-width: 550px) {
 			&_item {
 				width: 120px;
-				padding: 0 14px;
 
 				button {
 					height: 30px;

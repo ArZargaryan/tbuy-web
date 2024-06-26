@@ -304,7 +304,7 @@ function DesktopMenu({ toggleActive }: Props) {
                   <b className={styles.total__price}>88.000 AMD</b>
                 </div>
 
-                <Link href={"/shop"}>
+                <Link href="/cart">
                   <PrimaryButton className={`${styles.basket__button}`}>
                     {t("confirm_order", { ns: "shop/cart" })}
                   </PrimaryButton>

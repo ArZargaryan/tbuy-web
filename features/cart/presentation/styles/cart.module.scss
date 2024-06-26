@@ -167,7 +167,7 @@
 		}
 
 		@media screen and (max-width: 750px) {
-			flex-direction: column;
+			flex-direction: column-reverse;
 			gap: 0px;
 
 			button {
@@ -277,7 +277,36 @@
 
 
 .stepped {
-	margin-top: 20px;
+	margin-top: 16px;
+
+	:global {
+		.MuiFormControl-root {
+
+			margin-bottom: 0 !important;
+
+			label,
+			>svg,
+			span,
+			div,
+			input {
+				width: 24px !important;
+				height: 24px !important;
+			}
+
+			div {
+				flex: 0 0 24px !important;
+			}
+		}
+
+		.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+			width: 24px !important;
+			height: 24px !important;
+		}
+	}
+
+	@media (min-width: 800px) {
+		margin-top: 20px;
+	}
 
 	.bank {
 		margin-top: 16px;
@@ -357,6 +386,27 @@
 		button {
 			display: flex;
 		}
+
+		@media (min-width: 1200px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 60px;
+
+			&__name {
+				font-size: 18px;
+			}
+
+			&__tooltip {
+				font-size: 16px;
+			}
+		}
+
+		@media (min-width: 500px) {
+			padding: 20px;
+			box-shadow: 0 6px 12px 0 #0000001A;
+
+			margin-bottom: 120px;
+		}
 	}
 
 	.panel {
@@ -397,9 +447,13 @@
 			flex-direction: column;
 			gap: 16px;
 
+			button {
+				font-size: 14px;
+			}
+
 			@media (min-width: 500px) {
-				flex-direction: row;
 				justify-content: center;
+				flex-direction: row-reverse;
 			}
 		}
 
@@ -417,23 +471,435 @@
 			}
 		}
 
-	}
-
-	@media (min-width: 500px) {
-
-		padding: 20px;
-		box-shadow: 0 6px 12px 0 #0000001A;
-
-		.bank {
-			padding-bottom: 220px;
-			padding-bottom: 0;
+		@media (min-width: 1200px) {
+			&__btns {
+				button {
+					font-size: 16px;
+				}
+			}
 		}
 
-		margin-bottom: 120px;
 	}
-	
+
+	.panel_2 {
+		box-shadow: none;
+		position: static;
+		margin-bottom: 40px;
+		padding: 0;
+
+		@media (min-width: 800px) {
+
+			button {
+				max-width: 222px;
+			}
+		}
+	}
+
 	.panel__modal {
 		flex: 0 1 600px;
 		padding: 60px 20px 20px;
+	}
+
+	.bank_info {
+		margin-top: 16px;
+		margin-bottom: 18px;
+		display: flex;
+		gap: 1px;
+
+		&__left {
+			background: #eeeeee;
+			display: flex;
+			box-shadow: 2px 0 16px 0 #1D1D1D14;
+			border-left: 1px solid #eeeeee;
+			position: relative;
+			z-index: 2;
+
+			.bank_info__column {}
+
+			.bank_info__cell_head {
+				justify-content: center;
+			}
+
+			.bank_info__cell {
+				span {
+					font-weight: 700;
+				}
+			}
+		}
+
+		&__body {
+			display: flex;
+			gap: 1px;
+			background: #eeeeee;
+			border-right: 1px solid #eeeeee;
+			position: relative;
+			z-index: 1;
+			margin-right: -16px;
+
+
+			.bank_info__cell {
+				text-align: center;
+				justify-content: center;
+
+				&:nth-child(even) {
+					background: #f5f5f6;
+				}
+			}
+
+			overflow-x: auto;
+		}
+
+		&__column {
+			display: flex;
+			flex-direction: column;
+			gap: 1px;
+
+			&_full {
+				.bank_info__cell {
+					width: 154px;
+				}
+			}
+		}
+
+		&__cell {
+			display: flex;
+			align-items: center;
+			background: white;
+			height: 44px;
+			width: 74px;
+			padding: 0 10px;
+			word-break: break-all;
+
+			font-size: 14px;
+
+			* {
+				font-size: inherit;
+			}
+
+			&_head {
+				background: #E1E1E1;
+			}
+
+			&_full {
+				width: 154px;
+			}
+
+			&_button {
+				padding: 0 6px;
+
+				border-bottom: 1px solid #eeeeee;
+
+				button {
+
+					background: var(--primary);
+					color: white;
+					font-weight: 700;
+					font-size: 10px;
+					width: 100%;
+					height: 23px;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&:hover {
+						background: #5800b7;
+					}
+
+					&:disabled {
+						color: #E8E8E8;
+						background: #B4B4B4;
+
+						user-select: none;
+						cursor: default;
+					}
+				}
+			}
+		}
+
+		@media (min-width: 600px) {
+			&__body {
+
+				.bank_info__cell {
+					width: 106px;
+
+				}
+
+				.bank_info__cell_button {
+					padding: 0 8px;
+
+					button {
+						height: 28px;
+						font-size: 12px;
+					}
+				}
+			}
+		}
+
+		@media (min-width: 800px) {
+			&__cell {
+				height: 57px;
+			}
+
+			&__body {
+				margin-right: -24px;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			&__cell {
+				font-size: 16px;
+				height: 65px;
+				width: 120px;
+			}
+
+			.bank_info__cell_button {
+				padding: 0 8px;
+
+				button {
+					height: 34px;
+					font-size: 14px;
+				}
+			}
+
+			&__body {
+				margin-right: -24px;
+			}
+		}
+
+		*::-webkit-scrollbar {
+			height: 5px;
+			width: 5px;
+
+			display: none;
+		}
+
+		*::-webkit-scrollbar-track {
+			border-radius: 12px;
+			background-color: #F5F5F6;
+		}
+
+		*::-webkit-scrollbar-track:hover {
+			background-color: #F5F5F6;
+		}
+
+		*::-webkit-scrollbar-track:active {
+			background-color: #F5F5F6;
+		}
+
+		*::-webkit-scrollbar-thumb {
+			border-radius: 12px;
+			background-color: #E1E1E1;
+		}
+
+		*::-webkit-scrollbar-thumb:hover {
+			background-color: #E1E1E1;
+		}
+
+		*::-webkit-scrollbar-thumb:active {
+			background-color: #E1E1E1;
+		}
+	}
+
+	.selected_bank_container {
+		margin-bottom: 30px;
+
+		@media (min-width: 500px) {
+			padding: 30px;
+			box-shadow: 0 6px 12px 0 #0000001A;
+		}
+	}
+
+	.selected_bank {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 44px;
+		grid-auto-rows: 57px;
+		margin: auto;
+		gap: 1px;
+		border: 1px solid #eeeeee;
+		margin-bottom: 30px;
+		background: #eeeeee;
+
+		&__header {
+			grid-column: span 2;
+			background: var(--primary);
+			color: white;
+			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+		}
+
+		&__item {
+			padding: 0 11px;
+			background: white;
+			display: flex;
+			font-size: 14px;
+			align-items: center;
+
+			&:nth-child(odd) {
+				justify-content: center;
+			}
+
+			&:nth-child(even) {
+				font-weight: 700;
+			}
+		}
+
+		@media (min-width: 800px) {
+			grid-template-columns: 2fr 1fr;
+			max-width: 480px;
+		}
+
+		@media (min-width: 1200px) {
+			&__item {
+				font-size: 16px;
+			}
+
+			margin-bottom: 60px;
+		}
+	}
+
+	.documents {
+		margin-bottom: 10px;
+
+		&__button {
+			margin-top: 60px;
+			font-size: 14px;
+		}
+
+		&__body {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		&__item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 8px 0;
+			border-bottom: 1px solid #F5F5F6;
+			font-weight: 700;
+			cursor: pointer;
+
+			&_complete {
+				pointer-events: none;
+				cursor: default;
+			}
+		}
+
+		@media (min-width: 500px) {
+			padding: 30px 20px;
+			box-shadow: 0 6px 12px 0 #0000001A;
+		}
+	}
+
+	.document {
+		padding: 30px 16px 35px;
+		box-shadow: 0 6px 12px 0 #0000001A;
+		margin-bottom: 30px;
+
+		&__title {
+			font-size: 18px;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		&__text {
+			display: block;
+			margin-top: 16px;
+			line-height: 1.5;
+			font-size: 14px;
+		}
+
+		&__checkbox {
+			margin-top: 16px;
+			display: flex;
+			gap: 10px;
+			margin-left: 20px;
+
+			&_item {
+				flex: 0 0 auto;
+
+				span {
+					color: #E2000F;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.document__modal {
+			:global {
+				.modal-close-button {
+					display: none;
+				}
+			}
+
+			text-align: center;
+			padding: 40px 24px;
+
+			flex: 1 1 auto;
+			max-width: 1000px;
+
+			.document__modal_buttons {
+				max-width: 478px;
+				margin-top: 20px;
+
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+
+				button {
+					width: 100%;
+					margin: 0;
+					font-size: 14px;
+				}
+
+				@media (min-width: 500px) {
+					flex-direction: row-reverse;
+					margin: auto;
+					margin-top: 20px;
+				}
+			}
+		}
+
+		&__button {
+			margin: auto;
+			margin-bottom: 30px;
+
+			&:disabled {
+				background: #E1E1E1;
+				color: #B4B4B4;
+			}
+
+			@media (min-width: 500px) {
+				width: 222px;
+			}
+
+			@media (min-width: 800px) {
+				margin-bottom: 60px;
+			}
+		}
+
+		@media (min-width: 800px) {
+			&__title {
+				font-size: 20px;
+				margin-bottom: 20px;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			&__title {
+				font-size: 24px;
+				margin-bottom: 26px;
+			}
+
+			&__text {
+				font-size: 16px;
+			}
+		}
 	}
 }

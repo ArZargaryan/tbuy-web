@@ -4,11 +4,7 @@ import { globalTranslations } from "@core/helpers/translations";
 import CartPage from "@features/cart/presentation/pages/CartPage";
 
 export default function Cart() {
-  return (
-    <>
-      <CartPage />
-    </>
-  );
+  return <CartPage />;
 }
 
 export async function getStaticProps({ locale }: { locale: string }) {

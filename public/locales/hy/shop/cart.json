@@ -4,5 +4,7 @@
   "clear_cart": "Ջնջել բոլորը",
   "installation": "Տեղադրում",
   "total": "Ընդհանուր",
-  "confirm_order": "Հաստատել պատվերը"
+  "confirm_order": "Հաստատել պատվերը",
+	"show_more": "Ցույց տալ ավելին",
+	"hide": "Թաքցնել"
 }

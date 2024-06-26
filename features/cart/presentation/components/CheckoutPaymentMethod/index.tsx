@@ -9,6 +9,7 @@ import QrForm from "@features/cart/presentation/components/CheckoutPaymentMethod
 
 interface Props {
   type?: "default" | "gift_card";
+  setRadioValue: any;
 }
 
 function CheckoutPaymentMethod(props: Props) {
@@ -120,11 +121,11 @@ function CheckoutPaymentMethod(props: Props) {
               onChange: () => {
                 reset({ credit: true });
                 setVariant("credit");
+                props.setRadioValue("credit");
               }
             })}
-            label={"Գնել ապառիկ"}
+            label="Գնել ապառիկ"
           />
-          <QrForm variant={variant} check={"credit"} />
         </div>
       </form>
 

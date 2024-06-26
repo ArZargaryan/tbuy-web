@@ -127,3 +127,12 @@
     display: none;
   }
 }
+
+.color__block {
+	position: relative;
+	&:hover {
+		.tooltip {
+			visibility: visible;
+		}
+	}
+}

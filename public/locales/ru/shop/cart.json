@@ -4,5 +4,7 @@
   "clear_cart": "Очистить корзину",
   "installation": "Установка",
   "total": "Итого",
-  "confirm_order": "Подтвердить заказ"
+  "confirm_order": "Подтвердить заказ",
+	"show_more": "Показать больше",
+	"hide": "Скрыть"
 }

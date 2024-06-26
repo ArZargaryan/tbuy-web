@@ -94,7 +94,7 @@ function CartPage() {
               </div>
               <br />
               <div className={styles.controls__btns}>
-                <PrimaryButton className={styles.controls__btn}>ՈՒՂԱՐԿԵԼ ՊԱՏՎԵՐԸ</PrimaryButton>
+                <PrimaryButton className={styles.controls__btn}>ՎՃԱՐԵԼ</PrimaryButton>
               </div>
             </div>
           </div>

@@ -4,5 +4,8 @@
   "clear_cart": "Empty cart",
   "installation": "Installation",
   "total": "Total",
-  "confirm_order": "Confirm order"
+  "confirm_order": "Confirm order",
+	"show_more": "Show_more",
+	"hide": "Hide"
+
 }

@@ -718,7 +718,7 @@ function ProductDetailPage() {
   }, [cardsScrollIsEnd]);
 
   // Select size label ---------------------------------------------------------------
-  const [displayLabel, setDisplayLabel] = useState<"numbers" | "letters" | "all">("all");
+  const [displayLabel, setDisplayLabel] = useState<"numbers" | "letters" | "all">("letters");
 
   // Modals ---------------------------------------------------------------
   const [availabilityModalIsActive, setAvailabilityModalIsActive] = useState(false);
@@ -916,9 +916,9 @@ function ProductDetailPage() {
                   <div className={styles.select_size}>
                     <NewSelect
                       isSearchable={false}
-                      defaultValue={{ label: "Ընտրեք չափման միավորը", value: "all" }}
+                      defaultValue={{ value: "letters", label: "Միջազգային ստանդարտ" }}
                       options={[
-                        { value: "letters", label: "Միջազգային ստանդարտներ" },
+                        { value: "letters", label: "Միջազգային ստանդարտ" }, //letters in value
                         { value: "numbers", label: "Եվրոպական ստանդարտներ" }
                       ]}
                       onChange={(selected: any) => setDisplayLabel(selected.value)}

@@ -46,7 +46,7 @@ function FileInput(props: Props) {
 
   return (
     <div>
-      <FormControl {...props} className={styles.control}>
+      <FormControl {...props} className={`${styles.control} ${props.className}`}>
         <Controller
           name={props.name}
           control={props.control}

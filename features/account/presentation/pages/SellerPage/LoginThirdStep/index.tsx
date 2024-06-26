@@ -55,18 +55,23 @@ function LoginThirdStep() {
 
   return (
     <div>
-      <div className={styles.container}>
-        <div className={styles.progress_container}>
-          {[1, 2, 3].map((circle, index) => (
-            <React.Fragment key={index}>
-              {index !== 0 && (
-                <div
-                  className={`${styles.line} ${step >= index ? styles.activeLine : ""}`}
-                  style={{ width: `${(100 / 2) * (index - 1)}%` }}
-                ></div>
-              )}
-              <div className={`${styles.circle} ${step >= index ? styles.active : ""}`}>
-                {step >= index ? (
+      <div className={styles.progress_container}>
+        {[
+          { id: 1, text: "Դառնալ վաճառող" },
+          { id: 2, text: "Լորեմ Իպսում" },
+          { id: 3, text: "Լորեմ իպսում" }
+        ].map((circle, index) => (
+          <React.Fragment key={index}>
+            {index !== 0 && (
+              <div className={`${styles.line} ${step >= index ? styles.activeLine : ""}`}></div>
+            )}
+            <div className={styles.circle_container}>
+              <div
+                className={`${styles.circle} ${
+                  step >= index && step !== index ? styles.active : ""
+                }`}
+              >
+                {step > index && step !== index ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="61"
@@ -82,159 +87,163 @@ function LoginThirdStep() {
                     />
                   </svg>
                 ) : (
-                  circle
+                  circle.id
                 )}
               </div>
-            </React.Fragment>
-          ))}
-        </div>
+              <div className={styles.circle_label}>{circle.text}</div>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
 
-        <form id={`form${step + 1}`}>
-          {step === 0 && (
-            <div className={styles.landing__item}>
-              <div className={styles.item__img}>
-                <img src={itemImg1.src} alt="itemImage" />
-              </div>
-              <div className={styles.item__body}>
-                <h1 className={styles.body__title}>ԴԱՌՆԱԼ ԳՈՐԾԸՆԿԵՐ</h1>
-                <p className={styles.body__text}>
-                  ԲԻԶՆԵՍԻ ԱՌԱՋԽԱՂԱՑՄԱՆ ՀԱՄԱՐ ՄԻԱԿ ՕԳՏԱԿԱՐ ՏԻՐՈՒՅԹԸ
-                </p>
-                <h2 className={`${styles.body__subtitle} ${styles.body__subtitle_first}`}>
-                  ԲԱՐԻ ԳԱԼՈՒՍՏ ԱՌԱՋԻՆ ԲԻԶՆԵՍ-ՍՈՑԻԱԼԱԿԱՆ ՄԱՐՔԵԹՓԼԵՅՍ
-                </h2>
-                <p className={styles.body__text}>
-                  Եթե ցանկանում եք իրապես զարգացնել Ձեր բրենդը օնլայն տիրույթում, առաջխաղացնել այն և
-                  ունենալ մեծ հաջողություններ, ապա Դուք անցել եք երբևիցե ամենաճիշտ հղմամբ։ Նախ
-                  հակիրճ ծանոթացեք հիմնական առավելություններին, որոնք տրվելու են Ձեզ TBUY
-                  մարքեթփլեյսում
-                </p>
+      <form id={`form${step + 1}`}>
+        {step === 0 && (
+          <div className={styles.landing__item}>
+            <div className={styles.item__img}>
+              <img src={itemImg1.src} alt="itemImage" />
+            </div>
+            <div className={styles.item__body}>
+              <h1 className={styles.body__title}>ԴԱՌՆԱԼ ԳՈՐԾԸՆԿԵՐ</h1>
+              <p className={styles.body__text}>ԲԻԶՆԵՍԻ ԱՌԱՋԽԱՂԱՑՄԱՆ ՀԱՄԱՐ ՄԻԱԿ ՕԳՏԱԿԱՐ ՏԻՐՈՒՅԹԸ</p>
+              <h2 className={`${styles.body__subtitle} ${styles.body__subtitle_first}`}>
+                ԲԱՐԻ ԳԱԼՈՒՍՏ ԱՌԱՋԻՆ ԲԻԶՆԵՍ-ՍՈՑԻԱԼԱԿԱՆ ՄԱՐՔԵԹՓԼԵՅՍ
+              </h2>
+              <p className={styles.body__text}>
+                Եթե ցանկանում եք իրապես զարգացնել Ձեր բրենդը օնլայն տիրույթում, առաջխաղացնել այն և
+                ունենալ մեծ հաջողություններ, ապա Դուք անցել եք երբևիցե ամենաճիշտ հղմամբ։ Նախ հակիրճ
+                ծանոթացեք հիմնական առավելություններին, որոնք տրվելու են Ձեզ TBUY մարքեթփլեյսում
+              </p>
+            </div>
+          </div>
+        )}
+        {step === 1 && (
+          <div className={styles.landing__item}>
+            <div className={styles.item__img}>
+              <img src={itemImg2.src} alt="" />
+            </div>
+            <div className={styles.item__body}>
+              <h1 className={styles.body__title}>ԴԱՌՆԱԼ ԳՈՐԾԸՆԿԵՐ</h1>
+              <p className={styles.body__text}>ԲԻԶՆԵՍԻ ԱՌԱՋԽԱՂԱՑՄԱՆ ՀԱՄԱՐ ՄԻԱԿ ՕԳՏԱԿԱՐ ՏԻՐՈՒՅԹԸ</p>
+              <h2 className={`${styles.body__subtitle} ${styles.body__subtitle_first}`}>
+                ԲԱՐԻ ԳԱԼՈՒՍՏ ԱՌԱՋԻՆ ԲԻԶՆԵՍ-ՍՈՑԻԱԼԱԿԱՆ ՄԱՐՔԵԹՓԼԵՅՍ
+              </h2>
+              <p className={styles.body__text}>
+                Եթե ցանկանում եք իրապես զարգացնել Ձեր բրենդը օնլայն տիրույթում, առաջխաղացնել այն և
+                ունենալ մեծ հաջողություններ, ապա Դուք անցել եք երբևիցե ամենաճիշտ հղմամբ։ Նախ հակիրճ
+                ծանոթացեք հիմնական առավելություններին, որոնք տրվելու են Ձեզ TBUY մարքեթփլեյսում
+              </p>
+            </div>
+          </div>
+        )}
+        {step === 2 && (
+          <>
+            <div className={styles.wrapper}>
+              <div className={styles.content}>
+                <div className={styles.content__container}>
+                  <form onSubmit={handleSubmit(submitHandler)}>
+                    <div className={styles.content__form}>
+                      <div className={styles.form__item}>
+                        <TextInput
+                          control={control}
+                          inputProps={{
+                            placeholder: `Ընկերության անվանում`
+                          }}
+                          {...register("companyName", {
+                            required: `${t("form.required_field", { ns: "common" })}`
+                          })}
+                        />
+                        <FormError errors={errors} name={"companyName"} />
+                      </div>
+                      <div className={styles.form__item}>
+                        <TextInput
+                          control={control}
+                          inputProps={{
+                            placeholder: `Տնօրենի անուն`
+                          }}
+                          {...register("directorName", {
+                            required: `${t("form.required_field", { ns: "common" })}`
+                          })}
+                        />
+                        <FormError errors={errors} name={"directorName"} />
+                      </div>
+                      <div className={styles.form__item}>
+                        <TextInput
+                          control={control}
+                          inputProps={{
+                            placeholder: `Տնօրենի ազգանուն`
+                          }}
+                          {...register("directorLastname", {
+                            required: `${t("form.required_field", { ns: "common" })}`
+                          })}
+                        />
+                        <FormError errors={errors} name={"directorLastname"} />
+                      </div>
+                      <div className={styles.form__item}>
+                        <PhoneInput control={control} />
+                      </div>
+                      <div className={styles.form__item}>
+                        <TextInput
+                          control={control}
+                          inputProps={{
+                            type: "email",
+                            placeholder: `Կոնտակտային Էլ. հասցե`
+                          }}
+                          {...register("email", {
+                            required: `${t("form.required_field", { ns: "common" })}`
+                          })}
+                        />
+                        <FormError errors={errors} name={"email"} />
+                      </div>
+                      <div className={styles.form__item}>
+                        <TextInput
+                          control={control}
+                          inputProps={{
+                            placeholder: `ՀՎՀՀ`
+                          }}
+                          {...register("avk", {
+                            required: `${t("form.required_field", { ns: "common" })}`
+                          })}
+                        />
+                        <FormError errors={errors} name={"avk"} />
+                      </div>
+                      <div className={`${styles.form__item} ${styles.form__item_file}`}>
+                        <FileInput
+                          control={control}
+                          {...register("file_1")}
+                          inputProps={{
+                            placeholder: "Прикрепить свидетельство о госреестре"
+                          }}
+                          className={styles.file_input}
+                        />
+                        <FileInput
+                          control={control}
+                          {...register("file_2")}
+                          inputProps={{
+                            placeholder: "Прикрепить паспорт директора"
+                          }}
+                          className={styles.file_input}
+                        />
+                      </div>
+                    </div>
+                    <Captcha size={"invisible"} />
+                    <PrimaryButton className={styles.btn_center}>ԳՐԱՆՑՈՒՄ</PrimaryButton>
+                    <button
+                      type={"button"}
+                      className={`${styles.form__modal_btn}`}
+                      onClick={() => setModalOpen(true)}
+                    >
+                      ՕԳՆՈւԹՅՈւՆ <QuestionCircle />
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-          )}
-          {step === 1 && (
-            <>
-              <div className={styles.landing__item}>
-                <div className={styles.item__img}>
-                  <img src={itemImg2.src} alt="" />
-                </div>
-                <div className={styles.item__body}>
-                  <h1 className={styles.body__title}>ԴԱՌՆԱԼ ԳՈՐԾԸՆԿԵՐ</h1>
-                  <p className={styles.body__text}>
-                    ԲԻԶՆԵՍԻ ԱՌԱՋԽԱՂԱՑՄԱՆ ՀԱՄԱՐ ՄԻԱԿ ՕԳՏԱԿԱՐ ՏԻՐՈՒՅԹԸ
-                  </p>
-                  <h2 className={`${styles.body__subtitle} ${styles.body__subtitle_first}`}>
-                    ԲԱՐԻ ԳԱԼՈՒՍՏ ԱՌԱՋԻՆ ԲԻԶՆԵՍ-ՍՈՑԻԱԼԱԿԱՆ ՄԱՐՔԵԹՓԼԵՅՍ
-                  </h2>
-                  <p className={styles.body__text}>
-                    Եթե ցանկանում եք իրապես զարգացնել Ձեր բրենդը օնլայն տիրույթում, առաջխաղացնել այն
-                    և ունենալ մեծ հաջողություններ, ապա Դուք անցել եք երբևիցե ամենաճիշտ հղմամբ։ Նախ
-                    հակիրճ ծանոթացեք հիմնական առավելություններին, որոնք տրվելու են Ձեզ TBUY
-                    մարքեթփլեյսում
-                  </p>
-                </div>
-              </div>
-            </>
-          )}
-          {step === 2 && (
-            <>
-              <div className={styles.wrapper}>
-                <div className={styles.content}>
-                  <div className={styles.content__container}>
-                    <form onSubmit={handleSubmit(submitHandler)}>
-                      <div className={styles.content__form}>
-                        <div className={styles.form__item}>
-                          <TextInput
-                            control={control}
-                            inputProps={{
-                              placeholder: `Ընկերության անվանում`
-                            }}
-                            {...register("companyName", {
-                              required: `${t("form.required_field", { ns: "common" })}`
-                            })}
-                          />
-                          <FormError errors={errors} name={"companyName"} />
-                        </div>
-                        <div className={styles.form__item}>
-                          <TextInput
-                            control={control}
-                            inputProps={{
-                              placeholder: `Տնօրենի անուն`
-                            }}
-                            {...register("directorName", {
-                              required: `${t("form.required_field", { ns: "common" })}`
-                            })}
-                          />
-                          <FormError errors={errors} name={"directorName"} />
-                        </div>
-                        <div className={styles.form__item}>
-                          <TextInput
-                            control={control}
-                            inputProps={{
-                              placeholder: `Տնօրենի ազգանուն`
-                            }}
-                            {...register("directorLastname", {
-                              required: `${t("form.required_field", { ns: "common" })}`
-                            })}
-                          />
-                          <FormError errors={errors} name={"directorLastname"} />
-                        </div>
-                        <div className={styles.form__item}>
-                          <PhoneInput control={control} />
-                        </div>
-                        <div className={styles.form__item}>
-                          <TextInput
-                            control={control}
-                            inputProps={{
-                              type: "email",
-                              placeholder: `Կոնտակտային Էլ. հասցե`
-                            }}
-                            {...register("email", {
-                              required: `${t("form.required_field", { ns: "common" })}`
-                            })}
-                          />
-                          <FormError errors={errors} name={"email"} />
-                        </div>
-                        <div className={styles.form__item}>
-                          <TextInput
-                            control={control}
-                            inputProps={{
-                              placeholder: `ՀՎՀՀ`
-                            }}
-                            {...register("avk", {
-                              required: `${t("form.required_field", { ns: "common" })}`
-                            })}
-                          />
-                          <FormError errors={errors} name={"avk"} />
-                        </div>
-                        <div className={styles.form__item}>
-                          <FileInput
-                            control={control}
-                            {...register("files")}
-                            inputProps={{
-                              placeholder: "Կցել փասթաթուղթ"
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <Captcha size={"invisible"} />
-                      <PrimaryButton className={styles.btn_center}>ԳՐԱՆՑՈՒՄ</PrimaryButton>
-                      <button
-                        type={"button"}
-                        className={`${styles.form__modal_btn}`}
-                        onClick={() => setModalOpen(true)}
-                      >
-                        ՕԳՆՈւԹՅՈւՆ <QuestionCircle />
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
 
-              <SupportContactsModal open={modalOpen} onClose={() => setModalOpen(false)} />
-            </>
-          )}
+            <SupportContactsModal open={modalOpen} onClose={() => setModalOpen(false)} />
+          </>
+        )}
 
+        {step !== 2 && (
           <div className={styles.btn_box}>
             {step >= 0 && (
               <PrimaryButton buttonStyle="outline" onClick={handleBack}>
@@ -247,8 +256,8 @@ function LoginThirdStep() {
               </PrimaryButton>
             )}
           </div>
-        </form>
-      </div>
+        )}
+      </form>
     </div>
   );
 }

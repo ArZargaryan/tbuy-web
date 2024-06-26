@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import styles from "./styles.module.scss";
 import { ParameterEntity, ParameterValueEntity } from "@features/shop/domain/model/DetailedProduct";
+import BlackTooltip from "../../elements/BlackTooltip";
 
 interface Props {
   data: ParameterEntity[];
@@ -61,6 +62,8 @@ function ProductDetailColor({ data, companyType }: Props) {
                         ></div>
                       </div>
                     </label>
+
+                    <BlackTooltip className={styles.tooltip}>{color.label}</BlackTooltip>
                   </div>
                 ))}
               </div>

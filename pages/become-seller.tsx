@@ -2,7 +2,7 @@ import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { globalTranslations } from "@core/helpers/translations";
 import Head from "next/head";
-import LoginSecondStep from "@features/account/presentation/pages/SellerPage/LoginSecondStep";
+import BecomeSeller from "features/account/presentation/pages/SellerPage/BecomeSeller";
 
 export default function Login() {
   return (
@@ -10,7 +10,7 @@ export default function Login() {
       <Head>
         <title>Tbuy | Seller</title>
       </Head>
-      <LoginSecondStep />
+      <BecomeSeller />
     </>
   );
 }

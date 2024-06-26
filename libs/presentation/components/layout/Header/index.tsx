@@ -17,7 +17,7 @@ function Header() {
       <div className={`container ${styles.navbar__menu_content}`}>
         <ul className={styles.navbar__menu_list}>
           <li className={styles.list__item_1100}>
-            <Link href={"/seller"} className={styles.navbar__menu_list_link}>
+            <Link href={"/become-seller"} className={styles.navbar__menu_list_link}>
               {t("sell_on")}
             </Link>
           </li>

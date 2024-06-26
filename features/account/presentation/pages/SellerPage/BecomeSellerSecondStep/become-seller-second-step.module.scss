@@ -28,7 +28,7 @@
 	align-items: center;
 	gap: 10px;
 	
-	background: var(--Primary-color, $blue);
+	background: var(--Primary-color, $purple);
 	width: 350px;
 }
 
@@ -76,7 +76,7 @@
 		}
 
 		&_active {
-			border-color: $blue-2;
+			border-color: $purple-2;
 			box-shadow: 0 4px 20px 0 #A0A3A84D;
 			transform: scale(1);
 		}

@@ -1,7 +1,7 @@
 @import "@styles/vars.scss";
 
 .primaryButton {
-  background-color: $blue;
+  background-color: $purple;
   color: white;
   width: 240px;
   height: 49px;
@@ -16,8 +16,8 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    border: 2px solid $blue;
-    color: $blue;
+    border: 2px solid $purple;
+    color: $purple;
   }
 
   &:focus {
@@ -36,14 +36,14 @@
 }
 .outline {
   background-color: white;
-  color: $blue;
+  color: $purple;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border: 2px solid $blue;
+  border: 2px solid $purple;
 
   &:hover {
-    background-color: $blue;
+    background-color: $purple;
     color: white;
   }
 }

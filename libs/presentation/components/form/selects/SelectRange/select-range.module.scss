@@ -3,7 +3,7 @@
 .select_range {
   //position: relative;
   z-index: 1070;
-  color: $blue !important;
+  color: $purple !important;
   &__box {
     max-width: 280px;
     box-shadow: 0px 0px 5px rgba(#000, 0.2);
@@ -53,7 +53,7 @@
 
     :global {
       * {
-        color: $blue !important;
+        color: $purple !important;
       }
     }
   }
@@ -73,7 +73,7 @@
 .range_label {
   display: flex;
   align-items: center;
-  color: $blue-2;
+  color: $purple-2;
   @media screen and (max-width: 500px) {
     padding-top: 5px;
   }

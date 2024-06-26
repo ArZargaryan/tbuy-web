@@ -57,7 +57,7 @@
       svg {
         width: 20px;
         path {
-          fill: $blue;
+          fill: $purple;
         }
       }
     }
@@ -71,7 +71,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $blue;
+    background: $purple;
     padding: 0px !important;
 
     svg {
@@ -81,7 +81,7 @@
     }
     &:hover {
       path {
-        fill: $blue;
+        fill: $purple;
       }
     }
   }

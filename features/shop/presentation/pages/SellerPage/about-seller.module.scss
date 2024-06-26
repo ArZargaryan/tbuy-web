@@ -102,14 +102,14 @@
 
 				&:hover {
 					path {
-						fill: $blue;
+						fill: $purple;
 					}
 
 					.subscribe {
 						&__span {
 							margin-right: 20px;
 							font-weight: bold;
-							color: $blue;
+							color: $purple;
 						}
 
 						&__icon {
@@ -120,7 +120,7 @@
 
 						&__counter {
 							font-weight: normal;
-							color: $blue;
+							color: $purple;
 						}
 					}
 				}
@@ -147,7 +147,7 @@
 
 					&__readMore {
 						cursor: pointer;
-						color: $blue;
+						color: $purple;
 						font-weight: bold;
 
 						margin-top: 5px;
@@ -436,7 +436,7 @@
 
 			&__tab.active {
 				font-weight: bold;
-				color: $blue;
+				color: $purple;
 
 				&::after {
 					content: "";
@@ -445,7 +445,7 @@
 					left: 0;
 					height: 4px;
 					width: 100%;
-					background: $blue;
+					background: $purple;
 				}
 			}
 		}
@@ -507,7 +507,7 @@
 				height: 24px;
 
 				path {
-					fill: $blue;
+					fill: $purple;
 				}
 			}
 

@@ -5,6 +5,8 @@ import { ImgExporter } from "@core/helpers/ImgExporter";
 import { Category } from "@libs/domain/model/category";
 import Link from "next/link";
 import { Shimmer } from "react-shimmer";
+import { isArray, isEmpty, isString } from "lodash";
+import { useRouter } from "next/router";
 
 type Props = {
   active: boolean;
@@ -29,6 +31,7 @@ function AssortmentPoppup({
   inNavbar,
   closePoppup
 }: Props) {
+  const router = useRouter();
   const cls = classNames(styles.assortment, {
     [styles.active]: active,
     [styles.menu_assortment]: inNavbar
@@ -41,6 +44,7 @@ function AssortmentPoppup({
       const newCategories = prev;
       newCategories[colId] = id;
       newCategories[++colId] = 0;
+
       return newCategories;
     });
   };
@@ -50,6 +54,7 @@ function AssortmentPoppup({
   const renderItems = (items: Category[], colId: number): React.ReactNode => {
     return items?.map((listItem, i) => {
       const newCol = colId + 1;
+
       return (
         <li
           key={`${listItem.label}_${i}`}
@@ -58,6 +63,10 @@ function AssortmentPoppup({
           }`}
           onClick={(e) => {
             e.stopPropagation();
+
+            if (isArray(listItem.subcategories) && isEmpty(listItem.subcategories)) {
+              return router.push("/search/" + listItem.id);
+            }
             changeCategory(listItem.id, colId);
             onSubClick(listItem.id);
           }}
@@ -70,8 +79,9 @@ function AssortmentPoppup({
               pointerEvents: listItem.numberOfSubcategories ? "none" : "initial"
             }}
           >
-            <img src={listItem.icon as string} alt="" className={styles.list__link_icon} />
-            {/* {listItem.icon} */}
+            {listItem.icon && isString(listItem.icon) && (
+              <img src={listItem.icon} alt="" className={styles.list__link_icon} />
+            )}
             <span className={styles.list__link_txt}>{listItem.label}</span>
             {!!listItem.numberOfSubcategories && (
               <span className={styles.arrow}>

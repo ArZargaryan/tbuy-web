@@ -129,7 +129,7 @@
     &_forgotPassword {
       font-size: 16px;
       text-decoration: underline;
-      color: $blue;
+      color: $purple;
 
       @media screen and (max-width: 580px) {
         font-size: 14px;
@@ -251,11 +251,8 @@
   }
 
   a {
-    color: $red;
+    color: $primary;
     transition: all 0.2s linear;
     text-decoration: underline;
-    &:hover {
-      color: $blue-2;
-    }
   }
 }

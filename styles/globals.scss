@@ -97,12 +97,12 @@ img {
 .blue_btn {
 	width: 100%;
 	padding: 14px 30px;
-	background: $blue;
+	background: $purple;
 	letter-spacing: 0px;
 	color: #ffffff;
 	text-transform: uppercase;
 	font-weight: bold;
-	border: 1px solid $blue;
+	border: 1px solid $purple;
 	transition: all 0.2s linear;
 
 	span {
@@ -133,11 +133,11 @@ img {
 	background: transparent !important;
 	background-color: transparent !important;
 	letter-spacing: 0px;
-	color: $blue !important;
+	color: $purple !important;
 	text-transform: uppercase;
 	font-weight: bold;
 	//box-shadow: 0px 10px 16px rgba(226, 0, 15, 0.2);
-	border: 1px solid $blue !important;
+	border: 1px solid $purple !important;
 	transition: all 0.2s linear;
 
 	* {
@@ -147,8 +147,8 @@ img {
 	}
 
 	&:hover {
-		background: $blue !important;
-		background-color: $blue !important;
+		background: $purple !important;
+		background-color: $purple !important;
 		color: #fff !important;
 
 		* {
@@ -228,7 +228,7 @@ img {
 }
 
 .link {
-	color: $blue;
+	color: $purple;
 	font-size: 18px;
 }
 
@@ -240,7 +240,7 @@ img {
 }
 
 .blue_text {
-	color: $blue-2;
+	color: $purple-2;
 	font-size: 18px;
 	font-weight: bold;
 }

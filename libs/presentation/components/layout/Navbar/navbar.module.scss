@@ -165,7 +165,7 @@
 				top: -6px;
 				right: -5px;
 				padding: 4px 2px !important;
-				background: $blue !important;
+				background: $purple !important;
 				font-size: 14px;
 			}
 		}
@@ -326,7 +326,7 @@
 
 		&__link {
 			display: block;
-			color: $blue;
+			color: $purple;
 			padding: 12px 0;
 			text-align: center;
 			text-decoration: underline;
@@ -434,7 +434,7 @@
 
 		.header {
 			&__delete {
-				color: $blue;
+				color: $purple;
 				background: transparent;
 			}
 		}
@@ -534,7 +534,7 @@
 		width: 6px;
 		height: 6px;
 
-		background: $blue;
+		background: $purple;
 		border-radius: 50%;
 	}
 
@@ -669,7 +669,7 @@
 			right: -10px;
 			width: 6px;
 			height: 6px;
-			background: $blue;
+			background: $purple;
 			border-radius: 50%;
 		}
 	}

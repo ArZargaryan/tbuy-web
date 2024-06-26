@@ -8,7 +8,7 @@ import CategoryBar from "@features/home/presentation/components/CategoryBar";
 import VacancySlider from "@libs/presentation/components/cards/VacancySlider";
 
 import { useTranslation } from "next-i18next";
-import { useAppDispatch, useAppSelector } from "@core/store";
+import { useAppDispatch } from "@core/store";
 
 import CardsList from "@libs/presentation/components/cards/CardsList";
 import { Lang } from "@core/store/global";
@@ -147,7 +147,7 @@ function HomePage() {
   const fakeProducts: Product[] = [
     new Product({
       id: 1,
-      title: "Product 1",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -165,7 +165,7 @@ function HomePage() {
     }),
     new Product({
       id: 1,
-      title: "Product 1",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -183,7 +183,7 @@ function HomePage() {
     }),
     new Product({
       id: 1,
-      title: "Product 1",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -201,7 +201,7 @@ function HomePage() {
     }),
     new Product({
       id: 1,
-      title: "Product 1",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -219,7 +219,7 @@ function HomePage() {
     }),
     new Product({
       id: 1,
-      title: "Product 1",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -256,7 +256,7 @@ function HomePage() {
     }),
     new Product({
       id: 3,
-      title: "Product 3",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -274,7 +274,7 @@ function HomePage() {
     }),
     new Product({
       id: 4,
-      title: "Product 4",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -292,7 +292,7 @@ function HomePage() {
     }),
     new Product({
       id: 4,
-      title: "Product 4",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -310,7 +310,7 @@ function HomePage() {
     }),
     new Product({
       id: 4,
-      title: "Product 4",
+      title: "iPhone 15 PRO Max 256GB Night Blue",
       images: [
         {
           original:
@@ -331,9 +331,9 @@ function HomePage() {
   const fakeVacansy: VacancyShort[] = [
     new VacancyShort({
       id: 1,
-      title: "Product 1",
-      shortDesc: "hello",
-      location: "Masis",
+      title: "Project manager",
+      shortDesc: "Lorem ipsum dolor sit",
+      location: "Մասիս",
       date: "13 Մարտ 2024",
       company: {
         id: 101,
@@ -343,9 +343,9 @@ function HomePage() {
     }),
     new VacancyShort({
       id: 2,
-      title: "Product 1",
-      shortDesc: "hello",
-      location: "Masis",
+      title: "Team lead",
+      shortDesc: "Lorem ipsum dolor sit",
+      location: "Մասիս",
       date: "13 Մարտ 2022",
       company: {
         id: 101,
@@ -356,9 +356,9 @@ function HomePage() {
     // Add more products as needed
     new VacancyShort({
       id: 3,
-      title: "Product 1",
-      shortDesc: "hello",
-      location: "Masis",
+      title: "Product Manager",
+      shortDesc: "Lorem ipsum dolor sit",
+      location: "Մասիս",
       date: "13 Մարտ 2022",
       company: {
         id: 101,
@@ -368,9 +368,9 @@ function HomePage() {
     }),
     new VacancyShort({
       id: 4,
-      title: "Product 1",
-      shortDesc: "hello",
-      location: "Masis",
+      title: "QA Tester",
+      shortDesc: "Lorem ipsum dolor sit",
+      location: "Մասիս",
       date: "13 Մարտ 2022",
       company: {
         id: 101,
@@ -380,9 +380,9 @@ function HomePage() {
     }),
     new VacancyShort({
       id: 5,
-      title: "Product 1",
-      shortDesc: "hello",
-      location: "Masis",
+      title: "Frontend Developer",
+      shortDesc: "Lorem ipsum dolor sit",
+      location: "Մասիս",
       date: "13 Մարտ 2022",
       company: {
         id: 101,
@@ -748,7 +748,8 @@ function HomePage() {
             link_text={`${t("actions.see_all", { ns: "common" })}`}
             className={styles.title_marg}
           >
-            {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
+            {/*{!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}*/}
+            Smartphones
           </TitleWithLink>
 
           <CardsList
@@ -777,7 +778,8 @@ function HomePage() {
               <>
                 <div key={id}>
                   <TitleWithLink link_path={`/products`} className={styles.title_marg}>
-                    {!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}
+                    {/*{!!fakeProducts?.length && fakeProducts[0]?.title && fakeProducts[0]?.title}*/}
+                    Smartphones
                   </TitleWithLink>
                   <CardsList
                     cards={(!!fakeProducts?.length && fakeProducts) || []}

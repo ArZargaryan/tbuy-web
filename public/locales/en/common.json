@@ -15,12 +15,16 @@
     "reset_filters": "Reset filters",
     "apply": "Apply",
     "follow": "Follow",
-    "complain": "Complain"
+    "complain": "Complain",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next"
   },
   "labels": {
     "home": "Home",
     "details": "Details",
-    "you_will_also_be_interested": "You will also be interested"
+    "you_will_also_be_interested": "You will also be interested",
+    "help": "Help"
   },
   "ok": "Ok"
 }

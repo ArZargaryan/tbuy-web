@@ -27,7 +27,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: "blocking" //indicates the type of fallback
+    paths: [], // indicates that no page needs be created at build time
+    fallback: "blocking" // indicates the type of fallback
   };
 };

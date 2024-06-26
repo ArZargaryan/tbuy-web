@@ -15,12 +15,16 @@
     "reset_filters": "Сбросить фильтры",
     "apply": "Подать заявление",
     "follow": "Подписаться",
-    "complain": "Жаловаться"
+    "complain": "Жаловаться",
+    "continue": "Продолжить",
+    "back": "Назад",
+    "next": "Далее"
   },
   "labels": {
     "home": "Главная",
     "details": "Подробности",
-    "you_will_also_be_interested": "Вам также будет интересно"
+    "you_will_also_be_interested": "Вам также будет интересно",
+    "help": "Помощь"
   },
   "ok": "Ок"
 }

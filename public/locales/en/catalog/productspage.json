@@ -11,7 +11,7 @@
     "partners": {
       "title": "Companies"
     },
-    "color": "Color",
+    "color": "Product color",
     "condition": "Condition",
     "country": "Country of manufacture",
     "priceAmd": "Price in AMD",
@@ -24,12 +24,12 @@
   },
   "main_parameters": "Main parameters",
   "reviews": "Reviews",
-	"check_product_availability_first": "Check",
+  "check_product_availability_first": "Check",
   "check_product_availability_second": "product availability",
   "availability": "Availability",
   "for_sale": "For sale",
   "requirements_categories": "Requirements in categories",
   "related_products": "Related products",
-	"wholesale_price": "Wholesale price",
-	"valid_from": "Valid from (pc)"
+  "wholesale_price": "Wholesale price",
+  "valid_from": "Valid from (pc)"
 }

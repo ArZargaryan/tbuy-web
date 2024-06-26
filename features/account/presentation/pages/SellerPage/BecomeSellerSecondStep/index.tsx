@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-import { ImgExporter } from "@core/helpers/ImgExporter";
-
-import styles from "./login-seller-step.module.scss";
-import LoginThirdStep from "../LoginThirdStep";
+import styles from "./become-seller-second-step.module.scss";
+import BecomeSellerThirdStep from "../BecomeSellerThirdStep";
 import PrimaryButton from "@core/button/primary";
 
-function LoginSellerStep() {
-  const { t } = useTranslation(["account/auth"]);
-
-  const { Icons } = ImgExporter;
+function BecomeSellerSecondStep() {
+  const { t } = useTranslation(["account/auth", "common"]);
 
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [showLoginAs, setShowLoginAs] = useState(true);
@@ -22,14 +17,13 @@ function LoginSellerStep() {
 
   const handleButtonClick = () => {
     setShowLoginAs(false);
-    activeItem === "buyer" ? <LoginSellerStep /> : <LoginThirdStep />;
   };
 
   return (
     <>
       {showLoginAs && (
         <>
-          <h1 className={styles.title}>{t("title")}</h1>
+          <h1 className={styles.title}>{t("sell_on_tbuy_title", { ns: "account/auth" })}</h1>
           <div className={styles.loginAs}>
             <div
               className={`${styles.loginAs__link} ${
@@ -154,7 +148,7 @@ function LoginSellerStep() {
                   </clipPath>
                 </defs>
               </svg>
-              <h3 className={styles.loginAs__link_title}>{t("service")}</h3>
+              <h3 className={styles.loginAs__link_title}>{t("service", { ns: "account/auth" })}</h3>
               <div className={styles.activeCircle}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -191,14 +185,14 @@ function LoginSellerStep() {
               disabled={!activeItem}
               className={styles.btn}
             >
-              Continue
+              {t("actions.continue", { ns: "common" })}
             </PrimaryButton>
           </div>
         </>
       )}
-      {!showLoginAs && <LoginThirdStep />}
+      {!showLoginAs && <BecomeSellerThirdStep />}
     </>
   );
 }
 
-export default LoginSellerStep;
+export default BecomeSellerSecondStep;

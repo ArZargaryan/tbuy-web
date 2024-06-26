@@ -3,6 +3,7 @@ import _ from "lodash";
 import styles from "./styles.module.scss";
 import { ParameterEntity, ParameterValueEntity } from "@features/shop/domain/model/DetailedProduct";
 import BlackTooltip from "../../elements/BlackTooltip";
+import { useTranslation } from "next-i18next";
 
 interface Props {
   data: ParameterEntity[];
@@ -10,6 +11,7 @@ interface Props {
 }
 
 function ProductDetailColor({ data, companyType }: Props) {
+  const [t] = useTranslation(["catalog/productspage"]);
   const [colors, setColors] = useState<ParameterEntity | null>(null);
   const [selectedColor, setSelectedColor] = useState<ParameterValueEntity | null>(null);
 
@@ -31,7 +33,7 @@ function ProductDetailColor({ data, companyType }: Props) {
         <div className={styles.wrapper}>
           {!!colors && !_.isEmpty(colors.values) && (
             <div className={styles.form_block}>
-              <p className={styles.label}>Ապրանքի գույն</p>
+              <p className={styles.label}>{t("filters.color", { ns: "catalog/productspage" })}</p>
 
               <div className={styles.choose_color}>
                 {_.map(colors.values, (color, i) => (

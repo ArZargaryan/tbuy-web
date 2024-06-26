@@ -15,12 +15,16 @@
     "reset_filters": "Վերականգնել զտիչները",
     "apply": "Դիմել",
     "follow": "Հետևել",
-    "complain": "Բողոքել"
+    "complain": "Բողոքել",
+    "continue": "Շարունակել",
+    "back": "Վերադարնալ",
+    "next": "Հաջորդը"
   },
   "labels": {
     "home": "Գլխավոր",
     "details": "Մանրամասներ",
-    "you_will_also_be_interested": "Ձեզ կհետաքրքրի նաեվ"
+    "you_will_also_be_interested": "Ձեզ կհետաքրքրի նաեվ",
+    "help": "Օգնություն"
   },
   "ok": "ԼԱՎ"
 }

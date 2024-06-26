@@ -69,11 +69,11 @@
 .variant_primary {
   .checked {
     background: #fff;
-    border: 1px solid $blue-2 !important;
+    border: 1px solid $purple-2 !important;
 
     svg {
       path {
-        fill: $blue-2;
+        fill: $purple-2;
       }
     }
   }
@@ -81,8 +81,8 @@
 
 .variant_primary_filled {
   .checked {
-    background: $blue-2;
-    border: 1px solid $blue-2 !important;
+    background: $purple-2;
+    border: 1px solid $purple-2 !important;
 
     svg {
       path {
@@ -95,11 +95,11 @@
 .variant_secondary_outlined {
   .checked {
     background: #fff;
-    border: 1px solid $blue !important;
+    border: 1px solid $purple !important;
 
     svg {
       path {
-        fill: $blue;
+        fill: $purple;
       }
     }
   }
@@ -107,8 +107,8 @@
 
 .variant_secondary_filled {
   .checked {
-    background: $blue;
-    border: 1px solid $blue !important;
+    background: $purple;
+    border: 1px solid $purple !important;
 
     svg {
       path {
@@ -129,7 +129,7 @@
   }
 
   .checked {
-    border: 1px solid $blue-2 !important;
+    border: 1px solid $purple-2 !important;
     padding: 5px;
     position: relative;
     border-radius: 50% !important;
@@ -140,7 +140,7 @@
       height: 14px;
       position: absolute;
       border-radius: 50%;
-      background: $blue-2;
+      background: $purple-2;
     }
     svg {
       display: none;
@@ -159,7 +159,7 @@
   }
 
   .checked {
-    border: 1px solid $blue !important;
+    border: 1px solid $purple !important;
     padding: 5px;
     position: relative;
     border-radius: 50% !important;
@@ -170,7 +170,7 @@
       height: 14px;
       position: absolute;
       border-radius: 50%;
-      background: $blue;
+      background: $purple;
     }
     svg {
       display: none;

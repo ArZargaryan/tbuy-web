@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
-import styles from "./login-third-step.module.scss";
+import styles from "./become-seller-third-step.module.scss";
 import itemImg1 from "@public/pictures/manager_signin/img1.png";
 import itemImg2 from "@public/pictures/manager_signin/img3.png";
 import SupportContactsModal from "@features/contact_us/presentation/components/SupportContactsModal";
@@ -16,8 +16,8 @@ import { FieldValues, useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import PrimaryButton from "@core/button/primary";
 
-function LoginThirdStep() {
-  const { t } = useTranslation(["account/auth"]);
+function BecomeSellerThirdStep() {
+  const { t } = useTranslation(["account/auth", "common"]);
 
   const [step, setStep] = useState(0);
   const router = useRouter();
@@ -211,7 +211,9 @@ function LoginThirdStep() {
                           control={control}
                           {...register("file_1")}
                           inputProps={{
-                            placeholder: "Прикрепить свидетельство о госреестре"
+                            placeholder: t("fields.attach_state_registry_certificate", {
+                              ns: "account/auth"
+                            }) as string
                           }}
                           className={styles.file_input}
                         />
@@ -219,20 +221,24 @@ function LoginThirdStep() {
                           control={control}
                           {...register("file_2")}
                           inputProps={{
-                            placeholder: "Прикрепить паспорт директора"
+                            placeholder: t("fields.attach_director_passport", {
+                              ns: "account/auth"
+                            }) as string
                           }}
                           className={styles.file_input}
                         />
                       </div>
                     </div>
                     <Captcha size={"invisible"} />
-                    <PrimaryButton className={styles.btn_center}>ԳՐԱՆՑՈՒՄ</PrimaryButton>
+                    <PrimaryButton className={styles.btn_center}>
+                      {t("register", { ns: "account/auth" })}
+                    </PrimaryButton>
                     <button
                       type={"button"}
                       className={`${styles.form__modal_btn}`}
                       onClick={() => setModalOpen(true)}
                     >
-                      ՕԳՆՈւԹՅՈւՆ <QuestionCircle />
+                      {t("labels.help", { ns: "common" })} <QuestionCircle />
                     </button>
                   </form>
                 </div>
@@ -247,12 +253,12 @@ function LoginThirdStep() {
           <div className={styles.btn_box}>
             {step >= 0 && (
               <PrimaryButton buttonStyle="outline" onClick={handleBack}>
-                Back
+                {t("actions.back", { ns: "common" })}
               </PrimaryButton>
             )}
             {step < 2 && (
               <PrimaryButton onClick={handleNext} className={styles.btn_next}>
-                Next
+                {t("actions.next", { ns: "common" })}
               </PrimaryButton>
             )}
           </div>
@@ -262,4 +268,4 @@ function LoginThirdStep() {
   );
 }
 
-export default LoginThirdStep;
+export default BecomeSellerThirdStep;

@@ -42,7 +42,7 @@ function VacancyCard(props: Props) {
           </div>
         </div>
         <Link href={`/vacancies/${vacancy.company.id}`} className={styles.vacancyCard__link}>
-          {t("details", { ns: "common" })}
+          {t("labels.details", { ns: "common" })}
         </Link>
       </div>
     </div>

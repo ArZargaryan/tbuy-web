@@ -19,16 +19,16 @@
     }
 
     &_active {
-      border-left: 3px solid $blue-2;
+      border-left: 3px solid $purple-2;
       pointer-events: none;
       span {
-        color: $blue-2;
+        color: $purple-2;
         font-weight: bold;
       }
 
       svg {
         path {
-          fill: $blue-2;
+          fill: $purple-2;
         }
       }
     }

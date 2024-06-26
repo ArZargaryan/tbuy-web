@@ -23,7 +23,7 @@ type Category = {
   id: number;
   name: string;
   label: string;
-  icon: string;
+  icon?: string;
   numberOfSubcategories: number;
   subcategories: Category[];
 };
@@ -37,30 +37,27 @@ export default function Navbar(props: Props) {
     {
       id: 1,
       name: "Category 1",
-      label: "Label 1",
-      icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+      label: "Էլեկտրոնիկա",
+      icon: "https://static.thenounproject.com/png/101469-200.png",
       numberOfSubcategories: 2,
       subcategories: [
         {
           id: 11,
           name: "Subcategory 1-1",
-          label: "Label 1-1",
-          icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+          label: "Հեռուստացույցներ և համալրող սարքեր",
           numberOfSubcategories: 2,
           subcategories: [
             {
               id: 111,
               name: "Subcategory 1-1-1",
-              label: "Label 1-1-1",
-              icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+              label: "Դյուրակիր ակուստիկա (72)",
               numberOfSubcategories: 0,
               subcategories: []
             },
             {
               id: 112,
               name: "Subcategory 1-1-2",
-              label: "Label 1-1-2",
-              icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+              label: "Տնային կինոթատրոններ (1)",
               numberOfSubcategories: 0,
               subcategories: []
             }
@@ -69,8 +66,7 @@ export default function Navbar(props: Props) {
         {
           id: 12,
           name: "Subcategory 1-2",
-          label: "Label 1-2",
-          icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+          label: "Աուդիո համակարգեր և ռադիոընդունիչներ",
           numberOfSubcategories: 0,
           subcategories: []
         }
@@ -79,30 +75,27 @@ export default function Navbar(props: Props) {
     {
       id: 2,
       name: "Category 2",
-      label: "Label 2",
-      icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+      label: "Կենցաղային տեխնիկա",
+      icon: "https://static.thenounproject.com/png/101469-200.png",
       numberOfSubcategories: 2,
       subcategories: [
         {
           id: 21,
           name: "Subcategory 2-1",
-          label: "Label 2-1",
-          icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+          label: "Ֆոտո և վիդեո տեխնիկա",
           numberOfSubcategories: 0,
           subcategories: []
         },
         {
           id: 22,
           name: "Subcategory 2-2",
-          label: "Label 2-2",
-          icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+          label: "Խաղային համակարգեր և աքսեսուարներ",
           numberOfSubcategories: 1,
           subcategories: [
             {
               id: 221,
               name: "Subcategory 2-2-1",
-              label: "Label 2-2-1",
-              icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+              label: "Տան աուդիո համակարգեր (5 )",
               numberOfSubcategories: 0,
               subcategories: []
             }
@@ -113,8 +106,8 @@ export default function Navbar(props: Props) {
     {
       id: 3,
       name: "Category 3",
-      label: "Label 3",
-      icon: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=800",
+      label: "Օպտիկական սարքեր",
+      icon: "https://static.thenounproject.com/png/101469-200.png",
       numberOfSubcategories: 0,
       subcategories: []
     }

@@ -81,7 +81,7 @@
 			justify-content: center;
 			align-items: center;
 			gap: 10px;
-			background: var(--Primary-color, $blue);
+			background: var(--Primary-color, $purple);
 
 			@media screen and (max-width: 500px) {
 				max-width: 100%;
@@ -154,9 +154,9 @@
 	padding: 15px 74px;
 	justify-content: center;
 	align-items: center;
-	color: $blue;
+	color: $purple;
 	gap: 10px;
-	border: 1px solid var(--Primary-color, $blue);
+	border: 1px solid var(--Primary-color, $purple);
 
 	@media screen and (max-width: 500px) {
 		width: 100%;
@@ -172,7 +172,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-	background: var(--Primary-color, $blue);
+	background: var(--Primary-color, $purple);
 
 	@media screen and (max-width: 500px) {
 		width: 100%;

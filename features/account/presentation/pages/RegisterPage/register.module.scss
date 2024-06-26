@@ -167,7 +167,7 @@
     .logIn__form_forgotPassword {
       font-size: 16px;
       text-decoration: underline;
-      color: $blue !important;
+      color: $purple !important;
       margin-left: 5px;
 
       @media screen and (max-width: 580px) {
@@ -254,12 +254,9 @@
   }
 
   a {
-    color: $red;
+    color: $primary;
     transition: all 0.2s linear;
     text-decoration: underline;
-    &:hover {
-      color: $blue-2;
-    }
   }
 }
 

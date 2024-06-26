@@ -37,7 +37,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      border-bottom: 1px solid $blue;
+      border-bottom: 1px solid $purple;
       display: none;
     }
     &:last-child {
@@ -46,7 +46,7 @@
   }
   .tabs__tab.active {
     font-weight: bold;
-    color: $blue;
+    color: $purple;
     &::after {
       display: block;
     }
@@ -127,7 +127,7 @@
 
       &:hover {
         &.cart_button {
-          background: $blue;
+          background: $purple;
         }
 
         &.favorite_button {

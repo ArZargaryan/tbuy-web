@@ -1,6 +1,6 @@
 import React, { RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { useAppDispatch, useAppSelector } from "@core/store";
+import { useAppSelector } from "@core/store";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
 import Reviews from "@libs/presentation/components/elements/Reviews";
@@ -16,12 +16,7 @@ import ProductNav from "@libs/presentation/components/product-details/ProductNav
 import ProductDetailForm from "@libs/presentation/components/product-details/ProductDetailForm";
 
 import styles from "./product-detail-page.module.scss";
-import {
-  getProductDetails,
-  getProductReviews
-} from "@features/shop/presentation/store/productDetailPageSlice";
 import { useRouter } from "next/router";
-import { Lang } from "@core/store/global";
 import { map } from "lodash";
 import OGPMeta from "@libs/presentation/components/elements/OGPMeta";
 import _ from "lodash";
@@ -30,7 +25,6 @@ import { useTranslation } from "next-i18next";
 import { Image } from "@libs/domain/model/image";
 import { ProductDetailButton } from "@libs/presentation/components/product-details/ProductDetailButton";
 import ProductDetailColor from "@libs/presentation/components/product-details/ProducDetailColor";
-import useScrollToBottom from "@core/hooks/useScrollToBottom";
 import NewSelect from "@libs/presentation/components/form/selects/NewSelect";
 import { Modal } from "@libs/presentation/components/modals/Modal";
 import { Button } from "@core/button/default";
@@ -39,11 +33,8 @@ import { useModal } from "@core/hooks/useModal";
 import PhoneModal from "@libs/presentation/components/modals/PhoneModal";
 
 function ProductDetailPage() {
-  const dispatch = useAppDispatch();
-
   const router = useRouter();
 
-  const { locale } = router;
   const { id } = router.query;
 
   //TODO: DELETE
@@ -449,13 +440,6 @@ function ProductDetailPage() {
     }
   }, []);
 
-  // ---------------------------------------------------------------
-  useEffect(() => {
-    if (id && typeof +id === "number") {
-      dispatch(getProductDetails({ id: +id, lang: locale as Lang }));
-    }
-  }, [dispatch, id]);
-
   // Reviews endScroll ---------------------------------------------------------------
 
   //  ---------------------------------------------------------------
@@ -473,10 +457,8 @@ function ProductDetailPage() {
   };
 
   // ---------------------------------------------------------------
-  const changeReviewPage = (page: number) => {
-    if (id && typeof +id === "number") {
-      dispatch(getProductReviews({ id: +id, lang: locale as Lang, offset: (page - 1) * 5 }));
-    }
+  const changeReviewPage = () => {
+    // TODO IMPLEMENT THIS HANDLER
   };
 
   const { similar_products } = useAppSelector((state) => state.cart_gift_cards);
@@ -633,6 +615,156 @@ function ProductDetailPage() {
         id: 5,
         label: "Աշխատանքի ժամանակը",
         value: "18 ժամ"
+      },
+      {
+        id: 6,
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 7,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 8,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 9,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 10,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
+      },
+      {
+        id: 11,
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 12,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 13,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 14,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 15,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
+      },
+      {
+        id: 16,
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 17,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 18,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 19,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 20,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
+      },
+      {
+        id: 21,
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 22,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 23,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 24,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 25,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
+      },
+      {
+        id: 26,
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 27,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 28,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 29,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 30,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
+      },
+      {
+        id: 31,
+        label: "Երաշխիք",
+        value: "1 տարի"
+      },
+      {
+        id: 32,
+        label: "Տեսակ",
+        value: "Անլար ականջակալ"
+      },
+      {
+        id: 33,
+        label: "Bluetooth Version",
+        value: "5.0"
+      },
+      {
+        id: 34,
+        label: "Առկա է",
+        value: "A2DP/AVRCP/Hands free/Headset"
+      },
+      {
+        id: 35,
+        label: "Աշխատանքի ժամանակը",
+        value: "18 ժամ"
       }
     ]
   };
@@ -718,7 +850,7 @@ function ProductDetailPage() {
   }, [cardsScrollIsEnd]);
 
   // Select size label ---------------------------------------------------------------
-  const [displayLabel, setDisplayLabel] = useState<"numbers" | "letters" | "all">("letters");
+  const [displayLabel, setDisplayLabel] = useState<"numbers" | "letters">("letters");
 
   // Modals ---------------------------------------------------------------
   const [availabilityModalIsActive, setAvailabilityModalIsActive] = useState(false);
@@ -761,8 +893,8 @@ function ProductDetailPage() {
                     </button>
                   </div>
                   <ProductDetailSlider
-                    images={product?.images as any}
-                    videos={product?.videos as any}
+                    images={product?.images as never}
+                    videos={product?.videos as never}
                   />
                 </div>
               </div>
@@ -897,7 +1029,7 @@ function ProductDetailPage() {
                 <div className={styles.contact_seller_wrapper}>
                   <ContactSeller
                     link="/legal_partner"
-                    company={product?.company as any}
+                    company={product?.company as never}
                     methods={{ call: !!product?.company?.phones?.length, chat: true }}
                   />
                 </div>
@@ -928,13 +1060,13 @@ function ProductDetailPage() {
 
                 <ProductDetailForm
                   companyType={product?.company?.type}
-                  data={product.parameters as any}
+                  data={product.parameters as never}
                   displayLabel={displayLabel}
                 />
 
                 {/* AVAILABILITY */}
                 <ProductDetailColor
-                  data={product.parameters as any}
+                  data={product.parameters as never}
                   companyType={product?.company?.type}
                 />
                 {/* PRODUCT PARAMETERS */}
@@ -967,14 +1099,18 @@ function ProductDetailPage() {
                   cards={similar_products}
                 />
               </div>
-              <Reviews id={id as string} reviews={reviews as any} onPageChange={changeReviewPage} />
+              <Reviews
+                id={id as string}
+                reviews={reviews as never}
+                onPageChange={changeReviewPage}
+              />
             </div>
           </div>
           {/* SIMILAR ITEMS SLIDER */}
           <div className={getCardListClassName}>
             <div className={styles.layout__similar} ref={cardsRef}>
               {suggestedProducts.map((product, i) => (
-                <ProductCardMini key={`${product.id}_${i}`} product={product as any} />
+                <ProductCardMini key={`${product.id}_${i}`} product={product as never} />
               ))}
             </div>
           </div>

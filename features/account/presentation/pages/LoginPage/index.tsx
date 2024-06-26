@@ -11,7 +11,7 @@ import FormError from "@libs/presentation/components/form/FormError";
 import { TextInput } from "@libs/presentation/components/form/inputs/TextInput";
 
 import SocialsLogin from "@features/account/presentation/components/SocialsLogin";
-import LoginSecondStep from "@features/account/presentation/pages/SellerPage/LoginSecondStep";
+import BecomeSeller from "features/account/presentation/pages/SellerPage/BecomeSeller";
 
 import styles from "./login.module.scss";
 
@@ -42,7 +42,7 @@ function LoginPage() {
     <DefaultLayout>
       <>
         {secondStep ? (
-          <LoginSecondStep />
+          <BecomeSeller />
         ) : (
           <>
             <div className={styles.wrapper}>

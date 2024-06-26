@@ -29,7 +29,7 @@
     margin-right: 10px;
   }
   .link {
-    color: $blue;
+    color: $purple;
     font-size: 18px;
   }
 
@@ -137,7 +137,7 @@
   @media screen and (min-width: 501px) {
     display: none;
   }
-  border: 1px solid $blue;
+  border: 1px solid $purple;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,7 +145,7 @@
   transition: all 0.2s linear;
 
   &:hover {
-    background: $blue;
+    background: $purple;
     transform: scale(1.1);
     path {
       fill: #fff;

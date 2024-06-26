@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
-import styles from "./login-second-step.module.scss";
-import LoginThirdStep from "../LoginThirdStep";
-import LoginSellerStep from "../LoginSeller";
+import styles from "./become-seller.module.scss";
+import BecomeSellerThirdStep from "../BecomeSellerThirdStep";
+import BecomeSellerSecondStep from "../BecomeSellerSecondStep";
 import DefaultLayout from "@core/layouts/default";
 import PrimaryButton from "@core/button/primary";
 
-function LoginSecondStep() {
-  const { t } = useTranslation(["account/auth"]);
+function BecomeSeller() {
+  const { t } = useTranslation(["account/auth", "common"]);
 
   const { Icons } = ImgExporter;
 
@@ -24,7 +23,6 @@ function LoginSecondStep() {
 
   const handleButtonClick = () => {
     setShowLoginAs(false);
-    activeItem === "buyer" ? <LoginSellerStep /> : <LoginThirdStep />;
   };
 
   return (
@@ -32,18 +30,18 @@ function LoginSecondStep() {
       <div className="container">
         {showLoginAs && (
           <>
-            <h1 className={styles.title}>{t("title")}</h1>
+            <h1 className={styles.title}>{t("sell_on_tbuy_title", { ns: "account/auth" })}</h1>
             <div className={styles.loginAs}>
               <div
                 className={`${styles.loginAs__link} ${
-                  activeItem === "buyer"
+                  activeItem === "individual"
                     ? styles.loginAs__link_active
                     : styles.loginAs__link_active1
                 }`}
-                onClick={() => handleItemClick("buyer")}
+                onClick={() => handleItemClick("individual")}
               >
                 <Icons.buyer className={styles.loginAs__link_icon} />
-                <h3 className={styles.loginAs__link_title}>{t("buyer")}</h3>
+                <h3 className={styles.loginAs__link_title}>{t("individual", { ns: "account/auth" })}</h3>
                 <div className={styles.activeCircle}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +50,7 @@ function LoginSecondStep() {
                     viewBox="0 0 26 26"
                     fill="none"
                   >
-                    {activeItem === "buyer" ? (
+                    {activeItem === "individual" ? (
                       <>
                         <path
                           d="M25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25C19.6274 25 25 19.6274 25 13Z"
@@ -76,14 +74,14 @@ function LoginSecondStep() {
 
               <div
                 className={`${styles.loginAs__link} ${
-                  activeItem === "seller"
+                  activeItem === "legal"
                     ? styles.loginAs__link_active
                     : styles.loginAs__link_active1
                 }`}
-                onClick={() => handleItemClick("seller")}
+                onClick={() => handleItemClick("legal")}
               >
                 <Icons.seller className={styles.loginAs__link_icon} />
-                <h3 className={styles.loginAs__link_title}>{t("seller")}</h3>
+                <h3 className={styles.loginAs__link_title}>{t("legal", { ns: "account/auth" })}</h3>
                 <div className={styles.activeCircle}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +90,7 @@ function LoginSecondStep() {
                     viewBox="0 0 26 26"
                     fill="none"
                   >
-                    {activeItem === "seller" ? (
+                    {activeItem === "legal" ? (
                       <>
                         <path
                           d="M25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25C19.6274 25 25 19.6274 25 13Z"
@@ -120,16 +118,16 @@ function LoginSecondStep() {
                 disabled={!activeItem}
                 className={styles.btn}
               >
-                Continue
+                {t("actions.continue", { ns: "common" })}
               </PrimaryButton>
             </div>
           </>
         )}
-        {activeItem === "buyer" && !showLoginAs && <LoginThirdStep />}
-        {activeItem === "seller" && !showLoginAs && <LoginSellerStep />}
+        {activeItem === "individual" && !showLoginAs && <BecomeSellerThirdStep />}
+        {activeItem === "legal" && !showLoginAs && <BecomeSellerSecondStep />}
       </div>
     </DefaultLayout>
   );
 }
 
-export default LoginSecondStep;
+export default BecomeSeller;

@@ -6,41 +6,31 @@ import { useAppSelector } from "@core/store";
 import styles from "@features/cart/presentation/styles/cart.module.scss";
 import CartProductsTable from "@features/cart/presentation/components/CartProductsTable";
 import { Checkbox } from "@libs/presentation/components/form/checkboxes/Checkbox";
-import { FieldValues, useForm } from "react-hook-form";
 import CartSuccessModal from "@features/cart/presentation/components/modals/CartSuccessModal";
 import PrimaryButton from "@core/button/primary";
+import { useRouter } from "next/router";
 
 function CartPage() {
   const { similar_products } = useAppSelector((state) => state.cart);
+  const router = useRouter();
+  //
   const [showSuccess, setShowSuccess] = useState(false);
-
-  const {
-    // register,
-    handleSubmit,
-    control
-    // formState: { errors },
-    // setError,
-    // setValue
-    // getValues
-  } = useForm();
 
   const onClose = () => setShowSuccess(false);
 
-  const submitHandler = async (data: FieldValues) => {
-    try {
-      delete data.remember_me;
-      setShowSuccess(true);
-      console.log(data);
-    } catch (error: unknown) {}
-  };
+  // TODO REMOVE THIS LATER IF DON'T NEED
+  // const submitHandler = async (data: FieldValues) => {
+  //   try {
+  //     delete data.remember_me;
+  //     setShowSuccess(true);
+  //     console.log(data);
+  //   } catch (error: unknown) {}
+  // };
 
   return (
     <DefaultLayout>
       <div className="container">
-        <form
-          className={`${styles.cart} ${styles.cart_page}`}
-          onSubmit={handleSubmit(submitHandler)}
-        >
+        <div className={`${styles.cart} ${styles.cart_page}`}>
           <div className={styles.cart__content}>
             <h1 className={`title page_title ${styles.cart__title}`} style={{ marginBottom: 10 }}>
               ԻՄ ԶԱՄԲՅՈՒՂԸ
@@ -83,22 +73,23 @@ function CartPage() {
                 </div>
                 <div className={styles.block__row}>
                   <div className={styles.row__text}>
-                    <Checkbox
-                      control={control}
-                      name={"remember_me"}
-                      variant={"secondary_outlined"}
-                    />
+                    <Checkbox name={"remember_me"} variant={"secondary_outlined"} />
                     համաձայն եմ պայմաններին
                   </div>
                 </div>
               </div>
               <br />
               <div className={styles.controls__btns}>
-                <PrimaryButton className={styles.controls__btn}>ՎՃԱՐԵԼ</PrimaryButton>
+                <PrimaryButton
+                  onClick={() => router.push("/cart/checkout")}
+                  className={styles.controls__btn}
+                >
+                  ՎՃԱՐԵԼ
+                </PrimaryButton>
               </div>
             </div>
           </div>
-        </form>
+        </div>
         <div className={styles.desktop_block}>
           <CardsSlider
             cards={similar_products}

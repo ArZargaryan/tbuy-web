@@ -11,13 +11,11 @@ import CartSuccessModal from "@features/cart/presentation/components/modals/Cart
 import { useAppSelector } from "@core/store";
 import CartConclusionProducts from "@features/cart/presentation/components/CartConclusionProducts";
 import PrimaryButton from "@core/button/primary";
-import { divide } from "lodash";
-import { style } from "@mui/system";
 import StarsRating from "@libs/presentation/components/elements/StarsRating";
-import Tooltip from "@libs/presentation/components/elements/Tooltip";
 import { Modal } from "@libs/presentation/components/modals/Modal";
 import CheckoutDocument from "./Document";
 import DownloadAppModal from "@libs/presentation/components/modals/DownloadAppModal";
+import { useTranslation } from "next-i18next";
 
 // TODO: temporary property
 interface Props {
@@ -26,6 +24,7 @@ interface Props {
 
 function CheckoutPage(props: Props) {
   const { similar_products } = useAppSelector((state) => state.cart);
+  const { t } = useTranslation(["common"]);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showTextModal, setShowTextModal] = useState(false);
   const [showDownloadModal, setShowDownloadModal] = useState(false);
@@ -1077,7 +1076,7 @@ function CheckoutPage(props: Props) {
                       onClick={() => setShowDownloadModal(true)}
                       className={styles.documents__button}
                     >
-                      Скачать приложение
+                      {t("actions.continue", { ns: "common" })}
                     </PrimaryButton>
                   )}
                 </div>
@@ -1138,6 +1137,10 @@ function CheckoutPage(props: Props) {
               <DownloadAppModal
                 open={showDownloadModal}
                 onClose={() => setShowDownloadModal(false)}
+                title={"Идентификация"}
+                message={
+                  "Чтобы завершить оформление заказа, отсканируйте QR код для продолжения в мобильном приложении"
+                }
               />
             </div>
           </div>

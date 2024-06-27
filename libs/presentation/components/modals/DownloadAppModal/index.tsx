@@ -5,7 +5,10 @@ import { ModalProps } from "@mui/material";
 import styles from "./download_modal.module.scss";
 import { ImgExporter } from "@core/helpers/ImgExporter";
 
-type Props = Omit<ModalProps, "children">;
+type Props = Omit<ModalProps, "children"> & {
+  title?: string;
+  message?: string;
+};
 
 const { MobileAppQr } = ImgExporter;
 
@@ -13,9 +16,9 @@ function DownloadAppModal(props: Props) {
   return (
     <Modal {...props} withCloseBtn contentClassName={styles.download_modal}>
       <>
-        <h2 className={styles.download_modal__title}>Download</h2>
+        <h2 className={styles.download_modal__title}>{props.title ?? "Download"}</h2>
         <p className={styles.download_modal__text}>
-          To proceed with downloading the app, verification is required.
+          {props.message ?? "To proceed with downloading the app, verification is required."}
         </p>
         <div className={styles.hi}>
           {/* <div className={styles.bye}>
